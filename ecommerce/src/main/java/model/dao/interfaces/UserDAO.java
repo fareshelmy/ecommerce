@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.dao;
+package model.dao.interfaces;
 
 /**
  *
  * @author FARES-LAP
  */
-public class UserDAO {
+public interface UserDAO {
     
 }
