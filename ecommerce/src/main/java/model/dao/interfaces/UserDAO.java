@@ -5,10 +5,19 @@
  */
 package model.dao.interfaces;
 
+import model.entity.User;
+
 /**
  *
  * @author FARES-LAP
  */
 public interface UserDAO {
-    
+
+    void persist(User user);
+
+    User retrieve(String email);
+
+    void update(User user);
+
+    void delete(User user);
 }

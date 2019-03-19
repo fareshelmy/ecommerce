@@ -19,10 +19,14 @@ public class MySessionFactory {
         if (sessionFactory == null) {
             synchronized (MySessionFactory.class) {
                 if (sessionFactory == null) {
-                    sessionFactory = new Configuration().configure().buildSessionFactory();
+                    sessionFactory = new Configuration().configure("cfg/hibernate.cfg.xml").buildSessionFactory();
                 }
             }
         }
         return sessionFactory.openSession();
+    }
+
+    public static void closeSession(Session session) {
+        session.close();
     }
 }
