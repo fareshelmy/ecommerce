@@ -25,4 +25,8 @@ public class MySessionFactory {
         }
         return sessionFactory.openSession();
     }
+    
+    public static void closeSession(Session session){
+        session.close();
+    }
 }
