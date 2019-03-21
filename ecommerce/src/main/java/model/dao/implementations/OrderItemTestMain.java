@@ -6,7 +6,7 @@
 package model.dao.implementations;
 
 import java.math.BigDecimal;
-import model.entity.MySessionFactory;
+import util.MySessionFactory;
 import model.entity.Order;
 import model.entity.OrderItem;
 import model.entity.OrderItemId;

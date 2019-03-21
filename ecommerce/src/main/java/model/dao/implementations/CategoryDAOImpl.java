@@ -8,7 +8,7 @@ package model.dao.implementations;
 import java.util.List;
 import model.dao.interfaces.CategoryDAO;
 import model.entity.Category;
-import model.entity.MySessionFactory;
+import util.MySessionFactory;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;

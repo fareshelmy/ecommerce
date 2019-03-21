@@ -6,7 +6,7 @@
 package model.dao.implementations;
 
 import model.dao.interfaces.UserDAO;
-import model.entity.MySessionFactory;
+import util.MySessionFactory;
 import model.entity.User;
 import org.hibernate.Session;
 

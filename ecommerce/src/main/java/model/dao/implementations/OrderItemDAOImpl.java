@@ -6,7 +6,7 @@
 package model.dao.implementations;
 
 import model.dao.interfaces.OrderItemDAO;
-import model.entity.MySessionFactory;
+import util.MySessionFactory;
 import model.entity.OrderItem;
 import model.entity.OrderItemId;
 import org.hibernate.Session;

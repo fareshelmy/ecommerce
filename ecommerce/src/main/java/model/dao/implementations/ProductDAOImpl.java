@@ -2,7 +2,7 @@ package model.dao.implementations;
 
 import java.util.List;
 import model.dao.interfaces.ProductDAO;
-import model.entity.MySessionFactory;
+import util.MySessionFactory;
 import model.entity.Product;
 import org.hibernate.Criteria;
 import org.hibernate.Session;

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 19-Mar-2019 18:42:50 by Hibernate Tools 4.3.1 -->
+<!-- Generated 20-Mar-2019 22:05:33 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.entity.Product" table="product" catalog="ecommerce" optimistic-lock="version">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="category" class="model.entity.Category" fetch="select">
             <column name="category_id" />
@@ -20,8 +20,8 @@
         <property name="rating" type="big_decimal">
             <column name="rating" precision="3" scale="1" />
         </property>
-        <property name="image" type="binary">
-            <column name="image" not-null="true" />
+        <property name="image" type="string">
+            <column name="image" length="1000" not-null="true" />
         </property>
         <property name="amount" type="big_decimal">
             <column name="amount" precision="10" />
