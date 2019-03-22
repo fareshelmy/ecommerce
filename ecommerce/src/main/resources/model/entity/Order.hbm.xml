@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-Mar-2019 22:05:33 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.entity.Order" table="order" catalog="ecommerce">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <timestamp name="timestamp" column="timestamp" />
+        <many-to-one name="user" class="model.entity.User" fetch="select">
+            <column name="user_id" length="100" not-null="true" />
+        </many-to-one>
+        <set name="orderItems" table="order_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="order_id" not-null="true" />
+            </key>
+            <one-to-many class="model.entity.OrderItem" />
+        </set>
+    </class>
+</hibernate-mapping>
