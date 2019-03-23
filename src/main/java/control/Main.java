@@ -5,26 +5,26 @@
  */
 package control;
 
+import java.math.BigDecimal;
 import model.dao.OrderDAO;
+import model.dao.OrderItemDAO;
 import model.dao.UserDAO;
 import model.entity.Order;
+import model.entity.OrderItem;
+import model.entity.OrderItemId;
 import model.entity.User;
 
 public class Main {
 
     public static void main(String[] args) {
         UserDAO userDao = new UserDAO();
-        User user = new User();
-        user.setEmail("Faris@gmail.com.com");
-        user.setJob("Spring Developer");
-        user.setAddress("Mansora");
-        user.setPassword("Password");
-        user.setUsername("Faris");
-        userDao.persist(user);
-
-        OrderDAO orderDao = new OrderDAO();
-        Order order = orderDao.retrieve(1);
-        order.setUser(user);
-        orderDao.update(order);
+        User user = userDao.retrieve("Kamal@gmail.com");
+        OrderItem orderItem = new OrderItem();
+        orderItem.setId(new OrderItemId(2, 2));
+        orderItem.setQuantity(10);
+        orderItem.setTotal(BigDecimal.TEN);
+        OrderItemDAO dao = new OrderItemDAO();
+        dao.persist(orderItem);
+        
     }
 }

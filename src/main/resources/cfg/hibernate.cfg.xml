@@ -49,6 +49,8 @@ Contributor(s):
         <property name="current_session_context_class">thread</property>
         <!-- Disable the second-level cache if we have time to make it using cassendra-->
         <!--<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>-->
+        <!--If you want to make the session management using JDBC Connection binding with threads -->
+        <!--<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>-->
         <property name="show_sql">true</property>
         <property name="hibernate.c3p0.min_size">5</property>
         <property name="hibernate.c3p0.max_size">20</property>
