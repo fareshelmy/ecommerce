@@ -5,17 +5,26 @@
  */
 package control;
 
-import model.dao.implementations.UserDAOImpl;
-import model.dao.interfaces.UserDAO;
+import java.math.BigDecimal;
+import model.dao.OrderDAO;
+import model.dao.OrderItemDAO;
+import model.dao.UserDAO;
+import model.entity.Order;
+import model.entity.OrderItem;
+import model.entity.OrderItemId;
 import model.entity.User;
 
-/**
- *
- * @author FARES-LAP
- */
 public class Main {
+
     public static void main(String[] args) {
-        UserDAO userDAO = new UserDAOImpl();
-        userDAO.persist(new User("uwhuiw", "fares", "wuye", 100));
+        UserDAO userDao = new UserDAO();
+        User user = userDao.retrieve("Kamal@gmail.com");
+        OrderItem orderItem = new OrderItem();
+        orderItem.setId(new OrderItemId(2, 2));
+        orderItem.setQuantity(10);
+        orderItem.setTotal(BigDecimal.TEN);
+        OrderItemDAO dao = new OrderItemDAO();
+        dao.persist(orderItem);
+        
     }
 }

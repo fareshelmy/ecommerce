@@ -5,12 +5,7 @@
  */
 package util;
 
-import java.math.BigDecimal;
-import model.dto.CategoryDTO;
-import model.dto.OrderDTO;
-import model.dto.OrderItemDTO;
-import model.dto.ProductDTO;
-import model.dto.UserDTO;
+
 import model.entity.Category;
 import model.entity.Order;
 import model.entity.OrderItem;
@@ -22,7 +17,7 @@ import model.entity.User;
  * @author FARES-LAP
  */
 public class ObjectMappingUtil {
-
+/*
     public static User mapToEntity(UserDTO userDTO) {
         return new User(userDTO.getEmail(),
                 userDTO.getUsername(),
@@ -123,4 +118,5 @@ public class ObjectMappingUtil {
                 orderItemEntity.getQuantity(),
                 orderItemEntity.getTotal());
     }
+*/
 }
