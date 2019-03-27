@@ -13,15 +13,20 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Zainab
  */
-public class CategoryDAO implements DAO<Category>{
-    private  Session session;
-    public CategoryDAO(){
+public class CategoryDAO implements DAO<Category> {
+
+    private Session session;
+
+    public CategoryDAO() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
-    private void getSession(){
-        if(!session.isOpen())
+
+    private void getSession() {
+        if (!session.isOpen()) {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
+        }
     }
+
     @Override
     public void persist(Category category) {
         getSession();
@@ -45,13 +50,16 @@ public class CategoryDAO implements DAO<Category>{
         session.delete(category);
         session.getTransaction().commit();
     }
+//must be retrieved by name not id
 
     @Override
     public Category retrieve(Object primaryKey) {
         getSession();
-        int key = (int) primaryKey;
+        String key = (String) primaryKey;
         session.getTransaction().begin();
-        Category category = (Category) session.get(Category.class, key);
+        Category category = (Category) session.createCriteria(Category.class)
+                .add(Restrictions.eq("name", key))
+                .uniqueResult();
         session.getTransaction().commit();
         return category;
     }
@@ -63,7 +71,7 @@ public class CategoryDAO implements DAO<Category>{
         session.getTransaction().begin();
         Criteria categoryCriteria = session.createCriteria(model.entity.Category.class);
         ProjectionList selectedColumns = Projections.projectionList();
-         for(int i = 0; i<columnNames.size(); i++){
+        for (int i = 0; i < columnNames.size(); i++) {
             selectedColumns.add(Projections.property(columnNames.get(i)));
         }
         categoryCriteria = categoryCriteria.setProjection(selectedColumns);
@@ -85,5 +93,5 @@ public class CategoryDAO implements DAO<Category>{
         return allUser;
 
     }
-   
+
 }
