@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+    
+    <!--registerServlet-->
+    <servlet>
+        <servlet-name>registerServlet</servlet-name>
+        <servlet-class>servlet.users.customers.Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registerServlet</servlet-name>
+        <url-pattern>/registerAction</url-pattern>
+    </servlet-mapping>
+    <!--    loginServlet-->
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>servlet.users.common.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginrAction</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>register.html</welcome-file>
+    </welcome-file-list>
+
+</web-app>
