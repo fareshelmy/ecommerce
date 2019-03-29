@@ -1,7 +1,9 @@
 package model.dao;
 
 import java.util.List;
+import java.util.Set;
 import model.entity.Category;
+import model.entity.Product;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -72,7 +74,16 @@ public class CategoryDAO implements DAO<Category>{
         session.getTransaction().commit();
         return subsetCategory;
     }
-
+    public List<Product> getCategoryProducts(String categoryName){
+        getSession();
+        session.getTransaction().begin();
+        Criteria productCriteria = session.createCriteria(Product.class);
+        Criteria categoryCriteria = productCriteria.createAlias("category", "c");
+        categoryCriteria = categoryCriteria.add(Restrictions.eq("c.name",categoryName));
+        List<Product> categoryProducts = productCriteria.list();
+        session.getTransaction().commit();
+        return categoryProducts;
+    }
     @Override
     public List<Category> getAll(Object cat) {
         getSession();

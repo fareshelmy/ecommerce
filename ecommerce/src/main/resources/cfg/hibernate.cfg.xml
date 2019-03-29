@@ -58,11 +58,12 @@ Contributor(s):
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
         
+        <mapping class="model.entity.Category"/>
+        <mapping class="model.entity.Order"/>
+        <mapping class="model.entity.Entity"/>
+        <mapping class="model.entity.OrderItem"/>
         <mapping class="model.entity.OrderItemId"/>
         <mapping class="model.entity.User"/>
         <mapping class="model.entity.Product"/>
-        <mapping class="model.entity.Category"/>
-        <mapping class="model.entity.Order"/>
-        <mapping class="model.entity.OrderItem"/>
     </session-factory>
 </hibernate-configuration>
