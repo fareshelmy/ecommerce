@@ -1,6 +1,9 @@
 package model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import model.entity.Category;
 import model.entity.Product;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
@@ -86,6 +89,25 @@ public class ProductDAO implements DAO<Product>{
         session.getTransaction().commit();
         return allUser;
     }
+    public List<Product> getByCategory(String[] columnNames, Object[] columnValues){
+        getSession();
+        session.getTransaction().begin();
+        Criteria productCriteria = session.createCriteria(Product.class);
+        Criteria categoryCriteria = productCriteria.createAlias("category", "c");
+        for(int i = 0; i<columnNames.length;i++)
+                categoryCriteria.add(Restrictions.eq("c."+columnNames[i],columnValues[i]));
+        List<Product> categoryProducts = productCriteria.list();
+        session.getTransaction().commit();
+        return categoryProducts;
+    }
 
   
 }
+/*
+        "From model.entity.Product p JOIN FETCH model.entity.Category c where c.id"
+        Criteria productCriteria = session.createCriteria(Product.class);
+        Criteria categoryCriteria = productCriteria.createAlias("category", "c");
+        categoryCriteria = categoryCriteria.add(Restrictions.eq("c.id",category.getId()));
+        List<Product> categoryProducts = productCriteria.list();
+
+*/

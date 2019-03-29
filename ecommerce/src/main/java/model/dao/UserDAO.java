@@ -5,9 +5,8 @@
  */
 package model.dao;
 
-import java.lang.reflect.Field;
 import java.util.List;
-import javassist.expr.Instanceof;
+import model.entity.Order;
 import model.entity.User;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
@@ -80,13 +79,26 @@ public class UserDAO implements DAO<User>{
         session.getTransaction().commit();
         //here I return the list as a whole which represent a list of array of objects 
         //we should agree about the fields to be returned to constructor a user from these fields
-//        Object[] details = (Object[]) subsetUser.get(0);
-//        for(int i =0;i<details.length;i++){
-//            System.out.println(details[i]);
-//        }
-//        System.out.println(subsetUser.get(0).getClass().getName());
-
-
+        /*Object[] details = (Object[]) subsetUser.get(0);
+        User user = new User();
+        Map<String, String> properties;
+        try {
+            properties = BeanUtils.describe(user);
+            for(int i = 0; i<columnNames.size();i++){
+                BeanUtils.copyProperty(user, columnNames.get(i), details[i]);
+                BeanUtils.populate(user, properties);
+            }     
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(user.getEmail());
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        */
         return subsetUser;
     }
 
@@ -101,7 +113,14 @@ public class UserDAO implements DAO<User>{
         session.getTransaction().commit();
         return allUser;
     }
-
-    
-  
+    public List<Order> getUserOrders(String userEmail){
+        getSession();
+        session.getTransaction().begin();
+        Criteria orderCriteria = session.createCriteria(Order.class);
+        Criteria userCriteria = orderCriteria.createAlias("user", "u");
+        userCriteria.add(Restrictions.eq("u.email", userEmail));
+        List<Order> userOrders = orderCriteria.list();
+        session.getTransaction().commit();
+        return userOrders;
+    }
 }

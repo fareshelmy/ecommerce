@@ -8,6 +8,7 @@ package model.dao;
 import java.util.List;
 import model.entity.OrderItem;
 import model.entity.OrderItemId;
+import model.entity.Product;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -90,7 +91,26 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().commit();
         return allUser;
     }
-
+    public List<OrderItem> getByOrder(String[] columnNames, Object[] columnValues){
+        getSession();
+        session.getTransaction().begin();
+        Criteria orderItemCriteria = session.createCriteria(OrderItem.class).createCriteria("order");
+        List<OrderItem> orderItems = orderItemCriteria.list();
+        session.getTransaction().commit();
+        return orderItems;
+    }
+    //*Note: This function will return all the order Product_ids
+    public List<Product> getOrderProducts(int orderId){
+        session.getTransaction().begin();
+        getSession();
+        Criteria orderItemCriteria = session.createCriteria(OrderItem.class);
+        Criteria orderCriteria = orderItemCriteria.createAlias("order", "o");
+        orderCriteria = orderCriteria.add(Restrictions.eq("o.id", orderId));
+        List<Product> orderProducts = orderItemCriteria.setProjection(Projections.property("product")).list();
+//        Criteria productCriteria = orderItemCriteria.createCriteria("product");
+        session.getTransaction().commit();
+        return orderProducts;
+    }
 }
 
 

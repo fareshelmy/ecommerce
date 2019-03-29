@@ -7,6 +7,8 @@ package model.dao;
 
 import java.util.List;
 import model.entity.Order;
+import model.entity.OrderItem;
+import model.entity.Product;
 import model.entity.User;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
@@ -87,6 +89,17 @@ public class OrderDAO implements DAO<Order>{
         return orderCriteria.list();
     }
    
+    public List<OrderItem> getOrderItems(int orderId){
+        getSession();
+        session.getTransaction().begin();
+        Criteria orderItemCriteria = session.createCriteria(OrderItem.class);
+        Criteria orderCriteria = orderItemCriteria.createAlias("order", "o");
+        orderCriteria = orderCriteria.add(Restrictions.eq("o.id", orderId));
+        List<OrderItem> orderItems = orderItemCriteria.list();
+        session.getTransaction().commit();
+        return orderItems;
+    }
+
 }
 
 

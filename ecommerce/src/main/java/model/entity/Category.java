@@ -1,5 +1,5 @@
 package model.entity;
-// Generated Mar 22, 2019 5:42:40 PM by Hibernate Tools 4.3.1
+// Generated Mar 29, 2019 12:36:16 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Table(name="category"
     ,catalog="ecommerce"
 )
-public class Category  implements java.io.Serializable, model.dao.Entity {
+public class Category  implements java.io.Serializable, model.entity.Entity  {
 
 
      private Integer id;

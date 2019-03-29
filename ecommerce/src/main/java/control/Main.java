@@ -5,14 +5,6 @@
  */
 package control;
 
-import java.math.BigDecimal;
-import model.dao.OrderDAO;
-import model.dao.OrderItemDAO;
-import model.dao.UserDAO;
-import model.entity.Order;
-import model.entity.OrderItem;
-import model.entity.OrderItemId;
-import model.entity.User;
 
 public class Main {
 
