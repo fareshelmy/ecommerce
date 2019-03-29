@@ -25,6 +25,6 @@ public class Main {
         orderItem.setTotal(BigDecimal.TEN);
         OrderItemDAO dao = new OrderItemDAO();
         dao.persist(orderItem);
-        
+
     }
 }
