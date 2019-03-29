@@ -32,7 +32,7 @@ import org.apache.commons.beanutils.BeanUtils;
  *
  * @author Mayada Khaled
  */
-@WebServlet(urlPatterns = ("product-edit"))
+@WebServlet(urlPatterns = {"/insertProductServlet"}, name = "insertProductServlet")
 public class InsertProductServlets extends HttpServlet {
 
     private static int productCounter = 1;
