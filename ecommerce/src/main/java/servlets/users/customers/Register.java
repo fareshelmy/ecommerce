@@ -1,4 +1,4 @@
-package servlets;
+package servlets.users.customers;
 
 import java.io.*;
 import javax.servlet.*;
