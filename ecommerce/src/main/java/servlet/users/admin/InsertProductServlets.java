@@ -3,9 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets.users.admin;
+package servlet.users.admin;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.logging.Level;
@@ -15,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import model.dao.CategoryDAO;
 import model.dao.ProductDAO;
 import model.entity.Category;
@@ -25,42 +32,94 @@ import org.apache.commons.beanutils.BeanUtils;
  *
  * @author Mayada Khaled
  */
-@WebServlet(urlPatterns = ("product-edit"))
-public class InsertProductServlets extends HttpServlet{
+@WebServlet(urlPatterns = {"/insertProductServlet"}, name = "insertProductServlet")
+public class InsertProductServlets extends HttpServlet {
+
+    private static int productCounter = 1;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
         CategoryDAO categoryDAO = new CategoryDAO();
-        
-         Category category = categoryDAO.retrieve(req.getParameter("selected_category"));
-         
-         int numberOfProduct  = Integer.parseInt(req.getParameter("selected_quantity"));
-         
-         
-         
-         Product product = new Product();
-        try 
-        {
+        Category category = categoryDAO.retrieve(req.getParameter("selected_category"));
+        int numberOfProduct = Integer.parseInt(req.getParameter("selected_quantity"));
+        Product product = new Product();
+        try {
             BeanUtils.populate(product, req.getParameterMap());
-            
+
         } catch (IllegalAccessException ex) {
             ex.printStackTrace();
         } catch (InvocationTargetException ex) {
             ex.printStackTrace();
         }
-         product.setCategory(category);
-         product.setQuantity(numberOfProduct);
-         product.setImage("     ");
-         
-         ProductDAO productDAO = new ProductDAO();
-         productDAO.persist(product);
-         
-         
+        product.setCategory(category);
+        product.setQuantity(numberOfProduct);
+        product.setImage(getImagePath(req, resp));
+
+        ProductDAO productDAO = new ProductDAO();
+        productDAO.persist(product);
+
     }
-    
-    
-                   
-           
-    
+
+    private String getImagePath(HttpServletRequest req, HttpServletResponse resp) {
+        String imageName = null;
+        OutputStream out = null;
+        InputStream imageContent = null;
+        try {
+            final Part imagePart = req.getPart("image");
+
+            imageName = "product" + productCounter + ".jpg";
+            productCounter++;
+
+            String appPath = req.getServletContext().getRealPath("");
+            String savePath = appPath + File.separator + "img" + File.separator + "products";
+
+            final PrintWriter writer = resp.getWriter();
+
+            try {
+                File imageSaveDirectory = new File(savePath);
+                if (!imageSaveDirectory.exists()) {
+                    imageSaveDirectory.mkdir();
+                }
+
+                out = new FileOutputStream(new File(savePath + File.separator
+                        + imageName));
+                imageContent = imagePart.getInputStream();
+
+                int read = 0;
+                final byte[] bytes = new byte[2048];
+
+                while ((read = imageContent.read(bytes)) != -1) {
+                    out.write(bytes, 0, read);
+                }
+            } catch (FileNotFoundException fne) {
+                Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, fne);
+            } catch (IOException ex) {
+                Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                if (out != null) {
+                    try {
+                        out.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                if (imageContent != null) {
+                    try {
+                        imageContent.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                if (writer != null) {
+                    writer.close();
+                }
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ServletException ex) {
+            Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return imageName;
+    }
+
 }
