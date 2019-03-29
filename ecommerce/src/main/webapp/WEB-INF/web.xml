@@ -5,7 +5,7 @@
     <!--registerServlet-->
     <servlet>
         <servlet-name>registerServlet</servlet-name>
-        <servlet-class>servlet.Register</servlet-class>
+        <servlet-class>servlet.users.customers.Register</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>registerServlet</servlet-name>
@@ -14,7 +14,7 @@
     <!--    loginServlet-->
     <servlet>
         <servlet-name>loginServlet</servlet-name>
-        <servlet-class>servlet.Login</servlet-class>
+        <servlet-class>servlet.users.common.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
@@ -22,7 +22,7 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>admin/index.html</welcome-file>
+        <welcome-file>register.html</welcome-file>
     </welcome-file-list>
 
 </web-app>
