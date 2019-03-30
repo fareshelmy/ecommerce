@@ -5,8 +5,8 @@
             30
         </session-timeout>
     </session-config>
-    <!--registerServlet-->
-    <filter>
+     <!--registerServlet-->
+<!--    <filter>
         <filter-name>header</filter-name>
         <filter-class>servlet.filters.HeaderFilter</filter-class>
     </filter>
@@ -16,33 +16,18 @@
     </filter>
     <filter-mapping>
         <filter-name>header</filter-name>
-        <url-pattern>customer/pages/checkout.jsp</url-pattern>
-        <url-pattern>customer/pages/index.jsp</url-pattern>
-        <url-pattern>customer/pages/product.jsp</url-pattern>
-        <url-pattern>customer/pages/store.jsp</url-pattern>
+        <url-pattern>/customer/pages/checkout.jsp</url-pattern>
+        <url-pattern>/customer/pages/index.jsp</url-pattern>
+        <url-pattern>/customer/pages/product.jsp</url-pattern>
+        <url-pattern>/customer/pages/store.jsp</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>footer</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <servlet>
-        <servlet-name>registerServlet</servlet-name>
-        <servlet-class>servlet.users.customers.Register</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>registerServlet</servlet-name>
-        <url-pattern>/registerAction</url-pattern>
-    </servlet-mapping>
-    <!--    loginServlet-->
-    <servlet>
-        <servlet-name>loginServlet</servlet-name>
-        <servlet-class>servlet.users.common.Login</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>loginServlet</servlet-name>
-        <url-pattern>/loginrAction</url-pattern>
-    </servlet-mapping>
-    
+        <url-pattern>/customer/pages/checkout.jsp</url-pattern>
+        <url-pattern>/customer/pages/index.jsp</url-pattern>
+        <url-pattern>/customer/pages/product.jsp</url-pattern>
+        <url-pattern>/customer/pages/store.jsp</url-pattern>
+    </filter-mapping>-->
     
       <servlet>
         <servlet-name>AllUsersServlet</servlet-name>

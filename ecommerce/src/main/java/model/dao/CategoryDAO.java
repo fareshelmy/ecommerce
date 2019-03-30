@@ -14,7 +14,6 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Zainab
  */
-
 public class CategoryDAO implements DAO<Category> {
 
     private Session session;
@@ -53,6 +52,7 @@ public class CategoryDAO implements DAO<Category> {
         session.getTransaction().commit();
     }
 //must be retrieved by name not id
+
     @Override
     public Category retrieve(Object primaryKey) {
         String key = (String) primaryKey;
@@ -82,12 +82,12 @@ public class CategoryDAO implements DAO<Category> {
         return subsetCategory;
     }
 
-    public List<Product> getCategoryProducts(String categoryName){
+    public List<Product> getCategoryProducts(String categoryName) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class);
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
-        categoryCriteria = categoryCriteria.add(Restrictions.eq("c.name",categoryName));
+        categoryCriteria = categoryCriteria.add(Restrictions.eq("c.name", categoryName));
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;
@@ -113,5 +113,4 @@ public class CategoryDAO implements DAO<Category> {
         session.getTransaction().commit();
         return categoryList;
     }
-
 }

@@ -20,13 +20,17 @@ import model.entity.Product;
  * @author FARES-LAP
  */
 @WebServlet(urlPatterns = {"/ProductListServlet"}, name = "ProductListServlet")
-public class ProductListServlet extends HttpServlet{
+public class ProductListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> products = new ProductDAO().retrieveAll();
+        for (Product product : products) {
+//            product.setImage(req.getServletContext().getRealPath("") + product.getImage());
+            System.out.println(product.getImage());
+        }
         req.setAttribute("products", products);
         req.getRequestDispatcher("/admin/product-list.jsp").forward(req, resp);
     }
-    
+
 }

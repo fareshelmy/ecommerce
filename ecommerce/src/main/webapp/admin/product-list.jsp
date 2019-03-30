@@ -262,7 +262,7 @@
 
                                     <c:forEach items="${requestScope.products}" var="product">
                                         <tr>
-                                            <td><a href="product-detail.html"><img src="img/products/${product.image}" alt="Image" /></a></td>
+                                            <td><a href="product-detail.html"><img src="${product.image}" alt="Image" /></a></td>
                                             <td>${product.name}</td>
                                             <td>${product.itemsSold}</td>
                                             <td>EGP${product.itemsSold * product.price}</td>

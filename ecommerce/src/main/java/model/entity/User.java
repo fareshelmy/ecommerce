@@ -156,5 +156,3 @@ public class User  implements java.io.Serializable, model.entity.Entity {
 
 
 }
-
-
