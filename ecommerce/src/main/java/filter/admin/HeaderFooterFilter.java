@@ -12,22 +12,20 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-
 /**
  *
  * @author FARES-LAP
  */
 public class HeaderFooterFilter implements Filter {
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        request.getRequestDispatcher("admin/header.jsp").include(request, response);
+        request.getRequestDispatcher("/admin/header.jsp").include(request, response);
         chain.doFilter(request, response);
-        request.getRequestDispatcher("admin/footer.jsp").include(request, response);
+        request.getRequestDispatcher("/admin/footer.jsp").include(request, response);
     }
 
     @Override
