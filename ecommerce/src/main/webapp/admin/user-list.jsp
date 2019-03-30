@@ -1,19 +1,19 @@
 <%-- 
-    Document   : product-list
-    Created on : 29-Mar-2019, 20:46:25
-    Author     : FARES-LAP
+    Document   : user-list
+    Created on : Mar 30, 2019, 1:49:13 PM
+    Author     : Mayada Khaled
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!doctype html>
 <html class="no-js" lang="en">
 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Product List</title>
+        <title>Users List</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -156,16 +156,13 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                                <div class="header-right-info">
-                                                    <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                            <div class="header-right-info">
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                        <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-                                                        </li>
+                                                    <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    </li>
 
-
-                                                    </ul>
-                                                </div>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +193,6 @@
                                             </li>
 
 
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
 
@@ -205,7 +201,6 @@
 
                                                 </ul>
                                             </li>
-
 
                                         </ul>
                                     </nav>
@@ -245,46 +240,27 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
-                                <h4>Products List</h4>
-                                <div class="add-product">
-                                    <a href="product-edit.html">Add Product</a>
-                                </div>
+                                <h4>All Users</h4>
+
                                 <table>
                                     <tr>
                                         <th>Image</th>
-                                        <th>Product Name</th>
-                                        <th>Purchases</th>
-                                        <th>Product sales</th>
-                                        <th>Stock</th>
-                                        <th>Unit Price</th>
+                                        <th>User Name</th>
+                                        <th>Total orders</th>
                                         <th>Setting</th>
                                     </tr>
-
-                                    <c:forEach items="${requestScope.products}" var="product">
+                                    <c:forEach items="${users}" var="user">
                                         <tr>
-                                            <td><a href="product-detail.html"><img src="img/products/${product.image}" alt="Image" /></a></td>
-                                            <td>${product.name}</td>
-                                            <td>${product.itemsSold}</td>
-                                            <td>EGP${product.itemsSold * product.price}</td>
+                                            <td><img src="admin/img/new-product/users.png" alt=""/></td>
+                                            <td>${user.username}</td>
+                                            <c:set var = "userOrderNumber" value = "${user.orders}"/> 
+                                            <td> ${fn:length(userOrderNumber)}</td>
                                             <td>
-                                                <c:choose>
-                                                    <c:when test="${product.quantity == 0}">
-                                                        <c:out value="Out Of Stock"/>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <c:out value="In Stock"/>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </td>
-                                            <td>${product.price}</td>
-                                            <td>
-                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="product-edit.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="user-detail.jsp?userId=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
                                                 <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             </td>
                                         </tr>
                                     </c:forEach>
-
-
                                 </table>
                                 <div class="custom-pagination">
                                     <ul class="pagination">
