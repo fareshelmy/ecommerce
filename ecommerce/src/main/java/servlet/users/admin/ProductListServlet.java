@@ -30,7 +30,7 @@ public class ProductListServlet extends HttpServlet {
             System.out.println(product.getImage());
         }
         req.setAttribute("products", products);
-        req.getRequestDispatcher("/admin/product-list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/admin/product-list.jsp").include(req, resp);
     }
 
 }
