@@ -3,41 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet.filters;
+package filter.admin;
 
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
  *
- * @author Mohamed
+ * @author FARES-LAP
  */
-public class FooterFilter implements Filter{
+public class HeaderFooterFilter implements Filter {
 
-    FilterConfig filterConfig;
-    
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        this.filterConfig = filterConfig;
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        ServletContext context = filterConfig.getServletContext();
-        RequestDispatcher dispatcher = context.getNamedDispatcher("customer/pages/footer.jsp");
-        dispatcher.include(request, response);
+        request.getRequestDispatcher("admin/header.jsp").include(request, response);
         chain.doFilter(request, response);
+        request.getRequestDispatcher("admin/footer.jsp").include(request, response);
     }
 
     @Override
     public void destroy() {
     }
-    
+
 }
