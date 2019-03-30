@@ -4,7 +4,7 @@
     Author     : Mohamed
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!-- NEWSLETTER -->
 <div id="newsletter" class="section">
     <!-- container -->
@@ -38,7 +38,7 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
                         <h3 class="footer-title">About Us</h3>
-                        <p>At Foodland Egypt, we aim to provide you with quality, ease and convenience at your meal’s every step. Whether you’re ordering, receiving or preparing your meal, we hope that we will inspire you to discover the fun and passion of home cooking.</p>
+                        <p>At Foodland Egypt, we aim to provide you with quality, ease and convenience at your meal?s every step. Whether you?re ordering, receiving or preparing your meal, we hope that we will inspire you to discover the fun and passion of home cooking.</p>
                         <ul class="footer-links">
                             <li><a href="#"><i class="fa fa-map-marker"></i>17 Tenth District, October City, Egypt</a></li>
                             <li><a href="#"><i class="fa fa-phone"></i>+201-06-404-6540</a></li>
@@ -83,12 +83,12 @@
 </footer>
 
 <!-- jQuery Plugins -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/slick.min.js"></script>
-<script src="js/nouislider.min.js"></script>
-<script src="js/jquery.zoom.min.js"></script>
-<script src="js/main.js"></script>
+<script src="customer/js/jquery.min.js"></script>
+<script src="customer/js/bootstrap.min.js"></script>
+<script src="customer/js/slick.min.js"></script>
+<script src="customer/js/nouislider.min.js"></script>
+<script src="customer/js/jquery.zoom.min.js"></script>
+<script src="customer/js/main.js"></script>
 
 </body>
 </html>
