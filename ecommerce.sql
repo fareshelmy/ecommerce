@@ -28,7 +28,7 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (3,'Slow Food'),(4,'Fast Food');
+INSERT INTO `category` VALUES (1,'Meat & Poultry'),(2,'Seafood'),(3,'Fresh Fruits, Vegetables & Herbs'),(4,'Bakery & Pastry'),(5,'Cheese, Dairy & Deli'),(6,'Desserts & Sweets');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,6 @@ CREATE TABLE `order_item` (
 
 LOCK TABLES `order_item` WRITE;
 /*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
-INSERT INTO `order_item` VALUES (2,7,2,0),(2,8,5,0),(3,8,3,0);
 /*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +109,7 @@ CREATE TABLE `product` (
   `price` double NOT NULL,
   `rating` double DEFAULT '3',
   `category_id` int(11) DEFAULT NULL,
-  `image` varchar(1000) NOT NULL,
+  `image` varchar(1000) NOT NULL DEFAULT '\\img\\products\\No_Image_Available.jpg',
   `amount` double DEFAULT NULL,
   `unit` varchar(45) DEFAULT NULL,
   `quantity` int(11) NOT NULL DEFAULT '0',
@@ -119,7 +118,7 @@ CREATE TABLE `product` (
   PRIMARY KEY (`id`),
   KEY `product_categoryid_fk_idx` (`category_id`),
   CONSTRAINT `product_categoryid_fk` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +127,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (7,'Rice',20,3,4,'RiceImgePath',20,NULL,10,NULL,0),(8,'Macroni',100,3,4,'MacroniImgePath',50,NULL,40,NULL,0);
+INSERT INTO `product` VALUES (15,'22wqd',23,NULL,NULL,'\\img\\products\\product1.jpg',1,'g',2,'we',0),(16,'ewreqr',213,3,NULL,'\\img\\products\\No_Image_Available.jpg',3,'g',2,'err',0);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-29 22:02:48
+-- Dump completed on 2019-03-30 14:39:48
