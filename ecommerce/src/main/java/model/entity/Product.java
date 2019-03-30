@@ -1,15 +1,12 @@
 package model.entity;
-// Generated Mar 22, 2019 5:42:40 PM by Hibernate Tools 4.3.1
+// Generated Mar 29, 2019 12:36:16 PM by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,16 +20,16 @@ import javax.persistence.Table;
 @Table(name="product"
     ,catalog="ecommerce"
 )
-public class Product  implements java.io.Serializable, model.dao.Entity {
+public class Product  implements java.io.Serializable, model.entity.Entity {
 
 
-     private Integer id;
+     private int id;
      private Category category;
      private String name;
-     private BigDecimal price;
-     private BigDecimal rating;
+     private double price;
+     private Double rating;
      private String image;
-     private BigDecimal amount;
+     private Double amount;
      private String unit;
      private int quantity;
      private String description;
@@ -43,14 +40,16 @@ public class Product  implements java.io.Serializable, model.dao.Entity {
     }
 
 	
-    public Product(String name, BigDecimal price, String image, int quantity, int itemsSold) {
+    public Product(int id, String name, double price, String image, int quantity, int itemsSold) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.image = image;
         this.quantity = quantity;
         this.itemsSold = itemsSold;
     }
-    public Product(Category category, String name, BigDecimal price, BigDecimal rating, String image, BigDecimal amount, String unit, int quantity, String description, int itemsSold, Set<OrderItem> orderItems) {
+    public Product(int id, Category category, String name, double price, Double rating, String image, Double amount, String unit, int quantity, String description, int itemsSold, Set<OrderItem> orderItems) {
+       this.id = id;
        this.category = category;
        this.name = name;
        this.price = price;
@@ -64,15 +63,15 @@ public class Product  implements java.io.Serializable, model.dao.Entity {
        this.orderItems = orderItems;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
+     @Id 
 
     
     @Column(name="id", unique=true, nullable=false)
-    public Integer getId() {
+    public int getId() {
         return this.id;
     }
     
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -97,22 +96,22 @@ public class Product  implements java.io.Serializable, model.dao.Entity {
     }
 
     
-    @Column(name="price", nullable=false, precision=10)
-    public BigDecimal getPrice() {
+    @Column(name="price", nullable=false, precision=22, scale=0)
+    public double getPrice() {
         return this.price;
     }
     
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
     
-    @Column(name="rating", precision=3, scale=1)
-    public BigDecimal getRating() {
+    @Column(name="rating", precision=22, scale=0)
+    public Double getRating() {
         return this.rating;
     }
     
-    public void setRating(BigDecimal rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 
@@ -127,12 +126,12 @@ public class Product  implements java.io.Serializable, model.dao.Entity {
     }
 
     
-    @Column(name="amount", precision=10)
-    public BigDecimal getAmount() {
+    @Column(name="amount", precision=22, scale=0)
+    public Double getAmount() {
         return this.amount;
     }
     
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

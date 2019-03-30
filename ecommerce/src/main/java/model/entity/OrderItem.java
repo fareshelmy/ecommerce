@@ -1,8 +1,7 @@
 package model.entity;
-// Generated Mar 22, 2019 5:42:40 PM by Hibernate Tools 4.3.1
+// Generated Mar 29, 2019 12:36:16 PM by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -20,19 +19,19 @@ import javax.persistence.Table;
 @Table(name="order_item"
     ,catalog="ecommerce"
 )
-public class OrderItem  implements java.io.Serializable, model.dao.Entity {
+public class OrderItem  implements java.io.Serializable, model.entity.Entity {
 
 
      private OrderItemId id;
      private Order order;
      private Product product;
      private int quantity;
-     private BigDecimal total;
+     private double total;
 
     public OrderItem() {
     }
 
-    public OrderItem(OrderItemId id, Order order, Product product, int quantity, BigDecimal total) {
+    public OrderItem(OrderItemId id, Order order, Product product, int quantity, double total) {
        this.id = id;
        this.order = order;
        this.product = product;
@@ -85,12 +84,12 @@ public class OrderItem  implements java.io.Serializable, model.dao.Entity {
     }
 
     
-    @Column(name="total", nullable=false, precision=15)
-    public BigDecimal getTotal() {
+    @Column(name="total", nullable=false, precision=22, scale=0)
+    public double getTotal() {
         return this.total;
     }
     
-    public void setTotal(BigDecimal total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 

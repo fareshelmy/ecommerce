@@ -1,4 +1,4 @@
-package servlets.users.common;
+package servlet.users.common;
 
 /**
  *
@@ -10,9 +10,11 @@ import javax.servlet.http.*;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.annotation.WebServlet;
 import model.dao.UserDAO;
 import model.entity.User;
 
+@WebServlet(value = "/loginrAction") 
 public class Login extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
