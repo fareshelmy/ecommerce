@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +34,7 @@ import org.apache.commons.beanutils.BeanUtils;
  * @author Mayada Khaled
  */
 @WebServlet(urlPatterns = {"/insertProductServlet"}, name = "insertProductServlet")
+@MultipartConfig
 public class InsertProductServlets extends HttpServlet {
 
     private static int productCounter = 1;
@@ -41,7 +43,8 @@ public class InsertProductServlets extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CategoryDAO categoryDAO = new CategoryDAO();
         Category category = categoryDAO.retrieve(req.getParameter("selected_category"));
-        int numberOfProduct = Integer.parseInt(req.getParameter("selected_quantity"));
+        System.out.println(req.getParameter("selected_category"));
+        System.out.println(category);
         Product product = new Product();
         try {
             BeanUtils.populate(product, req.getParameterMap());
@@ -52,7 +55,6 @@ public class InsertProductServlets extends HttpServlet {
             ex.printStackTrace();
         }
         product.setCategory(category);
-        product.setQuantity(numberOfProduct);
         product.setImage(getImagePath(req, resp));
 
         ProductDAO productDAO = new ProductDAO();

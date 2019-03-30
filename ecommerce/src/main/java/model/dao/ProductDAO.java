@@ -13,15 +13,20 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Mohamed Jamal
  */
-public class ProductDAO implements DAO<Product>{
+public class ProductDAO implements DAO<Product> {
+
     private Session session;
-    public ProductDAO(){
+
+    public ProductDAO() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
-    private void getSession(){
-        if(!session.isOpen())
+
+    private void getSession() {
+        if (!session.isOpen()) {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
+        }
     }
+
     @Override
     public void persist(Product product) {
         getSession();
@@ -65,7 +70,7 @@ public class ProductDAO implements DAO<Product>{
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
         ProjectionList selectedColumns = Projections.projectionList();
-         for(int i = 0; i<columnNames.size(); i++){
+        for (int i = 0; i < columnNames.size(); i++) {
             selectedColumns.add(Projections.property(columnNames.get(i)));
         }
         productCriteria = productCriteria.setProjection(selectedColumns);
@@ -77,7 +82,7 @@ public class ProductDAO implements DAO<Product>{
 
     @Override
     public List<Product> getAll(Object prod) {
-         getSession();
+        getSession();
         Product product = (Product) prod;
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
@@ -87,5 +92,12 @@ public class ProductDAO implements DAO<Product>{
         return allUser;
     }
 
-  
+    @Override
+    public List<Product> retrieveAll() {
+        session.getTransaction().begin();
+        List<Product> productList = session.createCriteria(Product.class).list();
+        session.getTransaction().commit();
+        return productList;
+    }
+
 }

@@ -58,7 +58,7 @@ public class CategoryDAO implements DAO<Category> {
         String key = (String) primaryKey;
         session.getTransaction().begin();
         Category category = (Category) session.createCriteria(Category.class)
-                .add(Restrictions.eq("name", key))
+                .add(Restrictions.ilike("name", key))
                 .uniqueResult();
         session.getTransaction().commit();
         return category;
@@ -92,6 +92,14 @@ public class CategoryDAO implements DAO<Category> {
         session.getTransaction().commit();
         return allUser;
 
+    }
+
+    @Override
+    public List<Category> retrieveAll() {
+        session.getTransaction().begin();
+        List<Category> categoryList = session.createCriteria(Category.class).list();
+        session.getTransaction().commit();
+        return categoryList;
     }
 
 }

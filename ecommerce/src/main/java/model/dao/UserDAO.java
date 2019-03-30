@@ -20,22 +20,27 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author FARES-LAP
  */
-public class UserDAO implements DAO<User>{
+public class UserDAO implements DAO<User> {
+
     private Session session;
-    public UserDAO(){
+
+    public UserDAO() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
-    private void getSession(){
-        if(!session.isOpen())
+
+    private void getSession() {
+        if (!session.isOpen()) {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
+        }
     }
+
     @Override
     public void persist(User user) {
-       getSession();
-       session.getTransaction().begin();
-       session.persist(user);
-       session.getTransaction().commit();
-       
+        getSession();
+        session.getTransaction().begin();
+        session.persist(user);
+        session.getTransaction().commit();
+
     }
 
     @Override
@@ -71,7 +76,7 @@ public class UserDAO implements DAO<User>{
         session.getTransaction().begin();
         Criteria userCriteria = session.createCriteria(model.entity.User.class);
         ProjectionList selectedColumns = Projections.projectionList();
-         for(int i = 0; i<columnNames.size(); i++){
+        for (int i = 0; i < columnNames.size(); i++) {
             selectedColumns.add(Projections.property(columnNames.get(i)));
         }
         userCriteria = userCriteria.setProjection(selectedColumns);
@@ -85,7 +90,6 @@ public class UserDAO implements DAO<User>{
 //            System.out.println(details[i]);
 //        }
 //        System.out.println(subsetUser.get(0).getClass().getName());
-
 
         return subsetUser;
     }
@@ -102,6 +106,12 @@ public class UserDAO implements DAO<User>{
         return allUser;
     }
 
-    
-  
+    @Override
+    public List<User> retrieveAll() {
+        session.getTransaction().begin();
+        List<User> userList = session.createCriteria(User.class).list();
+        session.getTransaction().commit();
+        return userList;
+    }
+
 }

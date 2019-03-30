@@ -16,4 +16,5 @@ public interface DAO<T extends Entity> {
     public T retrieve(Object primaryKey);
     public List<T> getByColumnNames(Object primaryKey, List<String> columnNames);
     public List<T> getAll(Object entity);
+    public List<T> retrieveAll();
 }

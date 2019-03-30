@@ -19,15 +19,20 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author Lamiaa Abdrabou
  */
-public class OrderDAO implements DAO<Order>{
+public class OrderDAO implements DAO<Order> {
+
     private Session session;
-    public OrderDAO(){
+
+    public OrderDAO() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
-     private void getSession(){
-        if(!session.isOpen())
+
+    private void getSession() {
+        if (!session.isOpen()) {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
+        }
     }
+
     @Override
     public void persist(Order order) {
         getSession();
@@ -55,7 +60,7 @@ public class OrderDAO implements DAO<Order>{
     @Override
     public Order retrieve(Object primaryKey) {
         getSession();
-        int key = (int)primaryKey;
+        int key = (int) primaryKey;
         session.getTransaction().begin();
         Order order = (Order) session.get(model.entity.Order.class, key);
         session.getTransaction().commit();
@@ -71,7 +76,7 @@ public class OrderDAO implements DAO<Order>{
         User user = (User) entity;
         Criteria orderCriteria = session.createCriteria(model.entity.Order.class, "o");
         Criteria userCriteria = orderCriteria.createCriteria("user", "u");
-        userCriteria.add(Restrictions.eq("u.email" ,user.getEmail()));
+        userCriteria.add(Restrictions.eq("u.email", user.getEmail()));
         return userCriteria.list();
     }
 
@@ -80,13 +85,21 @@ public class OrderDAO implements DAO<Order>{
         getSession();
         Criteria orderCriteria = session.createCriteria(model.entity.Order.class);
         ProjectionList selectedColumns = Projections.projectionList();
-         for(int i = 0; i<columnNames.size(); i++){
+        for (int i = 0; i < columnNames.size(); i++) {
             selectedColumns.add(Projections.property(columnNames.get(i)));
         }
         orderCriteria = orderCriteria.setProjection(selectedColumns);
         return orderCriteria.list();
     }
-   
+
+    @Override
+    public List<Order> retrieveAll() {
+        session.getTransaction().begin();
+        List<Order> orderList = session.createCriteria(Order.class).list();
+        session.getTransaction().commit();
+        return orderList;
+    }
+
 }
 
 

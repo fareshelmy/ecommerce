@@ -20,14 +20,19 @@ import org.hibernate.criterion.Restrictions;
  * @author Mayada Khaled
  */
 public class OrderItemDAO implements DAO<OrderItem> {
+
     private Session session;
-    public OrderItemDAO(){
+
+    public OrderItemDAO() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
-    private void getSession(){
-        if(!session.isOpen())
+
+    private void getSession() {
+        if (!session.isOpen()) {
             session = HibernateUtil.getSessionFactory().getCurrentSession();
+        }
     }
+
     @Override
     public void persist(OrderItem orderItem) {
         getSession();
@@ -69,7 +74,7 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().begin();
         Criteria orderItemCriteria = session.createCriteria(model.entity.OrderItem.class);
         ProjectionList selectedColumns = Projections.projectionList();
-         for(int i = 0; i<columnNames.size(); i++){
+        for (int i = 0; i < columnNames.size(); i++) {
             selectedColumns.add(Projections.property(columnNames.get(i)));
         }
         orderItemCriteria = orderItemCriteria.setProjection(selectedColumns);
@@ -81,7 +86,7 @@ public class OrderItemDAO implements DAO<OrderItem> {
 
     @Override
     public List<OrderItem> getAll(Object orderitem) {
-         getSession();
+        getSession();
         OrderItem orderItem = (OrderItem) orderitem;
         session.getTransaction().begin();
         Criteria orderItemCriteria = session.createCriteria(model.entity.OrderItem.class);
@@ -91,76 +96,12 @@ public class OrderItemDAO implements DAO<OrderItem> {
         return allUser;
     }
 
+    @Override
+    public List<OrderItem> retrieveAll() {
+        session.getTransaction().begin();
+        List<OrderItem> orderItemList = session.createCriteria(OrderItem.class).list();
+        session.getTransaction().commit();
+        return orderItemList;
+    }
+
 }
-
-
-
-
-
-
-    /*implements DAO<OrderItem>
-    Session session;
-    @Override
-    public void delete(OrderItem orderItem) {
-        
-        session = MySessionFactory.getHibernateSession();
-        session.beginTransaction();
-
-        Query query = session.createQuery("delete OrderItem where id = :ID");
-        query.setParameter("ID", orderItem.getId());
-
-        query.executeUpdate();
-
-        session.getTransaction().commit();
-         MySessionFactory.closeSession(session);
-
-    }
-
-    @Override
-    public OrderItem retrieve(Object primaryKey) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<OrderItem> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<OrderItem> getByColumnNames(Object primaryKey, List<String> columnNames) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void persist(OrderItem orderItem) {
-        System.out.println(orderItem.getId()+" the new object that is going to be persisted ");
-        session = MySessionFactory.getHibernateSession();
-        session.beginTransaction();
-        session.persist(orderItem);
-        System.out.println("persisted ");
-        session.getTransaction().commit();
-        MySessionFactory.closeSession(session);
-    }
-
-    @Override
-    public void update(OrderItem orderItem) {
-        session = MySessionFactory.getHibernateSession();
-        session.beginTransaction();
-        model.entity.OrderItem newOrderItem;
-        System.out.println(orderItem.getQuantity() +" old value");
-        Criteria query = session.createCriteria(model.entity.OrderItem.class)
-                .add(Restrictions.eq("id", orderItem.getId()));
-        newOrderItem = (model.entity.OrderItem) query.uniqueResult();
-
-        newOrderItem.setOrder(orderItem.getOrder());
-        newOrderItem.setProduct(orderItem.getProduct());
-        newOrderItem.setQuantity(orderItem.getQuantity());
-        newOrderItem.setTotal(orderItem.getTotal());
-
-        session.saveOrUpdate(newOrderItem);
-        
-        session.getTransaction().commit();
-        System.out.println(orderItem.getQuantity() +" new value");
-        MySessionFactory.closeSession(session);
-    }
-*/
