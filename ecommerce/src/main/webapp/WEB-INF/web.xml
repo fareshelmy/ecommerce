@@ -27,20 +27,13 @@
         <url-pattern>/customer/pages/index.jsp</url-pattern>
         <url-pattern>/customer/pages/product.jsp</url-pattern>
         <url-pattern>/customer/pages/store.jsp</url-pattern>
-    </filter-mapping>-->
+    </filter-mapping>
     
-      <servlet>
-        <servlet-name>AllUsersServlet</servlet-name>
-        <servlet-class>servlet.users.admin.AllUsersListServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AllUsersServlet</servlet-name>
-        <url-pattern>/AllUsersListServlet</url-pattern>
-    </servlet-mapping>
+     -->
     
     
     
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>AllUsersListServlet</welcome-file>
     </welcome-file-list>
 </web-app>

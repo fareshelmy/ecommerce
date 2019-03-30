@@ -31,7 +31,7 @@ public class AllUsersListServlet extends HttpServlet {
         UserDAO userDAO = new UserDAO();
         List<User> users = userDAO.retrieveAll();
         request.setAttribute("users", users);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user-list.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/user-list.jsp");
         requestDispatcher.forward(request, response);
        
     }

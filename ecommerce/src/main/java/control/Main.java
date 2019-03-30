@@ -21,7 +21,7 @@ public class Main {
         OrderItem orderItem = new OrderItem();
         orderItem.setId(new OrderItemId(2, 2));
         orderItem.setQuantity(10);
-        orderItem.setTotal(BigDecimal.TEN);
+//        orderItem.setTotal(BigDecimal.TEN);
         OrderItemDAO dao = new OrderItemDAO();
         dao.persist(orderItem);
 
