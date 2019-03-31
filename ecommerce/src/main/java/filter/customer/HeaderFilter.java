@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlet.filters;
+package filter.customer;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -30,6 +30,7 @@ public class HeaderFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        response.setContentType("text/html");
         RequestDispatcher dispatcher = request.getRequestDispatcher("header.jsp");
         dispatcher.include(request, response);
         chain.doFilter(request, response);
