@@ -19,20 +19,23 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/bootstrap.min.css"/>
 
         <!-- Slick -->
-        <link type="text/css" rel="stylesheet" href="../css/slick.css"/>
-        <link type="text/css" rel="stylesheet" href="../css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick-theme.css"/>
 
         <!-- nouislider -->
-        <link type="text/css" rel="stylesheet" href="../css/nouislider.min.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/nouislider.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="/ecommerce/customer/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="../css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
+        
+        <!-- Custom JavaScript -->
+        <script src="/ecommerce/customer/js/script.js"></script>
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -69,7 +72,7 @@
                         <div class="col-md-3">
                             <div class="header-logo">
                                 <a href="#" class="logo" >
-                                    <img src="../img/logo/logo.png" alt="foodland logo" id="logoImg">
+                                    <img src="/ecommerce/img/products/logo.png" alt="foodland logo" id="logoImg">
                                 </a>
                             </div>
                         </div>

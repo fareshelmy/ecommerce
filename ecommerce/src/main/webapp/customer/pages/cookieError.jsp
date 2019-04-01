@@ -1,6 +1,6 @@
 <%-- 
-    Document   : register
-    Created on : Mar 29, 2019, 8:58:13 PM
+    Document   : cookieError
+    Created on : Apr 1, 2019, 6:16:51 PM
     Author     : Mohamed
 --%>
 
@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>Register</title>
+        <title>Error</title>
 
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -33,9 +33,8 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
-        
-        <!-- Custom JavaScript -->
-        <script src="/ecommerce/customer/js/script.js"></script>
+
+
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -71,7 +70,7 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="#" class="logo" >
+                                <a href="/ecommerce/customer/pages/index.jsp" class="logo" >
                                     <img src="/ecommerce/img/products/logo.png" alt="foodland logo" id="logoImg">
                                 </a>
                             </div>
@@ -95,11 +94,8 @@
                 <!-- row -->
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="breadcrumb-header">Register</h3>
-                        <ul class="breadcrumb-tree">
-                            <li><a href="#">Home</a></li>
-                            <li class="active">Register</li>
-                        </ul>
+                        <h3 class="breadcrumb-header">Error</h3>
+
                     </div>
                 </div>
                 <!-- /row -->
@@ -115,41 +111,17 @@
                 <div class="row">
                     <div class="panel panel-primary">
                         <div class="panel-body">
-                            <form method="POST" action="registerAction" role="form">
-                                <div class="form-group">
-                                    <h2>Register</h2>
-                                </div>
-                                <div class="form-group">
-                                    <strong>Username</strong>
-                                    <input id="username" name="username" type="text" maxlength="50" class="form-control" placeholder="Username">
-                                </div>
-                                <div class="form-group">
-                                    <strong>Email</strong>
-                                    <input id="signinEmail"  name="email"  type="email" maxlength="50" class="form-control" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <strong>Birthdate</strong>							
-                                    <input id="dob" name="dob" type="date" maxlength="25" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <strong>Job</strong>
-                                    <input id="job" name="job" type="text" maxlength="50" class="form-control" placeholder="Job">
-                                </div>
-                                <div class="form-group">
-                                    <strong>Credit Limit</strong>
-                                    <input id="credit" name="credit" type="number" maxlength="50" class="form-control" placeholder="Please Enter your Credit Limit">
-                                </div>
-
-                                <div class="form-group">
-                                    <button id="signinSubmit" type="submit" class="primary-btn order-submit">Register</button>
-                                </div>
-
-                            </form>
+                            <div class="form-group">
+                                <h2>Cookie Error</h2>
+                            </div>
+                            <p class="form-group">Oops! Your browser seems to have cookies disabled. Make sure cookies are
+                                enabled and press on our logo to enjoy our website.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
         <!-- /SECTION -->
+    </body>
+</html>
