@@ -19,20 +19,20 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/bootstrap.min.css"/>
 
         <!-- Slick -->
-        <link type="text/css" rel="stylesheet" href="../css/slick.css"/>
-        <link type="text/css" rel="stylesheet" href="../css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick-theme.css"/>
 
         <!-- nouislider -->
-        <link type="text/css" rel="stylesheet" href="../css/nouislider.min.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/nouislider.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="/ecommerce/customer/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="../css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -69,7 +69,7 @@
                         <div class="col-md-3">
                             <div class="header-logo">
                                 <a href="#" class="logo" >
-                                    <img src="../img/logo/logo.png" alt="foodland logo" id="logoImg">
+                                    <img src="/ecommerce/img/products/logo.png" alt="foodland logo" id="logoImg">
                                 </a>
                             </div>
                         </div>
@@ -118,13 +118,14 @@
                                 </div>
                                 <div class="form-group">
                                     <strong>Email</strong> 
-                                    <input id="signinEmail" name="signinEmail" type="email" maxlength="50" class="form-control" placeholder="Email">
+                                    <input id="email" name="email" type="email" maxlength="50" class="form-control" placeholder="Email" value="${param.email}">
                                 </div>
                                 <div class="form-group">
                                     <strong>Password</strong>
                                     <span class="right"><a href="#">Forgot your password?</a></span>
-                                    <input id="signinPassword" name="signinPassword" type="password" maxlength="25" class="form-control" placeholder="Password">
+                                    <input id="password" name="password" type="password" maxlength="25" class="form-control" placeholder="Password">
                                 </div>
+                                <div style="color: #FF0000;">${invalidData}</div>
                                 <div class="form-group">
                                     <button id="signinSubmit" type="submit" class="primary-btn order-submit">Sign in</button>
                                 </div>

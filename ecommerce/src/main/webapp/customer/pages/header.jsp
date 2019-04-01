@@ -1,9 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : Mar 29, 2019, 9:34:15 PM
-    Author     : Mohamed
---%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,20 +13,20 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="customer/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/bootstrap.min.css"/>
 
         <!-- Slick -->
-        <link type="text/css" rel="stylesheet" href="customer/css/slick.css"/>
-        <link type="text/css" rel="stylesheet" href="customer/css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick-theme.css"/>
 
         <!-- nouislider -->
-        <link type="text/css" rel="stylesheet" href="customer/css/nouislider.min.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/nouislider.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="customer/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/ecommerce/customer/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="customer/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,7 +64,7 @@
                         <div class="col-md-3">
                             <div class="header-logo">
                                 <a href="#" class="logo">
-                                    <img src="../img/logo/logo.png" alt="">
+                                    <img src="/ecommerce/img/products/logo.png" alt="">
                                 </a>
                             </div>
                         </div>

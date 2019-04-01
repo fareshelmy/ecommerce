@@ -6,7 +6,6 @@
             30
         </session-timeout>
     </session-config>
-    
     <filter>
         <filter-name>header</filter-name>
         <filter-class>filter.customer.HeaderFilter</filter-class>
