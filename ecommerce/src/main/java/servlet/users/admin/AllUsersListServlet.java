@@ -21,7 +21,7 @@ import model.entity.User;
  *
  * @author Mayada Khaled
  */
-@WebServlet(name = "AllUsersListServlet", urlPatterns = {"/AllUsersListServlet"})
+@WebServlet(name = "AllUsersListServlet", urlPatterns = {"/admin/AllUsersListServlet"})
 public class AllUsersListServlet extends HttpServlet {
 
     @Override
@@ -32,7 +32,7 @@ public class AllUsersListServlet extends HttpServlet {
         List<User> users = userDAO.retrieveAll();
         request.setAttribute("users", users);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/user-list.jsp");
-        requestDispatcher.forward(request, response);
+        requestDispatcher.include(request, response);
        
     }
 

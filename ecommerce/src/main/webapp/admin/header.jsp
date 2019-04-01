@@ -12,7 +12,6 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Product List</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -69,7 +68,7 @@
         <link rel="stylesheet" href="admin/css/responsive.css">
         <!-- modernizr JS
                     ============================================ -->
-        <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="admin/admin/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
 
     <body>
@@ -100,7 +99,7 @@
                                     <span class="mini-click-non">Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Product List" href="product-list.html"><span class="mini-sub-pro">Product List</span></a></li>
+                                    <li><a title="Product List" href="product-list.jsp"><span class="mini-sub-pro">Product List</span></a></li>
                                     <li><a title="Product Edit" href="product-edit.html"><span class="mini-sub-pro">Product Edit</span></a></li>
                                 </ul>
                             </li>
@@ -108,7 +107,7 @@
                             <li>
                                 <a class="has-arrow" href="all-students.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="All Users" href="user-list.html"><span class="mini-sub-pro">All Users</span></a></li>
+                                    <li><a title="All Users" href="user-list.jsp"><span class="mini-sub-pro">All Users</span></a></li>
                                     <li><a title="Edit User" href="user-edit.html"><span class="mini-sub-pro">Edit User</span></a></li>
                                 </ul>
                             </li>
@@ -189,7 +188,7 @@
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
 
-                                                    <li><a href="product-list.html">Product List</a></li>
+                                                    <li><a href="product-list.jsp">Product List</a></li>
                                                     <li><a href="product-edit.html">Product Edit</a></li>
                                                 </ul>
                                             </li>
@@ -199,7 +198,7 @@
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
 
-                                                    <li><a href="user-list.html">All user</a></li>
+                                                    <li><a href="user-list.jsp">All user</a></li>
                                                     <li><a href="user-edit.html">Edit user</a></li>
 
                                                 </ul>
