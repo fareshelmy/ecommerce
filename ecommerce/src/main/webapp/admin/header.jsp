@@ -113,7 +113,10 @@
                                 </ul>
                             </li>
 
+                            <li>
+                                <a  href="Add-Adnin.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
 
+                            </li> 
                         </ul>
                     </nav>
                 </div>
@@ -204,7 +207,10 @@
 
                                                 </ul>
                                             </li>
+                                            <li>
+                                                <a  href="Add-Adnin.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
 
+                                            </li>
 
                                         </ul>
                                     </nav>

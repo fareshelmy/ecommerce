@@ -41,6 +41,6 @@
     </filter-mapping>
 
     <welcome-file-list>
-        <welcome-file>admin/product-list.jsp</welcome-file>
+        <welcome-file>AllUsersListServlet</welcome-file>
     </welcome-file-list>
 </web-app>

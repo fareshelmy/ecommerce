@@ -1,5 +1,5 @@
 package model.entity;
-// Generated Mar 29, 2019 12:36:16 PM by Hibernate Tools 4.3.1
+// Generated Apr 1, 2019 11:55:23 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,7 +25,7 @@ import javax.persistence.Table;
 public class Product  implements java.io.Serializable, model.entity.Entity {
 
 
-     private int id;
+     private Integer id;
      private Category category;
      private String name;
      private double price;
@@ -40,16 +42,14 @@ public class Product  implements java.io.Serializable, model.entity.Entity {
     }
 
 	
-    public Product(int id, String name, double price, String image, int quantity, int itemsSold) {
-        this.id = id;
+    public Product(String name, double price, String image, int quantity, int itemsSold) {
         this.name = name;
         this.price = price;
         this.image = image;
         this.quantity = quantity;
         this.itemsSold = itemsSold;
     }
-    public Product(int id, Category category, String name, double price, Double rating, String image, Double amount, String unit, int quantity, String description, int itemsSold, Set<OrderItem> orderItems) {
-       this.id = id;
+    public Product(Category category, String name, double price, Double rating, String image, Double amount, String unit, int quantity, String description, int itemsSold, Set<OrderItem> orderItems) {
        this.category = category;
        this.name = name;
        this.price = price;
@@ -63,15 +63,15 @@ public class Product  implements java.io.Serializable, model.entity.Entity {
        this.orderItems = orderItems;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="id", unique=true, nullable=false)
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

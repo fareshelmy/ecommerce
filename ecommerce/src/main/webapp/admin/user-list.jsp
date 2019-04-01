@@ -244,17 +244,28 @@
 
                                 <table>
                                     <tr>
-                                        <th>Image</th>
+                                        <th>Email</th>
                                         <th>User Name</th>
+                                        <th>birthday</th>
+                                        <th>job</th>
+                                        <th>address</th>
+                                        <th>credit Limit</th>
+                                        <th>Category</th>
                                         <th>Total orders</th>
                                         <th>Setting</th>
                                     </tr>
                                     <c:forEach items="${users}" var="user">
                                         <tr>
-                                            <td><img src="admin/img/new-product/users.png" alt=""/></td>
+                                            <td>${user.email}</td>
                                             <td>${user.username}</td>
+                                            <td>${user.birthday}</td>
+                                            <td>${user.job}</td>
+                                            <td>${user.address}</td>
+                                            <td>${user.creditLimit}</td>
+                                            
                                             <c:set var = "userOrderNumber" value = "${user.orders}"/> 
                                             <td> ${fn:length(userOrderNumber)}</td>
+                                            <td>${user.Category}</td>
                                             <td>
                                                 <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="user-detail.jsp?userId=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
                                                 <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
