@@ -33,7 +33,7 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
-        
+
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>
 
@@ -121,13 +121,14 @@
                                 </div>
                                 <div class="form-group">
                                     <strong>Email</strong> 
-                                    <input id="signinEmail" name="signinEmail" type="email" maxlength="50" class="form-control" placeholder="Email">
+                                    <input id="email" name="email" type="email" maxlength="50" class="form-control" placeholder="Email" value="${param.email}">
                                 </div>
                                 <div class="form-group">
                                     <strong>Password</strong>
                                     <span class="right"><a href="#">Forgot your password?</a></span>
-                                    <input id="signinPassword" name="signinPassword" type="password" maxlength="25" class="form-control" placeholder="Password">
+                                    <input id="password" name="password" type="password" maxlength="25" class="form-control" placeholder="Password">
                                 </div>
+                                <div style="color: #FF0000;">${invalidData}</div>
                                 <div class="form-group">
                                     <button id="signinSubmit" type="submit" class="primary-btn order-submit">Sign in</button>
                                 </div>

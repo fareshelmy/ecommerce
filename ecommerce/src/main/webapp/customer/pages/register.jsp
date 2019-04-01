@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>Register</title>
+        <title>Regiser</title>
 
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -33,7 +33,7 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
-        
+
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>
 
@@ -121,25 +121,37 @@
                                 </div>
                                 <div class="form-group">
                                     <strong>Username</strong>
-                                    <input id="username" name="username" type="text" maxlength="50" class="form-control" placeholder="Username">
+                                    <input id="username" name="username" type="text" maxlength="50" class="form-control" placeholder="Username" value="${param.username}">
                                 </div>
                                 <div class="form-group">
                                     <strong>Email</strong>
-                                    <input id="signinEmail"  name="email"  type="email" maxlength="50" class="form-control" placeholder="Email">
+                                    <input id="signinEmail"  name="email"  type="email" maxlength="50" class="form-control" placeholder="Email" value="${param.email}">
+                                </div>
+                                 <div style="color: #FF0000;">${invalidEmail}</div>
+                                <div class="form-group">
+                                    <strong>Password</strong>
+                                    <input id="password" name="password" type="password" maxlength="50" class="form-control" placeholder="Password" value="${param.password}">
                                 </div>
                                 <div class="form-group">
-                                    <strong>Birthdate</strong>							
-                                    <input id="dob" name="dob" type="date" maxlength="25" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <strong>Job</strong>
-                                    <input id="job" name="job" type="text" maxlength="50" class="form-control" placeholder="Job">
+                                    <strong>Confirm Password</strong>
+                                    <input id="confirmPassword" name="confirmPassword" type="password" maxlength="50" class="form-control" placeholder="Confirm Password" value="${param.confirmPassword}">
                                 </div>
                                 <div class="form-group">
                                     <strong>Credit Limit</strong>
-                                    <input id="credit" name="credit" type="number" maxlength="50" class="form-control" placeholder="Please Enter your Credit Limit">
+                                    <input id="creditLimit" name="creditLimit" type="number" maxlength="50" class="form-control" placeholder="Credit Limit" value="${param.creditLimit}">
                                 </div>
-
+                                <div class="form-group">
+                                    <strong>Birth Date</strong>							
+                                    <input id="birthday" name="birthday" type="date" maxlength="25" class="form-control" value="${param.birthday}">
+                                </div>
+                                <div class="form-group">
+                                    <strong>Address</strong>
+                                    <input id="address" name="address" type="text" maxlength="50" class="form-control" placeholder="Address" value="${param.address}">
+                                </div>
+                                <div class="form-group">
+                                    <strong>Job</strong>
+                                    <input id="job" name="job" type="text" maxlength="50" class="form-control" placeholder="Job" value="${param.job}">
+                                </div>
                                 <div class="form-group">
                                     <button id="signinSubmit" type="submit" class="primary-btn order-submit">Register</button>
                                 </div>

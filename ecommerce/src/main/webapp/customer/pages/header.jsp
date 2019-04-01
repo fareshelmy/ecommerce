@@ -1,8 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : Mar 29, 2019, 9:34:15 PM
-    Author     : Mohamed
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -73,7 +68,7 @@
                         <div class="col-md-3">
                             <div class="header-logo">
                                 <a href="#" class="logo">
-                                    <img src="/img/products/logo.png" alt="">
+                                    <img src="/ecommerce/img/products/logo.png" alt="">
                                 </a>
                             </div>
                         </div>

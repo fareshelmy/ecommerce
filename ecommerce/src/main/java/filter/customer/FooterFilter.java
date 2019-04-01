@@ -31,7 +31,7 @@ public class FooterFilter implements Filter{
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {        
         chain.doFilter(request, response);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("footer.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/customer/pages/footer.jsp");
         dispatcher.include(request, response);
     }
 
