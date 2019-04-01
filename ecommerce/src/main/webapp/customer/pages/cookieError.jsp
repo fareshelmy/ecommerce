@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : Mar 29, 2019, 8:56:42 PM
+    Document   : cookieError
+    Created on : Apr 1, 2019, 6:16:51 PM
     Author     : Mohamed
 --%>
 
@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>Login</title>
+        <title>Error</title>
 
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -34,8 +34,7 @@
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
 
-        <!-- Custom JavaScript -->
-        <script src="/ecommerce/customer/js/script.js"></script>
+
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -71,7 +70,7 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="#" class="logo" >
+                                <a href="/ecommerce/customer/pages/index.jsp" class="logo" >
                                     <img src="/ecommerce/img/products/logo.png" alt="foodland logo" id="logoImg">
                                 </a>
                             </div>
@@ -95,11 +94,8 @@
                 <!-- row -->
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="breadcrumb-header">Login</h3>
-                        <ul class="breadcrumb-tree">
-                            <li><a href="#">Home</a></li>
-                            <li class="active">Login</li>
-                        </ul>
+                        <h3 class="breadcrumb-header">Error</h3>
+
                     </div>
                 </div>
                 <!-- /row -->
@@ -115,34 +111,17 @@
                 <div class="row">
                     <div class="panel panel-primary">
                         <div class="panel-body">
-                            <form method="POST" action="loginrAction" role="form">
-                                <div class="form-group">
-                                    <h2>Sign in</h2>
-                                </div>
-                                <div class="form-group">
-                                    <strong>Email</strong> 
-                                    <input id="email" name="email" type="email" maxlength="50" class="form-control" placeholder="Email" value="${param.email}">
-                                </div>
-                                <div class="form-group">
-                                    <strong>Password</strong>
-                                    <span class="right"><a href="#">Forgot your password?</a></span>
-                                    <input id="password" name="password" type="password" maxlength="25" class="form-control" placeholder="Password">
-                                </div>
-                                <div style="color: #FF0000;">${invalidData}</div>
-                                <div class="form-group">
-                                    <button id="signinSubmit" type="submit" class="primary-btn order-submit">Sign in</button>
-                                </div>
-                                <div class="form-group divider">
-                                    <hr class="left"><small>New to site?</small>
-                                </div>
-                                <p class="form-group"><a href="#" class="primary-btn order-submit" id="registerBtn">Create an account</a></p>
-                                <p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
-                            </form>
+                            <div class="form-group">
+                                <h2>Cookie Error</h2>
+                            </div>
+                            <p class="form-group">Oops! Your browser seems to have cookies disabled. Make sure cookies are
+                                enabled and press on our logo to enjoy our website.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
         <!-- /SECTION -->
+    </body>
+</html>

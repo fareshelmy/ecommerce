@@ -83,12 +83,13 @@
 </footer>
 
 <!-- jQuery Plugins -->
-<script src="customer/js/jquery.min.js"></script>
-<script src="customer/js/bootstrap.min.js"></script>
-<script src="customer/js/slick.min.js"></script>
-<script src="customer/js/nouislider.min.js"></script>
-<script src="customer/js/jquery.zoom.min.js"></script>
-<script src="customer/js/main.js"></script>
+<script src="/ecommerce/customer/js/jquery.min.js"></script>
+<script src="/ecommerce/customer/js/bootstrap.min.js"></script>
+<script src="/ecommerce/customer/js/slick.min.js"></script>
+<script src="/ecommerce/customer/js/nouislider.min.js"></script>
+<script src="/ecommerce/customer/js/jquery.zoom.min.js"></script>
+<script src="/ecommerce/customer/js/main.js"></script>
+
 
 </body>
 </html>

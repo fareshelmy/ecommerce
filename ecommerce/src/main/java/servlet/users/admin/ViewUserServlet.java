@@ -7,8 +7,6 @@ package servlet.users.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,24 +19,21 @@ import model.entity.User;
  *
  * @author Mayada Khaled
  */
-@WebServlet(name = "AllUsersListServlet", urlPatterns = {"/admin/AllUsersListServlet"})
-public class AllUsersListServlet extends HttpServlet {
+@WebServlet(name = "ViewUserServlet", urlPatterns = {"/ViewUserServlet"})
+public class ViewUserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        UserDAO userDAO = new UserDAO();
-        List<User> users = userDAO.retrieveAll();
-        request.setAttribute("users", users);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/user-list.jsp");
-        requestDispatcher.include(request, response);
-       
+        String userId = request.getParameter("userId");
+        UserDAO userDao = new UserDAO();
+        User user = userDao.retrieve(Integer.parseInt(userId));
+        if (user != null) {
+            request.setAttribute("currentUser", user);
+            request.getRequestDispatcher("admin/user-detail.jsp").include(request, response);
+        }
+
     }
 
-  
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
 }
