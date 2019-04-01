@@ -3,6 +3,7 @@
     Created on : Mar 29, 2019, 9:34:15 PM
     Author     : Mohamed
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
