@@ -1,8 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : Mar 29, 2019, 9:34:15 PM
-    Author     : Mohamed
---%>
 
 <!DOCTYPE html>
 <html lang="en">
