@@ -34,7 +34,7 @@
                                             <td> ${fn:length(userOrderNumber)}</td>
                                             <td>${user.Category}</td>
                                             <td>
-                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="user-detail.jsp?userId=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="admin/user-detail.jsp?userId=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
                                             </td>
                                         </tr>
                                     </c:forEach>
