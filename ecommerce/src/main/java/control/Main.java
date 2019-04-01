@@ -5,6 +5,13 @@
  */
 package control;
 
+import java.math.BigDecimal;
+import model.dao.OrderItemDAO;
+import model.dao.UserDAO;
+import model.entity.OrderItem;
+import model.entity.OrderItemId;
+import model.entity.User;
+
 
 public class Main {
 
@@ -14,7 +21,7 @@ public class Main {
         OrderItem orderItem = new OrderItem();
         orderItem.setId(new OrderItemId(2, 2));
         orderItem.setQuantity(10);
-        orderItem.setTotal(BigDecimal.TEN);
+//        orderItem.setTotal(BigDecimal.TEN);
         OrderItemDAO dao = new OrderItemDAO();
         dao.persist(orderItem);
 
