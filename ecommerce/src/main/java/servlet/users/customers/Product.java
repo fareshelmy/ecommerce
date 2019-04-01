@@ -21,10 +21,11 @@ public class Product extends HttpServlet{
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("customer/pages/product.jsp");
+        
     }
     @Override 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        response.setContentType("text/html;charset=UTF-8");
         
     }
     

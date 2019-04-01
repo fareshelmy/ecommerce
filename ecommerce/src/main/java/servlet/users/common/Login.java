@@ -34,6 +34,7 @@ public class Login extends HttpServlet {
                     request.setAttribute("invalidData", "");
                     HttpSession session = request.getSession(true);
                     session.setAttribute("loggedIn", "true");
+                    System.out.println("I'm Here??????????????????????????");
                     RequestDispatcher rd = request.getRequestDispatcher("customer/pages/product.jsp");
                     rd.forward(request, response);
                 } else {

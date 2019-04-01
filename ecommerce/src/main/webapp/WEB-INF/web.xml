@@ -37,6 +37,6 @@
  
 
     <welcome-file-list>
-        <welcome-file>/customer/pages/register.html</welcome-file>
+        <welcome-file>/customer/pages/login.html</welcome-file>
     </welcome-file-list>
 </web-app>
