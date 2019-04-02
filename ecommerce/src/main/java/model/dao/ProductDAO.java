@@ -4,6 +4,7 @@ import java.util.List;
 import model.entity.Product;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
@@ -95,7 +96,7 @@ public class ProductDAO implements DAO<Product> {
     @Override
     public List<Product> retrieveAll() {
         session.getTransaction().begin();
-        List<Product> productList = session.createCriteria(Product.class).list();
+        List<Product> productList = session.createCriteria(Product.class).setFetchMode("category", FetchMode.EAGER).list();
         session.getTransaction().commit();
         return productList;
     }

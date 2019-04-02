@@ -1,5 +1,5 @@
 package model.entity;
-// Generated Mar 22, 2019 5:42:40 PM by Hibernate Tools 4.3.1
+// Generated Apr 1, 2019 6:06:12 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -34,6 +34,7 @@ public class User  implements java.io.Serializable, model.entity.Entity {
      private String job;
      private String address;
      private int creditLimit;
+     private String role;
      private Set<Order> orders = new HashSet<Order>(0);
      private Set<Category> categories = new HashSet<Category>(0);
 
@@ -47,7 +48,7 @@ public class User  implements java.io.Serializable, model.entity.Entity {
         this.password = password;
         this.creditLimit = creditLimit;
     }
-    public User(String email, String username, String password, Date birthday, String job, String address, int creditLimit, Set<Order> orders, Set<Category> categories) {
+    public User(String email, String username, String password, Date birthday, String job, String address, int creditLimit, String role, Set<Order> orders, Set<Category> categories) {
        this.email = email;
        this.username = username;
        this.password = password;
@@ -55,6 +56,7 @@ public class User  implements java.io.Serializable, model.entity.Entity {
        this.job = job;
        this.address = address;
        this.creditLimit = creditLimit;
+       this.role = role;
        this.orders = orders;
        this.categories = categories;
     }
@@ -131,6 +133,16 @@ public class User  implements java.io.Serializable, model.entity.Entity {
         this.creditLimit = creditLimit;
     }
 
+    
+    @Column(name="role", length=45)
+    public String getRole() {
+        return this.role;
+    }
+    
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
     public Set<Order> getOrders() {
         return this.orders;
@@ -156,3 +168,5 @@ public class User  implements java.io.Serializable, model.entity.Entity {
 
 
 }
+
+
