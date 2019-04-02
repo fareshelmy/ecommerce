@@ -40,29 +40,30 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ecommerce?zeroDateTimeBehavior=convertToNull</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="current_session_context_class">thread</property>
-        <!-- Disable the second-level cache if we have time to make it using cassendra-->
-        <!--<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>-->
-        <!--If you want to make the session management using JDBC Connection binding with threads -->
-        <!--<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>-->
-        <property name="show_sql">true</property>
-        <property name="hibernate.c3p0.min_size">5</property>
-        <property name="hibernate.c3p0.max_size">20</property>
-        <property name="hibernate.c3p0.timeout">300</property>
-        <property name="hibernate.c3p0.max_statements">50</property>
-        <property name="hibernate.c3p0.idle_test_period">3000</property>
-        
-        <mapping class="model.entity.OrderItemId"/>
-        <mapping class="model.entity.User"/>
-        <mapping class="model.entity.Product"/>
-        <mapping class="model.entity.Category"/>
-        <mapping class="model.entity.Order"/>
-        <mapping class="model.entity.OrderItem"/>
-    </session-factory>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ecommerce?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="current_session_context_class">thread</property>
+    <!-- Disable the second-level cache if we have time to make it using cassendra-->
+    <!--<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>-->
+    <!--If you want to make the session management using JDBC Connection binding with threads -->
+    <!--<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>-->
+    <property name="show_sql">true</property>
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.max_size">20</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <property name="hibernate.c3p0.idle_test_period">3000</property>
+
+    <mapping class="model.entity.Category"/>
+    <mapping class="model.entity.Order"/>
+    <mapping class="model.entity.Entity"/>
+    <mapping class="model.entity.OrderItem"/>
+    <mapping class="model.entity.OrderItemId"/>
+    <mapping class="model.entity.User"/>
+    <mapping class="model.entity.Product"/>
+  </session-factory>
 </hibernate-configuration>
