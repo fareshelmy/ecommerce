@@ -65,18 +65,13 @@ public class CategoryDAO implements DAO<Category> {
     }
 
     @Override
-    public List<Category> getByColumnNames(Object primaryKey, List<String> columnNames) {
+    public List<Category> getByColumnNames(String[] columnNames, String[] columnValues) {
         getSession();
-        int key = (Integer) primaryKey;
         session.getTransaction().begin();
         Criteria categoryCriteria = session.createCriteria(model.entity.Category.class);
-        ProjectionList selectedColumns = Projections.projectionList();
-        for (int i = 0; i < columnNames.size(); i++) {
-
-            selectedColumns.add(Projections.property(columnNames.get(i)));
+        for (int i = 0; i < columnNames.length; i++) {
+            categoryCriteria = categoryCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
         }
-        categoryCriteria = categoryCriteria.setProjection(selectedColumns);
-        categoryCriteria = categoryCriteria.add(Restrictions.idEq(key));
         List subsetCategory = categoryCriteria.list();
         session.getTransaction().commit();
         return subsetCategory;

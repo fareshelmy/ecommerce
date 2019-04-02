@@ -40,13 +40,11 @@ public class Login extends HttpServlet {
                     session.setAttribute("loggedIn", "true");
                     session.setAttribute("username", user.getUsername());
                     session.setAttribute("email", user.getEmail());
-                    response.sendRedirect("customer/homeAction");
                     session.setAttribute("userId", persistentUser.getEmail());
                     session.setAttribute("userRole", persistentUser.getRole());
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
-                        RequestDispatcher rd = request.getRequestDispatcher("customer/pages/product.jsp");
-                        rd.forward(request, response);
+                        response.sendRedirect("customer/homeAction");
                     } else {
                         //The user is an admin
                         System.out.println("Loggedin");

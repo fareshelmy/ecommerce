@@ -70,30 +70,17 @@ public class UserDAO implements DAO<User> {
     }
 
     @Override
-    public List<User> getByColumnNames(Object primaryKey, List<String> columnNames) {
+       public List<User> getByColumnNames(String[] columnNames, String[] columnValues) {
         getSession();
-        String key = (String) primaryKey;
         session.getTransaction().begin();
         Criteria userCriteria = session.createCriteria(model.entity.User.class);
-        ProjectionList selectedColumns = Projections.projectionList();
-        for (int i = 0; i < columnNames.size(); i++) {
-            selectedColumns.add(Projections.property(columnNames.get(i)));
+        for (int i = 0; i < columnNames.length; i++) {
+            userCriteria = userCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
         }
-        userCriteria = userCriteria.setProjection(selectedColumns);
-        userCriteria = userCriteria.add(Restrictions.idEq(key));
-        List subsetUser = userCriteria.list();
+        List subsetOrder = userCriteria.list();
         session.getTransaction().commit();
-        //here I return the list as a whole which represent a list of array of objects 
-        //we should agree about the fields to be returned to constructor a user from these fields
-//        Object[] details = (Object[]) subsetUser.get(0);
-//        for(int i =0;i<details.length;i++){
-//            System.out.println(details[i]);
-//        }
-//        System.out.println(subsetUser.get(0).getClass().getName());
-
-        return subsetUser;
+        return subsetOrder;
     }
-
     @Override
     public List<User> getAll(Object entity) {
         getSession();

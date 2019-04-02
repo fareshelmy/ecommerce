@@ -6,6 +6,7 @@
 package model.dao;
 
 import java.util.List;
+import model.entity.Order;
 import model.entity.OrderItem;
 import model.entity.OrderItemId;
 import model.util.HibernateUtil;
@@ -68,22 +69,17 @@ public class OrderItemDAO implements DAO<OrderItem> {
     }
 
     @Override
-    public List<OrderItem> getByColumnNames(Object primaryKey, List<String> columnNames) {
+    public List<OrderItem> getByColumnNames(String[] columnNames, String[] columnValues) {
         getSession();
-        OrderItemId key = (OrderItemId) primaryKey;
         session.getTransaction().begin();
         Criteria orderItemCriteria = session.createCriteria(model.entity.OrderItem.class);
-        ProjectionList selectedColumns = Projections.projectionList();
-        for (int i = 0; i < columnNames.size(); i++) {
-            selectedColumns.add(Projections.property(columnNames.get(i)));
+        for (int i = 0; i < columnNames.length; i++) {
+            orderItemCriteria = orderItemCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
         }
-        orderItemCriteria = orderItemCriteria.setProjection(selectedColumns);
-        orderItemCriteria = orderItemCriteria.add(Restrictions.idEq(key));
         List subsetOrderItem = orderItemCriteria.list();
         session.getTransaction().commit();
         return subsetOrderItem;
     }
-
     @Override
     public List<OrderItem> getAll(Object orderitem) {
         getSession();
