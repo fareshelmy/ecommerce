@@ -7,27 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-
-<!-- SEARCH BAR -->
-<div class="col-md-6">
-    <div class="header-search">
-        <form method="POST">
-            <select class="input-select">
-                <option value="0">All Categories</option>
-                <option value="1">Meat & Poultry</option>
-                <option value="2">Seafood</option>
-                <option value="3">Fruits & Vegetables</option>
-                <option value="4">Bakery & Pastry</option>
-                <option value="5">Cheese, Dairy & Deli</option>
-                <option value="6">Desserts & Sweets</option>
-                <option value="7">Home & Garden</option>
-            </select>
-            <input class="input" name="productName" placeholder="Search here">
-            <button class="search-btn">Search</button>
-        </form>
-    </div>
-</div>
-<!-- /SEARCH BAR -->
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
     <!-- container -->
@@ -62,7 +41,7 @@
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="category-1">
+                            <input type="checkbox" id="categories">
                             <label for="category-1">
                                 <span></span>
                                 Meat & Poultry
@@ -71,7 +50,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="category-2">
+                            <input type="checkbox" id="categories">
                             <label for="category-2">
                                 <span></span>
                                 Seafood
@@ -80,7 +59,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="category-3">
+                            <input type="checkbox" id="categories">
                             <label for="category-3">
                                 <span></span>
                                 Fruits & Vegetables
@@ -89,7 +68,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="category-4">
+                            <input type="checkbox" id="categories">
                             <label for="category-4">
                                 <span></span>
                                 Bakery & Pastry
@@ -98,7 +77,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="category-5">
+                            <input type="checkbox" id="categories">
                             <label for="category-5">
                                 <span></span>
                                 Cheese & Dairy
@@ -107,7 +86,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="category-6">
+                            <input type="checkbox" id="categories">
                             <label for="category-6">
                                 <span></span>
                                 Desserts & Sweets
@@ -116,7 +95,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="category-6">
+                            <input type="checkbox" id="categories">
                             <label for="category-6">
                                 <span></span>
                                 Home & Garden
