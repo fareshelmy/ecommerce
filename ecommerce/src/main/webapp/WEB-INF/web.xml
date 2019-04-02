@@ -10,14 +10,6 @@
         <filter-name>header</filter-name>
         <filter-class>filter.customer.HeaderFilter</filter-class>
     </filter>
-    <filter-mapping>
-        <filter-name>header</filter-name>
-        <url-pattern>/customer/pages/checkout.jsp</url-pattern>
-        <url-pattern>/customer/pages/index.jsp</url-pattern>
-        <url-pattern>/customer/pages/product.jsp</url-pattern>
-        <url-pattern>/customer/pages/store.jsp</url-pattern>
-    </filter-mapping>
-    
     <filter>
         <filter-name>footer</filter-name>
         <filter-class>filter.customer.FooterFilter</filter-class>
@@ -31,19 +23,18 @@
         <url-pattern>/customer/pages/login.jsp</url-pattern>
         <url-pattern>/customer/pages/register.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
-    </filter-mapping>
+    </filter-mapping> 
+
     <filter>
-        <filter-name>headerfooterfilter</filter-name>
-        <filter-class>filter.admin.HeaderFooterFilter</filter-class>
+        <filter-name>AdminValidator</filter-name>
+        <filter-class>filter.admin.AdminValidatorFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>headerfooterfilter</filter-name>
+        <filter-name>AdminValidator</filter-name>
         <url-pattern>/admin/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
- 
 
     <welcome-file-list>
-        <welcome-file>/customer/pages/login.html</welcome-file>
+        <welcome-file>/customer/pages/login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

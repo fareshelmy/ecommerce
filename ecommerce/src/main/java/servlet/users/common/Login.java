@@ -27,29 +27,39 @@ public class Login extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
+            System.out.println("Here");
             User user = new User();
             BeanUtils.populate(user, request.getParameterMap());
             UserDAO userDao = new UserDAO();
             User persistentUser = userDao.retrieve(user.getEmail());
             if (persistentUser != null) {
-
+                //The user exists in the database
                 if (persistentUser.getPassword().equals(user.getPassword())) {
-//                    System.out.println("Logged In Successfully");
-                    request.removeAttribute("password");
                     request.setAttribute("invalidData", "");
                     HttpSession session = request.getSession(true);
                     session.setAttribute("loggedIn", "true");
                     session.setAttribute("username", user.getUsername());
                     session.setAttribute("email", user.getEmail());
                     response.sendRedirect("customer/homeAction");
+                    session.setAttribute("userId", persistentUser.getEmail());
+                    session.setAttribute("userRole", persistentUser.getRole());
+                    if (persistentUser.getRole().equalsIgnoreCase("user")) {
+                        //The user is a customer
+                        RequestDispatcher rd = request.getRequestDispatcher("customer/pages/product.jsp");
+                        rd.forward(request, response);
+                    } else {
+                        //The user is an admin
+                        System.out.println("Loggedin");
+                        response.sendRedirect("/ecommerce/admin/index.jsp");
+                    }
                 } else {
-//                    System.out.println("Wrong Password");
+                    //The user is not authenticated
                     request.setAttribute("invalidData", "Inavlid Email Or Password");
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/pages/login.jsp");
                     requestDispatcher.forward(request, response);
                 }
             } else {
-//                System.out.println("Account Doesn't Exist");
+                //The user doesn't exist in the database
                 request.setAttribute("invalidData", "Inavlid Email Or Password");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/pages/login.jsp");
                 requestDispatcher.forward(request, response);
