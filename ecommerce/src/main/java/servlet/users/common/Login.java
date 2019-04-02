@@ -32,13 +32,12 @@ public class Login extends HttpServlet {
             if (persistentUser != null) {
                 //The user exists in the database
                 if (persistentUser.getPassword().equals(user.getPassword())) {
-                    request.removeAttribute("password");
                     request.setAttribute("invalidData", "");
                     HttpSession session = request.getSession(true);
                     session.setAttribute("loggedIn", "true");
-                    session.setAttribute("userId", user.getEmail());
-                    session.setAttribute("userRole", user.getRole());
-                    if (user.getRole().equalsIgnoreCase("user")) {
+                    session.setAttribute("userId", persistentUser.getEmail());
+                    session.setAttribute("userRole", persistentUser.getRole());
+                    if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
                         RequestDispatcher rd = request.getRequestDispatcher("customer/pages/product.jsp");
                         rd.forward(request, response);

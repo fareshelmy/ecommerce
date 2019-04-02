@@ -23,17 +23,7 @@
         <url-pattern>/customer/pages/login.jsp</url-pattern>
         <url-pattern>/customer/pages/register.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
-    </filter-mapping>
-    <!--<filter>
-        <filter-name>headerfooterfilter</filter-name>
-        <filter-class>filter.admin.HeaderFooterFilter</filter-class>
-    </filter>-->
-    <filter-mapping>
-        <filter-name>headerfooterfilter</filter-name>
-        <url-pattern>/admin/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-    </filter-mapping>
- 
+    </filter-mapping> 
 
     <filter>
         <filter-name>AdminValidator</filter-name>
@@ -45,6 +35,6 @@
     </filter-mapping>
 
     <welcome-file-list>
-        <welcome-file>AllUsersListServlet</welcome-file>
+        <welcome-file>/customer/pages/login.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
