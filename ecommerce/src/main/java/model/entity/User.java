@@ -1,5 +1,4 @@
 package model.entity;
-// Generated 01-Apr-2019 18:17:18 by Hibernate Tools 4.3.1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -23,6 +22,7 @@ import javax.persistence.TemporalType;
 @Table(name = "user",
          catalog = "ecommerce"
 )
+
 public class User implements java.io.Serializable, model.entity.Entity {
 
     private String email;
@@ -35,6 +35,7 @@ public class User implements java.io.Serializable, model.entity.Entity {
     private String role;
     private Set<Order> orders = new HashSet<Order>(0);
     private Set<Category> categories = new HashSet<Category>(0);
+
 
     public User() {
     }
@@ -156,3 +157,5 @@ public class User implements java.io.Serializable, model.entity.Entity {
     }
 
 }
+
+

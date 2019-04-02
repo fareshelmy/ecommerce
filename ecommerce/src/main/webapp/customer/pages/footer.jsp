@@ -90,5 +90,6 @@
 <script src="/ecommerce/customer/js/jquery.zoom.min.js"></script>
 <script src="/ecommerce/customer/js/main.js"></script>
 
+
 </body>
 </html>

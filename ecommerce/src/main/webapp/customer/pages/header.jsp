@@ -1,4 +1,5 @@
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,6 +28,9 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
+        
+        <!-- Custom JavaScript -->
+        <script src="/ecommerce/customer/js/script.js"></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -115,7 +119,7 @@
                                         <div class="cart-list">
                                             <div class="product-widget">
                                                 <div class="product-img">
-                                                    <img src="../img/product01.png" alt="">
+                                                    <img src="/ecommerce/img/product01.png" alt="">
                                                 </div>
                                                 <div class="product-body">
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -126,7 +130,7 @@
 
                                             <div class="product-widget">
                                                 <div class="product-img">
-                                                    <img src="../img/product02.png" alt="">
+                                                    <img src="/ecommerce/img/product02.png" alt="">
                                                 </div>
                                                 <div class="product-body">
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>

@@ -34,6 +34,9 @@
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
 
+        <!-- Custom JavaScript -->
+        <script src="/ecommerce/customer/js/script.js"></script>
+
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

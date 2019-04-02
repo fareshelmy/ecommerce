@@ -1,5 +1,4 @@
 package model.entity;
-// Generated 01-Apr-2019 18:17:18 by Hibernate Tools 4.3.1
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
