@@ -35,7 +35,7 @@ import org.apache.commons.beanutils.BeanUtils;
  */
 @WebServlet(urlPatterns = {"/insertProductServlet"}, name = "insertProductServlet")
 @MultipartConfig
-public class InsertProductServlets extends HttpServlet {
+public class InsertProductServlet extends HttpServlet {
 
     private static int productCounter = 1;
 
@@ -92,22 +92,22 @@ public class InsertProductServlets extends HttpServlet {
                     out.write(bytes, 0, read);
                 }
             } catch (FileNotFoundException fne) {
-                Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, fne);
+                Logger.getLogger(InsertProductServlet.class.getName()).log(Level.SEVERE, null, fne);
             } catch (IOException ex) {
-                Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(InsertProductServlet.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 if (out != null) {
                     try {
                         out.close();
                     } catch (IOException ex) {
-                        Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(InsertProductServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 if (imageContent != null) {
                     try {
                         imageContent.close();
                     } catch (IOException ex) {
-                        Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(InsertProductServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 if (writer != null) {
@@ -115,9 +115,9 @@ public class InsertProductServlets extends HttpServlet {
                 }
             }
         } catch (IOException ex) {
-            Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InsertProductServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ServletException ex) {
-            Logger.getLogger(InsertProductServlets.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InsertProductServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return imageName;
     }
