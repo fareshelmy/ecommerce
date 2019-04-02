@@ -115,7 +115,7 @@
                 <div class="row">
                     <div class="panel panel-primary">
                         <div class="panel-body">
-                            <form method="POST" action="loginrAction" role="form">
+                            <form method="POST" action="/ecommerce/loginrAction" role="form">
                                 <div class="form-group">
                                     <h2>Sign in</h2>
                                 </div>

@@ -145,7 +145,7 @@
                                         </div>
                                         <div class="cart-btns">
                                             <a href="#">View Cart</a>
-                                            <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                            <a href="/ecommerce/customer/pages/checkout.jsp">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
