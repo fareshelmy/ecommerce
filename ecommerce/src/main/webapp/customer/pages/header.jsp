@@ -1,5 +1,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -52,7 +53,16 @@
                         <li><a href="#"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                        <li><a href="#"><i class="fa fa-user-o"></i> 
+                                <c:choose>
+                                    <c:when test="${sessionScope.loggedIn == 'true'}">
+                                        My Account
+                                    </c:when>
+                                    <c:otherwise>
+                                        Sign In
+                                    </c:otherwise>
+                                </c:choose>
+                            </a></li>
                     </ul>
                 </div>
             </div>
