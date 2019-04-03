@@ -6,6 +6,7 @@ import model.entity.Product;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -87,7 +88,19 @@ public class CategoryDAO implements DAO<Category> {
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class);
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
-        categoryCriteria = categoryCriteria.add(Restrictions.eq("c.name", categoryName));
+        categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        List<Product> categoryProducts = productCriteria.list();
+        session.getTransaction().commit();
+        return categoryProducts;
+    }
+
+    public List<Product> retrieveByProductAndCategory(String categoryName, String productName) {
+        getSession();
+        session.getTransaction().begin();
+        Criteria productCriteria = session.createCriteria(Product.class);
+        productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
+        Criteria categoryCriteria = productCriteria.createAlias("category", "c");
+        categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;
