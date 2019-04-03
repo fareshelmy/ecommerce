@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -70,6 +70,9 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="admin/piChart.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     </head>
 
     <body>
@@ -87,31 +90,30 @@
                     </div>
 
                 </div>
-                <div class="left-custom-menu-adp-wrap comment-scrollbar">
-                    <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
                             <li>
-                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
-
+                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
                             </li>
                             <li>
-                                <a class="has-arrow" href="index.html">
+                                <a class="has-arrow" href="">
                                     <i class="icon nalika-table icon-wrap"></i>
                                     <span class="mini-click-non">Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Product List" href="product-list.jsp"><span class="mini-sub-pro">Product List</span></a></li>
-                                    <li><a title="Product Edit" href="product-edit.html"><span class="mini-sub-pro">Product Edit</span></a></li>
+                                    <li><a title="Product List" href="ProductListServlet"><span class="mini-sub-pro">Product List</span></a></li>
+                                    <li><a title="Product Edit" href="insertProductServlet"><span class="mini-sub-pro">Add/Edit Product</span></a></li>
                                 </ul>
                             </li>
-
-
                             <li>
-                                <a class="has-arrow" href="all-students.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="All Users" href="user-list.jsp"><span class="mini-sub-pro">All Users</span></a></li>
-                                    <li><a title="Edit User" href="user-edit.html"><span class="mini-sub-pro">Edit User</span></a></li>
+                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro">All Users</span></a></li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a  href="AddAdminServlet" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -159,7 +161,7 @@
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                    <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    <li><a href="/ecommerce/admin/login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                     </li>
 
 
@@ -181,30 +183,21 @@
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
                                             <li>
-                                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+                                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="/ecommerce/admin/product-list.jsp">Product List</a></li>
-                                                    <li><a href="/ecommerce/admin/product-edit.html">Product Edit</a></li>
+                                                    <li><a href="ProductListServlet">Product List</a></li>
+                                                    <li><a href="insertProductServlet">Product Edit</a></li>
                                                 </ul>
                                             </li>
-
-
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="/ecommerce/admin/user-list.jsp">All user</a></li>
-                                                    <li><a href="/ecommerce/admin/user-edit.html">Edit user</a></li>
-
+                                                    <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-
-
+                                                <li><a href="AddAdminServlet">Add admin</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -242,10 +235,7 @@
                 <div class="row admin text-center">
                     <div class="col-md-12">
                         <div class="row">
-                            <!-- some of statistics frist beginning show start-->
-
-
-                            <!-- some of statistics frist beginning show ennnndd-->
+                            
                         </div>
                     </div>
                 </div>
@@ -253,9 +243,6 @@
                     <div class="container-fluid">
                         <div class="row">
 
-                            <!-- some of product start-->
-
-                            <!-- some of product end-->
                         </div>
                     </div>
                 </div>
@@ -264,7 +251,11 @@
                     <div class="container-fluid">
                         <div class="row" >
                             <!-- some of product start-->
-
+                            <div id="piechart"></div>
+                            <script type="text/javascript">
+                                    google.charts.load('current', {'packages':['corechart']});
+                                    google.charts.setOnLoadCallback(drawChart);
+                            </script>
                             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div class="white-box res-mg-t-30 table-mg-t-pro-n">
                                     <h3 class="box-title">Visits from countries</h3>
@@ -305,20 +296,6 @@
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
-
-
-
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="charts-single-pro responsive-mg-b-30">
-                                    <div class="alert-title">
-                                        <h2>Pie Chart</h2>
-                                        <p>A bar chart provides a way of showing data values. It is sometimes used to show trend data. we create a bar chart for a single dataset and render that in our page.</p>
-                                    </div>
-                                    <div id="pie-chart">
-                                        <canvas id="piechart"></canvas>
-                                    </div>
                                 </div>
                             </div>
 

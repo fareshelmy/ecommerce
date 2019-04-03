@@ -86,7 +86,7 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                        <a href="#"><img src="admin/img/notification/4.jpg" alt="" /></a>
+                      
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -95,33 +95,27 @@
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
                             <li>
-                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
-
+                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
                             </li>
-                            <li >
-                                <a class="has-arrow" href="index.html">
+                            <li>
+                                <a class="has-arrow" href="">
                                     <i class="icon nalika-table icon-wrap"></i>
                                     <span class="mini-click-non">Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Product List" href="product-list.jsp"><span class="mini-sub-pro">Product List</span></a></li>
-                                    <li><a title="Product Edit" href="product-edit.html"><span class="mini-sub-pro">Product Edit</span></a></li>
+                                    <li><a title="Product List" href="ProductListServlet"><span class="mini-sub-pro">Product List</span></a></li>
+                                    <li><a title="Product Edit" href="insertProductServlet"><span class="mini-sub-pro">Add/Edit Product</span></a></li>
                                 </ul>
                             </li>
-
-
                             <li>
-                                <a class="has-arrow" href="all-students.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="All Users" href="user-list.jsp"><span class="mini-sub-pro">All Users</span></a></li>
-                                    <li><a title="Edit User" href="user-edit.html"><span class="mini-sub-pro">Edit User</span></a></li>
+                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro">All Users</span></a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a  href="Add-.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
-
+                                <a  href="AddAdminServlet" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
                             </li>
-
                         </ul>
                     </nav>
                 </div>
@@ -187,31 +181,22 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
-                                            <li>
-                                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+                                          <li>
+                                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="product-list.html">Product List</a></li>
-                                                    <li><a href="product-edit.html">Product Edit</a></li>
+                                                    <li><a href="ProductListServlet">Product List</a></li>
+                                                    <li><a href="insertProductServlet">Product Edit</a></li>
                                                 </ul>
                                             </li>
-
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="user-list.html">All user</a></li>
-                                                    <li><a href="user-edit.html">Edit user</a></li>
-
+                                                    <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-
-
-                                        </ul>
+                                                <li><a href="AddAdminServlet">Add admin</a></li> </ul>
                                     </nav>
                                 </div>
                             </div>
@@ -281,7 +266,7 @@
                                             <li><a href="#reviews"><span><i class="fa fa-star"></i></span> More details :</a></li>
                                         </ul>
                                         <div id="myTabContent" class="tab-content">
-                                            
+
                                             <div class="product-tab-list tab-pane fade" id="reviews">
                                                 <div class="row">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -292,7 +277,7 @@
                                                                         <div class="txt-primary f-18 f-w-600">
                                                                             <p>Your Rating</p>
                                                                         </div>
-                                                                      
+
                                                                     </div>
                                                                     <div class="input-group mg-b-15 mg-t-15">
                                                                         <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
@@ -306,17 +291,18 @@
                                                                         <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
                                                                         <input type="text" class="form-control" placeholder="Job : ${currentUser.job} ">
                                                                     </div>
-                                                                         <div class="input-group mg-b-15">
+                                                                    <div class="input-group mg-b-15">
                                                                         <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                                                                         <input type="text" class="form-control" placeholder="credit Limit ${currentUser.creditLimit}">
-                                                                   
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
-                                           
                                         </div>
                                     </div>
                                 </div>
@@ -324,68 +310,67 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-copyright-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
+                <div class="footer-copyright-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- jquery
-                    ============================================ -->
-        <script src="admin/js/vendor/jquery-1.12.4.min.js"></script>
-        <!-- bootstrap JS
-                    ============================================ -->
-        <script src="admin/js/bootstrap.min.js"></script>
-        <!-- wow JS
-                    ============================================ -->
-        <script src="admin/js/wow.min.js"></script>
-        <!-- price-slider JS
-                    ============================================ -->
-        <script src="admin/js/jquery-price-slider.js"></script>
-        <!-- meanmenu JS
-                    ============================================ -->
-        <script src="admin/js/jquery.meanmenu.js"></script>
-        <!-- owl.carousel JS
-                    ============================================ -->
-        <script src="admin/js/owl.carousel.min.js"></script>
-        <!-- sticky JS
-                    ============================================ -->
-        <script src="admin/js/jquery.sticky.js"></script>
-        <!-- scrollUp JS
-                    ============================================ -->
-        <script src="admin/js/jquery.scrollUp.min.js"></script>
-        <!-- mCustomScrollbar JS
-                    ============================================ -->
-        <script src="admin/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="admin/js/scrollbar/mCustomScrollbar-active.js"></script>
-        <!-- metisMenu JS
-                    ============================================ -->
-        <script src="admin/js/metisMenu/metisMenu.min.js"></script>
-        <script src="admin/js/metisMenu/metisMenu-active.js"></script>
-        <!-- morrisjs JS
-                    ============================================ -->
-        <script src="admin/js/sparkline/jquery.sparkline.min.js"></script>
-        <script src="admin/js/sparkline/jquery.charts-sparkline.js"></script>
-        <!-- calendar JS
-                    ============================================ -->
-        <script src="admin/js/calendar/moment.min.js"></script>
-        <script src="admin/js/calendar/fullcalendar.min.js"></script>
-        <script src="admin/js/calendar/fullcalendar-active.js"></script>
-        <!-- tab JS
-                    ============================================ -->
-        <script src="admin/js/tab.js"></script>
-        <!-- plugins JS
-                    ============================================ -->
-        <script src="admin/js/plugins.js"></script>
-        <!-- main JS
-                    ============================================ -->
-        <script src="admin/js/main.js"></script>
+            <!-- jquery
+                        ============================================ -->
+            <script src="admin/js/vendor/jquery-1.12.4.min.js"></script>
+            <!-- bootstrap JS
+                        ============================================ -->
+            <script src="admin/js/bootstrap.min.js"></script>
+            <!-- wow JS
+                        ============================================ -->
+            <script src="admin/js/wow.min.js"></script>
+            <!-- price-slider JS
+                        ============================================ -->
+            <script src="admin/js/jquery-price-slider.js"></script>
+            <!-- meanmenu JS
+                        ============================================ -->
+            <script src="admin/js/jquery.meanmenu.js"></script>
+            <!-- owl.carousel JS
+                        ============================================ -->
+            <script src="admin/js/owl.carousel.min.js"></script>
+            <!-- sticky JS
+                        ============================================ -->
+            <script src="admin/js/jquery.sticky.js"></script>
+            <!-- scrollUp JS
+                        ============================================ -->
+            <script src="admin/js/jquery.scrollUp.min.js"></script>
+            <!-- mCustomScrollbar JS
+                        ============================================ -->
+            <script src="admin/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+            <script src="admin/js/scrollbar/mCustomScrollbar-active.js"></script>
+            <!-- metisMenu JS
+                        ============================================ -->
+            <script src="admin/js/metisMenu/metisMenu.min.js"></script>
+            <script src="admin/js/metisMenu/metisMenu-active.js"></script>
+            <!-- morrisjs JS
+                        ============================================ -->
+            <script src="admin/js/sparkline/jquery.sparkline.min.js"></script>
+            <script src="admin/js/sparkline/jquery.charts-sparkline.js"></script>
+            <!-- calendar JS
+                        ============================================ -->
+            <script src="admin/js/calendar/moment.min.js"></script>
+            <script src="admin/js/calendar/fullcalendar.min.js"></script>
+            <script src="admin/js/calendar/fullcalendar-active.js"></script>
+            <!-- tab JS
+                        ============================================ -->
+            <script src="admin/js/tab.js"></script>
+            <!-- plugins JS
+                        ============================================ -->
+            <script src="admin/js/plugins.js"></script>
+            <!-- main JS
+                        ============================================ -->
+            <script src="admin/js/main.js"></script>
     </body>
 
 </html>

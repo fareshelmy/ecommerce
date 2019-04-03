@@ -1,3 +1,4 @@
+
 package model.entity;
 
 import java.util.HashSet;
