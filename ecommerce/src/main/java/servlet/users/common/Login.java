@@ -5,10 +5,13 @@ package servlet.users.common;
  * @author Zainab
  */
 import java.io.*;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
+import model.dao.ProductDAO;
 import model.dao.UserDAO;
+import model.entity.Product;
 import model.entity.User;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -35,6 +38,9 @@ public class Login extends HttpServlet {
                     request.setAttribute("invalidData", "");
                     HttpSession session = request.getSession(true);
                     session.setAttribute("loggedIn", "true");
+                    session.setAttribute("username", user.getUsername());
+                    session.setAttribute("email", user.getEmail());
+                    response.sendRedirect("customer/homeAction");
                     session.setAttribute("userId", persistentUser.getEmail());
                     session.setAttribute("userRole", persistentUser.getRole());
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
