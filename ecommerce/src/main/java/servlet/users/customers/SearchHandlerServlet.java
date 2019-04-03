@@ -69,7 +69,7 @@ public class SearchHandlerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         populateBean(req);
 //        req.getRequestDispatcher("/customer/pages/store.jsp").forward(req, resp);
-        resp.sendRedirect("/customer/pages/store.jsp");
+        resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
     }
 
     private void populateBean(HttpServletRequest req) {
@@ -87,10 +87,16 @@ public class SearchHandlerServlet extends HttpServlet {
     private void doSearch(HttpServletRequest req, SearchCriteria searchCriteria) {
         HttpSession session = req.getSession(false);
         if (session != null) {
+            System.out.println("Inside do search mertohs");
             List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             searchCriteria.setSelectedCategories(categoryList);
             List<Product> searchResult = new SearchService().getSearchResult(searchCriteria);
             session.setAttribute("searchedResults", searchResult);
+            List<Product> test = (List<Product>) session.getAttribute("searchedResults");
+            test.forEach((t) -> {
+                
+                System.out.println(t.getName());
+            });
         }
     }
 

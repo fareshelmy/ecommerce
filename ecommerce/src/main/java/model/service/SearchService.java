@@ -37,13 +37,15 @@ public class SearchService {
         ProductDAO productDAO = new ProductDAO();
         List<Product> products = null;
         String searchBarCategory = searchCriteria.getSearchBarCategory();
-        String productSubString = searchCriteria.getProductSubString();
+        String productSubString = searchCriteria.getProductSubString().trim();
         List<String> selectedCategories = searchCriteria.getSelectedCategories();
         
         //customer entered a specific product
         if (productSubString != null && productSubString.length() > 0) {
+            
+            
             //customer specified a bar category
-            if (!searchBarCategory.equalsIgnoreCase("All Products")) {
+            if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
                 products = categoryDAO.retrieveByProductAndCategory(searchBarCategory, productSubString);
             } // customer didn't specify a category
             else {
@@ -51,11 +53,13 @@ public class SearchService {
             }
         }   //Customer didnt specify a product name, only category 
         else{
+            System.out.println("ay 7aga wnaby");
             //customer specified a bar category
-            if (!searchBarCategory.equalsIgnoreCase("All Products")) {
+            if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
                 products = categoryDAO.getCategoryProducts(searchBarCategory);
             } // customer didn't specify a category
             else {
+                System.out.println("User doesnt specify neither a cat");
                 products = productDAO.retrieveAll();
             }
             
