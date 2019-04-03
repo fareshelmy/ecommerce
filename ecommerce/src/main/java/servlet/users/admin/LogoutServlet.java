@@ -26,10 +26,11 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
-        //session.invalidate();       
-        session.setAttribute("loggedIn", "false");
+        session.invalidate();
+        //  session.setAttribute("loggedIn", "false");
         out.println("You are successfully logged out!");
-        ServletContext servletContext = getServletContext();
-        out.close();
+        // out.close();
+        response.sendRedirect("/ecommerce/customer/pages/login.jsp");
     }
+
 }

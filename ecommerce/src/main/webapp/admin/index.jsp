@@ -159,7 +159,7 @@
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                    <li><a href="/ecommerce/admin/login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                     </li>
 
 
