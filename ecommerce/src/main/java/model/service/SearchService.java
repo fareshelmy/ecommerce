@@ -13,7 +13,7 @@ import model.entity.Product;
  * @author FARES-LAP
  */
 public class SearchService {
-    public List<Product> getSearchResult(){
+    public List<Product> getSearchResult(SearchCriteria searchCriteria){
         return null;
     }
 }

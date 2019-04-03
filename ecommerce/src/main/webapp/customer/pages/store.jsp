@@ -41,7 +41,10 @@
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="categories">
+                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("customer/searchHandler?category=Meat")'
+                                   <c:if test="${sessionScope.Meat} == null">
+                                       checked="checked"
+                                   </c:if>>
                             <label for="category-1">
                                 <span></span>
                                 Meat & Poultry
@@ -50,7 +53,10 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="categories">
+                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("customer/searchHandler?category=Seafood")'
+                                   <c:if test="${sessionScope.Seafood} == null">
+                                       checked="checked"
+                                   </c:if>>
                             <label for="category-2">
                                 <span></span>
                                 Seafood
@@ -59,7 +65,10 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="categories">
+                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("customer/searchHandler?category=Fruits")'
+                                   <c:if test="${sessionScope.Fruits} == null">
+                                       checked="checked"
+                                   </c:if>>
                             <label for="category-3">
                                 <span></span>
                                 Fruits & Vegetables
@@ -68,7 +77,10 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="categories">
+                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("customer/searchHandler?category=Bakery")'
+                                   <c:if test="${sessionScope.Bakery} == null">
+                                       checked="checked"
+                                   </c:if>>
                             <label for="category-4">
                                 <span></span>
                                 Bakery & Pastry
@@ -77,7 +89,10 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="categories">
+                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("customer/searchHandler?category=Cheese")'
+                                   <c:if test="${sessionScope.Cheese} == null">
+                                       checked="checked"
+                                   </c:if>>
                             <label for="category-5">
                                 <span></span>
                                 Cheese & Dairy
@@ -86,7 +101,10 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="categories">
+                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("customer/searchHandler?category=Desserts")'
+                                   <c:if test="${sessionScope.Desserts} == null">
+                                       checked="checked"
+                                   </c:if>>
                             <label for="category-6">
                                 <span></span>
                                 Desserts & Sweets
@@ -95,7 +113,10 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" id="categories">
+                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("customer/searchHandler?category=Home")'
+                                   <c:if test="${sessionScope.Home} == null">
+                                       checked="checked"
+                                   </c:if>>
                             <label for="category-6">
                                 <span></span>
                                 Home & Garden
