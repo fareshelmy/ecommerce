@@ -77,9 +77,9 @@
                         <ul class="section-tab-nav tab-nav">
                             <li class="active"><a data-toggle="tab" href="customer/homeAction?newCategoryName=All Categories">All Categories</a></li>
                             <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Meat">Meat</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=${fn:escapeXml("Seafood")}">Seafood</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=${fn:escapeXml("Fruits & Vegetables")}">Fruits & Vegetables</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=${fn:escapeXml("Bakery & Pastry")}">Bakery & Pastry</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Seafood">Seafood</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Fruits & Vegetables">Fruits & Vegetables</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Bakery & Pastry">Bakery & Pastry</a></li>
                         </ul>
                     </div>
                 </div>

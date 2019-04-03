@@ -15,7 +15,7 @@ import model.entity.Product;
 import model.entity.User;
 import org.apache.commons.beanutils.BeanUtils;
 
-@WebServlet(value = "/login")
+@WebServlet(urlPatterns = {"/login"})
 public class Login extends HttpServlet {
 
     @Override

@@ -63,7 +63,6 @@ public class HomeServlet extends HttpServlet {
         
         response.sendRedirect("pages/index.jsp");
      }
-    
 
 }
 /*
