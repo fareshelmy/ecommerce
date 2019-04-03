@@ -135,7 +135,7 @@
                                 <div class="form-group divider">
                                     <hr class="left"><small>New to site?</small>
                                 </div>
-                                <p class="form-group"><a href="#" class="primary-btn order-submit" id="registerBtn">Create an account</a></p>
+                                <p class="form-group"><a href="/ecommerce/customer/pages/register.jsp" class="primary-btn order-submit" id="registerBtn">Create an account</a></p>
                                 <p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
                             </form>
                         </div>
