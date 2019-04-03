@@ -4,7 +4,7 @@
     Author     : Mohamed
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!-- BREADCRUMB -->
@@ -41,10 +41,11 @@
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("customer/searchHandler?category=Meat")'
-                                   <c:if test="${sessionScope.Meat} == null">
-                                       checked="checked"
-                                   </c:if>>
+                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Meat")' 
+                                   <c:if test="${sessionScope.selectedCategory == 'select'}">
+                                       checked
+                                   </c:if>
+                                       >
                             <label for="category-1">
                                 <span></span>
                                 Meat & Poultry
@@ -53,8 +54,8 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("customer/searchHandler?category=Seafood")'
-                                   <c:if test="${sessionScope.Seafood} == null">
+                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Seafood")'
+                                   <c:if test="${sessionScope.Seafood != null}">
                                        checked="checked"
                                    </c:if>>
                             <label for="category-2">
@@ -65,8 +66,8 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("customer/searchHandler?category=Fruits")'
-                                   <c:if test="${sessionScope.Fruits} == null">
+                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Fruits")'
+                                   <c:if test="${sessionScope.Fruits} != null">
                                        checked="checked"
                                    </c:if>>
                             <label for="category-3">
@@ -77,8 +78,8 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("customer/searchHandler?category=Bakery")'
-                                   <c:if test="${sessionScope.Bakery} == null">
+                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Bakery")'
+                                   <c:if test="${sessionScope.Bakery} != null">
                                        checked="checked"
                                    </c:if>>
                             <label for="category-4">
@@ -89,8 +90,8 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("customer/searchHandler?category=Cheese")'
-                                   <c:if test="${sessionScope.Cheese} == null">
+                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Cheese")'
+                                   <c:if test="${sessionScope.Cheese} != null">
                                        checked="checked"
                                    </c:if>>
                             <label for="category-5">
@@ -101,8 +102,8 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("customer/searchHandler?category=Desserts")'
-                                   <c:if test="${sessionScope.Desserts} == null">
+                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Desserts")'
+                                   <c:if test="${sessionScope.Desserts} != null">
                                        checked="checked"
                                    </c:if>>
                             <label for="category-6">
@@ -113,11 +114,11 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("customer/searchHandler?category=Home")'
-                                   <c:if test="${sessionScope.Home} == null">
+                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Home")'
+                                   <c:if test="${sessionScope.Home} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-6">
+                            <label for="category-7">
                                 <span></span>
                                 Home & Garden
                                 <small>(740)</small>
@@ -178,6 +179,7 @@
                 <!-- store products -->
                 <div class="row">
                     <!-- product -->
+                    <input type="text" placeholder="${selectedCategory}" />
                     <c:forEach items="${requestScope.products}" var="product">
                         <div class="col-md-4 col-xs-6">
                             <div class="product">

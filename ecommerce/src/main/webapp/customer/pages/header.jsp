@@ -91,7 +91,7 @@
                         <!-- SEARCH BAR -->
                         <div class="col-md-6">
                             <div class="header-search">
-                                <form method="post" action="customer/searchHandler">
+                                <form method="post" action="/ecommerce/customer/searchHandler">
                                     <select class="input-select" name="searchBarCategory">
                                         <option value="All Categories">All Categories</option>
                                         <option value="Meat & Poultry">Meat & Poultry</option>

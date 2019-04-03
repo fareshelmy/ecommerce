@@ -27,7 +27,6 @@ public class Login extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            System.out.println("Here");
             User user = new User();
             BeanUtils.populate(user, request.getParameterMap());
             UserDAO userDao = new UserDAO();
