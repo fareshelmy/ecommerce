@@ -28,7 +28,7 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Meat & Poultry'),(2,'Seafood'),(3,'Fresh Fruits, Vegetables & Herbs'),(4,'Bakery & Pastry'),(5,'Cheese, Dairy & Deli'),(6,'Desserts & Sweets');
+INSERT INTO `category` VALUES (3,'Meat & Poultry'),(4,'Seafood'),(5,'Fruits & Vegetables'),(6,'Bakery & Pastry'),(7,'Cheese, Dairy & Deli'),(8,'Desserts & Sweets'),(9,'Home & Garden');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,6 +93,7 @@ CREATE TABLE `order_item` (
 
 LOCK TABLES `order_item` WRITE;
 /*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
+INSERT INTO `order_item` VALUES (2,7,10,0),(2,8,1,0),(3,8,1,0);
 /*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,16 +110,17 @@ CREATE TABLE `product` (
   `price` double NOT NULL,
   `rating` double DEFAULT '3',
   `category_id` int(11) DEFAULT NULL,
-  `image` varchar(1000) NOT NULL DEFAULT '\\img\\products\\No_Image_Available.jpg',
+  `image` varchar(1000) NOT NULL,
   `amount` double DEFAULT NULL,
   `unit` varchar(45) DEFAULT NULL,
   `quantity` int(11) NOT NULL DEFAULT '0',
   `description` varchar(1000) DEFAULT 'No description available.',
   `items_sold` int(11) NOT NULL DEFAULT '0',
+  `entrance_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `product_categoryid_fk_idx` (`category_id`),
   CONSTRAINT `product_categoryid_fk` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +129,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (15,'22wqd',23,NULL,NULL,'\\img\\products\\product1.jpg',1,'g',2,'we',0),(16,'ewreqr',213,3,NULL,'\\img\\products\\No_Image_Available.jpg',3,'g',2,'err',0);
+INSERT INTO `product` VALUES (7,'Rice',20,3,4,'/ecommerce/img/products/product03.png',20,NULL,10,NULL,0,'2019-04-02 23:41:51'),(8,'Macroni',100,3,4,'/ecommerce/img/products/product03.png',50,NULL,40,NULL,0,'2019-04-02 23:41:51'),(9,'Bread',50,5,6,'/ecommerce/img/products/product03.png',42,NULL,454,'No description available.',0,'2019-04-03 00:18:34'),(10,'Break',10,5,6,'/ecommerce/img/products/product03.png',100,NULL,214,'No description available.',0,'2019-04-03 00:20:40');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,7 +159,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('Hamada@gmail.com','Hamada','Password',NULL,'copier',NULL,1000,'user'),('Mohamed@gmail.com','Mohamed','Password',NULL,'Engineer',NULL,0,'user');
+INSERT INTO `user` VALUES ('Ahmed@gmail.com','Ahmed','Ahmed',NULL,'Engineer','asdfasdf',0,'user'),('Alaa@gmail.com','Alaa','Alaa','2012-10-09 22:00:00','asdfasdfasdf','asdfasdfasdf',1000,'user'),('Albert@gmail.com','Albert','Einstein','2019-03-31 22:00:00','Scientist','Fayoum, Cairo',1000,'user'),('Amr@gmail.com','Amr','Amr','2019-03-31 22:00:00','Engineer','Fayoum, Cairo',1000,'user'),('Aziz@gmail.com','Aziz','Man','2010-10-09 22:00:00','Eng','asdfasdf',1000,'user'),('Emad@gmail.com','Emad','asdf','2012-12-11 22:00:00','Engineer','Fayoum, Cairo',1000,'user'),('Far@gmail.com','Fares','asdfasd','2010-01-31 22:00:00','asdfasd','asdfa',1000,'user'),('Fares@gmail.com','Fares','Fares','2010-01-31 22:00:00','asdfasd','asdfa',1000,'user'),('Gemy@gmail.com','Gemy','123','2010-10-09 22:00:00','alsdkfjlskd','sdflkjasldkj',10000,'user'),('Hamada@gmail.com','Hamada','Password',NULL,'copier',NULL,1000,'user'),('HamadaAbdrabou96@gmail.com','','',NULL,'','',0,'user'),('Mohamed@gmail.com','Mohamed','Password',NULL,'Engineer',NULL,0,'user');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,4 +198,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-30 14:39:48
+-- Dump completed on 2019-04-03 20:29:53
