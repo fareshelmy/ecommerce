@@ -134,6 +134,10 @@ public class OrderItemDAO implements DAO<OrderItem> {
                 }
             }
         }
+        for(Product product:categorizedProducts){
+            product.getName();
+            product.getCategory().getName();
+        }
         session.getTransaction().commit();
         return categorizedProducts;
            

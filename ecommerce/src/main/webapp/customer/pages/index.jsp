@@ -75,11 +75,14 @@
                     <h3 class="title">New Products</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="customer/homeAction?newCategoryName=All Categories">All Categories</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Meat">Meat</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Seafood">Seafood</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Fruits & Vegetables">Fruits & Vegetables</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Bakery & Pastry">Bakery & Pastry</a></li>
+                            <li class="active"><a href="/ecommerce/home?newCategoryName=All%20Categories">All Categories</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Meat%20%26%20Poultry">Meat</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Seafood">Seafood</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Fruits%20%26%20Vegetables">Fruits</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Bakery%20%26%20Pastry">Bakery</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Desserts%20%26%20Sweets">Desserts</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Home%20%26%20Garden">Home</a></li>
                         </ul>
                     </div>
                 </div>
@@ -156,11 +159,14 @@
                     <h3 class="title">Top selling</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("All Categories")}">All Categories</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("Meat")}">Meat</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("Seafood")}">Seafood</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("Fruits& Vegetables")}">Fruits& Vegetables</a></li>
-                            <li><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("Bakery & Pastry")}">Bakery & Pastry</a></li>
+                            <li class="active"><a href="/ecommerce/home?topCategoryName=All%20Categories">All Categories</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Meat%20%26%20Poultry">Meat</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Seafood">Seafood</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Fruits%20%26%20Vegetables">Fruits</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Bakery%20%26%20Pastry">Bakery</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Desserts%20%26%20Sweets">Desserts</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Home%20%26%20Garden">Home</a></li>
                         </ul>
 
                     </div>
