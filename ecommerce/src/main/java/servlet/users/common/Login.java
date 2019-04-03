@@ -5,10 +5,13 @@ package servlet.users.common;
  * @author Zainab
  */
 import java.io.*;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
+import model.dao.ProductDAO;
 import model.dao.UserDAO;
+import model.entity.Product;
 import model.entity.User;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -32,13 +35,15 @@ public class Login extends HttpServlet {
             if (persistentUser != null) {
                 //The user exists in the database
                 if (persistentUser.getPassword().equals(user.getPassword())) {
-                    request.removeAttribute("password");
                     request.setAttribute("invalidData", "");
                     HttpSession session = request.getSession(true);
                     session.setAttribute("loggedIn", "true");
-                    session.setAttribute("userId", user.getEmail());
-                    session.setAttribute("userRole", user.getRole());
-                    if (user.getRole().equalsIgnoreCase("user")) {
+                    session.setAttribute("username", user.getUsername());
+                    session.setAttribute("email", user.getEmail());
+                    response.sendRedirect("customer/homeAction");
+                    session.setAttribute("userId", persistentUser.getEmail());
+                    session.setAttribute("userRole", persistentUser.getRole());
+                    if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
                         RequestDispatcher rd = request.getRequestDispatcher("customer/pages/product.jsp");
                         rd.forward(request, response);
