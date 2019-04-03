@@ -45,7 +45,7 @@
                                    <c:if test="${sessionScope.selectedCategory == 'select'}">
                                        checked
                                    </c:if>
-                                       >
+                                   >
                             <label for="category-1">
                                 <span></span>
                                 Meat & Poultry
@@ -179,20 +179,20 @@
                 <!-- store products -->
                 <div class="row">
                     <!-- product -->
-                    <input type="text" placeholder="${selectedCategory}" />
-                    <c:forEach items="${requestScope.products}" var="product">
+
+                    <c:forEach items="${sessionScope.searchedResults}" var="product">
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
                                 <div class="product-img">
-                                    <a href="customer/viewProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a>
+                                    <img src="${product.image}" alt="Image" />
                                     <div class="product-label">
                                         <span class="new">NEW</span>
                                     </div>
                                 </div>
                                 <div class="product-body">
-                                    <p class="product-category">${product.category}</p>
+                                    <p class="product-category">${product.category.name}</p>
                                     <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
-                                    <h4 class="product-price">${product.price} <del class="product-old-price">${product.price}</del></h4>
+                                    <h4 class="product-price">EGP${product.price}</h4>
                                     <div class="product-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -212,26 +212,27 @@
                         </div>
                     </c:forEach>
                     <!-- /product -->
-                    <!--    /try to know what it happen if i put it -->
-                    <div class="clearfix visible-sm visible-xs"></div>
-                    <!-- /product -->
-                    <!-- store bottom filter -->
-                    <div class="store-filter clearfix">
-                        <span class="store-qty">Showing 20-100 products</span>
-                        <ul class="store-pagination">
-                            <li class="active">1</li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- /store bottom filter -->
                 </div>
-                <!-- /STORE -->
+                <!--    /try to know what it happen if i put it -->
+                <div class="clearfix visible-sm visible-xs"></div>
+                <!-- /product -->
+                <!-- store bottom filter -->
+                <div class="store-filter clearfix">
+                    <span class="store-qty">Showing 20-100 products</span>
+                    <ul class="store-pagination">
+                        <li class="active">1</li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+                <!-- /store bottom filter -->
             </div>
-            <!-- /row -->
+            <!-- /STORE -->
         </div>
-        <!-- /container -->
+        <!-- /row -->
     </div>
-    <!-- /SECTION -->
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

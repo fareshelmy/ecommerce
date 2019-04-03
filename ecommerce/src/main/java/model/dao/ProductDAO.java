@@ -7,6 +7,7 @@ import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -66,15 +67,16 @@ public class ProductDAO implements DAO<Product> {
     }
 
     @Override
-       public List<Product> getByColumnNames(String[] columnNames, Object[] columnValues) {
+    public List<Product> getByColumnNames(String[] columnNames, Object[] columnValues) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
         for (int i = 0; i < columnNames.length; i++) {
-            if(columnValues[i] instanceof String)
-                productCriteria = productCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i]));
-            else
+            if (columnValues[i] instanceof String) {
+                productCriteria = productCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i].toString(), MatchMode.ANYWHERE));
+            } else {
                 productCriteria = productCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
+            }
         }
         List subsetProduct = productCriteria.list();
         session.getTransaction().commit();
