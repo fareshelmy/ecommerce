@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.entity.Product;
 import model.service.SearchCriteria;
 import model.service.SearchService;
 import org.apache.commons.beanutils.BeanUtils;
@@ -88,7 +89,8 @@ public class SearchHandlerServlet extends HttpServlet {
         if (session != null) {
             List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             searchCriteria.setSelectedCategories(categoryList);
-            new SearchService().getSearchResult(searchCriteria);
+            List<Product> searchResult = new SearchService().getSearchResult(searchCriteria);
+            session.setAttribute("searchedResults", searchResult);
         }
     }
 

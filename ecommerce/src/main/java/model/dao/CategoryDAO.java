@@ -97,8 +97,6 @@ public class CategoryDAO implements DAO<Category> {
         productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
-        categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName));
-        categoryCriteria = categoryCriteria.addOrder(Order.asc("entranceDate"));
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;

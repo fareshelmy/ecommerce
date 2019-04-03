@@ -63,11 +63,7 @@ public class HomeServlet extends HttpServlet {
         
         response.sendRedirect("pages/index.jsp");
      }
-    @Override 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-        response.setContentType("text/html;charset=UTF-8");
-        
-    }
+    
 
 }
 /*

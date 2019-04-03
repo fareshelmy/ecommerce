@@ -180,7 +180,7 @@
                 <div class="row">
                     <!-- product -->
                     <input type="text" placeholder="${selectedCategory}" />
-                    <c:forEach items="${requestScope.products}" var="product">
+                    <c:forEach items="${sessionScope.searchedResults}" var="product">
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
                                 <div class="product-img">
