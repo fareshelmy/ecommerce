@@ -20,7 +20,7 @@ import model.entity.User;
  * @author Mayada Khaled
  */
 @WebServlet(name = "ViewUserServlet", urlPatterns = {"/ViewUserServlet"})
-public class ViewUserServlet extends HttpServlet {
+public class ViewUserdetailsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +31,7 @@ public class ViewUserServlet extends HttpServlet {
         User user = userDao.retrieve(Integer.parseInt(userId));
         if (user != null) {
             request.setAttribute("currentUser", user);
-            request.getRequestDispatcher("admin/user-detail.jsp").include(request, response);
+            request.getRequestDispatcher("admin/user-edit.jsp").include(request, response);
         }
 
     }

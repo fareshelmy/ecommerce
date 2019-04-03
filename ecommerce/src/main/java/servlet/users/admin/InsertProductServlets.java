@@ -122,4 +122,10 @@ public class InsertProductServlets extends HttpServlet {
         return imageName;
     }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //req.getRequestDispatcher("admin/user-edit.jsp").include(req, resp);
+    }
+    
+
 }

@@ -19,7 +19,7 @@ import model.entity.Product;
  *
  * @author FARES-LAP
  */
-@WebServlet(urlPatterns = {"/admin/ProductListServlet"}, name = "ProductListServlet")
+@WebServlet(urlPatterns = {"/ProductListServlet"}, name = "ProductListServlet")
 public class ProductListServlet extends HttpServlet {
 
     @Override

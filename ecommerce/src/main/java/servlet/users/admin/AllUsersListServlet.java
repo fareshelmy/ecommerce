@@ -21,7 +21,7 @@ import model.entity.User;
  *
  * @author Mayada Khaled
  */
-@WebServlet(name = "AllUsersListServlet", urlPatterns = {"/admin/AllUsersListServlet"})
+@WebServlet(name = "AllUsersListServlet", urlPatterns = {"/AllUsersListServlet"})
 public class AllUsersListServlet extends HttpServlet {
 
     @Override
