@@ -81,7 +81,6 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                        <a href="#"><img src="admin/img/notification/4.jpg" alt="" /></a>
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -89,33 +88,28 @@
                 <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
-                            <li>
-                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
-
+                             <li>
+                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
                             </li>
                             <li>
-                                <a class="has-arrow" href="index.html">
+                                <a class="has-arrow" href="">
                                     <i class="icon nalika-table icon-wrap"></i>
                                     <span class="mini-click-non">Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Product List" href="product-list.jsp"><span class="mini-sub-pro">Product List</span></a></li>
-                                    <li><a title="Product Edit" href="product-edit.html"><span class="mini-sub-pro">Product Edit</span></a></li>
+                                    <li><a title="Product List" href="ProductListServlet"><span class="mini-sub-pro">Product List</span></a></li>
+                                    <li><a title="Product Edit" href="insertProductServlet"><span class="mini-sub-pro">Add/Edit Product</span></a></li>
                                 </ul>
                             </li>
-
                             <li>
-                                <a class="has-arrow" href="all-students.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="All Users" href="user-list.jsp"><span class="mini-sub-pro">All Users</span></a></li>
-                                    <li><a title="Edit User" href="user-edit.html"><span class="mini-sub-pro">Edit User</span></a></li>
+                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro">All Users</span></a></li>
                                 </ul>
                             </li>
-
                             <li>
-                                <a  href="Add-Adnin.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
-
-                            </li> 
+                                <a  href="AddAdminServlet" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -184,33 +178,21 @@
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
                                             <li>
-                                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+                                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="product-list.jsp">Product List</a></li>
-                                                    <li><a href="product-edit.html">Product Edit</a></li>
+                                                    <li><a href="ProductListServlet">Product List</a></li>
+                                                    <li><a href="insertProductServlet">Product Edit</a></li>
                                                 </ul>
                                             </li>
-
-
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="user-list.jsp">All user</a></li>
-                                                    <li><a href="user-edit.html">Edit user</a></li>
-
+                                                    <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <a  href="Add-Adnin.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
-
-                                            </li>
-
+                                                <li><a href="AddAdminServlet">Add admin</a></li>
                                         </ul>
                                     </nav>
                                 </div>

@@ -53,16 +53,20 @@
                         <li><a href="#"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        <li><a href="#"><i class="fa fa-user-o"></i> 
-                                <c:choose>
+                        <li>    
+                            <c:choose>
                                     <c:when test="${sessionScope.loggedIn == 'true'}">
+                                        <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
                                         My Account
+                                        </a>
                                     </c:when>
                                     <c:otherwise>
+                                        <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
                                         Sign In
+                                        </a>
                                     </c:otherwise>
                                 </c:choose>
-                            </a></li>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -87,19 +91,19 @@
                         <!-- SEARCH BAR -->
                         <div class="col-md-6">
                             <div class="header-search">
-                                <form>
-                                    <select class="input-select">
-                                        <option value="0">All Categories</option>
-                                        <option value="1">Meat & Poultry</option>
-                                        <option value="2">Seafood</option>
-                                        <option value="3">Fruits & Vegetables</option>
-                                        <option value="4">Bakery & Pastry</option>
-                                        <option value="5">Cheese, Dairy & Deli</option>
-                                        <option value="6">Desserts & Sweets</option>
-                                        <option value="7">Home & Garden</option>
+                                <form method="post" action="customer/searchHandler">
+                                    <select class="input-select" name="searchBarCategory">
+                                        <option value="All Categories">All Categories</option>
+                                        <option value="Meat & Poultry">Meat & Poultry</option>
+                                        <option value="Seafood">Seafood</option>
+                                        <option value="Fruits & Vegetables">Fruits & Vegetables</option>
+                                        <option value="Bakery & Pastry">Bakery & Pastry</option>
+                                        <option value="Cheese, Dairy & Deli">Cheese, Dairy & Deli</option>
+                                        <option value="Desserts & Sweets">Desserts & Sweets</option>
+                                        <option value="Home & Garden">Home & Garden</option>
                                     </select>
-                                    <input class="input" placeholder="Search here">
-                                    <button class="search-btn">Search</button>
+                                    <input class="input" name="productSubString" placeholder="Search here">
+                                    <button class="search-btn" type="submit">Search</button>
                                 </form>
                             </div>
                         </div>

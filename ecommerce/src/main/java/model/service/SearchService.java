@@ -28,5 +28,10 @@ public class SearchService {
     public List<Product> getTopSelling(String categoryName){
         OrderItemDAO orderItemDao = new OrderItemDAO();
         return orderItemDao.getTopSelling(categoryName);  
+ * @author FARES-LAP
+ */
+public class SearchService {
+    public List<Product> getSearchResult(SearchCriteria searchCriteria){
+        return null;
     }
 }
