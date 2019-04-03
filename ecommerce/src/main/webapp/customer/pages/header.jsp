@@ -53,16 +53,20 @@
                         <li><a href="#"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        <li><a href="#"><i class="fa fa-user-o"></i> 
-                                <c:choose>
+                        <li>    
+                            <c:choose>
                                     <c:when test="${sessionScope.loggedIn == 'true'}">
+                                        <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
                                         My Account
+                                        </a>
                                     </c:when>
                                     <c:otherwise>
+                                        <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
                                         Sign In
+                                        </a>
                                     </c:otherwise>
                                 </c:choose>
-                            </a></li>
+                            </li>
                     </ul>
                 </div>
             </div>

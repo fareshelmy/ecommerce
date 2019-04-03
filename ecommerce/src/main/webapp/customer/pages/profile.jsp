@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>Regiser</title>
+        <title>Profile</title>
 
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -95,10 +95,10 @@
                 <!-- row -->
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="breadcrumb-header">Register</h3>
+                        <h3 class="breadcrumb-header">Profile</h3>
                         <ul class="breadcrumb-tree">
                             <li><a href="#">Home</a></li>
-                            <li class="active">Register</li>
+                            <li class="active">Profile</li>
                         </ul>
                     </div>
                 </div>
@@ -115,49 +115,49 @@
                 <div class="row">
                     <div class="panel panel-primary">
                         <div class="panel-body">
-                            <form method="POST" action="/ecommerce/registerAction" role="form">
+                            <form method="POST" action="profile" role="form">
                                 <div class="form-group">
-                                    <h2>Register</h2>
+                                    <h2>Edit Profile</h2>
                                 </div>
                                 <div class="form-group">
                                     <strong>Username</strong>
-                                    <input id="username" name="username" type="text" maxlength="50" class="form-control" placeholder="Username" value="${param.username}" required>
+                                    <input id="username" name="username" type="text" maxlength="50" class="form-control" placeholder="Username" value="${requestScope.user.username}" required>
                                 </div>
                                 <div class="form-group">
                                     <strong>Email</strong>
-                                    <input id="signinEmail"  name="email"  type="email" maxlength="50" class="form-control" placeholder="Email" value="${param.email}" required>
+                                    <input id="signinEmail"  name="email"  type="email" maxlength="50" class="form-control" placeholder="Email" value="${requestScope.user.email}"  readonly>
                                 </div>
                                 <div style="color: #FF0000;">${invalidEmail}</div>
                                 <div class="form-group">
-                                    <strong>Password</strong>
-                                    <input id="password" name="password" type="password" maxlength="50" class="form-control" placeholder="Password" value="${param.password}" required>
+                                    <strong>New Password</strong>
+                                    <input id="password" name="password" type="password" maxlength="50" class="form-control" placeholder="Password" value="${requestScope.user.password}" required>
                                 </div>
                                 <div class="form-group">
-                                    <strong>Confirm Password</strong>
-                                    <input id="confirmPassword" name="confirmPassword" type="password" maxlength="50" class="form-control" placeholder="Confirm Password" value="${param.confirmPassword}" required>
-                                </div>
+                                    <strong>Confirm New Password</strong>
+                                    <input id="confirmPassword" name="confirmPassword" type="password" maxlength="50" class="form-control" placeholder="Confirm Password" value="${requestScope.user.password}" required>
+                                </div> 
                                 <div id="confirmPasswordError"></div>
                                 
                                 <div class="form-group">
                                     <strong>Credit Limit</strong>
-                                    <input id="creditLimit" name="creditLimit" type="number" min="0" maxlength="50" class="form-control" placeholder="Credit Limit" value="${param.creditLimit}">
+                                    <input id="creditLimit" name="creditLimit" type="number" min="0" maxlength="50" class="form-control" placeholder="Credit Limit" value="${requestScope.user.creditLimit}">
                                 </div>
                                 <div class="form-group">
                                     <strong>Birth Date</strong>							
-                                    <input id="birthday" name="birthday" type="date" maxlength="25" class="form-control" value="${param.birthday}">
+                                    <input id="birthday" name="birthday" type="date" maxlength="25" class="form-control" value="${requestScope.user.birthday}">
                                 </div>
                                 <div class="form-group">
                                     <strong>Address</strong>
-                                    <input id="address" name="address" type="text" maxlength="50" class="form-control" placeholder="Address" value="${param.address}">
+                                    <input id="address" name="address" type="text" maxlength="50" class="form-control" placeholder="Address" value="${requestScope.user.address}">
                                 </div>
                                 <div class="form-group">
                                     <strong>Job</strong>
-                                    <input id="job" name="job" type="text" maxlength="50" class="form-control" placeholder="Job" value="${param.job}">
+                                    <input id="job" name="job" type="text" maxlength="50" class="form-control" placeholder="Job" value="${requestScope.user.job}">
                                 </div>
                                 <div class="form-group">
-                                    <button id="signinSubmit" type="submit" class="primary-btn order-submit">Register</button>
+                                    <button id="signinSubmit" type="submit" class="primary-btn order-submit">Save Profile</button>
                                 </div>
-
+                                <div id="saveMsg" style="color: red"></div>
                             </form>
                         </div>
                     </div>
@@ -252,7 +252,6 @@
         <script src="/ecommerce/customer/js/jquery.zoom.min.js"></script>
         <script src="/ecommerce/customer/js/main.js"></script>
         <script src="/ecommerce/customer/js/validation.js"></script>
-
 
     </body>
 </html>

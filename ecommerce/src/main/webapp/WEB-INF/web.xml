@@ -25,7 +25,6 @@
         <url-pattern>/customer/pages/product.jsp</url-pattern>
         <url-pattern>/customer/pages/store.jsp</url-pattern>
         <url-pattern>/customer/pages/login.jsp</url-pattern>
-        <url-pattern>/customer/pages/register.jsp</url-pattern>
         <url-pattern>/ecommerce/loginrAction</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
