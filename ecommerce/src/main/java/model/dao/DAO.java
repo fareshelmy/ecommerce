@@ -10,7 +10,7 @@ public interface DAO<T extends Entity> {
     public void update(T entity);
     public void delete(T entity);
     public T retrieve(Object primaryKey);
-    public List<T> getByColumnNames(String[] columnNames, String[] columnValues);
+    public List<T> getByColumnNames(String[] columnNames, Object[] columnValues);
     public List<T> getAll(Object entity);
     public List<T> retrieveAll();
 }

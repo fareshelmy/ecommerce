@@ -70,12 +70,15 @@ public class UserDAO implements DAO<User> {
     }
 
     @Override
-       public List<User> getByColumnNames(String[] columnNames, String[] columnValues) {
+       public List<User> getByColumnNames(String[] columnNames, Object[] columnValues) {
         getSession();
         session.getTransaction().begin();
         Criteria userCriteria = session.createCriteria(model.entity.User.class);
         for (int i = 0; i < columnNames.length; i++) {
-            userCriteria = userCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
+            if(columnValues[i] instanceof String)
+                userCriteria = userCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i]));
+            else
+                userCriteria = userCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
         }
         List subsetOrder = userCriteria.list();
         session.getTransaction().commit();

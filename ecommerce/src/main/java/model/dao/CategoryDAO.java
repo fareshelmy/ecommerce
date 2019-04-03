@@ -6,6 +6,7 @@ import model.entity.Product;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -65,7 +66,7 @@ public class CategoryDAO implements DAO<Category> {
     }
 
     @Override
-    public List<Category> getByColumnNames(String[] columnNames, String[] columnValues) {
+    public List<Category> getByColumnNames(String[] columnNames, Object[] columnValues) {
         getSession();
         session.getTransaction().begin();
         Criteria categoryCriteria = session.createCriteria(model.entity.Category.class);
@@ -82,7 +83,8 @@ public class CategoryDAO implements DAO<Category> {
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class);
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
-        categoryCriteria = categoryCriteria.add(Restrictions.eq("c.name", categoryName));
+        categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName));
+        categoryCriteria = categoryCriteria.addOrder(Order.asc("entranceDate"));
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;

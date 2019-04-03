@@ -43,7 +43,6 @@
         <url-pattern>/customer/pages/checkout.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
-
     <filter>
         <filter-name>AdminValidator</filter-name>
         <filter-class>filter.admin.AdminValidatorFilter</filter-class>
@@ -52,9 +51,7 @@
         <filter-name>AdminValidator</filter-name>
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
-    
     <welcome-file-list>
-        <welcome-file>customer/pages/index.jsp</welcome-file>
-    </welcome-file-list> 
-
+        <welcome-file>customer/pages/login.html</welcome-file>
+    </welcome-file-list>
 </web-app>

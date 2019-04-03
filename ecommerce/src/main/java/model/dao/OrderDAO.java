@@ -81,12 +81,15 @@ public class OrderDAO implements DAO<Order> {
     }
 
     @Override
-    public List<Order> getByColumnNames(String[] columnNames, String[] columnValues) {
+    public List<Order> getByColumnNames(String[] columnNames, Object[] columnValues) {
         getSession();
         session.getTransaction().begin();
         Criteria orderCriteria = session.createCriteria(model.entity.Order.class);
         for (int i = 0; i < columnNames.length; i++) {
-            orderCriteria = orderCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
+            if(columnValues[i] instanceof String)
+                orderCriteria = orderCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i]));
+            else
+                orderCriteria = orderCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
         }
         List subsetOrder = orderCriteria.list();
         session.getTransaction().commit();

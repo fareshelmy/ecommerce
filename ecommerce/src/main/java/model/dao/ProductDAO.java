@@ -66,12 +66,15 @@ public class ProductDAO implements DAO<Product> {
     }
 
     @Override
-       public List<Product> getByColumnNames(String[] columnNames, String[] columnValues) {
+       public List<Product> getByColumnNames(String[] columnNames, Object[] columnValues) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
         for (int i = 0; i < columnNames.length; i++) {
-            productCriteria = productCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
+            if(columnValues[i] instanceof String)
+                productCriteria = productCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i]));
+            else
+                productCriteria = productCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
         }
         List subsetProduct = productCriteria.list();
         session.getTransaction().commit();
@@ -92,6 +95,7 @@ public class ProductDAO implements DAO<Product> {
 
     @Override
     public List<Product> retrieveAll() {
+        getSession();
         session.getTransaction().begin();
         List<Product> productList = session.createCriteria(Product.class).setFetchMode("category", FetchMode.EAGER).list();
         session.getTransaction().commit();

@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- SECTION -->
 <div class="section">
@@ -74,10 +75,11 @@
                     <h3 class="title">New Products</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Meat</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Seafood</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Fruits & Vegetables</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Bakery & Pastry</a></li>
+                            <li class="active"><a data-toggle="tab" href="customer/homeAction?newCategoryName=All Categories">All Categories</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=Meat">Meat</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=${fn:escapeXml("Seafood")}">Seafood</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=${fn:escapeXml("Fruits & Vegetables")}">Fruits & Vegetables</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?newCategoryName=${fn:escapeXml("Bakery & Pastry")}">Bakery & Pastry</a></li>
                         </ul>
                     </div>
                 </div>
@@ -92,7 +94,7 @@
                         <div id="tab1" class="tab-pane active">
                             <div class="products-slick" data-nav="#slick-nav-1">
                                 <!-- product -->
-                                <c:forEach items="${sessionScope.products}" var="product">
+                                <c:forEach items="${sessionScope.newProducts}" var="product">
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="${product.image}" alt="">
@@ -154,10 +156,11 @@
                     <h3 class="title">Top selling</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab2">Meat</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Seafood</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Fruits& Vegetables</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Bakery & Pastry</a></li>
+                            <li class="active"><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("All Categories")}">All Categories</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("Meat")}">Meat</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("Seafood")}">Seafood</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("Fruits& Vegetables")}">Fruits& Vegetables</a></li>
+                            <li><a data-toggle="tab" href="customer/homeAction?topCategoryName=${fn:escapeXml("Bakery & Pastry")}">Bakery & Pastry</a></li>
                         </ul>
 
                     </div>
@@ -173,7 +176,7 @@
                         <div id="tab2" class="tab-pane fade in active">
                             <div class="products-slick" data-nav="#slick-nav-2">
                                 <!-- product -->
-                                <c:forEach items="${sessionScope.products}" var="product">
+                                <c:forEach items="${sessionScope.topSellingProducts}" var="product">
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="${product.image}" alt="">
