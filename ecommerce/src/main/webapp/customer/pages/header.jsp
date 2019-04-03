@@ -1,4 +1,6 @@
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,6 +29,9 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
+        
+        <!-- Custom JavaScript -->
+        <script src="/ecommerce/customer/js/script.js"></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,7 +53,20 @@
                         <li><a href="#"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                        <li>    
+                            <c:choose>
+                                    <c:when test="${sessionScope.loggedIn == 'true'}">
+                                        <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
+                                        My Account
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
+                                        Sign In
+                                        </a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -115,7 +133,7 @@
                                         <div class="cart-list">
                                             <div class="product-widget">
                                                 <div class="product-img">
-                                                    <img src="../img/product01.png" alt="">
+                                                    <img src="/ecommerce/img/product01.png" alt="">
                                                 </div>
                                                 <div class="product-body">
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -126,7 +144,7 @@
 
                                             <div class="product-widget">
                                                 <div class="product-img">
-                                                    <img src="../img/product02.png" alt="">
+                                                    <img src="/ecommerce/img/product02.png" alt="">
                                                 </div>
                                                 <div class="product-body">
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -141,7 +159,7 @@
                                         </div>
                                         <div class="cart-btns">
                                             <a href="#">View Cart</a>
-                                            <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                            <a href="/ecommerce/customer/pages/checkout.jsp">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

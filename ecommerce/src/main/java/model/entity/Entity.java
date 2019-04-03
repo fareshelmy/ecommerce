@@ -5,12 +5,10 @@
  */
 package model.entity;
 
-import java.io.Serializable;
-
 /**
  *
- * @author Lamiaa Abdrabou
+ * @author FARES-LAP
  */
-public interface Entity extends Serializable {
+public interface Entity {
     
 }
