@@ -5,7 +5,7 @@
             30
         </session-timeout>
     </session-config>
-  <!--   <filter>
+     <filter>
         <filter-name>header</filter-name>
         <filter-class>filter.customer.HeaderFilter</filter-class>
     </filter>
@@ -26,6 +26,7 @@
         <url-pattern>/customer/pages/store.jsp</url-pattern>
         <url-pattern>/customer/pages/login.jsp</url-pattern>
         <url-pattern>/ecommerce/loginrAction</url-pattern>
+        <url-pattern>/customer/searchHandler</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
    <filter>
@@ -39,14 +40,15 @@
         <url-pattern>/customer/pages/product.jsp</url-pattern>
         <url-pattern>/customer/pages/store.jsp</url-pattern>
         <url-pattern>/ecommerce/loginrAction</url-pattern>
+        <url-pattern>/customer/searchHandler</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
     <filter-mapping>
         <filter-name>userAuth</filter-name>
         <url-pattern>/customer/pages/checkout.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
-    </filter-mapping>-->
- 
+    </filter-mapping>
+
     <filter>
         <filter-name>AdminValidator</filter-name>
         <filter-class>filter.admin.AdminValidatorFilter</filter-class>
@@ -55,8 +57,8 @@
         <filter-name>AdminValidator</filter-name>
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
-    
     <welcome-file-list>
+
         <welcome-file>/admin/index.jsp</welcome-file>
     </welcome-file-list>
 
