@@ -20,7 +20,7 @@ import model.entity.Product;
  *
  * @author Lamiaa Abdrabou
  */
-@WebServlet(name="HomeServlet", urlPatterns = {"/customer/homeAction"})
+//@WebServlet(name="HomeServlet", value = "/home")
 public class HomeServlet extends HttpServlet{
      public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         response.setContentType("text/html;charset=UTF-8");
@@ -33,7 +33,7 @@ public class HomeServlet extends HttpServlet{
             System.out.println(product.getCategory().getName());
         }
 //        request.getRequestDispatcher("pages/index.jsp").forward(request, response);
-        response.sendRedirect("pages/index.jsp");
+        response.sendRedirect("/ecommerce/customer/pages/index.jsp");
      }
     @Override 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{

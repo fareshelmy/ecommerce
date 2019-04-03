@@ -15,7 +15,7 @@ import model.entity.Product;
 import model.entity.User;
 import org.apache.commons.beanutils.BeanUtils;
 
-@WebServlet(value = "/loginrAction")
+@WebServlet(value = "/login")
 public class Login extends HttpServlet {
 
     @Override
@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("userRole", persistentUser.getRole());
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
-                        response.sendRedirect("customer/homeAction");
+                        response.sendRedirect("/ecommerce/home");
                     } else {
                         //The user is an admin
                         System.out.println("Loggedin");
