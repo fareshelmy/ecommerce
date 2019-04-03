@@ -7,6 +7,7 @@ import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -66,18 +67,13 @@ public class CategoryDAO implements DAO<Category> {
     }
 
     @Override
-    public List<Category> getByColumnNames(Object primaryKey, List<String> columnNames) {
+    public List<Category> getByColumnNames(String[] columnNames, Object[] columnValues) {
         getSession();
-        int key = (Integer) primaryKey;
         session.getTransaction().begin();
         Criteria categoryCriteria = session.createCriteria(model.entity.Category.class);
-        ProjectionList selectedColumns = Projections.projectionList();
-        for (int i = 0; i < columnNames.size(); i++) {
-
-            selectedColumns.add(Projections.property(columnNames.get(i)));
+        for (int i = 0; i < columnNames.length; i++) {
+            categoryCriteria = categoryCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
         }
-        categoryCriteria = categoryCriteria.setProjection(selectedColumns);
-        categoryCriteria = categoryCriteria.add(Restrictions.idEq(key));
         List subsetCategory = categoryCriteria.list();
         session.getTransaction().commit();
         return subsetCategory;
@@ -101,6 +97,8 @@ public class CategoryDAO implements DAO<Category> {
         productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName));
+        categoryCriteria = categoryCriteria.addOrder(Order.asc("entranceDate"));
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;

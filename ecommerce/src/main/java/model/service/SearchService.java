@@ -7,13 +7,29 @@ package model.service;
 
 import java.util.List;
 import model.dao.CategoryDAO;
+import model.dao.OrderItemDAO;
+import model.dao.ProductDAO;
 import model.entity.Product;
 
 /**
  *
- * @author FARES-LAP
+ * @author Lamiaa Abdrabou
  */
 public class SearchService {
+    public List<Product> getNewProducts(String categoryName){
+        if(categoryName.equals("All Categories")){
+            ProductDAO productDao = new ProductDAO();
+            return productDao.retrieveAll();
+        }else {
+            CategoryDAO categoryDao = new CategoryDAO();
+            return categoryDao.getCategoryProducts(categoryName);
+        }
+    }
+    
+    public List<Product> getTopSelling(String categoryName){
+        OrderItemDAO orderItemDao = new OrderItemDAO();
+        return orderItemDao.getTopSelling(categoryName);  
+    }
 
     public List<Product> getSearchResult(SearchCriteria searchCriteria) {
         CategoryDAO categoryDAO = new CategoryDAO();

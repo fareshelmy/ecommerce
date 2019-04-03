@@ -30,7 +30,6 @@ public class HeaderFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        response.setContentType("text/html");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/customer/pages/header.jsp");
         dispatcher.include(request, response);
         chain.doFilter(request, response);

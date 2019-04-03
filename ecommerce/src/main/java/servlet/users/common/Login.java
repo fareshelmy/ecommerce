@@ -27,7 +27,6 @@ public class Login extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            System.out.println("Here");
             User user = new User();
             BeanUtils.populate(user, request.getParameterMap());
             UserDAO userDao = new UserDAO();
@@ -44,7 +43,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("userRole", persistentUser.getRole());
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
-                        response.sendRedirect("customer/homeAction");
+                    response.sendRedirect("customer/homeAction");
                     } else {
                         //The user is an admin
                         System.out.println("Loggedin");
