@@ -241,7 +241,7 @@
                                         <th>credit Limit</th>
                                         <th>Category</th>
                                         <th>Total orders</th>
-                                        <th>Setting</th>
+                                       
                                     </tr>
                                     <c:forEach items="${requestScope.users}" var="user">
                                         <tr>
@@ -251,15 +251,13 @@
                                             <td>${user.job}</td>
                                             <td>${user.address}</td>
                                             <td>${user.creditLimit}</td>
-
-                                        
-                                        <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="admin/user-detail.jsp?userId=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
-                                        </td>
+                                             <c:set var = "orderSet" value = "${user.orders}"/>
+                                            <td>${fn:length(orderSet)}</td>
+                                            <td>${user.categories}</td>
                                         </tr>
                                     </c:forEach>
                                 </table>
-                                <div class="custom-pagination">
+<!--                                <div class="custom-pagination">
                                     <ul class="pagination">
                                         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                         <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -267,7 +265,7 @@
                                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                                         <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                     </ul>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>

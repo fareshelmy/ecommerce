@@ -246,19 +246,19 @@
                                                         <div class="review-content-section">
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                                <input type="text" class="form-control" placeholder="Admin Name" id ="name">
+                                                                <input type="text" class="form-control" placeholder="Admin Name" name ="username">
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                                <input type="email" class="form-control" placeholder="Admin Email" id ="email">
+                                                                <input type="email" class="form-control" placeholder="Admin Email" name ="email">
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                                <input type="text" class="form-control" placeholder="Adress" id ="address">
+                                                                <input type="text" class="form-control" placeholder="Adress" name ="address">
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
-                                                                <input type="date" class="form-control" placeholder="Date of birth" id ="birthday">
+                                                                <input type="date" class="form-control" placeholder="Date of birth" name ="adminBirthday">
                                                             </div>
 
                                                         </div>
@@ -268,18 +268,18 @@
 
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                                <input type="text" class="form-control" placeholder="Credit Limit" id ="creditLimit">
+                                                                <input type="text" class="form-control" placeholder="Credit Limit" name ="creditLimit">
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                                <input type="text" class="form-control" placeholder="Job" id ="job">
+                                                                <input type="text" class="form-control" placeholder="Job" name ="job">
                                                             </div>
 
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-like" aria-hidden="true"></i></span>
-                                                                <input type="password" class="form-control" placeholder="Password" id ="password">
+                                                                <input type="password" class="form-control" placeholder="Password" name ="password">
                                                             </div>
-                                                            <select name="gender" class="form-control pro-edt-select form-control-primary" id ="adminGender">
+                                                            <select name="gender" class="form-control pro-edt-select form-control-primary" name ="adminGender">
                                                                 <option value="none" selected="" disabled="">Select Gender</option>
                                                                 <option value="0">Male</option>
                                                                 <option value="1">Female</option>
@@ -294,8 +294,8 @@
                                                         <div class="text-center custom-pro-edt-ds">
                                                             <input type="submit" class="btn btn-ctl-bt waves-effect waves-light m-r-10" value="Save">
 
-                                                            <button type="button" class="btn btn-ctl-bt waves-effect waves-light" onclick="HomeServlet">Discard
-                                                            </button>
+                                                            <button type="button" class="btn btn-ctl-bt waves-effect waves-light"><a href="HomeServlet">Discard
+                                                                </a></button>
                                                         </div>
                                                     </div>
 

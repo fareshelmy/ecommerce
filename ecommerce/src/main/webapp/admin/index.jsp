@@ -254,7 +254,7 @@
                             <div id="piechart"></div>
                             <script type="text/javascript">
                                     google.charts.load('current', {'packages':['corechart']});
-                                    google.charts.setOnLoadCallback(drawChart);
+                                    google.charts.setOnLoadCallback(drawChart({ var1: "Option 1", var2: "Option 2", var3: "Option 3" }););
                             </script>
                             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div class="white-box res-mg-t-30 table-mg-t-pro-n">

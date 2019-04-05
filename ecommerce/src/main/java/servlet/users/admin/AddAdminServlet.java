@@ -6,10 +6,10 @@
 package servlet.users.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +29,7 @@ public class AddAdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+       
         User retrievedUser = new UserDAO().retrieve(request.getParameter("email"));
         
         if (retrievedUser == null) {
@@ -37,6 +37,14 @@ public class AddAdminServlet extends HttpServlet {
             User user = new User();
             UserDAO userDAO = new UserDAO();
             user.setRole("admin");
+            String date = request.getParameter("adminBirthday");
+        try {  
+            Date newDate=new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            user.setBirthday(newDate);
+
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
 
             try {
                 BeanUtils.populate(user, request.getParameterMap());
@@ -46,6 +54,7 @@ public class AddAdminServlet extends HttpServlet {
                  ex.printStackTrace();
             }
             userDAO.persist(user);
+            request.getRequestDispatcher("/admin/index.jsp").forward(request, response);  
         }
         else
         {
