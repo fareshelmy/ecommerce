@@ -1,11 +1,13 @@
 package model.dao;
 
 import java.util.List;
+import model.entity.Order;
 import model.entity.Product;
 import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -65,17 +67,17 @@ public class ProductDAO implements DAO<Product> {
     }
 
     @Override
-    public List<Product> getByColumnNames(Object primaryKey, List<String> columnNames) {
+    public List<Product> getByColumnNames(String[] columnNames, Object[] columnValues) {
         getSession();
-        int key = (int) primaryKey;
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
-        ProjectionList selectedColumns = Projections.projectionList();
-        for (int i = 0; i < columnNames.size(); i++) {
-            selectedColumns.add(Projections.property(columnNames.get(i)));
+        for (int i = 0; i < columnNames.length; i++) {
+            if (columnValues[i] instanceof String) {
+                productCriteria = productCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i].toString(), MatchMode.ANYWHERE));
+            } else {
+                productCriteria = productCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
+            }
         }
-        productCriteria = productCriteria.setProjection(selectedColumns);
-        productCriteria = productCriteria.add(Restrictions.idEq(key));
         List subsetProduct = productCriteria.list();
         session.getTransaction().commit();
         return subsetProduct;
@@ -95,6 +97,7 @@ public class ProductDAO implements DAO<Product> {
 
     @Override
     public List<Product> retrieveAll() {
+        getSession();
         session.getTransaction().begin();
         List<Product> productList = session.createCriteria(Product.class).setFetchMode("category", FetchMode.EAGER).list();
         session.getTransaction().commit();

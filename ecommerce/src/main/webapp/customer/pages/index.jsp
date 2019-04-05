@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- SECTION -->
 <div class="section">
@@ -74,10 +75,14 @@
                     <h3 class="title">New Products</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab1">Meat</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Seafood</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Fruits & Vegetables</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Bakery & Pastry</a></li>
+                            <li class="active"><a href="/ecommerce/home?newCategoryName=All%20Categories">All Categories</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Meat%20%26%20Poultry">Meat</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Seafood">Seafood</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Fruits%20%26%20Vegetables">Fruits</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Bakery%20%26%20Pastry">Bakery</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Desserts%20%26%20Sweets">Desserts</a></li>
+                            <li><a  href="/ecommerce/home?newCategoryName=Home%20%26%20Garden">Home</a></li>
                         </ul>
                     </div>
                 </div>
@@ -92,7 +97,7 @@
                         <div id="tab1" class="tab-pane active">
                             <div class="products-slick" data-nav="#slick-nav-1">
                                 <!-- product -->
-                                <c:forEach items="${sessionScope.products}" var="product">
+                                <c:forEach items="${sessionScope.newProducts}" var="product">
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="${product.image}" alt="">
@@ -154,10 +159,14 @@
                     <h3 class="title">Top selling</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
-                            <li class="active"><a data-toggle="tab" href="#tab2">Meat</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Seafood</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Fruits& Vegetables</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Bakery & Pastry</a></li>
+                            <li class="active"><a href="/ecommerce/home?topCategoryName=All%20Categories">All Categories</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Meat%20%26%20Poultry">Meat</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Seafood">Seafood</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Fruits%20%26%20Vegetables">Fruits</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Bakery%20%26%20Pastry">Bakery</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Desserts%20%26%20Sweets">Desserts</a></li>
+                            <li><a  href="/ecommerce/home?topCategoryName=Home%20%26%20Garden">Home</a></li>
                         </ul>
 
                     </div>
@@ -173,7 +182,7 @@
                         <div id="tab2" class="tab-pane fade in active">
                             <div class="products-slick" data-nav="#slick-nav-2">
                                 <!-- product -->
-                                <c:forEach items="${sessionScope.products}" var="product">
+                                <c:forEach items="${sessionScope.topSellingProducts}" var="product">
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="${product.image}" alt="">
