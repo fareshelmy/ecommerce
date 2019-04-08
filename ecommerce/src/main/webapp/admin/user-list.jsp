@@ -68,7 +68,6 @@
     </head>
 
     <body>
-
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 <div class="sidebar-header">
@@ -77,7 +76,7 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                       
+
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -141,24 +140,13 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                            <div class="header-top-menu tabl-d-n">
-                                                <div class="breadcome-heading">
-                                                    <form role="search" class="">
-                                                        <input type="text" placeholder="Search..." class="form-control">
-                                                        <a href=""><i class="fa fa-search"></i></a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                    <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                     </li>
-
-
                                                 </ul>
                                             </div>
                                         </div>
@@ -191,7 +179,7 @@
                                                     <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-                                                <li><a href="AddAdminServlet">Add admin</a></li></ul>
+                                            <li><a href="AddAdminServlet">Add admin</a></li></ul>
                                     </nav>
                                 </div>
                             </div>
@@ -227,6 +215,16 @@
             <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                            <div class="header-top-menu tabl-d-n">
+                                <div class="breadcome-heading">
+                                    <form role="search" action="UserSearchServlet">
+                                        <input type="text" id="searchText" name="searchText" placeholder="Search..." class="form-control">
+                                        <a href="UserSearchServlet"><i class="fa fa-search"></i></a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
                                 <h4>All Users</h4>
@@ -241,7 +239,7 @@
                                         <th>credit Limit</th>
                                         <th>Category</th>
                                         <th>Total orders</th>
-                                       
+
                                     </tr>
                                     <c:forEach items="${requestScope.users}" var="user">
                                         <tr>
@@ -251,21 +249,10 @@
                                             <td>${user.job}</td>
                                             <td>${user.address}</td>
                                             <td>${user.creditLimit}</td>
-                                             <c:set var = "orderSet" value = "${user.orders}"/>
-                                            <td>${fn:length(orderSet)}</td>
-                                            <td>${user.categories}</td>
+
                                         </tr>
                                     </c:forEach>
                                 </table>
-<!--                                <div class="custom-pagination">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </div>-->
                             </div>
                         </div>
                     </div>

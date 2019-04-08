@@ -104,4 +104,15 @@ public class UserDAO implements DAO<User> {
         return userList;
     }
 
+   
+    public List<User> getByName(String name) {
+       getSession();
+        session.getTransaction().begin();
+        Criteria userCriteria = session.createCriteria(model.entity.User.class);
+        userCriteria = userCriteria.add(Restrictions.ilike("username",  "%"+name+"%") );
+        List subsetOrder = userCriteria.list();
+        session.getTransaction().commit();
+        return subsetOrder;
+    }
+
 }
