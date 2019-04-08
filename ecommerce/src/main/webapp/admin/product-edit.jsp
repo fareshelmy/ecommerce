@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -69,12 +70,15 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>.checked {color: red;}</style>
     </head>
 
     <body>
         <!--[if lt IE 8]>
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
+
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 <div class="sidebar-header">
@@ -178,7 +182,7 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
-                                             <li>
+                                            <li>
                                                 <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
@@ -193,7 +197,7 @@
                                                     <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-                                                <li><a href="AddAdminServlet">Add admin</a></li>
+                                            <li><a href="AddAdminServlet">Add admin</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -239,8 +243,26 @@
                                         <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Product Edit</a></li>
                                     </ul>
 
+
+                                    <c:forEach var = "i" begin = "1" end = "${requestScope.productDetails.rating}">
+                                        <span class="fa fa-star checked"></span>
+                                    </c:forEach>
+                                    <c:forEach var = "i" begin = "1" end = "${5-requestScope.productDetails.rating}"> 
+                                        <span class="fa fa-star"></span>
+                                    </c:forEach>    
+
+                                    <%--        <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <label id="solidItemtitle" style="color: red">Sold Item </label>
+                                            <input id="solidItemtitle" value="${requestScope.productDetails.itemsSold}" disabled="disabled">--%>
+
+
+
                                     <div id="myTabContent" class="tab-content custom-product-edit">
-                                        <form action="EditProductServlet" method="post" enctype="multipart/form-data">
+                                        <form action="insertProductServlet" method="post" enctype="multipart/form-data">
                                             <div class="product-tab-list tab-pane fade active in" id="descriptions">
                                                 <div class="row">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -249,9 +271,11 @@
                                                                 <div class="col-lg-4">
                                                                     <div class="pro-edt-img image-upload">
                                                                         <label for="file-input">
-                                                                            <img src="admin/img/new-product/5-small.jpg" id="selectedImage"/>
+                                                                            <img src="${requestScope.productDetails.image}"  id="selectedImage"/>
                                                                         </label>
-                                                                        <input id="file-input" type="file" onchange="readURL(this);" name="image" accept=".jpg,.png,.svg" required/>
+                                                                        <input id="file-input" type="file" onchange="readURL(this);" name="image" accept=".jpg,.png,.svg" />
+                                                                        <input type="hidden"  name="productImage"  value="${requestScope.productDetails.image}">
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -265,19 +289,20 @@
                                                 <div class="review-content-section">
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Product Name" id="name" name="name" required>
+                                                        <input type="text" class="form-control" placeholder="product Name" value="${requestScope.productDetails.name}" id="name" name="name" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                                                        <input type="number" class="form-control" placeholder="Price" id="price" name="price" required>
+                                                        <input type="number" class="form-control" placeholder="Price" value="${requestScope.productDetails.price}" id="price" name="price" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                        <input type="number" min="0" class="form-control" placeholder="Amount" id="amount" name="amount" required>
+                                                        <input type="number" min="0" class="form-control" placeholder="Amount" value=${requestScope.productDetails.amount} id="amount" name="amount" required>
+
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <select class="form-control pro-edt-select form-control-primary" id ="unit" name="unit" required>
-                                                            <option value="Unit" disabled="disabled" selected="selected">Unit</option>
+                                                            <option value="Unit" disabled="disabled" selected="selected">unit: ${requestScope.productDetails.unit}</option>
                                                             <option value="kg">kg</option>
                                                             <option value="g">g</option>
                                                             <option value="l">l</option>
@@ -292,22 +317,100 @@
 
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                        <textarea class="form-control" placeholder="Description" id="description" name="description" required></textarea>
+                                                        <textarea class="form-control" placeholder="Description"  id="description" name="description" required>${requestScope.productDetails.description}</textarea>
                                                     </div>
 
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <select class="form-control pro-edt-select form-control-primary" id ="selected_category" name="selected_category" required>
-                                                            <option value="Category" disabled="disabled" selected="selected">Category</option>
-                                                            <option value="Meat & Poultry">Meat & Poultry</option>
-                                                            <option value="Seafood">Seafood</option>
-                                                            <option value="Fresh Fruits, Vegetables & Herbs">Fresh Fruits, Vegetables & Herbs</option>
-                                                            <option value="Bakery & Pastry">Bakery & Pastry</option>
-                                                            <option value="Cheese, Dairy & Deli">Cheese, Dairy & Deli</option>
-                                                            <option value="Desserts & Sweets">Desserts & Sweets</option>
+                                                        <select class="form-control pro-edt-select form-control-primary" id ="selected_category"  name="selected_category"  required>
+                                                            <%/**
+                                                                 * *
+                                                                 * <option value="Category" disabled="disabled" selected="selected">Category:
+                                                                 * ${requestScope.productDetails.category.name}</option>
+                                                                 * <option value="Meat & Poultry">Meat
+                                                                 * &
+                                                                 * Poultry</option>
+                                                                 * <option value="Seafood">Seafood</option>
+                                                                 * <option value="Fresh Fruits, Vegetables & Herbs">Fresh
+                                                                 * Fruits,
+                                                                 * Vegetables &
+                                                                 * Herbs</option>
+                                                                 * <option value="Bakery & Pastry">Bakery
+                                                                 * &
+                                                                 * Pastry</option>
+                                                                 * <option value="Cheese, Dairy & Deli">Cheese,
+                                                                 * Dairy &
+                                                                 * Deli</option>
+                                                                 * <option value="Desserts & Sweets">Desserts
+                                                                 * &
+                                                                 * Sweets</option>
+                                                                 *
+                                                                 */%>
+
+                                                            <c:choose> 
+                                                                <c:when test="${requestScope.productDetails.category.id >6}">
+                                                                    <option value="Category" disabled="disabled" selected="selected">Category</option>
+                                                                </c:when>    
+
+                                                            </c:choose>
+                                                            <c:choose> 
+                                                                <c:when test="${requestScope.productDetails.category.id==1}">
+                                                                    <option selected="selected"  value="Meat & Poultry">Meat & Poultry</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Meat & Poultry">Meat & Poultry</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+
+
+                                                            <c:choose>
+                                                                <c:when test="${requestScope.productDetails.category.id==2}">
+                                                                    <option selected="selected"  value="Seafood">Seafood</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option  value="Seafood">Seafood</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+
+                                                            <c:choose>
+                                                                <c:when test="${requestScope.productDetails.category.id==3}">
+                                                                    <option selected="selected" value="Fresh Fruits, Vegetables & Herbs">Fresh Fruits, Vegetables & Herbs</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Fresh Fruits, Vegetables & Herbs">Fresh Fruits, Vegetables & Herbs</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+
+                                                            <c:choose>
+                                                                <c:when test="${requestScope.productDetails.category.id==4}">
+                                                                    <option selected="selected" value="Bakery & Pastry">Bakery & Pastry</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Bakery & Pastry">Bakery & Pastry</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+
+                                                            <c:choose>
+                                                                <c:when test="${requestScope.productDetails.category.id==5}">
+                                                                    <option selected="selected"  value="Cheese, Dairy & Deli">Cheese, Dairy & Deli</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Cheese, Dairy & Deli">Cheese, Dairy & Deli</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+
+                                                            <c:choose>
+                                                                <c:when test="$requestScope.productDetails.category.id==6">
+                                                                    <option selected="selected" value="Desserts & Sweets">Desserts & Sweets</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Desserts & Sweets">Desserts & Sweets</option>
+                                                                </c:otherwise>
+                                                            </c:choose> 
+
                                                         </select>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <input type="number" min="0" class="form-control" placeholder="Quantity" id="quantity" name="quantity" required>
+                                                        <input type="number" min="0" class="form-control" placeholder="Quantity" value="${requestScope.productDetails.quantity}" id="quantity" name="quantity" required>
                                                     </div>
                                                 </div>
                                             </div>

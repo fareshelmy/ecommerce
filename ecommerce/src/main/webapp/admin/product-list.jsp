@@ -245,7 +245,7 @@
                             <div class="product-status-wrap">
                                 <h4>Products List</h4>
                                 <div class="add-product">
-                                    <a href="product-edit.html">Add Product</a>
+                                    <a href="insertProductServlet">Add Product</a>
                                 </div>
                                 <table>
                                     <tr>
@@ -260,7 +260,7 @@
 
                                     <c:forEach items="${requestScope.products}" var="product">
                                         <tr>
-                                            <td><a href="product-detail.html"><img src="${product.image}" alt="Image" /></a></td>
+                                            <td><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
                                             <td>${product.name}</td>
                                             <td>${product.itemsSold}</td>
                                             <td>EGP${product.itemsSold * product.price}</td>
@@ -276,8 +276,8 @@
                                             </td>
                                             <td>${product.price}</td>
                                             <td>
-                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
-                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="EditProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><a href="EditProductServlet?productIdDeleted=${product.id}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></button>
                                             </td>
                                         </tr>
                                     </c:forEach>

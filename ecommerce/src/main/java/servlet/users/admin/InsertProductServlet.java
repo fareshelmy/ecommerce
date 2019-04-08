@@ -1,4 +1,3 @@
-
 package servlet.users.admin;
 
 import java.io.File;
@@ -12,12 +11,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import model.dao.CategoryDAO;
 import model.dao.ProductDAO;
@@ -50,10 +51,43 @@ public class InsertProductServlet extends HttpServlet {
             ex.printStackTrace();
         }
         product.setCategory(category);
-        product.setImage(getImagePath(req, resp));
 
         ProductDAO productDAO = new ProductDAO();
-        productDAO.persist(product);
+        HttpSession session = req.getSession(true);
+        String productIdSession = (String) session.getAttribute("productIdSession");
+        ServletContext context = getServletContext();
+        if (productIdSession == null) {
+            /////////////////////////////////////////
+            Part file = req.getPart("image");
+            if (file != null && file.getSize() > 0) {
+                context.log("if: " + file);
+                product.setImage(getImagePath(req, resp));
+            } else {
+                context.log("in else");
+                product.setImage("img\\products\\No_Image_Available.jpg");
+            }
+            context.log(productIdSession);
+            productDAO.persist(product);
+            req.getRequestDispatcher("ProductListServlet").include(req, resp);
+
+        } else {
+            Part file = req.getPart("image");
+            if (file != null && file.getSize() > 0) {
+                context.log("if: " + file);
+                product.setImage(getImagePath(req, resp));
+
+            } else {
+                context.log("in else if");
+                product.setImage(req.getParameter("productImage"));
+            }
+            // if(req.getPart("image")==null){
+            //  product.setImage(req.getParameter("productImage"));
+            //  else{product.setImage(getImagePath(req, resp));}
+            context.log(productIdSession);
+            product.setId(Integer.parseInt(productIdSession));
+            productDAO.update(product);
+            req.getRequestDispatcher("ProductListServlet").include(req, resp);
+        }
     }
 
     private String getImagePath(HttpServletRequest req, HttpServletResponse resp) {
@@ -64,7 +98,7 @@ public class InsertProductServlet extends HttpServlet {
         try {
             final Part imagePart = req.getPart("image");
             String realPath = req.getServletContext().getRealPath("");
-            String appendedPath = File.separator + "img" + File.separator + "products" + File.separator;
+            String appendedPath ="img" + File.separator + "products" + File.separator;
             imageName = appendedPath + "product" + productCounter + ".jpg";
             productCounter++;
 
@@ -120,9 +154,8 @@ public class InsertProductServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/admin/product-edit.jsp").forward(req, resp); 
+        HttpSession session = req.getSession(true);
+        session.setAttribute("productIdSession", null);
+        req.getRequestDispatcher("/admin/product-edit.jsp").forward(req, resp);
     }
-    
-    
-
 }
