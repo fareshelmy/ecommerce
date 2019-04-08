@@ -6,6 +6,7 @@
 package model.util;
 
 import java.math.BigDecimal;
+import model.dto.ProductDTO;
 //import model.dto.CategoryDTO;
 //import model.dto.OrderDTO;
 //import model.dto.OrderItemDTO;
@@ -22,7 +23,25 @@ import model.entity.User;
  * @author FARES-LAP
  */
 public class ObjectMappingUtil {
-/*
+
+    public static ProductDTO mapToDTO(Product productEntity) {
+        ProductDTO productDTO;
+        productDTO = new ProductDTO(productEntity.getId(),
+                null,
+                productEntity.getName(),
+                productEntity.getPrice(),
+                productEntity.getRating(),
+                productEntity.getImage(),
+                productEntity.getAmount(),
+                productEntity.getUnit(),
+                productEntity.getQuantity(),
+                productEntity.getDescription(),
+                productEntity.getItemsSold(),
+                null);
+        return productDTO;
+    }
+
+    /*
     old implementation
     public static User mapToEntity(UserDTO userDTO) {
         return new User(userDTO.getEmail(),
@@ -61,37 +80,7 @@ public class ObjectMappingUtil {
                 0, null);
     }
 
-    public static ProductDTO mapToDTO(Product productEntity, boolean light) {
-        ProductDTO productDTO;
-        if (light) {
-            productDTO = new ProductDTO(productEntity.getId(),
-                    productEntity.getCategory(),
-                    productEntity.getName(),
-                    productEntity.getPrice(),
-                    productEntity.getRating(),
-                    productEntity.getImage(),
-                    productEntity.getAmount(),
-                    productEntity.getUnit(),
-                    productEntity.getQuantity(),
-                    null,
-                    0,
-                    null);
-        } else {
-            productDTO = new ProductDTO(productEntity.getId(),
-                    productEntity.getCategory(),
-                    productEntity.getName(),
-                    productEntity.getPrice(),
-                    productEntity.getRating(),
-                    productEntity.getImage(),
-                    productEntity.getAmount(),
-                    productEntity.getUnit(),
-                    productEntity.getQuantity(),
-                    productEntity.getDescription(),
-                    0,
-                    productEntity.getOrderItems());
-        }
-        return productDTO;
-    }
+    
 
     public static Category mapToEntity(CategoryDTO categoryDTO) {
         return new Category(categoryDTO.getName(), categoryDTO.getProducts(), categoryDTO.getUsers());
@@ -124,5 +113,5 @@ public class ObjectMappingUtil {
                 orderItemEntity.getQuantity(),
                 orderItemEntity.getTotal());
     }
-*/
+     */
 }
