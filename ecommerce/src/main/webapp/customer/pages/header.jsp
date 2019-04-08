@@ -29,7 +29,7 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
-        
+
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>
 
@@ -55,18 +55,18 @@
                     <ul class="header-links pull-right">
                         <li>    
                             <c:choose>
-                                    <c:when test="${sessionScope.loggedIn == 'true'}">
-                                        <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
+                                <c:when test="${sessionScope.loggedIn == 'true'}">
+                                    <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
                                         My Account
-                                        </a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
+                                    </a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
                                         Sign In
-                                        </a>
-                                    </c:otherwise>
-                                </c:choose>
-                            </li>
+                                    </a>
+                                </c:otherwise>
+                            </c:choose>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="#" class="logo">
+                                <a href="/ecommerce/home" class="logo">
                                     <img src="/ecommerce/img/products/logo.png" alt="">
                                 </a>
                             </div>
@@ -124,34 +124,13 @@
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart('${pageContext.session.id}')">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>My Cart</span>
-                                        <div class="qty">0</div>
+                                        <div class="qty" id="cartQuantity">0</div>
                                     </a>
                                     <div class="cart-dropdown">
-                                        <div class="cart-list">
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="/ecommerce/img/product01.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">1x</span>EGP980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="/ecommerce/img/product02.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">3x</span>EGP980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
+                                        <div id="cartDropDownList" class="cart-list">
                                         </div>
                                         <div class="cart-summary">
                                             <small>3 Item(s) selected</small>

@@ -54,29 +54,28 @@ public class HomeServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String newCategoryName = request.getParameter("newCategoryName");
         String topCategoryName = request.getParameter("topCategoryName");
-        System.out.println("The value of newCategoryName"+newCategoryName);
-        System.out.println("The valu of top CategoName"+topCategoryName);
-        if(newCategoryName == null){
+        System.out.println("The value of newCategoryName" + newCategoryName);
+        System.out.println("The valu of top CategoName" + topCategoryName);
+        if (newCategoryName == null) {
             newCategoryName = "All Categories";
         }
-        if(topCategoryName == null){
+        if (topCategoryName == null) {
             topCategoryName = "All Categories";
         }
         HttpSession httpSession = request.getSession(true);
         SearchService searchService = new SearchService();
-        
-       
+
         List<Product> topSellingProducts = searchService.getTopSelling(newCategoryName);
         httpSession.setAttribute("topSellingProducts", topSellingProducts);
-        System.out.println("The size of Top Selling Products "+topSellingProducts.size());        
-        
+        System.out.println("The size of Top Selling Products " + topSellingProducts.size());
+
         System.out.println(topCategoryName);
         List<Product> newProducts = searchService.getNewProducts(topCategoryName);
         httpSession.setAttribute("newProducts", newProducts);
-        System.out.println("The size of new Products "+newProducts.size());
-        
-        response.sendRedirect("pages/index.jsp");
-     }
+        System.out.println("The size of new Products " + newProducts.size());
+
+        response.sendRedirect("/ecommerce/customer/pages/index.jsp");
+    }
 
 }
 /*
