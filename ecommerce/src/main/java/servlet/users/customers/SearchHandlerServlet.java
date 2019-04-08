@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.entity.Product;
 import model.service.SearchCriteria;
 import model.service.SearchService;
 import org.apache.commons.beanutils.BeanUtils;
@@ -32,10 +33,11 @@ public class SearchHandlerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String selectedCategory = req.getParameter("category");
-        System.out.println(selectedCategory);
+        //System.out.println(" printing the selected category"+selectedCategory);
         HttpSession session = req.getSession(false);
         if (session != null) {
-            List<String> categoryList = (List<String>) session.getAttribute("categories");
+            session.setAttribute("selectedCategory", "select");
+            List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             int i = 0;
             boolean exists = false;
             while (!exists && i < categoryList.size()) {
@@ -49,11 +51,16 @@ public class SearchHandlerServlet extends HttpServlet {
             if (!exists) {
                 categoryList.add(selectedCategory);
             }
-
-            session.setAttribute("categories", categoryList);
+            categoryList.forEach(category -> {
+                System.out.println(category);
+            });
+            System.out.println("________");
+            session.setAttribute("searchCategories", categoryList);
+            System.out.println(session.getAttribute("selectedCategory"));
             populateBean(req);
 
-            req.getRequestDispatcher("/customer/pages/store.jsp").forward(req, resp);
+            resp.sendRedirect("/customer/pages/store.jsp");
+//            req.getRequestDispatcher("ecommerce/customer/pages/store.jsp").forward(req, resp);
         }
 
     }
@@ -61,16 +68,14 @@ public class SearchHandlerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         populateBean(req);
+//        req.getRequestDispatcher("/customer/pages/store.jsp").forward(req, resp);
+        resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
     }
 
     private void populateBean(HttpServletRequest req) {
         try {
             SearchCriteria searchCriteria = new SearchCriteria();
             BeanUtils.populate(searchCriteria, req.getParameterMap());
-            System.out.println(searchCriteria.getProductSubString());
-            System.out.println(searchCriteria.getSearchBarCategory());
-            System.out.println(searchCriteria.getSelectedCategories());
-
             doSearch(req, searchCriteria);
         } catch (IllegalAccessException ex) {
             Logger.getLogger(SearchHandlerServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,9 +87,16 @@ public class SearchHandlerServlet extends HttpServlet {
     private void doSearch(HttpServletRequest req, SearchCriteria searchCriteria) {
         HttpSession session = req.getSession(false);
         if (session != null) {
-            List<String> categoryList = (List<String>) session.getAttribute("categories");
+            System.out.println("Inside do search mertohs");
+            List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             searchCriteria.setSelectedCategories(categoryList);
-            new SearchService().getSearchResult(searchCriteria);
+            List<Product> searchResult = new SearchService().getSearchResult(searchCriteria);
+            session.setAttribute("searchedResults", searchResult);
+            List<Product> test = (List<Product>) session.getAttribute("searchedResults");
+            test.forEach((t) -> {
+                
+                System.out.println(t.getName());
+            });
         }
     }
 
