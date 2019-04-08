@@ -81,7 +81,7 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="#" class="logo">
+                                <a href="/ecommerce/home" class="logo">
                                     <img src="/ecommerce/img/products/logo.png" alt="">
                                 </a>
                             </div>
