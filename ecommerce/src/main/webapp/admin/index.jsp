@@ -70,7 +70,7 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="admin/piChart.js"></script>
+        <script src="/ecommerce/admin/piChart.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     </head>
@@ -161,7 +161,7 @@
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                    <li><a href="/ecommerce/admin/login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    <li><a href="/ecommerce/admin/LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                     </li>
 
 
