@@ -35,18 +35,23 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sessionId = req.getParameter("sessionId");
-        Integer productId = Integer.parseInt(req.getParameter("productId"));
-        String reason = req.getParameter("reason");
-        if (reason.equals("add")) {
-            if (carts.containsKey(sessionId)) {
-                carts.get(sessionId).add(productId);
+        try {
+            Integer productId = Integer.parseInt(req.getParameter("productId"));
+
+            String reason = req.getParameter("reason");
+            if (reason.equals("add")) {
+                if (carts.containsKey(sessionId)) {
+                    carts.get(sessionId).add(productId);
+                } else {
+                    Set<Integer> productIdList = new HashSet<>();
+                    productIdList.add(productId);
+                    carts.put(sessionId, productIdList);
+                }
             } else {
-                Set<Integer> productIdList = new HashSet<>();
-                productIdList.add(productId);
-                carts.put(sessionId, productIdList);
+                carts.get(sessionId).remove(productId);
             }
-        } else {
-            carts.get(sessionId).remove(productId);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
         resp.getWriter().print(String.valueOf(carts.get(sessionId).size()));
     }

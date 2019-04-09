@@ -41,7 +41,7 @@
         <![endif]-->
 
     </head>
-    <body>
+    <body onload="addToCart(null, '${pageContext.session.id}', null)">
         <!-- HEADER -->
         <header>
             <!-- TOP HEADER -->
@@ -133,8 +133,8 @@
                                         <div id="cartDropDownList" class="cart-list">
                                         </div>
                                         <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: EGP2940.00</h5>
+                                            <small id="itemsCount"></small>
+                                            <h5 id="subtotal"></h5>
                                         </div>
                                         <div class="cart-btns">
                                             <a href="#">View Cart</a>

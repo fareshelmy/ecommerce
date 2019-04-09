@@ -126,7 +126,7 @@
                                             </div>
                                         </div>
                                         <div class="add-to-cart">
-                                            <button id="cartButton" onclick="addToCart('${pageContext.session.id}', '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                            <button id="cartButton" onclick="addToCart(this, '${pageContext.session.id}', '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                         </div>
                                     </div>
                                 </c:forEach>
