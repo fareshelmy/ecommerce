@@ -1,6 +1,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,7 +43,7 @@
         <![endif]-->
 
     </head>
-    <body>
+    <body onload="addToCart(null, '${pageContext.session.id}', 0)">
         <!-- HEADER -->
         <header>
             <!-- TOP HEADER -->
@@ -114,17 +116,17 @@
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
-                                    <a href="#">
+                                    <a href="/ecommerce/wishlist">
                                         <i class="fa fa-heart-o"></i>
                                         <span>My Wishlist</span>
-                                        <div class="qty">0</div>
+                                        <div class="qty" id="wishlistQuantity">${fn:length(sessionScope.wishlist)}</div>
                                     </a>
                                 </div>
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart('${pageContext.session.id}')">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart()">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>My Cart</span>
                                         <div class="qty" id="cartQuantity">0</div>
@@ -133,11 +135,10 @@
                                         <div id="cartDropDownList" class="cart-list">
                                         </div>
                                         <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: EGP2940.00</h5>
+                                            <small id="itemsCount"></small>
+                                            <h5 id="subtotal"></h5>
                                         </div>
                                         <div class="cart-btns">
-                                            <a href="#">View Cart</a>
                                             <a href="/ecommerce/customer/pages/checkout.jsp">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                         </div>
                                     </div>
