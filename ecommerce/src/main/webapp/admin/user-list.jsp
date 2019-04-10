@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -241,17 +242,37 @@
                                         <th>Total orders</th>
 
                                     </tr>
-                                    <c:forEach items="${requestScope.users}" var="user">
-                                        <tr>
-                                            <td>${user.email}</td>
-                                            <td>${user.username}</td>
-                                            <td>${user.birthday}</td>
-                                            <td>${user.job}</td>
-                                            <td>${user.address}</td>
-                                            <td>${user.creditLimit}</td>
+                                    <c:choose>
+                                        <c:when test="${requestScope.users == null}">
+                                            <tr>
+                                                    <td>no result</td>
+                                                    <td>no result</td>
+                                                    <td>no result</td>
+                                                    <td>no result</td>
+                                                    <td>no result</td>
+                                                    <td>no result</td>
+                                                    <td>no result</td>
+                                                    <td>no result</td>
 
-                                        </tr>
-                                    </c:forEach>
+                                                </tr>
+                                        </c:when>
+                                        
+                                        <c:otherwise>  
+                                    
+                                            <c:forEach items="${requestScope.users}" var="user">
+                                                <tr>
+                                                    <td>${user.email}</td>
+                                                    <td>${user.username}</td>
+                                                    <td>${user.birthday}</td>
+                                                    <td>${user.job}</td>
+                                                    <td>${user.address}</td>
+                                                    <td>${user.creditLimit}</td>
+
+                                                </tr>
+                                            </c:forEach>
+                                        </c:otherwise>
+                                        
+                                    </c:choose>
                                 </table>
                             </div>
                         </div>

@@ -139,16 +139,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                            <div class="header-top-menu tabl-d-n">
-                                                <div class="breadcome-heading">
-                                                    <form role="search" class="">
-                                                        <input type="text" placeholder="Search..." class="form-control">
-                                                        <a href=""><i class="fa fa-search"></i></a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                                 <div class="header-right-info">
@@ -241,6 +232,16 @@
             <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                            <div class="header-top-menu tabl-d-n">
+                                                <div class="breadcome-heading">
+                                                    <form role="search" action="ProductSearchServlet">
+                                                        <input type="text" id="searchProduct" name="searchProduct" placeholder="Search..." class="form-control">
+                                                        <a href="ProductSearchServlet"><i class="fa fa-search"></i></a>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
                                 <h4>Products List</h4>
