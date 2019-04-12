@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
 @Table(name="user"
     ,catalog="ecommerce"
 )
-public class User  implements java.io.Serializable {
+public class User  implements java.io.Serializable, model.entity.Entity {
 
 
      private String email;
