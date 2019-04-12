@@ -31,7 +31,7 @@ import model.util.ObjectMappingUtil;
 @WebServlet(value = "/cartHandler")
 public class CartServlet extends HttpServlet {
 
-    private Map<String, Set<Integer>> carts = new HashMap<>();
+    private volatile Map<String, Set<Integer>> carts = new HashMap<>();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
