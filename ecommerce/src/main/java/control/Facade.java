@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 package control;
+
+import java.util.List;
+import model.entity.OrderSpecification;
+
 public class Facade {
-    
+    public boolean placeOrder(String userId, List<OrderSpecification>  order){
+        
+        return true;
+    }
 }

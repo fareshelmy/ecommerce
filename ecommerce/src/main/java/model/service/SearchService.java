@@ -31,34 +31,6 @@
             OrderItemDAO orderItemDao = new OrderItemDAO();
             return orderItemDao.getTopSelling(categoryName);
         }
-
-    public List<Product> getSearchResult(SearchCriteria searchCriteria) {
-        CategoryDAO categoryDAO = new CategoryDAO();
-        ProductDAO productDAO = new ProductDAO();
-        List<Product> products = null;
-        String searchBarCategory = searchCriteria.getSearchBarCategory();
-        String productSubString = searchCriteria.getProductSubString().trim();
-        List<String> selectedCategories = searchCriteria.getSelectedCategories();
-        
-        System.out.println(searchBarCategory + "   " + productSubString);
-        //customer entered a specific product
-        if (productSubString != null && productSubString.length() > 0) {
-            
-            
-            //customer specified a bar category
-            if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
-                products = categoryDAO.retrieveByProductAndCategory(searchBarCategory, productSubString);
-            } // customer didn't specify a category
-            else {
-                products = productDAO.getByColumnNames(new String[]{"name"}, new String[]{productSubString});
-            }
-        }   //Customer didnt specify a product name, only category 
-        else{
-            System.out.println("ay 7aga wnaby");
-            //customer specified a bar category
-            if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
-                products = categoryDAO.getCategoryProducts(searchBarCategory);
-            } // customer didn't specify a category
         public List<Product> getSearchResult(SearchCriteria searchCriteria) {
             CategoryDAO categoryDAO = new CategoryDAO();
             ProductDAO productDAO = new ProductDAO();
