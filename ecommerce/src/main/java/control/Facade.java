@@ -9,8 +9,21 @@ import java.util.List;
 import model.entity.OrderSpecification;
 
 public class Facade {
-    public boolean placeOrder(String userId, List<OrderSpecification>  order){
+
+    //Hamada
+    public boolean placeOrder(String userId, List<OrderSpecification> order) {
+        //Hamada
+
+        //Gemmy
+        
         
         return true;
     }
+
+    //Gemmy
+    
+    
+//    Fares
+    
+    
 }
