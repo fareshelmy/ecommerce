@@ -43,6 +43,11 @@ public class OrderService {
         }
         return notAvailableProducts;
     }
+    public void decreaseUserBalance(String userId, double totalCash ){
+        User user = new UserDAO().retrieve(userId);
+        double userBalance = user.getCreditLimit() - totalCash;
+        user.setCreditLimit(userBalance);
+    }
     
     
     //Jemmy
