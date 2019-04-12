@@ -10,12 +10,15 @@ package model.dto;
  * @author Lamiaa Abdrabou
  */
 public class OrderSpecification {
+
     private int productId;
     private int productQuantity;
-    public OrderSpecification(int productId, int productQuantity){
+
+    public OrderSpecification(int productId, int productQuantity) {
         this.productId = productId;
         this.productQuantity = productQuantity;
     }
+
     public int getProductId() {
         return productId;
     }
@@ -31,7 +34,5 @@ public class OrderSpecification {
     public void setProductQuantity(int productQuantity) {
         this.productQuantity = productQuantity;
     }
-    
-    
-    
+
 }
