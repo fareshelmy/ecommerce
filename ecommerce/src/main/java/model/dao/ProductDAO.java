@@ -103,5 +103,14 @@ public class ProductDAO implements DAO<Product> {
         session.getTransaction().commit();
         return productList;
     }
+    public List<Product> getByName(String name) {
+       getSession();
+        session.getTransaction().begin();
+        Criteria productCriteria = session.createCriteria(model.entity.Product.class);
+        productCriteria = productCriteria.add(Restrictions.ilike("name",  "%"+name+"%") );
+        List subsetOrder = productCriteria.list();
+        session.getTransaction().commit();
+        return subsetOrder;
+    }
 
 }

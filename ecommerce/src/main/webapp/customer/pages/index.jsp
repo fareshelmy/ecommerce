@@ -8,6 +8,10 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page errorPage="errorPage.jsp" %>  
+
+<c:if test="${empty sessionScope.newProducts}">
+    <jsp:forward page="/home"/>
+</c:if>
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -127,7 +131,7 @@
                                             <h3 class="product-name"><a href="#">${product.name}</a></h3>
                                             <h4 class="product-price">EGP${product.price}</h4>
                                             <div class="product-rating">
-                                                <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
+                                            <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
                                                     <i class="fa fa-star"></i>    
                                                 </c:forEach>
                                             </div>
@@ -237,7 +241,7 @@
                                             </div>
                                         </div>
                                         <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                            <button id="cartButton" onclick="addToCart(this, '${pageContext.session.id}', '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                         </div>
                                     </div>
                                 </c:forEach>

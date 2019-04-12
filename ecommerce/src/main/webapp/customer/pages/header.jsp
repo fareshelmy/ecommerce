@@ -2,6 +2,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,7 +32,7 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
-        
+
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>
 
@@ -42,7 +44,7 @@
         <![endif]-->
 
     </head>
-    <body>
+    <body onload="addToCart(null, '${pageContext.session.id}', 0)">
         <!-- HEADER -->
         <header>
             <!-- TOP HEADER -->
@@ -56,18 +58,18 @@
                     <ul class="header-links pull-right">
                         <li>    
                             <c:choose>
-                                    <c:when test="${sessionScope.loggedIn == 'true'}">
-                                        <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
+                                <c:when test="${sessionScope.loggedIn == 'true'}">
+                                    <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
                                         My Account
-                                        </a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
+                                    </a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
                                         Sign In
-                                        </a>
-                                    </c:otherwise>
-                                </c:choose>
-                            </li>
+                                    </a>
+                                </c:otherwise>
+                            </c:choose>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -115,51 +117,29 @@
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
-                                    <a href="#">
+                                    <a href="/ecommerce/wishlist">
                                         <i class="fa fa-heart-o"></i>
                                         <span>My Wishlist</span>
-                                        <div class="qty">0</div>
+                                        <div class="qty" id="wishlistQuantity">${fn:length(sessionScope.wishlist)}</div>
                                     </a>
                                 </div>
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart()">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>My Cart</span>
-                                        <div class="qty">0</div>
+                                        <div class="qty" id="cartQuantity">0</div>
                                     </a>
                                     <div class="cart-dropdown">
-                                        <div class="cart-list">
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="/ecommerce/img/product01.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">1x</span>EGP980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="/ecommerce/img/product02.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">3x</span>EGP980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
+                                        <div id="cartDropDownList" class="cart-list">
                                         </div>
                                         <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: EGP2940.00</h5>
+                                            <small id="itemsCount"></small>
+                                            <h5 id="subtotal"></h5>
                                         </div>
                                         <div class="cart-btns">
-                                            <a href="#">View Cart</a>
                                             <a href="/ecommerce/customer/pages/checkout.jsp">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                         </div>
                                     </div>

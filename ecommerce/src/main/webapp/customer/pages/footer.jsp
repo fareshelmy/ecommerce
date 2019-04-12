@@ -89,6 +89,8 @@
 <script src="/ecommerce/customer/js/nouislider.min.js"></script>
 <script src="/ecommerce/customer/js/jquery.zoom.min.js"></script>
 <script src="/ecommerce/customer/js/main.js"></script>
+<script src="/ecommerce/customer/js/cart.js"></script>
+<script src="/ecommerce/customer/js/wishlist.js"></script>
 
 
 </body>

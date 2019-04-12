@@ -30,7 +30,7 @@
         <url-pattern>/customer/pages/store.jsp</url-pattern>
         <url-pattern>/customer/pages/login.jsp</url-pattern>
         <url-pattern>/ecommerce/loginrAction</url-pattern>
-        <!--<url-pattern>/customer/searchHandler</url-pattern>-->
+        <url-pattern>/customer/pages/wishlist.jsp</url-pattern>
         <url-pattern>/ecommerce/home</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
@@ -41,7 +41,7 @@
         <url-pattern>/customer/pages/product.jsp</url-pattern>
         <url-pattern>/customer/pages/store.jsp</url-pattern>
         <url-pattern>/ecommerce/loginrAction</url-pattern>
-        <!--<url-pattern>/ecommerce/customer/searchHandler</url-pattern>-->
+        <url-pattern>/customer/pages/wishlist.jsp</url-pattern>
         <url-pattern>/ecommerce/home</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>

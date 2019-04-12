@@ -72,7 +72,7 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="#" class="logo" >
+                                <a href="/ecommerce/home" class="logo" >
                                     <img src="/ecommerce/img/products/logo.png" alt="foodland logo" id="logoImg">
                                 </a>
                             </div>
@@ -116,7 +116,7 @@
                 <div class="row">
                     <div class="panel panel-primary">
                         <div class="panel-body">
-                            <form method="POST" action="login" role="form">
+                            <form method="POST" action="/ecommerce/login" role="form">
                                 <div class="form-group">
                                     <h2>Sign in</h2>
                                 </div>

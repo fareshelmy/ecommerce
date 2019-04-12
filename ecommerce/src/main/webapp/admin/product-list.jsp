@@ -139,16 +139,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                            <div class="header-top-menu tabl-d-n">
-                                                <div class="breadcome-heading">
-                                                    <form role="search" class="">
-                                                        <input type="text" placeholder="Search..." class="form-control">
-                                                        <a href=""><i class="fa fa-search"></i></a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                                 <div class="header-right-info">
@@ -241,11 +232,21 @@
             <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                            <div class="header-top-menu tabl-d-n">
+                                                <div class="breadcome-heading">
+                                                    <form role="search" action="ProductSearchServlet">
+                                                        <input type="text" id="searchProduct" name="searchProduct" placeholder="Search..." class="form-control">
+                                                        <a href="ProductSearchServlet"><i class="fa fa-search"></i></a>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
                                 <h4>Products List</h4>
                                 <div class="add-product">
-                                    <a href="product-edit.html">Add Product</a>
+                                    <a href="insertProductServlet">Add Product</a>
                                 </div>
                                 <table>
                                     <tr>
@@ -260,7 +261,7 @@
 
                                     <c:forEach items="${requestScope.products}" var="product">
                                         <tr>
-                                            <td><a href="product-detail.html"><img src="${product.image}" alt="Image" /></a></td>
+                                            <td><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
                                             <td>${product.name}</td>
                                             <td>${product.itemsSold}</td>
                                             <td>EGP${product.itemsSold * product.price}</td>
@@ -276,8 +277,8 @@
                                             </td>
                                             <td>${product.price}</td>
                                             <td>
-                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
-                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="EditProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><a href="EditProductServlet?productIdDeleted=${product.id}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></button>
                                             </td>
                                         </tr>
                                     </c:forEach>
