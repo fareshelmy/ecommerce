@@ -104,7 +104,7 @@
             </div>
 
             <!-- Order Details -->
-            <div class="col-md-5 order-details" onload="checkUserCredit('${pageContext.session.userCredit}')">
+            <div class="col-md-5 order-details" onload="checkUserCredit('${session.userCredit}')">
                 <div class="section-title text-center">
                     <h3 class="title">Your Order</h3>
                 </div>
@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 
-                <buttton type="button" id="submitBtn" class="primary-btn order-submit"  
+                <button type="button" id="submitBtn" class="primary-btn order-submit"  
                          data-toggle="tooltip" title="Your Credit Is Not Sufficient">
                     Place order
                 </button>

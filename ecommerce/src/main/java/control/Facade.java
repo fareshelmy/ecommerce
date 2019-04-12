@@ -7,23 +7,18 @@ package control;
 
 import java.util.List;
 import model.dto.OrderSpecification;
+import model.service.OrderService;
 
 public class Facade {
 
-    //Hamada
-    public boolean placeOrder(String userId, List<OrderSpecification> order) {
-        //Hamada
-
-        //Gemmy
+    public List<OrderSpecification> placeOrder(String userId, List<OrderSpecification> orderSpecificationsList) {
+        OrderService orderService = new OrderService(userId);
+        List<OrderSpecification> notAvailableProducts = orderService.checkQuantity(orderSpecificationsList);
+        if(notAvailableProducts.size() == 0){
+            orderService.createNewOrder(orderSpecificationsList);
+        }
         
-        
-        return true;
+        return notAvailableProducts;
     }
-
-    //Gemmy
-    
-    
-//    Fares
-    
     
 }

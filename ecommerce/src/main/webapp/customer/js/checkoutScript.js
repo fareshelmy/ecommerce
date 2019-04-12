@@ -12,3 +12,9 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
 
+
+$("#submitBtn").click(placeOrder);
+
+function placeOrder(){
+    console.log("wokdjd");
+}
