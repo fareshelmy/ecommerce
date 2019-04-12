@@ -13,6 +13,7 @@ function addToCart(button, sessionId, productId) {
             jQuery("#cartQuantity").html(data);
             if (button !== null) {
                 button.innerHTML = "Added To Cart";
+                jQuery(button).prop("disabled", true);
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
