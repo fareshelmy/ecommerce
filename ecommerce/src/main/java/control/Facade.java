@@ -6,7 +6,7 @@
 package control;
 
 import java.util.List;
-import model.entity.OrderSpecification;
+import model.dto.OrderSpecification;
 
 public class Facade {
     public boolean placeOrder(String userId, List<OrderSpecification>  order){
