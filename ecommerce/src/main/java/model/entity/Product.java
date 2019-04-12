@@ -1,5 +1,5 @@
 package model.entity;
-// Generated Apr 12, 2019 1:26:10 PM by Hibernate Tools 4.3.1
+// Generated Apr 12, 2019 1:32:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -36,7 +36,7 @@ public class Product  implements java.io.Serializable {
      private String image;
      private Double amount;
      private String unit;
-     private double quantity;
+     private int quantity;
      private String description;
      private int itemsSold;
      private Date entranceDate;
@@ -46,14 +46,14 @@ public class Product  implements java.io.Serializable {
     }
 
 	
-    public Product(String name, double price, String image, double quantity, int itemsSold) {
+    public Product(String name, double price, String image, int quantity, int itemsSold) {
         this.name = name;
         this.price = price;
         this.image = image;
         this.quantity = quantity;
         this.itemsSold = itemsSold;
     }
-    public Product(Category category, String name, double price, Double rating, String image, Double amount, String unit, double quantity, String description, int itemsSold, Date entranceDate, Set<OrderItem> orderItems) {
+    public Product(Category category, String name, double price, Double rating, String image, Double amount, String unit, int quantity, String description, int itemsSold, Date entranceDate, Set<OrderItem> orderItems) {
        this.category = category;
        this.name = name;
        this.price = price;
@@ -151,12 +151,12 @@ public class Product  implements java.io.Serializable {
     }
 
     
-    @Column(name="quantity", nullable=false, precision=22, scale=0)
-    public double getQuantity() {
+    @Column(name="quantity", nullable=false)
+    public int getQuantity() {
         return this.quantity;
     }
     
-    public void setQuantity(double quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
