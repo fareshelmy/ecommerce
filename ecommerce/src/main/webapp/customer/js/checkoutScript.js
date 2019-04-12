@@ -1,14 +1,20 @@
 function checkUserCredit(userCredit) {
-    var totalPrice = parseInt($("#total").val(), 10);
-    userCredit = parseInt(userCredit, 10);
+    try {
+        var totalPrice = $("#total").html();
+        totalPrice = totalPrice.substring(3);
+        totalPrice = parseInt(totalPrice, 10);
+        userCredit = parseInt(userCredit, 10);
+        console.log(totalPrice + " " + userCredit);
 
-    if (totalPrice < userCredit) {
-        $("#submitBtn").attr("disabled",true);
+        if (totalPrice > userCredit) {
+            $("#submitBtn").attr("disabled", true);
+        }else{
+            $("#submitBtn").attr("disabled", false);
+        } 
+     
+    } catch (e) {
+
     }
 
+
 }
-
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();   
-});
-

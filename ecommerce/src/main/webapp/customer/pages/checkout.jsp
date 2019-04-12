@@ -99,7 +99,7 @@
             </div>
 
             <!-- Order Details -->
-            <div class="col-md-5 order-details" onload="checkUserCredit('${pageContext.session.userCredit}')">
+            <div class="col-md-5 order-details">
                 <div class="section-title text-center">
                     <h3 class="title">Your Order</h3>
                 </div>
@@ -124,14 +124,19 @@
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total" id="total">EGP2940.00</strong></div>
+                        <div><strong class="order-total" id="total">
+                                EGP${sessionScope.cartProducts.stream()
+                                     .map(product -> product.price)
+                                     .sum()
+                                    }
+                            </strong></div>
                     </div>
                 </div>
                 
-                <buttton type="button" id="submitBtn" class="primary-btn order-submit"  
-                         data-toggle="tooltip" title="Your Credit Is Not Sufficient">
+                 <button type="button" id="submitBtn" class="primary-btn order-submit">
                     Place order
                 </button>
+                
             </div>
             <!-- /Order Details -->
         </div>
