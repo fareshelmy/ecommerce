@@ -238,27 +238,11 @@
                                         <th>job</th>
                                         <th>address</th>
                                         <th>credit Limit</th>
-                                        <th>Category</th>
-                                        <th>Total orders</th>
+                                        <th>Show orders</th>
 
                                     </tr>
                                     <c:choose>
-                                        <c:when test="${requestScope.users == null}">
-                                            <tr>
-                                                    <td>no result</td>
-                                                    <td>no result</td>
-                                                    <td>no result</td>
-                                                    <td>no result</td>
-                                                    <td>no result</td>
-                                                    <td>no result</td>
-                                                    <td>no result</td>
-                                                    <td>no result</td>
-
-                                                </tr>
-                                        </c:when>
-                                        
-                                        <c:otherwise>  
-                                    
+                                        <c:when test="${fn:length(sessionScope.users) > 0}">
                                             <c:forEach items="${requestScope.users}" var="user">
                                                 <tr>
                                                     <td>${user.email}</td>
@@ -267,11 +251,16 @@
                                                     <td>${user.job}</td>
                                                     <td>${user.address}</td>
                                                     <td>${user.creditLimit}</td>
-
+                                                    <td>
+                                                        <button data-toggle="tooltip" title="Show" class="pd-setting-ed"><a href=" servletName ! ?userID=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                    </td>
                                                 </tr>
                                             </c:forEach>
-                                        </c:otherwise>
-                                        
+                                        </c:when>
+                                        <c:otherwise>
+                                            <center><c:out value="No Results Found"></c:out></center>
+                                            </c:otherwise>
+
                                     </c:choose>
                                 </table>
                             </div>
