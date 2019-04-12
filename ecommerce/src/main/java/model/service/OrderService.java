@@ -28,31 +28,39 @@ public class OrderService {
         }
         return isSufficient;
     }
-    
 
+    public void decreaseProductsQuantities(List<OrderSpecification> orderSpecificationsList) {
+        ProductDAO productDAO = new ProductDAO();
+        orderSpecificationsList.forEach(orderSpecification -> {
+            int productId = orderSpecification.getProductId();
+            int productOrderedQuantity = orderSpecification.getProductQuantity();
+            Product product = productDAO.retrieve(productId);
+            product.setQuantity(product.getQuantity() - productOrderedQuantity);
+            productDAO.update(product);
+        });
+    }
+    
     //Hamada
-    public List<OrderSpecification> checkQuantity(List<OrderSpecification> userOrder){
+    public List<OrderSpecification> checkQuantity(List<OrderSpecification> userOrder) {
         Product product = null;
         ProductDAO productDao = new ProductDAO();
         List<OrderSpecification> notAvailableProducts = new ArrayList<>();
-        for(OrderSpecification instance: userOrder){
+        for (OrderSpecification instance : userOrder) {
             product = productDao.retrieve(instance.getProductId());
-            if(instance.getProductQuantity() > product.getQuantity() ){
+            if (instance.getProductQuantity() > product.getQuantity()) {
                 notAvailableProducts.add(new OrderSpecification(instance.getProductId(), product.getQuantity()));
             }
         }
         return notAvailableProducts;
     }
-    public void decreaseUserBalance(String userId, double totalCash ){
+
+    public void decreaseUserBalance(String userId, double totalCash) {
         UserDAO userDao = new UserDAO();
         User user = userDao.retrieve(userId);
         double userBalance = user.getCreditLimit() - totalCash;
         user.setCreditLimit(userBalance);
-        
+
     }
-    
-    
+
     //Jemmy
-    
-    
 }
