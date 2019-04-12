@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.entity.Product;
-import model.service.SearchCriteria;
+import model.dto.SearchCriteria;
 import model.service.SearchService;
 import org.apache.commons.beanutils.BeanUtils;
 

@@ -5,6 +5,7 @@
      */
     package model.service ;
 
+import model.dto.SearchCriteria;
     import java.util.List ;
     import model.dao.CategoryDAO ;
     import model.dao.OrderItemDAO ;
