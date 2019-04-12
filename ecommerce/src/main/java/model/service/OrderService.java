@@ -5,7 +5,12 @@
  */
 package model.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.dao.ProductDAO;
 import model.dao.UserDAO;
+import model.dto.OrderSpecification;
+import model.entity.Product;
 import model.entity.User;
 
 /**
@@ -26,6 +31,18 @@ public class OrderService {
     
 
     //Hamada
+    public List<OrderSpecification> checkQuantity(List<OrderSpecification> userOrder){
+        Product product = null;
+        ProductDAO productDao = new ProductDAO();
+        List<OrderSpecification> notAvailableProducts = new ArrayList<>();
+        for(OrderSpecification instance: userOrder){
+            product = productDao.retrieve(instance.getProductId());
+            if(instance.getProductQuantity() > product.getQuantity() ){
+                notAvailableProducts.add(new OrderSpecification(instance.getProductId(), product.getQuantity()));
+            }
+        }
+        return notAvailableProducts;
+    }
     
     
     //Jemmy
