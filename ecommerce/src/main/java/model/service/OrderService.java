@@ -33,7 +33,6 @@ public class OrderService {
     //Fares
     public boolean checkUserBalance(String userId, double totalPaymentAmount) {
         boolean isSufficient = false;
-        user = new UserDAO().retrieve(userId);
         if (user.getCreditLimit() > totalPaymentAmount) {
             isSufficient = true;
         }
@@ -55,7 +54,6 @@ public class OrderService {
         return notAvailableProducts;
     }
     public void decreaseUserBalance(String userId, double totalCash ){
-        user = new UserDAO().retrieve(userId);
         double userBalance = user.getCreditLimit() - totalCash;
         user.setCreditLimit(userBalance);
         
