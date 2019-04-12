@@ -6,10 +6,16 @@
 package model.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import model.dao.OrderDAO;
+import model.dao.OrderItemDAO;
 import model.dao.ProductDAO;
 import model.dao.UserDAO;
 import model.dto.OrderSpecification;
+import model.entity.Order;
+import model.entity.OrderItem;
+import model.entity.OrderItemId;
 import model.entity.Product;
 import model.entity.User;
 
@@ -18,11 +24,15 @@ import model.entity.User;
  * @author FARES-LAP
  */
 public class OrderService {
+    
+    User user;
+    public OrderService(String userID) {
+        user = new UserDAO().retrieve(userID);
+    }
 
     //Fares
     public boolean checkUserBalance(String userId, double totalPaymentAmount) {
         boolean isSufficient = false;
-        User user = new UserDAO().retrieve(userId);
         if (user.getCreditLimit() > totalPaymentAmount) {
             isSufficient = true;
         }
@@ -63,4 +73,29 @@ public class OrderService {
     }
 
     //Jemmy
+    public void createNewOrder(List<OrderSpecification> orderSpecificationsList){
+        //Creating New Order
+        Order order = new Order(user);
+        order.setTimestamp(new Date());
+        
+        //Adding Order To Database
+        new OrderDAO().persist(order);
+        
+        //Adding Order Items To The Order
+        orderSpecificationsList.forEach((orderSpecification) -> {
+            setOrderItems(order, orderSpecification.getProductId() , orderSpecification.getProductQuantity());
+        });
+        
+    }
+    
+    private void setOrderItems(Order order , int productId , int orderQuantity){
+        //Setting ID To the Product
+        OrderItemId orderItemId = new OrderItemId(order.getId(),productId);
+        Product product = new ProductDAO().retrieve(productId);
+        
+        //Adding Order Item to the Database 
+        OrderItem orderItem = new OrderItem(orderItemId, order, product, orderQuantity);
+        new OrderItemDAO().persist(orderItem);
+        
+    }
 }
