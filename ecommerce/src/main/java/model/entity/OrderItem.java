@@ -31,12 +31,12 @@ public class OrderItem  implements java.io.Serializable, model.entity.Entity {
     public OrderItem() {
     }
 
-    public OrderItem(OrderItemId id, Order order, Product product, int quantity, double total) {
+    public OrderItem(OrderItemId id, Order order, Product product, int quantity) {
        this.id = id;
        this.order = order;
        this.product = product;
        this.quantity = quantity;
-       this.total = total;
+       this.total = product.getPrice()* quantity;
     }
    
      @EmbeddedId
