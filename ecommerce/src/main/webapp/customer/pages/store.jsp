@@ -6,7 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page errorPage="errorPage.jsp" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -16,7 +17,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/ecommerce/customer/pages/index.jsp">Home</a></li>
                     <li><a href="#">All Categories</a></li>
                     <li><a href="#">Seafood (227,490 Results)</a></li>
                 </ul>

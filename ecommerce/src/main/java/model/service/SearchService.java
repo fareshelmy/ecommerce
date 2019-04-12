@@ -32,7 +32,6 @@ import model.dto.SearchCriteria;
             OrderItemDAO orderItemDao = new OrderItemDAO();
             return orderItemDao.getTopSelling(categoryName);
         }
-
         public List<Product> getSearchResult(SearchCriteria searchCriteria) {
             CategoryDAO categoryDAO = new CategoryDAO();
             ProductDAO productDAO = new ProductDAO();
