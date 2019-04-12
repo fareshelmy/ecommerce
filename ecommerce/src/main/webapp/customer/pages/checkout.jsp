@@ -129,7 +129,12 @@
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total" id="total">EGP2940.00</strong></div>
+                        <div><strong class="order-total" id="total">
+                                EGP${sessionScope.cartProducts.stream()
+                                     .map(product -> product.price)
+                                     .sum()
+                                    }
+                            </strong></div>
                     </div>
                 </div>
                 
@@ -137,6 +142,7 @@
                          data-toggle="tooltip" title="Your Credit Is Not Sufficient">
                     Place order
                 </button>
+                
             </div>
             <!-- /Order Details -->
         </div>
