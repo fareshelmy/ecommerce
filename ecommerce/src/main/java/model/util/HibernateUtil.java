@@ -42,7 +42,7 @@ public class HibernateUtil {
     }
 
     public static SessionFactory getSessionFactory() {
-        Hibernate.initialize(SESSION_FACTORY);
+//        Hibernate.initialize(SESSION_FACTORY);
         return SESSION_FACTORY;
     }
     public static Session getSession(){

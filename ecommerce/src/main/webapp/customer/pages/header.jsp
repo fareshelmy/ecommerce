@@ -1,4 +1,5 @@
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -48,9 +49,9 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
+                        <li><a href="tel:+201-06-404-6540" target="blank"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
+                        <li><a href="mailto:fares.helmy93@email.com" target="blank"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
+                        <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City" target="blank"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                     <ul class="header-links pull-right">
                         <li>    
@@ -81,7 +82,7 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="#" class="logo">
+                                <a href="/ecommerce/customer/pages/index.jsp" class="logo">
                                     <img src="/ecommerce/img/products/logo.png" alt="">
                                 </a>
                             </div>

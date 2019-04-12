@@ -28,8 +28,6 @@ public class HomeServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String newCategoryName = request.getParameter("newCategoryName");
         String topCategoryName = request.getParameter("topCategoryName");
-        System.out.println("The value of newCategoryName: "+newCategoryName);
-        System.out.println("The value of topCategoName: "+topCategoryName);
         if(newCategoryName == null){
             newCategoryName = "All Categories";
         }
@@ -37,6 +35,11 @@ public class HomeServlet extends HttpServlet {
             topCategoryName = "All Categories";
         }
         HttpSession httpSession = request.getSession(true);
+        httpSession.setAttribute("newCategoryName", newCategoryName);
+        httpSession.setAttribute("topCategoryName", topCategoryName);
+        
+        System.out.println("The value of newCategoryName: "+newCategoryName);
+        System.out.println("The value of topCategoName: "+topCategoryName);
         SearchService searchService = new SearchService();
         
         List<Product> newProducts = searchService.getNewProducts(newCategoryName);

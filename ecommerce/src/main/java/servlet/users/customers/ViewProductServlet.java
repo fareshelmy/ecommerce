@@ -7,11 +7,14 @@ package servlet.users.customers;
 
 import servlet.users.admin.*;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.dao.CategoryDAO;
 import model.dao.ProductDAO;
 import model.entity.Product;
 
@@ -19,19 +22,29 @@ import model.entity.Product;
  *
  * @author FARES-LAP
  */
-@WebServlet(urlPatterns = {"/customer/viewProductServlet"}, name = "viewProductServlet")
+//@WebServlet(urlPatterns = {"customer/viewProductServlet"}, name = "viewProductServlet")
 public class ViewProductServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String productId = req.getParameter("productId");
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("doGet of viewProductServlet");
+        String productId = request.getParameter("productId");
         Product product = new ProductDAO().retrieve(Integer.parseInt(productId));
         if (product != null) {
-            req.setAttribute("product", product);
-            // we have no product-detail.jsp yet
-            req.getRequestDispatcher("/admin/product-detail.jsp").include(req, resp);
+            HttpSession httpSession = request.getSession();
+            httpSession.setAttribute("product", product);
+            List<Product> relatedProducts = new CategoryDAO().getCategoryProducts(product.getCategory().getName());
+            System.out.println("relatedProductSize"+relatedProducts.size());
+            relatedProducts.remove(product);
+            System.out.println("relatedProductSize"+relatedProducts.size());
+            httpSession.setAttribute("relatedProducts", relatedProducts);
+            response.sendRedirect("/ecommerce/customer/pages/product.jsp");
         }
 
     }
+    @Override 
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        System.out.println("Already in the doPost Method");
+    }       
 
 }

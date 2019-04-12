@@ -40,6 +40,7 @@ public class SearchService {
         String productSubString = searchCriteria.getProductSubString().trim();
         List<String> selectedCategories = searchCriteria.getSelectedCategories();
         
+        System.out.println(searchBarCategory + "   " + productSubString);
         //customer entered a specific product
         if (productSubString != null && productSubString.length() > 0) {
             

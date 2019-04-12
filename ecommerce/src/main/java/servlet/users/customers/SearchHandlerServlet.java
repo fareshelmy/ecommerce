@@ -59,7 +59,7 @@ public class SearchHandlerServlet extends HttpServlet {
             System.out.println(session.getAttribute("selectedCategory"));
             populateBean(req);
 
-            resp.sendRedirect("/customer/pages/store.jsp");
+            resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
 //            req.getRequestDispatcher("ecommerce/customer/pages/store.jsp").forward(req, resp);
         }
 
@@ -95,7 +95,7 @@ public class SearchHandlerServlet extends HttpServlet {
             List<Product> test = (List<Product>) session.getAttribute("searchedResults");
             test.forEach((t) -> {
                 
-                System.out.println(t.getName());
+                System.out.println(t.getName() + "inside do search foreach");
             });
         }
     }
