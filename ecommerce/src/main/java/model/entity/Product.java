@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 @Table(name="product"
     ,catalog="ecommerce"
 )
-public class Product  implements java.io.Serializable {
+public class Product  implements java.io.Serializable, model.entity.Entity{
 
 
      private Integer id;

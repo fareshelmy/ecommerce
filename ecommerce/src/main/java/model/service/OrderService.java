@@ -44,9 +44,11 @@ public class OrderService {
         return notAvailableProducts;
     }
     public void decreaseUserBalance(String userId, double totalCash ){
-        User user = new UserDAO().retrieve(userId);
+        UserDAO userDao = new UserDAO();
+        User user = userDao.retrieve(userId);
         double userBalance = user.getCreditLimit() - totalCash;
         user.setCreditLimit(userBalance);
+        
     }
     
     
