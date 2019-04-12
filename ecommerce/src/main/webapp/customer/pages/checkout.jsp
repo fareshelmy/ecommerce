@@ -4,6 +4,7 @@
     Author     : Mohamed
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- BREADCRUMB -->
@@ -34,8 +35,8 @@
         <div class="row">
 
             <div class="col-md-7">
-                
-                <!-- Product main img -->
+                <c:forEach items="${sessionScope.cartProducts}" var="product">
+                  <!-- Product main img -->
                 <div class="col-md-5 col-md-push-2">
                     <div id="product-main-img">
                         <div class="product-preview">
@@ -47,24 +48,24 @@
 
                 <!-- Product thumb imgs -->
                 <div class="col-md-2  col-md-pull-5"></div>
-                <!-- /Product thumb imgs -->
-
+                <!-- /Product thumb imgs -->  
+                
                 <!-- Product details -->
                 <div class="col-md-5">
                     <div class="product-details">
-                        <h2 class="product-name">${sessionScope.product.name}</h2>
+                        <h2 class="product-name">${product.name}</h2>
                         <div>
                             <div class="product-rating">
-                                <c:forEach var="i" begin="0" end="${sessionScope.product.rating}" step="1" >
+                                <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
                                     <i class="fa fa-star"></i>    
                                 </c:forEach>                        </div>
                             <a class="review-link" href="#">10 Review(s) | Add your review</a>
                         </div>
                         <div>
-                            <h3 class="product-price">EGP${sessionScope.product.price} <span class="product-old-price">500g</span></h3>
+                            <h3 class="product-price">EGP${product.price} <span class="product-old-price">500g</span></h3>
                             <span class="product-available">In Stock</span>
                         </div>
-                            <p>${sessionScope.product.description}</p>
+                            <p>${product.description}</p>
 
                         <div class="add-to-cart">
                             <div class="qty-label">
@@ -75,7 +76,7 @@
                                     <span class="qty-down">-</span>
                                 </div>
                             </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> remove from cart</button>
                         </div>
 
                         <ul class="product-btns">
@@ -89,6 +90,7 @@
 
                     </div>
                 </div>
+                </c:forEach>
                 <!-- /Product details -->
 
                
