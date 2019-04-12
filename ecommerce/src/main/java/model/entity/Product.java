@@ -80,7 +80,7 @@ public class Product  implements java.io.Serializable, model.entity.Entity{
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="category_id")
     public Category getCategory() {
         return this.category;
