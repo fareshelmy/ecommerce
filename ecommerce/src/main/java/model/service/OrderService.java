@@ -69,7 +69,7 @@ public class OrderService {
         User user = userDao.retrieve(userId);
         double userBalance = user.getCreditLimit() - totalCash;
         user.setCreditLimit(userBalance);
-
+        userDao.update(user);
     }
 
     //Jemmy

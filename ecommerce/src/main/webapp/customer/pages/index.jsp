@@ -136,7 +136,7 @@
                                                 </c:forEach>
                                             </div>
                                             <div class="product-btns">
-                                                <button class="add-to-wishlist" onclick="addToWishlist(this, '${pageContext.session.id}', '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                <button class="add-to-wishlist" onclick="addToWishlist(this, '${pageContext.session.id}', '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                
                                                 <button class="quick-view" ><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
                                             </div>
                                         </div>
