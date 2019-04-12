@@ -1,8 +1,6 @@
 jQuery.noConflict();
-var globalSessionId;
 
-function addToWishlist(button, sessionId, productId) {
-    globalSessionId = sessionId;
+function addToWishlist(button, productId) {
     var jsonData = {"productId": productId, reason: "add"};
     jQuery.ajax({
         url: "/ecommerce/wishlist",
@@ -32,7 +30,7 @@ function removeFromWishlist(productId, listLength) {
             jQuery("#wishlistQuantity").html(data);
             jQuery("#" + productId).remove();
             if (listLength == 1) {
-                jQuery("#wishlistContainer").html("<center>Your Wishlist is Empty!</center>");
+                jQuery("#wishlistContainer").html("<div class=\"section-title text-center\"><h5 class=\"title\">Your Wishlist is Empty!</h5></div>");
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {

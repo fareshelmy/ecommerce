@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page errorPage="errorPage.jsp" %>  
+<%@ page errorPage="errorPage.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -55,9 +55,9 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +201-11-199-7574</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> mohamedj239@gmail.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> Faisl Clock Square</a></li>
+                        <li><a href="#"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
+                        <li><a href="#"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                 </div>
             </div>

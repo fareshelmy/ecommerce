@@ -43,7 +43,7 @@
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Meat")' 
+                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Meat")' 
                                    <c:if test="${sessionScope.selectedCategory == 'select'}">
                                        checked
                                    </c:if>
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Seafood")'
+                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Seafood")'
                                    <c:if test="${sessionScope.Seafood != null}">
                                        checked="checked"
                                    </c:if>>
@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Fruits")'
+                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Fruits")'
                                    <c:if test="${sessionScope.Fruits} != null">
                                        checked="checked"
                                    </c:if>>
@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Bakery")'
+                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Bakery")'
                                    <c:if test="${sessionScope.Bakery} != null">
                                        checked="checked"
                                    </c:if>>
@@ -92,7 +92,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Cheese")'
+                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Cheese")'
                                    <c:if test="${sessionScope.Cheese} != null">
                                        checked="checked"
                                    </c:if>>
@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Desserts")'
+                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Desserts")'
                                    <c:if test="${sessionScope.Desserts} != null">
                                        checked="checked"
                                    </c:if>>
@@ -116,7 +116,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Home")'
+                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Home")'
                                    <c:if test="${sessionScope.Home} != null">
                                        checked="checked"
                                    </c:if>>
@@ -234,9 +234,11 @@
                         <!-- /store bottom filter -->
                     </c:when>    
                     <c:otherwise>
-                        <center><c:out value="No Results Found"></c:out></center>
-                        </c:otherwise>
-                    </c:choose>
+                        <div class="section-title text-center">
+                            <h5 class="title">No results found</h5>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
             <!-- /STORE -->
         </div>
