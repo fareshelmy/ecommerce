@@ -41,6 +41,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("email", user.getEmail());
                     session.setAttribute("userId", persistentUser.getEmail());
                     session.setAttribute("userRole", persistentUser.getRole());
+                    session.setAttribute("userCredit", persistentUser.getCreditLimit());
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
                         response.sendRedirect("/ecommerce/home");
