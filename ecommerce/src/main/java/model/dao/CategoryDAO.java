@@ -17,7 +17,7 @@ import org.hibernate.criterion.Restrictions;
  * @author Zainab
  */
 public class CategoryDAO implements DAO<Category> {
-
+    int numberOfPages;
     private Session session;
 
     public CategoryDAO() {
@@ -111,6 +111,7 @@ public class CategoryDAO implements DAO<Category> {
                 categoryCriteria = categoryCriteria.addOrder(Order.asc(customize));
             }
         }
+        setNumberOfPages(productCriteria.list().size(), showNumber);
         if(showNumber != -1 && pageNumber != -1){
             productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
         }
@@ -136,6 +137,7 @@ public class CategoryDAO implements DAO<Category> {
         productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        setNumberOfPages(productCriteria.list().size(), showNumber);
         if(showNumber != -1 && pageNumber != -1){
             productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
         }
@@ -163,5 +165,15 @@ public class CategoryDAO implements DAO<Category> {
         List<Category> categoryList = session.createCriteria(Category.class).list();
         session.getTransaction().commit();
         return categoryList;
+    }
+    private void setNumberOfPages(int resultSize, int pageSize){
+        if((resultSize*1.0)/pageSize > 0){
+            numberOfPages = (int)(Math.ceil(resultSize/pageSize))+1;
+        }else{
+            numberOfPages = (int)(Math.ceil(resultSize/pageSize))+1;
+        }
+    }
+    public int getNumberOfPages(){
+        return numberOfPages;
     }
 }

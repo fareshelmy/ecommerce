@@ -1,4 +1,4 @@
-/*
+getNumberOfPages/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -88,13 +88,15 @@ public class SearchHandlerServlet extends HttpServlet {
 
     private void doSearch(HttpServletRequest req, SearchCriteria searchCriteria) {
         //Hamada
-        int showNumber = -1;
-        int pageNumber = -1;
+        int showNumber = 9;
+        int pageNumber = 1;
         if(req.getParameter("showNumber")!= null)
             showNumber = Integer.parseInt(req.getParameter("showNumber"));  
         if(req.getParameter("pageNumber")!= null)
             pageNumber = Integer.parseInt(req.getParameter("pageNumber"));
-            
+        System.out.println(showNumber);
+        System.out.println(pageNumber);
+
         //
         
         HttpSession session = req.getSession(false);
@@ -102,7 +104,9 @@ public class SearchHandlerServlet extends HttpServlet {
             System.out.println("Inside do search mertohs");
             List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             searchCriteria.setSelectedCategories(categoryList);
-            List<Product> searchResult = new SearchService().getSearchResult(searchCriteria, showNumber, pageNumber);
+            SearchService  searchService = new SearchService();
+            List<Product> searchResult = searchService.getSearchResult(searchCriteria, showNumber, pageNumber);
+            int numberOfPages = searchService.getNumberOfPages();
             session.setAttribute("searchedResults", searchResult);
             List<Product> test = (List<Product>) session.getAttribute("searchedResults");
             test.forEach((t) -> {
