@@ -32,7 +32,12 @@ public class SearchHandlerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String selectedCategory = req.getParameter("category");
+        populateBean(req);
+        resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
+        
+        //*********Side Search *********
+        
+        /*String selectedCategory = req.getParameter("category");
         //System.out.println(" printing the selected category"+selectedCategory);
         HttpSession session = req.getSession(false);
         if (session != null) {
@@ -63,21 +68,17 @@ public class SearchHandlerServlet extends HttpServlet {
 
             resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
 //            req.getRequestDispatcher("ecommerce/customer/pages/store.jsp").forward(req, resp);
-        }
+        }*/
 
+        
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        populateBean(req);
-//        req.getRequestDispatcher("/customer/pages/store.jsp").forward(req, resp);
-        resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
-    }
 
     private void populateBean(HttpServletRequest req) {
         try {
             SearchCriteria searchCriteria = new SearchCriteria();
             BeanUtils.populate(searchCriteria, req.getParameterMap());
+            System.out.println("Inside PopulateBean --> " + searchCriteria.getSearchBarCategory());
             doSearch(req, searchCriteria);
         } catch (IllegalAccessException ex) {
             Logger.getLogger(SearchHandlerServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -89,7 +90,7 @@ public class SearchHandlerServlet extends HttpServlet {
     private void doSearch(HttpServletRequest req, SearchCriteria searchCriteria) {
         HttpSession session = req.getSession(false);
         if (session != null) {
-            System.out.println("Inside do search mertohs");
+            System.out.println("Inside do search method --> " + searchCriteria.getSearchBarCategory());
             List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             searchCriteria.setSelectedCategories(categoryList);
             List<Product> searchResult = new SearchService().getSearchResult(searchCriteria);
