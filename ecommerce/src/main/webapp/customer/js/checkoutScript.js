@@ -1,17 +1,15 @@
-var test1;
-var test2;
 var initialPrice = document.getElementsByName("spanPrice");
 var price = convertToArray(initialPrice);
 
 $(document).ready(checkUserCredit);
 function checkUserCredit(userCredit) {
+    checkCreditWithQuantity();
     try {
         var totalPrice = $("#total").html().trim();
         totalPrice = totalPrice.substring(3);
         totalPrice = parseInt(totalPrice, 10);
         userCredit = parseInt(userCredit, 10);
-        test1 = totalPrice;
-        test2 = userCredit;
+        
 
         if (totalPrice > userCredit) {
             $("#submitBtn").attr("disabled", true);
@@ -23,9 +21,6 @@ function checkUserCredit(userCredit) {
 
     }
 
-    function sayHello() {
-        console.log(test1 + " " + test2);
-    }
     $("#submitBtn").click(sayHello);
 }
 

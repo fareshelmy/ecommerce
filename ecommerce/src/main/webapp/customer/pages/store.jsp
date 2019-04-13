@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
-                    <li><a href="/ecommerce/customer/pages/index.jsp">Home</a></li>
+                    <li><a href="/ecommerce/home">Home</a></li>
                     <li><a href="#">All Categories</a></li>
                     <li><a href="#">Seafood (227,490 Results)</a></li>
                 </ul>
@@ -161,7 +161,7 @@
                         <label>
                             Sort By:
                             <select class="input-select">
-                                <option value="0">Most Popular</option>
+                                <option value="0">Lowest Price</option>
                                 <option value="1">Top Rated</option>
                             </select>
                         </label>
@@ -169,8 +169,8 @@
                         <label>
                             Show:
                             <select class="input-select">
-                                <option value="0">20</option>
-                                <option value="1">50</option>
+                                <option value="0">9</option>
+                                <option value="1">15</option>
                             </select>
                         </label>
                     </div>

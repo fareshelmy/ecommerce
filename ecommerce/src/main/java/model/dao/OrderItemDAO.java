@@ -8,8 +8,6 @@ package model.dao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import model.entity.Category;
-import model.entity.Order;
 import model.entity.OrderItem;
 import model.entity.OrderItemId;
 import model.entity.Product;
@@ -17,7 +15,6 @@ import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;
-import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -108,7 +105,7 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().commit();
         return orderItemList;
     }
-    public List<Product> getTopSelling(String categoryName){
+    public List<Product> getTopSelling(String categoryName, String customize){
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(OrderItem.class);
@@ -141,6 +138,16 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().commit();
         return categorizedProducts;
            
+    }
+    public double getCategorySales(String categoryName){
+        getSession();
+        session.getTransaction().begin();
+        Criteria orderItemCriteria = session.createCriteria(OrderItem.class)
+                .createAlias("product", "prod")
+                .createAlias("prod.category", "cat")
+                .add(Restrictions.ilike("cat.name", categoryName))
+                .setProjection(Projections.sum("total"));       
+        return (double)orderItemCriteria.list().get(0);
     }
     
 }

@@ -17,23 +17,26 @@ import model.entity.Product;
  * @author Lamiaa Abdrabou
  */
 public class SearchService {
-
-    public List<Product> getNewProducts(String categoryName) {
+    private int numberOfPages;
+    public List<Product> getNewProducts(String categoryName, String customize) {
+        
         if (categoryName.equals("All Categories")) {
             ProductDAO productDao = new ProductDAO();
-            return productDao.retrieveAll();
+            return productDao.retrieveAll(customize, -1, -1);
         } else {
             CategoryDAO categoryDao = new CategoryDAO();
-            return categoryDao.getCategoryProducts(categoryName);
+            return categoryDao.getCategoryProducts(categoryName, customize);
         }
     }
+   
 
-    public List<Product> getTopSelling(String categoryName) {
-        OrderItemDAO orderItemDao = new OrderItemDAO();
-        return orderItemDao.getTopSelling(categoryName);
-    }
+        public List<Product> getTopSelling(String categoryName, String customize) {
+            OrderItemDAO orderItemDao = new OrderItemDAO();
+            return orderItemDao.getTopSelling(categoryName, customize);
+        }
 
-    public List<Product> getSearchResult(SearchCriteria searchCriteria) {
+
+    public List<Product> getSearchResult(SearchCriteria searchCriteria, int showNumber, int pageNumber) {
         CategoryDAO categoryDAO = new CategoryDAO();
         ProductDAO productDAO = new ProductDAO();
         List<Product> products = null;
@@ -45,24 +48,37 @@ public class SearchService {
             String productStringTrimmed = productSubString.trim();
             List<String> selectedCategories = searchCriteria.getSelectedCategories();
 
-            //customer specified a bar category
-            if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
-                products = categoryDAO.retrieveByProductAndCategory(searchBarCategory, productStringTrimmed);
-            } // customer didn't specify a category
-            else {
-                products = productDAO.getByColumnNames(new String[]{"name"}, new String[]{productStringTrimmed});
-            }
-        } //Customer didnt specify a product name, only category 
-        else {
-            //customer specified a bar category
-            if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
-                products = categoryDAO.getCategoryProducts(searchBarCategory);
-            } // customer didn't specify a category
-            else {
-                products = productDAO.retrieveAll();
-            }
+                //customer specified a bar category
+                if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
+                    products = categoryDAO.retrieveByProductAndCategory(searchBarCategory, productSubString, showNumber, pageNumber);
+                    setNumberOfPages(categoryDAO.getNumberOfPages());
+                } // customer didn't specify a category
+                else {
+                    products = productDAO.getByColumnNames(new String[]{"name"}, new String[]{productSubString}, showNumber, pageNumber);
+                    setNumberOfPages(productDAO.getNumberOfPages());
 
-        }
+                }
+            } //Customer didnt specify a product name, only category 
+            else {
+                System.out.println("ay 7aga wnaby");
+                //customer specified a bar category
+                if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
+                    products = categoryDAO.getCategoryProducts(searchBarCategory, null, showNumber, pageNumber);
+                    setNumberOfPages(categoryDAO.getNumberOfPages());
+                } // customer didn't specify a category
+                else {
+                    System.out.println("User doesnt specify neither a cat");
+                    products = productDAO.retrieveAll(null, showNumber, pageNumber);
+                    setNumberOfPages(productDAO.getNumberOfPages());
+                }
+
+            }
         return products;
+    }
+    private void setNumberOfPages(int numberOfPages){
+        this.numberOfPages = numberOfPages;
+    }
+    public int getNumberOfPages(){
+        return numberOfPages;
     }
 }
