@@ -22,6 +22,7 @@ public class CheckoutServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String parameter = req.getParameter("orderSpecifications");
+        System.out.println(parameter);
     }
 
     @Override

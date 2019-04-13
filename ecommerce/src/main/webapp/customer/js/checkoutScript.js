@@ -8,18 +8,29 @@ function checkUserCredit(userCredit) {
 
         if (totalPrice > userCredit) {
             $("#submitBtn").attr("disabled", true);
-        }else{
+        } else {
             $("#submitBtn").attr("disabled", false);
-        } 
-     
+        }
+
     } catch (e) {
 
     }
 
 }
 
-$("#submitBtn").click(placeOrder);
 
-function placeOrder(){
-    console.log("wokdjd");
+function placeOrder(cartProducts) {
+    var jsonData = {"orderSpecifications": cartProducts};
+    jQuery.ajax({
+        url: "/ecommerce/checkout",
+        type: 'POST',
+        data: jsonData,
+        dataType: 'text',
+        success: function (data, textStatus, jqXHR) {
+           console.log("done");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("error");
+        }
+    });
 }
