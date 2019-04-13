@@ -108,7 +108,7 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().commit();
         return orderItemList;
     }
-    public List<Product> getTopSelling(String categoryName){
+    public List<Product> getTopSelling(String categoryName, String customize){
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(OrderItem.class);
@@ -141,6 +141,16 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().commit();
         return categorizedProducts;
            
+    }
+    public double getCategorySales(String categoryName){
+        getSession();
+        session.getTransaction().begin();
+        Criteria orderItemCriteria = session.createCriteria(OrderItem.class)
+                .createAlias("product", "prod")
+                .createAlias("prod.category", "cat")
+                .add(Restrictions.ilike("cat.name", categoryName))
+                .setProjection(Projections.sum("total"));       
+        return (double)orderItemCriteria.list().get(0);
     }
     
 }

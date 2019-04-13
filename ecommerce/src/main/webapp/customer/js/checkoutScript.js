@@ -43,6 +43,23 @@ function checkCreditWithQuantity() {
 
 }
 
+
+function placeOrder(cartProducts) {
+    var jsonData = {"orderSpecifications": cartProducts};
+    jQuery.ajax({
+        url: "/ecommerce/checkout",
+        type: 'POST',
+        data: jsonData,
+        dataType: 'text',
+        success: function (data, textStatus, jqXHR) {
+           console.log("done");
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("error");
+        }
+    });
+}
+
 function changePrice(quantity, price) {
 
     quantity = parseInt(quantity.trim());

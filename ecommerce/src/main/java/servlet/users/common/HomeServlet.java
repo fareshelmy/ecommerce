@@ -28,6 +28,10 @@ public class HomeServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String newCategoryName = request.getParameter("newCategoryName");
         String topCategoryName = request.getParameter("topCategoryName");
+        String customize = request.getParameter("customize");
+        System.out.println("The search custom is "+customize);
+        
+        
         if(newCategoryName == null){
             newCategoryName = "All Categories";
         }
@@ -38,15 +42,27 @@ public class HomeServlet extends HttpServlet {
         httpSession.setAttribute("newCategoryName", newCategoryName);
         httpSession.setAttribute("topCategoryName", topCategoryName);
         
-        System.out.println("The value of newCategoryName: "+newCategoryName);
-        System.out.println("The value of topCategoName: "+topCategoryName);
+        if(customize != null){
+            if(customize.equals("rating"))
+                httpSession.setAttribute("customize", "Top Rated"); 
+            else if(customize.equals("price"))
+                httpSession.setAttribute("customize", "Lowest Price");
+            else{
+                httpSession.setAttribute("customize", "Home");
+                customize = null;
+            }
+        }else{
+            httpSession.setAttribute("customize", "Home");
+            customize = null;
+
+        }
         SearchService searchService = new SearchService();
         
-        List<Product> newProducts = searchService.getNewProducts(newCategoryName);
+        List<Product> newProducts = searchService.getNewProducts(newCategoryName, customize);
         httpSession.setAttribute("newProducts", newProducts);
         System.out.println("The size of new Products "+newProducts.size());
        
-        List<Product> topSellingProducts = searchService.getTopSelling(topCategoryName);
+        List<Product> topSellingProducts = searchService.getTopSelling(topCategoryName, customize);
         httpSession.setAttribute("topSellingProducts", topSellingProducts);
         System.out.println("The size of Top Selling Products "+topSellingProducts.size());        
          
@@ -57,6 +73,7 @@ public class HomeServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String newCategoryName = request.getParameter("newCategoryName");
         String topCategoryName = request.getParameter("topCategoryName");
+        String customize = request.getParameter("customize");
         System.out.println("The value of newCategoryName" + newCategoryName);
         System.out.println("The valu of top CategoName" + topCategoryName);
         if (newCategoryName == null) {
@@ -68,12 +85,12 @@ public class HomeServlet extends HttpServlet {
         HttpSession httpSession = request.getSession(true);
         SearchService searchService = new SearchService();
 
-        List<Product> topSellingProducts = searchService.getTopSelling(newCategoryName);
+        List<Product> topSellingProducts = searchService.getTopSelling(newCategoryName, customize);
         httpSession.setAttribute("topSellingProducts", topSellingProducts);
         System.out.println("The size of Top Selling Products " + topSellingProducts.size());
 
         System.out.println(topCategoryName);
-        List<Product> newProducts = searchService.getNewProducts(topCategoryName);
+        List<Product> newProducts = searchService.getNewProducts(topCategoryName, customize);
         httpSession.setAttribute("newProducts", newProducts);
         System.out.println("The size of new Products " + newProducts.size());
 

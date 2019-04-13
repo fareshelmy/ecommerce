@@ -88,12 +88,22 @@ public class SearchHandlerServlet extends HttpServlet {
     }
 
     private void doSearch(HttpServletRequest req, SearchCriteria searchCriteria) {
+        //Hamada
+        int showNumber = -1;
+        int pageNumber = -1;
+        if(req.getParameter("showNumber")!= null)
+            showNumber = Integer.parseInt(req.getParameter("showNumber"));  
+        if(req.getParameter("pageNumber")!= null)
+            pageNumber = Integer.parseInt(req.getParameter("pageNumber"));
+            
+        //
+        
         HttpSession session = req.getSession(false);
         if (session != null) {
             System.out.println("Inside do search method --> " + searchCriteria.getSearchBarCategory());
             List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             searchCriteria.setSelectedCategories(categoryList);
-            List<Product> searchResult = new SearchService().getSearchResult(searchCriteria);
+            List<Product> searchResult = new SearchService().getSearchResult(searchCriteria, showNumber, pageNumber);
             session.setAttribute("searchedResults", searchResult);
             List<Product> test = (List<Product>) session.getAttribute("searchedResults");
             test.forEach((t) -> {

@@ -148,6 +148,12 @@
                     </div>
                     <!-- /Order Details -->
                 </div>
+                
+                <button type="button" id="submitBtn" class="primary-btn order-submit"  
+                        data-toggle="tooltip" title="Your Credit Is Not Sufficient" onclick="placeOrder('${sessionScope.cartProducts}')">
+                    Place order
+                </button>
+                
                 <!-- /row -->
             </div>
             <!-- /container -->
