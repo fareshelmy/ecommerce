@@ -75,7 +75,7 @@
                                             <div class="qty-label">
                                                 Qty
                                                 <div class="input-number">
-                                                    <input type="number" value="1">
+                                                    <input type="number" value="1" name="inputQty" onchange="checkCreditWithQuantity()">
                                                     <span class="qty-up">+</span>
                                                     <span class="qty-down">-</span>
                                                 </div>
@@ -113,29 +113,40 @@
                         <div><strong>PRODUCT</strong></div>
                         <div><strong>TOTAL</strong></div>
                     </div>
+
                     <div class="order-products">
-                        <div class="order-col">
-                            <div>1x Product Name Goes Here</div>
-                            <div>EGP980.00</div>
+                        <c:choose>
+                            <c:when test="${fn:length(sessionScope.cartProducts) > 0}">
+                                <c:forEach items="${sessionScope.cartProducts}" var="product">
+                                    <div class="order-col">
+                                        <div> <span name="spanQty">1</span> x ${product.name}</div>
+                                        <div>EGP<span name="spanPrice">${product.price}</span></div>
+                                    </div>
+                                </c:forEach>
+                                </c:when>
+                            </c:choose>
+                            </div>
+                            <div class="order-col">
+                                <div>Shipping</div>
+                                <div><strong>FREE</strong></div>
+                            </div>
+                            <div class="order-col">
+                                <div><strong>TOTAL</strong></div>
+                                <div><strong class="order-total">
+                                        EGP<span id="total">${sessionScope.cartProducts.stream()
+                                             .map(product -> product.price)
+                                             .sum()
+                                        }</span>
+                                    </strong></div>
+                            </div>
                         </div>
-                        <div class="order-col">
-                            <div>2x Product Name Goes Here</div>
-                            <div>EGP980.00</div>
-                        </div>
+
+                        <button type="button" id="submitBtn" class="primary-btn order-submit">
+                            Place order
+                        </button>
+
                     </div>
-                    <div class="order-col">
-                        <div>Shipping</div>
-                        <div><strong>FREE</strong></div>
-                    </div>
-                    <div class="order-col">
-                        <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total" id="total">
-                                EGP${sessionScope.cartProducts.stream()
-                                     .map(product -> product.price)
-                                     .sum()
-                                    }
-                            </strong></div>
-                    </div>
+                    <!-- /Order Details -->
                 </div>
                 
                 <button type="button" id="submitBtn" class="primary-btn order-submit"  
@@ -143,12 +154,9 @@
                     Place order
                 </button>
                 
+                <!-- /row -->
             </div>
-            <!-- /Order Details -->
+            <!-- /container -->
         </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /SECTION -->
-
+        <!-- /SECTION -->
+        <script src="/ecommerce/customer/js/checkoutScript.js"></script>
