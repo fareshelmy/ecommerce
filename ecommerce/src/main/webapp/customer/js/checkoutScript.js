@@ -1,32 +1,36 @@
 var initialPrice = document.getElementsByName("spanPrice");
 var price = convertToArray(initialPrice);
-
-$(document).ready(checkUserCredit);
-function checkUserCredit(userCredit) {
-    checkCreditWithQuantity();
+var userCredit;
+//$(document).ready(checkUserCredit);
+function checkUserCredit(userCredit,total) {
+    
     try {
-        var totalPrice = $("#total").html().trim();
-        totalPrice = totalPrice.substring(3);
-        totalPrice = parseInt(totalPrice, 10);
+        total = total.trim();
+        total = parseInt(total, 10);
         userCredit = parseInt(userCredit, 10);
         
-
-        if (totalPrice > userCredit) {
+        console.log(total + "  ----- " + userCredit);
+        if (total > userCredit) {
             $("#submitBtn").attr("disabled", true);
+            console.log("Btn is disabled");
+            console.log($("#submitBtn").attr("disabled"));
         } else {
             $("#submitBtn").attr("disabled", false);
+            console.log("Btn is enabled");
+            console.log($("#submitBtn").attr("disabled"));
         }
 
     } catch (e) {
-
+        console.log("somethimg happed");
     }
 
    
 }
 
-function checkCreditWithQuantity() {
+function checkCreditWithQuantity(credit) {
     var inputs = document.getElementsByName("inputQty");
     var recieptQTy = document.getElementsByName("spanQty");
+    userCredit = credit;
 
     for (var i = 0; i < inputs.length; i++) {
         recieptQTy[i].innerHTML = inputs[i].value;
@@ -35,7 +39,8 @@ function checkCreditWithQuantity() {
     }
 
     $("#total").html(changeTotal());
-
+    var total = $("#total").html();
+    checkUserCredit(userCredit,total);
 }
 
 

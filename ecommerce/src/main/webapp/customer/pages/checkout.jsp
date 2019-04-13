@@ -77,7 +77,7 @@
                                             <div class="qty-label">
                                                 Qty
                                                 <div class="input-number">
-                                                    <input type="number" value="1" name="inputQty" onchange="checkCreditWithQuantity()">
+                                                    <input type="number" value="1" name="inputQty" onchange="checkCreditWithQuantity('${sessionScope.userCredit}')">
                                                     <span class="qty-up">+</span>
                                                     <span class="qty-down">-</span>
                                                 </div>
