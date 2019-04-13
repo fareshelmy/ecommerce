@@ -11,14 +11,21 @@ import model.service.OrderService;
 
 public class Facade {
 
-    public List<OrderSpecification> placeOrder(String userId, List<OrderSpecification> orderSpecificationsList) {
-        OrderService orderService = new OrderService(userId);
+    private OrderService orderService;
+
+    public List<OrderSpecification> placeOrder(String userId, List<OrderSpecification> orderSpecificationsList, double totalPayment) {
+        orderService = new OrderService(userId);
         List<OrderSpecification> notAvailableProducts = orderService.checkQuantity(orderSpecificationsList);
-        if(notAvailableProducts.size() == 0){
+        if (notAvailableProducts.isEmpty()) {
             orderService.createNewOrder(orderSpecificationsList);
+            orderService.updateProducts(orderSpecificationsList);
         }
-        
+
         return notAvailableProducts;
     }
-    
+
+    public double updateUserCredit(String userId, double totalPayment) {
+        return orderService.updateUserCredit(userId, totalPayment);
+    }
+
 }

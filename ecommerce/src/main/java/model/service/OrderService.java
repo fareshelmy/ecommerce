@@ -24,8 +24,9 @@ import model.entity.User;
  * @author FARES-LAP
  */
 public class OrderService {
-    
+
     User user;
+
     public OrderService(String userID) {
         user = new UserDAO().retrieve(userID);
     }
@@ -38,17 +39,18 @@ public class OrderService {
         return isSufficient;
     }
 
-    public void decreaseProductsQuantities(List<OrderSpecification> orderSpecificationsList) {
+    public void updateProducts(List<OrderSpecification> orderSpecificationsList) {
         ProductDAO productDAO = new ProductDAO();
         orderSpecificationsList.forEach(orderSpecification -> {
             int productId = orderSpecification.getProductId();
             int productOrderedQuantity = orderSpecification.getProductQuantity();
             Product product = productDAO.retrieve(productId);
             product.setQuantity(product.getQuantity() - productOrderedQuantity);
+            product.setItemsSold(product.getItemsSold() + productOrderedQuantity);
             productDAO.update(product);
         });
     }
-    
+
     public List<OrderSpecification> checkQuantity(List<OrderSpecification> userOrder) {
         Product product;
         ProductDAO productDao = new ProductDAO();
@@ -62,37 +64,38 @@ public class OrderService {
         return notAvailableProducts;
     }
 
-    public void decreaseUserBalance(String userId, double totalCash) {
+    public double updateUserCredit(String userId, double totalCash) {
         UserDAO userDao = new UserDAO();
         User user = userDao.retrieve(userId);
         double userBalance = user.getCreditLimit() - totalCash;
         user.setCreditLimit(userBalance);
         userDao.update(user);
+        return userBalance;
     }
 
-    public void createNewOrder(List<OrderSpecification> orderSpecificationsList){
+    public void createNewOrder(List<OrderSpecification> orderSpecificationsList) {
         //Creating New Order
         Order order = new Order(user);
         order.setTimestamp(new Date());
-        
+
         //Adding Order To Database
         new OrderDAO().persist(order);
-        
+
         //Adding Order Items To The Order
         orderSpecificationsList.forEach((orderSpecification) -> {
-            setOrderItems(order, orderSpecification.getProductId() , orderSpecification.getProductQuantity());
+            setOrderItems(order, orderSpecification.getProductId(), orderSpecification.getProductQuantity());
         });
-        
+
     }
-    
-    private void setOrderItems(Order order , int productId , int orderQuantity){
+
+    private void setOrderItems(Order order, int productId, int orderQuantity) {
         //Setting ID To the Product
-        OrderItemId orderItemId = new OrderItemId(order.getId(),productId);
+        OrderItemId orderItemId = new OrderItemId(order.getId(), productId);
         Product product = new ProductDAO().retrieve(productId);
-        
+
         //Adding Order Item to the Database 
         OrderItem orderItem = new OrderItem(orderItemId, order, product, orderQuantity);
         new OrderItemDAO().persist(orderItem);
-        
+
     }
 }
