@@ -20,6 +20,7 @@ public class ProductDAO implements DAO<Product> {
 
     private Session session;
     private int numberOfPages;
+
     public ProductDAO() {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
@@ -71,6 +72,7 @@ public class ProductDAO implements DAO<Product> {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
+        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         for (int i = 0; i < columnNames.length; i++) {
             if (columnValues[i] instanceof String) {
                 productCriteria = productCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i].toString(), MatchMode.ANYWHERE));
@@ -82,11 +84,12 @@ public class ProductDAO implements DAO<Product> {
         session.getTransaction().commit();
         return subsetProduct;
     }
-    
+
     public List<Product> getByColumnNames(String[] columnNames, Object[] columnValues, int showNumber, int pageNumber) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
+        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         for (int i = 0; i < columnNames.length; i++) {
             if (columnValues[i] instanceof String) {
                 productCriteria = productCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i].toString(), MatchMode.ANYWHERE));
@@ -95,14 +98,14 @@ public class ProductDAO implements DAO<Product> {
             }
         }
         setNumberOfPages(productCriteria.list().size(), showNumber);
-        if(showNumber != -1 && pageNumber != -1){
-            productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
+        if (showNumber != -1 && pageNumber != -1) {
+            productCriteria = productCriteria.setFirstResult((pageNumber - 1) * showNumber).setMaxResults(showNumber);
         }
         List subsetProduct = productCriteria.list();
         session.getTransaction().commit();
         return subsetProduct;
     }
-    
+
     @Override
     public List<Product> getAll(Object prod) {
         getSession();
@@ -110,6 +113,7 @@ public class ProductDAO implements DAO<Product> {
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
         productCriteria = productCriteria.add(Restrictions.eq("id", product.getId()));
+        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         List<Product> allUser = productCriteria.list();
         session.getTransaction().commit();
         return allUser;
@@ -119,72 +123,84 @@ public class ProductDAO implements DAO<Product> {
     public List<Product> retrieveAll() {
         getSession();
         session.getTransaction().begin();
-        Criteria productCriteria = session.createCriteria(Product.class).addOrder(org.hibernate.criterion.Order.desc("entranceDate")).setFetchMode("category", FetchMode.EAGER);
-        List<Product> productList = productCriteria.list(); 
+        Criteria productCriteria = session.createCriteria(Product.class);
+        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
+        productCriteria = productCriteria.addOrder(org.hibernate.criterion.Order.desc("entranceDate")).setFetchMode("category", FetchMode.EAGER);
+        List<Product> productList = productCriteria.list();
         session.getTransaction().commit();
         return productList;
     }
-    public List<Product> retrieveAll(String customize, int showNumber, int pageNumber){
+
+    public List<Product> retrieveAll(String customize, int showNumber, int pageNumber) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class).setFetchMode("category", FetchMode.EAGER);
-        if(customize != null){
-            if(customize.equals("rating"))
+        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
+        if (customize != null) {
+            if (customize.equals("rating")) {
                 productCriteria.addOrder(org.hibernate.criterion.Order.desc(customize));
-             if(customize.equals("price")){
-                System.out.println("in RetrieveAll customize = "+customize);
+            }
+            if (customize.equals("price")) {
+                System.out.println("in RetrieveAll customize = " + customize);
                 productCriteria.addOrder(org.hibernate.criterion.Order.asc(customize));
             }
-        }else{
-             productCriteria.addOrder(org.hibernate.criterion.Order.desc("entranceDate"));
+        } else {
+            productCriteria.addOrder(org.hibernate.criterion.Order.desc("entranceDate"));
         }
         setNumberOfPages(productCriteria.list().size(), showNumber);
-        if(showNumber != -1 && pageNumber != -1){
-            productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
+        if (showNumber != -1 && pageNumber != -1) {
+            productCriteria = productCriteria.setFirstResult((pageNumber - 1) * showNumber).setMaxResults(showNumber);
         }
-        List<Product> productList = productCriteria.list(); 
+        List<Product> productList = productCriteria.list();
         session.getTransaction().commit();
         return productList;
-        
+
     }
+
     public List<Product> getByName(String name) {
-       getSession();
+        getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
-        productCriteria = productCriteria.add(Restrictions.ilike("name",  "%"+name+"%") );
+        productCriteria = productCriteria.add(Restrictions.ilike("name", "%" + name + "%"));
+        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         List subsetOrder = productCriteria.list();
         session.getTransaction().commit();
         return subsetOrder;
     }
-     public List<Product> retrievePage(String customize,int pageNumber, int pageSize){
+
+    public List<Product> retrievePage(String customize, int pageNumber, int pageSize) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class).setFetchMode("category", FetchMode.EAGER);
-        if(customize != null){
-            if(customize.equals("rating"))
+        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
+        if (customize != null) {
+            if (customize.equals("rating")) {
                 productCriteria.addOrder(org.hibernate.criterion.Order.desc(customize));
-             if(customize.equals("price")){
-                System.out.println("in RetrieveAll customize = "+customize);
+            }
+            if (customize.equals("price")) {
+                System.out.println("in RetrieveAll customize = " + customize);
                 productCriteria.addOrder(org.hibernate.criterion.Order.asc(customize));
             }
-        }else{
-             productCriteria.addOrder(org.hibernate.criterion.Order.desc("entranceDate"));
+        } else {
+            productCriteria.addOrder(org.hibernate.criterion.Order.desc("entranceDate"));
         }
-        
-        productCriteria = productCriteria.setFirstResult((pageNumber-1)*pageSize).setMaxResults(pageSize);
-        List<Product> productList = productCriteria.list(); 
+
+        productCriteria = productCriteria.setFirstResult((pageNumber - 1) * pageSize).setMaxResults(pageSize);
+        List<Product> productList = productCriteria.list();
         session.getTransaction().commit();
         return productList;
-        
+
     }
-    private void setNumberOfPages(int resultSize, int pageSize){
-        if((resultSize*1.0)/pageSize > 0){
-            numberOfPages = (int)(Math.ceil(resultSize/pageSize))+1;
-        }else{
-            numberOfPages = (int)(Math.ceil(resultSize/pageSize))+1;
+
+    private void setNumberOfPages(int resultSize, int pageSize) {
+        if ((resultSize * 1.0) / pageSize > 0) {
+            numberOfPages = (int) (Math.ceil(resultSize / pageSize)) + 1;
+        } else {
+            numberOfPages = (int) (Math.ceil(resultSize / pageSize)) + 1;
         }
     }
-    public int getNumberOfPages(){
+
+    public int getNumberOfPages() {
         return numberOfPages;
     }
 

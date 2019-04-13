@@ -45,18 +45,22 @@ public class CheckoutServlet extends HttpServlet {
         Gson gson = new Gson();
 
         if (session != null) {
+            String userId = session.getAttribute("userId").toString();
             OrderSpecification[] orderSpecifications
                     = gson.fromJson(orderSpecificationsString, OrderSpecification[].class);
 
             List<OrderSpecification> orderSpecificationsList = Arrays.asList(orderSpecifications);
+            Facade facade = new Facade();
             List<OrderSpecification> notAvailableProducts
-                    = new Facade().placeOrder(session.getAttribute("userId").toString(),
+                    = facade.placeOrder(userId,
                             orderSpecificationsList,
                             totalPayment);
 
             //everything is fine and all products are available
             PrintWriter out = resp.getWriter();
             if (notAvailableProducts.isEmpty()) {
+                double updatedUserCredit = facade.updateUserCredit(userId, totalPayment);
+                session.setAttribute("userCredit", updatedUserCredit);
                 freeUserCart(session.getId());
                 out.write("done");
             } else {

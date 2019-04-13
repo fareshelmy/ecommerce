@@ -17,6 +17,7 @@ import org.hibernate.criterion.Restrictions;
  * @author Zainab
  */
 public class CategoryDAO implements DAO<Category> {
+
     int numberOfPages;
     private Session session;
 
@@ -86,39 +87,43 @@ public class CategoryDAO implements DAO<Category> {
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
         categoryCriteria = categoryCriteria.addOrder(Order.desc("entranceDate"));
-        if(customize != null){
-            if(customize.equals("rating")){
+        categoryCriteria = categoryCriteria.add(Restrictions.gt("quantity", 0));
+        if (customize != null) {
+            if (customize.equals("rating")) {
                 categoryCriteria = categoryCriteria.addOrder(Order.desc(customize));
-            }else if(customize.equals("price")){
+            } else if (customize.equals("price")) {
                 categoryCriteria = categoryCriteria.addOrder(Order.asc(customize));
             }
-        }    
+        }
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;
     }
+
     public List<Product> getCategoryProducts(String categoryName, String customize, int showNumber, int pageNumber) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class);
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        categoryCriteria = categoryCriteria.add(Restrictions.gt("quantity", 0));
         categoryCriteria = categoryCriteria.addOrder(Order.desc("entranceDate"));
-        if(customize != null){
-            if(customize.equals("rating")){
+        if (customize != null) {
+            if (customize.equals("rating")) {
                 categoryCriteria = categoryCriteria.addOrder(Order.desc(customize));
-            }else if(customize.equals("price")){
+            } else if (customize.equals("price")) {
                 categoryCriteria = categoryCriteria.addOrder(Order.asc(customize));
             }
         }
         setNumberOfPages(productCriteria.list().size(), showNumber);
-        if(showNumber != -1 && pageNumber != -1){
-            productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
+        if (showNumber != -1 && pageNumber != -1) {
+            productCriteria = productCriteria.setFirstResult((pageNumber - 1) * showNumber).setMaxResults(showNumber);
         }
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;
     }
+
     public List<Product> retrieveByProductAndCategory(String categoryName, String productName) {
         getSession();
         session.getTransaction().begin();
@@ -126,10 +131,12 @@ public class CategoryDAO implements DAO<Category> {
         productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        categoryCriteria = categoryCriteria.add(Restrictions.gt("quantity", 0));
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;
     }
+
     public List<Product> retrieveByProductAndCategory(String categoryName, String productName, int showNumber, int pageNumber) {
         getSession();
         session.getTransaction().begin();
@@ -137,15 +144,16 @@ public class CategoryDAO implements DAO<Category> {
         productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        categoryCriteria = categoryCriteria.add(Restrictions.gt("quantity", 0));
         setNumberOfPages(productCriteria.list().size(), showNumber);
-        if(showNumber != -1 && pageNumber != -1){
-            productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
+        if (showNumber != -1 && pageNumber != -1) {
+            productCriteria = productCriteria.setFirstResult((pageNumber - 1) * showNumber).setMaxResults(showNumber);
         }
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;
     }
-        
+
     @Override
     public List<Category> getAll(Object cat) {
         getSession();
@@ -166,14 +174,16 @@ public class CategoryDAO implements DAO<Category> {
         session.getTransaction().commit();
         return categoryList;
     }
-    private void setNumberOfPages(int resultSize, int pageSize){
-        if((resultSize*1.0)/pageSize > 0){
-            numberOfPages = (int)(Math.ceil(resultSize/pageSize))+1;
-        }else{
-            numberOfPages = (int)(Math.ceil(resultSize/pageSize))+1;
+
+    private void setNumberOfPages(int resultSize, int pageSize) {
+        if ((resultSize * 1.0) / pageSize > 0) {
+            numberOfPages = (int) (Math.ceil(resultSize / pageSize)) + 1;
+        } else {
+            numberOfPages = (int) (Math.ceil(resultSize / pageSize)) + 1;
         }
     }
-    public int getNumberOfPages(){
+
+    public int getNumberOfPages() {
         return numberOfPages;
     }
 }

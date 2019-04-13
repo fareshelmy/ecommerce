@@ -64,12 +64,13 @@ public class OrderService {
         return notAvailableProducts;
     }
 
-    public void decreaseUserBalance(String userId, double totalCash) {
+    public double updateUserCredit(String userId, double totalCash) {
         UserDAO userDao = new UserDAO();
         User user = userDao.retrieve(userId);
         double userBalance = user.getCreditLimit() - totalCash;
         user.setCreditLimit(userBalance);
         userDao.update(user);
+        return userBalance;
     }
 
     public void createNewOrder(List<OrderSpecification> orderSpecificationsList) {
