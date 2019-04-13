@@ -38,51 +38,69 @@ function checkCreditWithQuantity() {
         var calculatedPrice = changePrice(recieptQTy[i].innerHTML, price[i]);
         initialPrice[i].innerHTML = calculatedPrice;
     }
-    
+
     $("#total").html(changeTotal());
 
 }
 
 
-function placeOrder(cartProducts) {
-    var jsonData = {"orderSpecifications": cartProducts};
+function changePrice(quantity, price) {
+
+    quantity = parseInt(quantity.trim());
+    price = parseInt(price);
+    var result = price * quantity;
+    return result.toFixed(1);
+}
+
+function convertToArray(arr) {
+    var copyArray = [];
+    for (var i = 0; i < arr.length; i++) {
+        copyArray[i] = parseInt(arr[i].innerHTML.trim());
+    }
+
+    return copyArray;
+}
+
+function changeTotal() {
+    var sum = 0;
+
+    for (var i = 0; i < initialPrice.length; i++) {
+        sum += parseInt(initialPrice[i].innerHTML.trim());
+    }
+
+    return sum.toFixed(1);
+}
+
+
+function placeOrder() {
+    var recieptQTy = document.getElementsByName("spanQty");
+    var orderSpecificationIds = document.getElementsByName("orderSpecification");
+
+    var orderSpecifications = new Array(recieptQTy.length);
+
+    for (var i = 0; i < recieptQTy.length; i++) {
+        var orderSpecification = {"productId": orderSpecificationIds[i].id, "productQuantity": recieptQTy[i].innerHTML};
+        orderSpecifications[i] = orderSpecification;
+    }
+
+    var jsonData = {"orderSpecifications": JSON.stringify(orderSpecifications), "total": $("#total").html()};
     jQuery.ajax({
         url: "/ecommerce/checkout",
         type: 'POST',
         data: jsonData,
         dataType: 'text',
         success: function (data, textStatus, jqXHR) {
-           console.log("done");
+            if (data == "done") {
+                location.href = "/ecommerce/home";
+            } else {
+                var notAvailableProducts = JSON.parse(data);
+                for (var i = 0; i < notAvailableProducts.length; i++) {
+                    $("#error" + notAvailableProducts[i].productId).html("<h6 class='title' style='color: #D10024;'>Only " + notAvailableProducts[i].productQuantity + " items left</h6>");
+                }
+            }
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log("error");
         }
     });
-}
-
-function changePrice(quantity, price) {
-
-    quantity = parseInt(quantity.trim());
-    price = parseInt(price);
-    var result = price*quantity;  
-    return result.toFixed(1);
-}
-
-function convertToArray(arr){
-    var copyArray = [];
-    for(var i=0;i<arr.length;i++){
-        copyArray[i] = parseInt(arr[i].innerHTML.trim());
-    }
-    
-    return copyArray;
-}
-
-function changeTotal(){
-    var sum=0;
-    
-    for(var i=0;i<initialPrice.length;i++){
-        sum += parseInt(initialPrice[i].innerHTML.trim());
-    }
-    
-    return sum.toFixed(1);
 }

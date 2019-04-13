@@ -204,46 +204,47 @@
                                                 <i class="fa fa-star"></i>
                                             </div>
                                             <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                <button class="add-to-wishlist" onclick="addToWishlist(this, '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                
+                                                <button class="quick-view" ><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
                                             </div>
                                         </div>
                                         <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                            <button id="cartButton" onclick="addToCart(this, '${pageContext.session.id}', '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>
-                            <!-- /product -->
-
-                        </div>
-                        <!--    /try to know what it happen if i put it -->
-                        <div class="clearfix visible-sm visible-xs"></div>
+                            </div>
+                        </c:forEach>
                         <!-- /product -->
-                        <!-- store bottom filter -->
-                        <div class="store-filter clearfix">
-                            <span class="store-qty">Showing 20-100 products</span>
-                            <ul class="store-pagination">
-                                <li class="active">1</li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- /store bottom filter -->
-                    </c:when>    
-                    <c:otherwise>
-                        <div class="section-title text-center">
-                            <h5 class="title">No results found</h5>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-            <!-- /STORE -->
+
+                    </div>
+                    <!--    /try to know what it happen if i put it -->
+                    <div class="clearfix visible-sm visible-xs"></div>
+                    <!-- /product -->
+                    <!-- store bottom filter -->
+                    <div class="store-filter clearfix">
+                        <span class="store-qty">Showing 20-100 products</span>
+                        <ul class="store-pagination">
+                            <li class="active">1</li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- /store bottom filter -->
+                </c:when>    
+                <c:otherwise>
+                    <div class="section-title text-center">
+                        <h5 class="title">No results found</h5>
+                    </div>
+                </c:otherwise>
+            </c:choose>
         </div>
-        <!-- /row -->
+        <!-- /STORE -->
     </div>
-    <!-- /container -->
+    <!-- /row -->
+</div>
+<!-- /container -->
 </div>
 <!-- /SECTION -->
