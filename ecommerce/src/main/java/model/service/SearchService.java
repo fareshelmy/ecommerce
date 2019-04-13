@@ -18,30 +18,24 @@ import model.entity.Product;
  */
 public class SearchService {
 
-        public List<Product> getNewProducts(String categoryName, String customize) {
-            if (categoryName.equals("All Categories")) {
-                ProductDAO productDao = new ProductDAO();
-                return productDao.retrieveAll(customize, -1, -1);
-            } else {
-                CategoryDAO categoryDao = new CategoryDAO();
-                return categoryDao.getCategoryProducts(categoryName, customize);
-            }
+    public List<Product> getNewProducts(String categoryName, String customize) {
+        if (categoryName.equals("All Categories")) {
+            ProductDAO productDao = new ProductDAO();
+            return productDao.retrieveAll(customize, -1, -1);
+        } else {
+            CategoryDAO categoryDao = new CategoryDAO();
+            return categoryDao.getCategoryProducts(categoryName, customize);
         }
     }
+   
 
         public List<Product> getTopSelling(String categoryName, String customize) {
             OrderItemDAO orderItemDao = new OrderItemDAO();
             return orderItemDao.getTopSelling(categoryName, customize);
         }
-        public List<Product> getSearchResult(SearchCriteria searchCriteria, int showNumber, int pageNumber) {
-            CategoryDAO categoryDAO = new CategoryDAO();
-            ProductDAO productDAO = new ProductDAO();
-            List<Product> products = null;
-            String searchBarCategory = searchCriteria.getSearchBarCategory();
-            String productSubString = searchCriteria.getProductSubString().trim();
-            List<String> selectedCategories = searchCriteria.getSelectedCategories();
 
-    public List<Product> getSearchResult(SearchCriteria searchCriteria) {
+
+    public List<Product> getSearchResult(SearchCriteria searchCriteria, int showNumber, int pageNumber) {
         CategoryDAO categoryDAO = new CategoryDAO();
         ProductDAO productDAO = new ProductDAO();
         List<Product> products = null;
@@ -73,17 +67,6 @@ public class SearchService {
                 }
 
             }
-        } //Customer didnt specify a product name, only category 
-        else {
-            //customer specified a bar category
-            if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
-                products = categoryDAO.getCategoryProducts(searchBarCategory);
-            } // customer didn't specify a category
-            else {
-                products = productDAO.retrieveAll();
-            }
-
-        }
         return products;
     }
 }
