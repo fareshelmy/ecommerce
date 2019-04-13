@@ -39,24 +39,26 @@ public class SearchHandlerServlet extends HttpServlet {
             session.setAttribute("selectedCategory", "select");
             List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             int i = 0;
-            boolean exists = false;
-            while (!exists && i < categoryList.size()) {
-                String categoryName = categoryList.get(i);
-                if (categoryName.equalsIgnoreCase(selectedCategory)) {
-                    categoryList.remove(categoryName);
-                    exists = true;
+            if (categoryList != null) {
+                boolean exists = false;
+                while (!exists && i < categoryList.size()) {
+                    String categoryName = categoryList.get(i);
+                    if (categoryName.equalsIgnoreCase(selectedCategory)) {
+                        categoryList.remove(categoryName);
+                        exists = true;
+                    }
+                    i++;
                 }
-                i++;
+                if (!exists) {
+                    categoryList.add(selectedCategory);
+                }
+                categoryList.forEach(category -> {
+                    System.out.println(category);
+                });
+                System.out.println("________");
+                session.setAttribute("searchCategories", categoryList);
+                System.out.println(session.getAttribute("selectedCategory"));
             }
-            if (!exists) {
-                categoryList.add(selectedCategory);
-            }
-            categoryList.forEach(category -> {
-                System.out.println(category);
-            });
-            System.out.println("________");
-            session.setAttribute("searchCategories", categoryList);
-            System.out.println(session.getAttribute("selectedCategory"));
             populateBean(req);
 
             resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
@@ -104,7 +106,7 @@ public class SearchHandlerServlet extends HttpServlet {
             session.setAttribute("searchedResults", searchResult);
             List<Product> test = (List<Product>) session.getAttribute("searchedResults");
             test.forEach((t) -> {
-                
+
                 System.out.println(t.getName() + "inside do search foreach");
             });
         }

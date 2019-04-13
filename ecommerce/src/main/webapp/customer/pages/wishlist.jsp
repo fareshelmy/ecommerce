@@ -72,9 +72,11 @@
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
-                        <center><c:out value="Your Wishlist is Empty!"></c:out></center>
-                        </c:otherwise>
-                    </c:choose>
+                        <div class="section-title text-center">
+                            <h5 class="title">Your Wishlist is Empty!</h5>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
             <!-- /store products -->
 

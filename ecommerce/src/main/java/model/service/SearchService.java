@@ -1,22 +1,22 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
-     */
-    package model.service ;
+ */
+package model.service;
 
 import model.dto.SearchCriteria;
-    import java.util.List ;
-    import model.dao.CategoryDAO ;
-    import model.dao.OrderItemDAO ;
-    import model.dao.ProductDAO ;
-    import model.entity.Product ;
+import java.util.List;
+import model.dao.CategoryDAO;
+import model.dao.OrderItemDAO;
+import model.dao.ProductDAO;
+import model.entity.Product;
 
-    /**
-     *
-     * @author Lamiaa Abdrabou
-     */
-    public class SearchService {
+/**
+ *
+ * @author Lamiaa Abdrabou
+ */
+public class SearchService {
 
         public List<Product> getNewProducts(String categoryName, String customize) {
             if (categoryName.equals("All Categories")) {
@@ -27,6 +27,7 @@ import model.dto.SearchCriteria;
                 return categoryDao.getCategoryProducts(categoryName, customize);
             }
         }
+    }
 
         public List<Product> getTopSelling(String categoryName, String customize) {
             OrderItemDAO orderItemDao = new OrderItemDAO();
@@ -40,8 +41,17 @@ import model.dto.SearchCriteria;
             String productSubString = searchCriteria.getProductSubString().trim();
             List<String> selectedCategories = searchCriteria.getSelectedCategories();
 
-            //customer entered a specific product
-            if (productSubString != null && productSubString.length() > 0) {
+    public List<Product> getSearchResult(SearchCriteria searchCriteria) {
+        CategoryDAO categoryDAO = new CategoryDAO();
+        ProductDAO productDAO = new ProductDAO();
+        List<Product> products = null;
+        String searchBarCategory = searchCriteria.getSearchBarCategory();
+        String productSubString = searchCriteria.getProductSubString();
+        
+        //customer entered a specific product
+        if (productSubString != null) {
+            String productStringTrimmed = productSubString.trim();
+            List<String> selectedCategories = searchCriteria.getSelectedCategories();
 
                 //customer specified a bar category
                 if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
@@ -63,6 +73,17 @@ import model.dto.SearchCriteria;
                 }
 
             }
-            return products;
+        } //Customer didnt specify a product name, only category 
+        else {
+            //customer specified a bar category
+            if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
+                products = categoryDAO.getCategoryProducts(searchBarCategory);
+            } // customer didn't specify a category
+            else {
+                products = productDAO.retrieveAll();
+            }
+
         }
+        return products;
     }
+}

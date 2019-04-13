@@ -30,7 +30,6 @@ public class OrderService {
         user = new UserDAO().retrieve(userID);
     }
 
-    //Fares
     public boolean checkUserBalance(String userId, double totalPaymentAmount) {
         boolean isSufficient = false;
         if (user.getCreditLimit() > totalPaymentAmount) {
@@ -50,9 +49,8 @@ public class OrderService {
         });
     }
     
-    //Hamada
     public List<OrderSpecification> checkQuantity(List<OrderSpecification> userOrder) {
-        Product product = null;
+        Product product;
         ProductDAO productDao = new ProductDAO();
         List<OrderSpecification> notAvailableProducts = new ArrayList<>();
         for (OrderSpecification instance : userOrder) {
@@ -72,7 +70,6 @@ public class OrderService {
         userDao.update(user);
     }
 
-    //Jemmy
     public void createNewOrder(List<OrderSpecification> orderSpecificationsList){
         //Creating New Order
         Order order = new Order(user);

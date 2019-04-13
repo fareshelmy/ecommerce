@@ -62,3 +62,7 @@ function removeFromCart(productId) {
         }
     });
 }
+
+function updateView(divId) {
+    jQuery("#" + divId).remove();
+}

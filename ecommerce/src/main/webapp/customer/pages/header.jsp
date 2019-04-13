@@ -35,7 +35,7 @@
 
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>
-
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -44,7 +44,7 @@
         <![endif]-->
 
     </head>
-    <body onload="addToCart(null, '${pageContext.session.id}', 0)">
+    <body onload="addToCart(null, '${pageContext.session.id}', 0);checkUserCredit('${sessionScope.userCredit}')">
         <!-- HEADER -->
         <header>
             <!-- TOP HEADER -->

@@ -37,10 +37,10 @@ public class Login extends HttpServlet {
                     request.setAttribute("invalidData", "");
                     HttpSession session = request.getSession(true);
                     session.setAttribute("loggedIn", "true");
-                    session.setAttribute("username", user.getUsername());
-                    session.setAttribute("email", user.getEmail());
+                    session.setAttribute("username", persistentUser.getUsername());
                     session.setAttribute("userId", persistentUser.getEmail());
                     session.setAttribute("userRole", persistentUser.getRole());
+                    session.setAttribute("userCredit", persistentUser.getCreditLimit());
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
                         response.sendRedirect("/ecommerce/home");
