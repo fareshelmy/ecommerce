@@ -18,21 +18,21 @@ import model.dto.SearchCriteria;
      */
     public class SearchService {
 
-        public List<Product> getNewProducts(String categoryName) {
+        public List<Product> getNewProducts(String categoryName, String customize) {
             if (categoryName.equals("All Categories")) {
                 ProductDAO productDao = new ProductDAO();
-                return productDao.retrieveAll();
+                return productDao.retrieveAll(customize, -1, -1);
             } else {
                 CategoryDAO categoryDao = new CategoryDAO();
-                return categoryDao.getCategoryProducts(categoryName);
+                return categoryDao.getCategoryProducts(categoryName, customize);
             }
         }
 
-        public List<Product> getTopSelling(String categoryName) {
+        public List<Product> getTopSelling(String categoryName, String customize) {
             OrderItemDAO orderItemDao = new OrderItemDAO();
-            return orderItemDao.getTopSelling(categoryName);
+            return orderItemDao.getTopSelling(categoryName, customize);
         }
-        public List<Product> getSearchResult(SearchCriteria searchCriteria) {
+        public List<Product> getSearchResult(SearchCriteria searchCriteria, int showNumber, int pageNumber) {
             CategoryDAO categoryDAO = new CategoryDAO();
             ProductDAO productDAO = new ProductDAO();
             List<Product> products = null;
@@ -45,21 +45,21 @@ import model.dto.SearchCriteria;
 
                 //customer specified a bar category
                 if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
-                    products = categoryDAO.retrieveByProductAndCategory(searchBarCategory, productSubString);
+                    products = categoryDAO.retrieveByProductAndCategory(searchBarCategory, productSubString, showNumber, pageNumber);
                 } // customer didn't specify a category
                 else {
-                    products = productDAO.getByColumnNames(new String[]{"name"}, new String[]{productSubString});
+                    products = productDAO.getByColumnNames(new String[]{"name"}, new String[]{productSubString}, showNumber, pageNumber);
                 }
             } //Customer didnt specify a product name, only category 
             else {
                 System.out.println("ay 7aga wnaby");
                 //customer specified a bar category
                 if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
-                    products = categoryDAO.getCategoryProducts(searchBarCategory);
+                    products = categoryDAO.getCategoryProducts(searchBarCategory, null, showNumber, pageNumber);
                 } // customer didn't specify a category
                 else {
                     System.out.println("User doesnt specify neither a cat");
-                    products = productDAO.retrieveAll();
+                    products = productDAO.retrieveAll(null, showNumber, pageNumber);
                 }
 
             }

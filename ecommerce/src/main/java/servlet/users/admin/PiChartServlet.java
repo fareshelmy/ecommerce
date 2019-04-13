@@ -26,12 +26,12 @@ public class PiChartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CategoryDAO categoryDAO = new CategoryDAO();
-        List<Product> listOfMeatAndPoultry = categoryDAO.getCategoryProducts("Meat & Poultry");
-        List<Product> listOfSeafood = categoryDAO.getCategoryProducts("Seafood");
-        List<Product> listOfFruitsAndVegetables = categoryDAO.getCategoryProducts("Fruits & Vegetables");
-        List<Product> listOfBakeryAndPastry = categoryDAO.getCategoryProducts("Bakery & Pastry");
-        List<Product> listOfCheeseAndDairyAndDeli = categoryDAO.getCategoryProducts("Cheese, Dairy & Deli");
-        List<Product> listOfDessertsAndSweets = categoryDAO.getCategoryProducts("Desserts & Sweets");
+        List<Product> listOfMeatAndPoultry = categoryDAO.getCategoryProducts("Meat & Poultry", null);
+        List<Product> listOfSeafood = categoryDAO.getCategoryProducts("Seafood", null);
+        List<Product> listOfFruitsAndVegetables = categoryDAO.getCategoryProducts("Fruits & Vegetables", null);
+        List<Product> listOfBakeryAndPastry = categoryDAO.getCategoryProducts("Bakery & Pastry", null);
+        List<Product> listOfCheeseAndDairyAndDeli = categoryDAO.getCategoryProducts("Cheese, Dairy & Deli", null);
+        List<Product> listOfDessertsAndSweets = categoryDAO.getCategoryProducts("Desserts & Sweets", null);
         int meatAndPoultry = 0,
             seaFood =0, 
             fruitsAndVegetables = 0,

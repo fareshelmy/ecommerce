@@ -79,17 +79,45 @@ public class CategoryDAO implements DAO<Category> {
         return subsetCategory;
     }
 
-    public List<Product> getCategoryProducts(String categoryName) {
+    public List<Product> getCategoryProducts(String categoryName, String customize) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class);
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        categoryCriteria = categoryCriteria.addOrder(Order.desc("entranceDate"));
+        if(customize != null){
+            if(customize.equals("rating")){
+                categoryCriteria = categoryCriteria.addOrder(Order.desc(customize));
+            }else if(customize.equals("price")){
+                categoryCriteria = categoryCriteria.addOrder(Order.asc(customize));
+            }
+        }    
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;
     }
-
+    public List<Product> getCategoryProducts(String categoryName, String customize, int showNumber, int pageNumber) {
+        getSession();
+        session.getTransaction().begin();
+        Criteria productCriteria = session.createCriteria(Product.class);
+        Criteria categoryCriteria = productCriteria.createAlias("category", "c");
+        categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        categoryCriteria = categoryCriteria.addOrder(Order.desc("entranceDate"));
+        if(customize != null){
+            if(customize.equals("rating")){
+                categoryCriteria = categoryCriteria.addOrder(Order.desc(customize));
+            }else if(customize.equals("price")){
+                categoryCriteria = categoryCriteria.addOrder(Order.asc(customize));
+            }
+        }
+        if(showNumber != -1 && pageNumber != -1){
+            productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
+        }
+        List<Product> categoryProducts = productCriteria.list();
+        session.getTransaction().commit();
+        return categoryProducts;
+    }
     public List<Product> retrieveByProductAndCategory(String categoryName, String productName) {
         getSession();
         session.getTransaction().begin();
@@ -101,7 +129,21 @@ public class CategoryDAO implements DAO<Category> {
         session.getTransaction().commit();
         return categoryProducts;
     }
-
+    public List<Product> retrieveByProductAndCategory(String categoryName, String productName, int showNumber, int pageNumber) {
+        getSession();
+        session.getTransaction().begin();
+        Criteria productCriteria = session.createCriteria(Product.class);
+        productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
+        Criteria categoryCriteria = productCriteria.createAlias("category", "c");
+        categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
+        if(showNumber != -1 && pageNumber != -1){
+            productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
+        }
+        List<Product> categoryProducts = productCriteria.list();
+        session.getTransaction().commit();
+        return categoryProducts;
+    }
+        
     @Override
     public List<Category> getAll(Object cat) {
         getSession();

@@ -33,7 +33,7 @@ public class ViewProductServlet extends HttpServlet {
         if (product != null) {
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("product", product);
-            List<Product> relatedProducts = new CategoryDAO().getCategoryProducts(product.getCategory().getName());
+            List<Product> relatedProducts = new CategoryDAO().getCategoryProducts(product.getCategory().getName(), null);
             System.out.println("relatedProductSize"+relatedProducts.size());
             relatedProducts.remove(product);
             System.out.println("relatedProductSize"+relatedProducts.size());
