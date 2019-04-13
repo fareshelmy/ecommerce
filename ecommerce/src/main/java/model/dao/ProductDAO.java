@@ -94,6 +94,7 @@ public class ProductDAO implements DAO<Product> {
                 productCriteria = productCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
             }
         }
+        setNumberOfPages(productCriteria.list().size(), showNumber);
         if(showNumber != -1 && pageNumber != -1){
             productCriteria = productCriteria.setFirstResult((pageNumber-1)*showNumber).setMaxResults(showNumber);
         }

@@ -8,8 +8,6 @@ package model.dao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import model.entity.Category;
-import model.entity.Order;
 import model.entity.OrderItem;
 import model.entity.OrderItemId;
 import model.entity.Product;
@@ -17,7 +15,6 @@ import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;
-import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 

@@ -17,8 +17,9 @@ import model.entity.Product;
  * @author Lamiaa Abdrabou
  */
 public class SearchService {
-
+    private int numberOfPages;
     public List<Product> getNewProducts(String categoryName, String customize) {
+        
         if (categoryName.equals("All Categories")) {
             ProductDAO productDao = new ProductDAO();
             return productDao.retrieveAll(customize, -1, -1);
@@ -50,9 +51,12 @@ public class SearchService {
                 //customer specified a bar category
                 if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
                     products = categoryDAO.retrieveByProductAndCategory(searchBarCategory, productSubString, showNumber, pageNumber);
+                    setNumberOfPages(categoryDAO.getNumberOfPages());
                 } // customer didn't specify a category
                 else {
                     products = productDAO.getByColumnNames(new String[]{"name"}, new String[]{productSubString}, showNumber, pageNumber);
+                    setNumberOfPages(productDAO.getNumberOfPages());
+
                 }
             } //Customer didnt specify a product name, only category 
             else {
@@ -60,13 +64,21 @@ public class SearchService {
                 //customer specified a bar category
                 if (!searchBarCategory.equalsIgnoreCase("All Categories")) {
                     products = categoryDAO.getCategoryProducts(searchBarCategory, null, showNumber, pageNumber);
+                    setNumberOfPages(categoryDAO.getNumberOfPages());
                 } // customer didn't specify a category
                 else {
                     System.out.println("User doesnt specify neither a cat");
                     products = productDAO.retrieveAll(null, showNumber, pageNumber);
+                    setNumberOfPages(productDAO.getNumberOfPages());
                 }
 
             }
         return products;
+    }
+    private void setNumberOfPages(int numberOfPages){
+        this.numberOfPages = numberOfPages;
+    }
+    public int getNumberOfPages(){
+        return numberOfPages;
     }
 }
