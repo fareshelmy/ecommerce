@@ -21,7 +21,7 @@ function checkUserCredit(userCredit) {
 
     }
 
-    $("#submitBtn").click(sayHello);
+   
 }
 
 function checkCreditWithQuantity() {

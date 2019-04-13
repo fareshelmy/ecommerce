@@ -20,12 +20,16 @@ public class Login extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        response.sendRedirect("customer/pages/login.jsp");
+        //response.setContentType("text/html;charset=UTF-8");
+        //response.sendRedirect("customer/pages/login.jsp");
     }
 
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String referer = request.getHeader("Referer");
+        referer = referer.substring(referer.indexOf("=") + 1);
+        System.out.println(referer);
         try {
             User user = new User();
             BeanUtils.populate(user, request.getParameterMap());
@@ -43,7 +47,12 @@ public class Login extends HttpServlet {
                     session.setAttribute("userCredit", persistentUser.getCreditLimit());
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
-                        response.sendRedirect("/ecommerce/home");
+                        if (!referer.equals("checkout")) {
+                            response.sendRedirect("/ecommerce/home");
+                        }else{
+                            response.sendRedirect("/ecommerce/customer/pages/checkout.jsp");
+                        }
+
                     } else {
                         //The user is an admin
                         System.out.println("Loggedin");
