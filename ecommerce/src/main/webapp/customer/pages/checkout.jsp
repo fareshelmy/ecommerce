@@ -104,7 +104,7 @@
             </div>
 
             <!-- Order Details -->
-            <div class="col-md-5 order-details">
+            <div class="col-md-5 order-details" onload="checkUserCredit('${session.userCredit}')">
                 <div class="section-title text-center">
                     <h3 class="title">Your Order</h3>
                 </div>

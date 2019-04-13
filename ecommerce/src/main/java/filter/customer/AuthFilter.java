@@ -41,7 +41,6 @@ public class AuthFilter implements Filter {
             if(role == null){
                 //User is not Logged In
                 httpResponse.sendRedirect("/ecommerce/customer/pages/login.jsp");
-                chain.doFilter(request, response);
             }else{
                 chain.doFilter(request, response);
             }
