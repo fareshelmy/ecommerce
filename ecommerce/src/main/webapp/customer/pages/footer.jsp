@@ -50,14 +50,14 @@
                     <div class="footer">
                         <h3 class="footer-title">All Categories</h3>
                         <ul class="footer-links">
-                            <li><a href="/ecommerce/home?newCategoryName=All%20Categories&topCategoryName=All%20Categories">Meat & Poultry</a></li>
-                            <li><a href="/ecommerce/home?newCategoryName=Meat%20%26%20Poultry&topCategoryName=Meat%20%26%20Poultry"></a></li>
-                            <li><a href="/ecommerce/home?newCategoryName=Seafood&topCategoryName=Seafood">Seafood</a></li>
-                            <li><a href="/ecommerce/home?newCategoryName=Fruits%20%26%20Vegetables&topCategoryName=Fruits%20%26%20Vegetables">Fruits & Vegetables</a></li>
-                            <li><a href="/ecommerce/home?newCategoryName=Bakery%20%26%20Pastry&topCategoryName=Bakery%20%26%20Pastry">Bakery & Pastry</a></li>
-                            <li><a href="/ecommerce/home?newCategoryName=Cheese,%20Dairy%20%26%20Deli&topCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese, Dairy & Deli</a></li>
-                            <li><a href="/ecommerce/home?newCategoryName=Desserts%20%26%20Sweets&topCategoryName=Desserts%20%26%20Sweets">Desserts & Sweets</a></li>
-                            <li><a href="/ecommerce/home?newCategoryName=Home%20%26%20Garden&topCategoryName=Home%20%26%20Garden">Home & Garden</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=All%20Categories">All Category</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=meat">Meat & Poultry</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=sea">Seafood</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=fruits">Fruits & Vegetables</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=bakery">Bakery & Pastry</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=cheese">Cheese, Dairy & Deli</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=desserts">Desserts & Sweets</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=home">Home & Garden</a></li>
                         </ul>
                     </div>
                 </div>
