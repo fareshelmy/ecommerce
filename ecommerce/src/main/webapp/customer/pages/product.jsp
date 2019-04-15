@@ -100,10 +100,46 @@
 <!-- Section -->
 <div class="section">
     <!-- container -->
+    
     <div class="container">
         <!-- row -->
         <div class="row">
+                        <!-- Product tab -->
+            <div class="col-md-12">
+                <div id="product-tab">
+                    <!-- product tab nav -->
+                    <ul class="tab-nav">
+                        <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
 
+                    </ul>
+                    <!-- /product tab nav -->
+
+                    <!-- product tab content -->
+                    <div class="tab-content">
+                        <!-- tab1  -->
+                        <div id="tab1" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>
+                                        <c:choose>
+                                            <c:when test="${sessionScope.product.description ne ''}"> <center><c:out value="${sessionScope.product.description}"></c:out></center></c:when>
+                                            <c:otherwise>
+                                                <center><c:out value="No Description Found"></c:out></center>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /tab1  -->
+
+                      
+                        <!-- /tab2  -->
+                    </div>
+                    <!-- /product tab content  -->
+                </div>
+            </div>
+            <!-- /product tab -->
             <div class="col-md-12">
                 <div class="section-title text-center">
                     <h3 class="title">Related Products</h3>

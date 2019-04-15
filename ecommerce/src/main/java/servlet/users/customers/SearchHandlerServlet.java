@@ -1,4 +1,4 @@
-getNumberOfPages/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -95,9 +95,6 @@ public class SearchHandlerServlet extends HttpServlet {
             showNumber = Integer.parseInt(req.getParameter("showNumber"));  
         if(req.getParameter("pageNumber")!= null)
             pageNumber = Integer.parseInt(req.getParameter("pageNumber"));
-        System.out.println(showNumber);
-        System.out.println(pageNumber);
-
         //
         
         HttpSession session = req.getSession(false);
@@ -108,6 +105,10 @@ public class SearchHandlerServlet extends HttpServlet {
             SearchService  searchService = new SearchService();
             List<Product> searchResult = searchService.getSearchResult(searchCriteria, showNumber, pageNumber);
             int numberOfPages = searchService.getNumberOfPages();
+            numberOfPages = 3;
+            session.setAttribute("numberOfPages", numberOfPages);
+            session.setAttribute("pageNumber", 1);
+            System.out.println("Number of Pages"+numberOfPages);
             session.setAttribute("searchedResults", searchResult);
             List<Product> test = (List<Product>) session.getAttribute("searchedResults");
             test.forEach((t) -> {

@@ -160,15 +160,15 @@
                     <div class="store-sort">
                         <label>
                             Sort By:
-                            <select class="input-select">
-                                <option value="0">Lowest Price</option>
-                                <option value="1">Top Rated</option>
+                            <select class="input-select" id="sortBy">
+                                <option value="0">Top Rated</option>
+                                <option value="1">Lowest Price</option>
                             </select>
                         </label>
 
                         <label>
                             Show:
-                            <select class="input-select">
+                            <select class="input-select" id="show">
                                 <option value="0">9</option>
                                 <option value="1">15</option>
                             </select>
@@ -197,11 +197,9 @@
                                             <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                             <h4 class="product-price">EGP${product.price}</h4>
                                             <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                                <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
+                                                    <i class="fa fa-star"></i>
+                                                </c:forEach>
                                             </div>
                                             <div class="product-btns">
                                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
@@ -224,11 +222,12 @@
                         <div class="store-filter clearfix">
                             <span class="store-qty">Showing 20-100 products</span>
                             <ul class="store-pagination">
-                                <li class="active">1</li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                 <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
+                                    <li <c:if test="${sessionScope.pageNumber == i }">
+                                    class="active"
+                                        </c:if> onclick="${sessionScope.pageNumber = i};"><a href="#">${i}</a></li>
+                                 </c:forEach>
+                                <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
                             </ul>
                         </div>
                         <!-- /store bottom filter -->
