@@ -72,7 +72,6 @@ public class ProductDAO implements DAO<Product> {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
-        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         for (int i = 0; i < columnNames.length; i++) {
             if (columnValues[i] instanceof String) {
                 productCriteria = productCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i].toString(), MatchMode.ANYWHERE));
@@ -89,7 +88,6 @@ public class ProductDAO implements DAO<Product> {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
-        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         for (int i = 0; i < columnNames.length; i++) {
             if (columnValues[i] instanceof String) {
                 productCriteria = productCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i].toString(), MatchMode.ANYWHERE));
@@ -113,7 +111,6 @@ public class ProductDAO implements DAO<Product> {
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
         productCriteria = productCriteria.add(Restrictions.eq("id", product.getId()));
-        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         List<Product> allUser = productCriteria.list();
         session.getTransaction().commit();
         return allUser;
@@ -124,7 +121,6 @@ public class ProductDAO implements DAO<Product> {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class);
-        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         productCriteria = productCriteria.addOrder(org.hibernate.criterion.Order.desc("entranceDate")).setFetchMode("category", FetchMode.EAGER);
         List<Product> productList = productCriteria.list();
         session.getTransaction().commit();
@@ -135,7 +131,6 @@ public class ProductDAO implements DAO<Product> {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class).setFetchMode("category", FetchMode.EAGER);
-        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         if (customize != null) {
             if (customize.equals("rating")) {
                 productCriteria.addOrder(org.hibernate.criterion.Order.desc(customize));
@@ -162,7 +157,6 @@ public class ProductDAO implements DAO<Product> {
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(model.entity.Product.class);
         productCriteria = productCriteria.add(Restrictions.ilike("name", "%" + name + "%"));
-        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         List subsetOrder = productCriteria.list();
         session.getTransaction().commit();
         return subsetOrder;
@@ -172,7 +166,6 @@ public class ProductDAO implements DAO<Product> {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(Product.class).setFetchMode("category", FetchMode.EAGER);
-        productCriteria = productCriteria.add(Restrictions.gt("quantity", 0));
         if (customize != null) {
             if (customize.equals("rating")) {
                 productCriteria.addOrder(org.hibernate.criterion.Order.desc(customize));

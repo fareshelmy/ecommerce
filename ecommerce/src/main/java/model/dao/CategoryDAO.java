@@ -87,7 +87,6 @@ public class CategoryDAO implements DAO<Category> {
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
         categoryCriteria = categoryCriteria.addOrder(Order.desc("entranceDate"));
-        categoryCriteria = categoryCriteria.add(Restrictions.gt("quantity", 0));
         if (customize != null) {
             if (customize.equals("rating")) {
                 categoryCriteria = categoryCriteria.addOrder(Order.desc(customize));
@@ -106,7 +105,6 @@ public class CategoryDAO implements DAO<Category> {
         Criteria productCriteria = session.createCriteria(Product.class);
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
-        categoryCriteria = categoryCriteria.add(Restrictions.gt("quantity", 0));
         categoryCriteria = categoryCriteria.addOrder(Order.desc("entranceDate"));
         if (customize != null) {
             if (customize.equals("rating")) {
@@ -131,7 +129,6 @@ public class CategoryDAO implements DAO<Category> {
         productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
-        categoryCriteria = categoryCriteria.add(Restrictions.gt("quantity", 0));
         List<Product> categoryProducts = productCriteria.list();
         session.getTransaction().commit();
         return categoryProducts;
@@ -144,7 +141,6 @@ public class CategoryDAO implements DAO<Category> {
         productCriteria = productCriteria.add(Restrictions.ilike("name", productName, MatchMode.ANYWHERE));
         Criteria categoryCriteria = productCriteria.createAlias("category", "c");
         categoryCriteria = categoryCriteria.add(Restrictions.ilike("c.name", categoryName, MatchMode.ANYWHERE));
-        categoryCriteria = categoryCriteria.add(Restrictions.gt("quantity", 0));
         setNumberOfPages(productCriteria.list().size(), showNumber);
         if (showNumber != -1 && pageNumber != -1) {
             productCriteria = productCriteria.setFirstResult((pageNumber - 1) * showNumber).setMaxResults(showNumber);

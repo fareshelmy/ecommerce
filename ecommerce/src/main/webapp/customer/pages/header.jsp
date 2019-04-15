@@ -36,6 +36,10 @@
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -65,7 +69,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/ecommerce/logout"><i class="fa fa-sign-out"></i>
+                                    <a href="#" onclick="return processLogout()"><i class="fa fa-sign-out"></i>
                                         Sign Out
                                     </a>
                                 </li>

@@ -2,13 +2,13 @@ var initialPrice = document.getElementsByName("spanPrice");
 var price = convertToArray(initialPrice);
 var userCredit;
 //$(document).ready(checkUserCredit);
-function checkUserCredit(userCredit,total) {
-    
+function checkUserCredit(userCredit, total) {
+
     try {
         total = total.trim();
         total = parseInt(total, 10);
         userCredit = parseInt(userCredit, 10);
-        
+
         console.log(total + "  ----- " + userCredit);
         if (total > userCredit) {
             $("#submitBtn").attr("disabled", true);
@@ -24,7 +24,7 @@ function checkUserCredit(userCredit,total) {
         console.log("somethimg happed");
     }
 
-   
+
 }
 
 function checkCreditWithQuantity(credit) {
@@ -40,7 +40,7 @@ function checkCreditWithQuantity(credit) {
 
     $("#total").html(changeTotal());
     var total = $("#total").html();
-    checkUserCredit(userCredit,total);
+    checkUserCredit(userCredit, total);
 }
 
 
@@ -91,7 +91,26 @@ function placeOrder() {
         dataType: 'text',
         success: function (data, textStatus, jqXHR) {
             if (data == "done") {
-                location.href = "/ecommerce/home";
+//                swal({
+//                    title: "Thank you!",
+//                    text: "Your order has been submitted successfully",
+//                    type: "success"
+//                }, function () {
+//                    window.location = "/ecommerce/home";
+//                });
+
+
+                Swal.fire({
+                    title: "Thank you!",
+                    text: "Your order has been submitted successfully",
+                    type: "success",
+                    confirmButtonColor: '#D10024',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.value) {
+                        window.location = "/ecommerce/home";
+                    }
+                });
             } else {
                 var notAvailableProducts = JSON.parse(data);
                 for (var i = 0; i < notAvailableProducts.length; i++) {

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author FARES-LAP
  */
-@WebServlet(value = "/ecommerce/logout")
+@WebServlet(value = "/logout")
 public class Logout extends HttpServlet {
 
     @Override

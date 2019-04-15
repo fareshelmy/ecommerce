@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("userCredit", persistentUser.getCreditLimit());
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
-                        if (!referer.equals("checkout") || !lastVisited.equals("checkout")) {
+                        if ((referer != null && !referer.equals("checkout")) || (lastVisited != null && !lastVisited.equals("checkout"))) {
                             response.sendRedirect("/ecommerce/home");
                         } else {
                             response.sendRedirect("/ecommerce/customer/pages/checkout.jsp");

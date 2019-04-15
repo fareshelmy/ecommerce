@@ -87,7 +87,7 @@
                                                 <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=${product.category.name}">${product.category.name}</a></li>
                                             </ul><br/>
 
-                                            <button class="add-to-cart-btn" onclick="removeFromCart('${product.id}'); updateView('${product.id}')"><i class="fa fa-shopping-cart"></i> remove from cart</button>
+                                            <button class="add-to-cart-btn" onclick="removeFromCart('${product.id}'); updateView('${product.id}'); checkCreditWithQuantity('${sessionScope.userCredit}')"><i class="fa fa-shopping-cart"></i> remove from cart</button>
                                         </div>
 
                                     </div>

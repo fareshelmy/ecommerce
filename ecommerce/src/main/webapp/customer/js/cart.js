@@ -53,7 +53,7 @@ function removeFromCart(productId) {
         dataType: 'text',
         success: function (data, textStatus, jqXHR) {
             jQuery("#cartQuantity").html(data);
-            viewCart(globalSessionId);
+            viewCart();
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log("error");
@@ -62,5 +62,6 @@ function removeFromCart(productId) {
 }
 
 function updateView(divId) {
+    jQuery("#" + divId).remove();
     jQuery("#" + divId).remove();
 }
