@@ -44,7 +44,7 @@
         <![endif]-->
 
     </head>
-    <body onload="addToCart(null, '${pageContext.session.id}', 0);checkUserCredit('${sessionScope.userCredit}')">
+    <body onload="addToCart(null, 0);checkUserCredit('${sessionScope.userCredit}')">
         <!-- HEADER -->
         <header>
             <!-- TOP HEADER -->
@@ -56,20 +56,28 @@
                         <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City" target="blank"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        <li>    
-                            <c:choose>
-                                <c:when test="${sessionScope.loggedIn == 'true'}">
+
+                        <c:choose>
+                            <c:when test="${sessionScope.loggedIn == 'true'}">
+                                <li>
                                     <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
                                         My Account
                                     </a>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
+                                </li>
+                                <li>
+                                    <a href="/ecommerce/logout"><i class="fa fa-sign-out"></i>
+                                        Sign Out
+                                    </a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-sign-in"></i>
                                         Sign In
                                     </a>
-                                </c:otherwise>
-                            </c:choose>
-                        </li>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                     </ul>
                 </div>
             </div>
@@ -130,7 +138,7 @@
                                     <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart()">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>My Cart</span>
-                                        <div class="qty" id="cartQuantity">0</div>
+                                        <div class="qty" id="cartQuantity"></div>
                                     </a>
                                     <div class="cart-dropdown">
                                         <div id="cartDropDownList" class="cart-list">

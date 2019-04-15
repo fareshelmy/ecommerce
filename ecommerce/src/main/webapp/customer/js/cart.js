@@ -1,8 +1,6 @@
 jQuery.noConflict();
-var globalSessionId;
 
-function addToCart(button, sessionId, productId) {
-    globalSessionId = sessionId;
+function addToCart(button, productId) {
     var jsonData = {"productId": productId, reason: "add"};
     jQuery.ajax({
         url: "/ecommerce/cartHandler",

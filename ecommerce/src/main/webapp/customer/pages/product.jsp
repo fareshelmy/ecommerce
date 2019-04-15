@@ -57,7 +57,8 @@
                         <div class="product-rating">
                             <c:forEach var="i" begin="0" end="${sessionScope.product.rating}" step="1" >
                                 <i class="fa fa-star"></i>    
-                            </c:forEach>                        </div>
+                            </c:forEach>
+                        </div>
                         <a class="review-link" href="#">10 Review(s) | Add your review</a>
                     </div>
                     <div>
