@@ -91,9 +91,7 @@
 <script src="/ecommerce/customer/js/main.js"></script>
 <script src="/ecommerce/customer/js/cart.js"></script>
 <script src="/ecommerce/customer/js/wishlist.js"></script>
-
-
-
+<script src="/ecommerce/customer/js/logout.js"></script>
 
 </body>
 </html>

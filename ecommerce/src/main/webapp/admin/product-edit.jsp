@@ -299,6 +299,7 @@
                                                             <option value="l">l</option>
                                                             <option value="ml">ml</option>
                                                             <option value="Pcs">Pcs</option>
+                                                            <option value="Inch">Inch</option>
                                                         </select>
                                                     </div>
                                                 </div>

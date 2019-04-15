@@ -184,12 +184,19 @@
                     <c:choose>
                         <c:when test="${fn:length(sessionScope.searchedResults) > 0}">
                             <c:forEach items="${sessionScope.searchedResults}" var="product">
-                                <div class="col-md-4 col-xs-6">
-                                    <div class="product">
-                                        <div class="product-img">
-                                            <img src="${product.image}" alt="Image" />
-                                            <div class="product-label">
-                                                <span class="new">NEW</span>
+                                <c:if test="${product.quantity gt 0}">
+                                    <div class="col-md-4 col-xs-6">
+                                        <div class="product">
+                                            <div class="product-img">
+                                                <img src="${product.image}" alt="Image" />
+                                                <div class="product-label">
+                                                    <c:if test="${product.quantity < 4}">
+                                                        <span class="sale">Only ${product.quantity} Left</span>
+                                                    </c:if>
+                                                    <c:if test="${((now.time - product.entranceDate.time) / (1000*60*60*24)) le 6}">
+                                                        <span class="new">NEW</span>
+                                                    </c:if>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="product-body">
@@ -201,22 +208,14 @@
                                                     <i class="fa fa-star"></i>
                                                 </c:forEach>
                                             </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                            <div class="add-to-cart">
+                                                <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                             </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>
-                            <!-- /product -->
-
-                        </div>
-                        <!--    /try to know what it happen if i put it -->
-                        <div class="clearfix visible-sm visible-xs"></div>
+                            </c:if>
+                        </c:forEach>
                         <!-- /product -->
                         <!-- store bottom filter -->
                         <div class="store-filter clearfix">
@@ -241,8 +240,10 @@
             </div>
             <!-- /STORE -->
         </div>
-        <!-- /row -->
+        <!-- /STORE -->
     </div>
-    <!-- /container -->
+    <!-- /row -->
+</div>
+<!-- /container -->
 </div>
 <!-- /SECTION -->
