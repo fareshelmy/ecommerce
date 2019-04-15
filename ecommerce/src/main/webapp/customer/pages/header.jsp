@@ -44,7 +44,7 @@
         <![endif]-->
 
     </head>
-    <body onload="addToCart(null, 0);checkUserCredit('${sessionScope.userCredit}')">
+    <body onload="addToCart(null, 0);checkCreditWithQuantity('${sessionScope.userCredit}')">
         <!-- HEADER -->
         <header>
             <!-- TOP HEADER -->
