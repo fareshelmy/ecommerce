@@ -5,7 +5,7 @@
             30
         </session-timeout>
     </session-config>
-    <filter>
+<!--    <filter>
         <filter-name>header</filter-name>
         <filter-class>filter.customer.HeaderFilter</filter-class>
     </filter>
@@ -26,7 +26,7 @@
         <url-pattern>/customer/pages/store.jsp</url-pattern>
         <url-pattern>/customer/pages/login.jsp</url-pattern>
         <url-pattern>/ecommerce/loginrAction</url-pattern>
-        <!--<url-pattern>/customer/searchHandler</url-pattern>-->
+        <url-pattern>/customer/searchHandler</url-pattern>
         <url-pattern>/ecommerce/home</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
@@ -37,7 +37,7 @@
         <url-pattern>/customer/pages/product.jsp</url-pattern>
         <url-pattern>/customer/pages/store.jsp</url-pattern>
         <url-pattern>/ecommerce/loginrAction</url-pattern>
-        <!--<url-pattern>/ecommerce/customer/searchHandler</url-pattern>-->
+        <url-pattern>/ecommerce/customer/searchHandler</url-pattern>
         <url-pattern>/ecommerce/home</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
@@ -61,8 +61,8 @@
     <servlet-mapping>
         <servlet-name>Home Servlet</servlet-name>
         <url-pattern>/home</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <welcome-file-list>
-        <welcome-file>home</welcome-file>
+        <welcome-file>/admin/index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

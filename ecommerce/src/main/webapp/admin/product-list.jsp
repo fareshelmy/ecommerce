@@ -276,8 +276,11 @@
                                             </td>
                                             <td>${product.price}</td>
                                             <td>
-                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="EditProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
-                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><a href="EditProductServlet?productIdDeleted=${product.id}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></button>
+                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed" ><a href="EditProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                <button type="button" data-toggle="tooltip" title="Trash" class="pd-setting-ed" onclick="deleteFun(${product.id});"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+
+<!--                                                <a href="EditProductServlet?productIdDeleted=${product.id}">-->
+<!--                                                <input type="submit" value="delete" onclick="if (confirm('Are you sure you want to delete?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;" />                              -->
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -353,6 +356,8 @@
         <!-- main JS
                     ============================================ -->
         <script src="/ecommerce/admin/js/main.js"></script>
+        <script src="/ecommerce/admin/js/deletescript.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     </body>
 
