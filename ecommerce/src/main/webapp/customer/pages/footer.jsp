@@ -40,24 +40,24 @@
                         <h3 class="footer-title">About Us</h3>
                         <p>At Foodland Egypt, we aim to provide you with quality, ease and convenience at your meal?s every step. Whether you?re ordering, receiving or preparing your meal, we hope that we will inspire you to discover the fun and passion of home cooking.</p>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>17 Tenth District, October City, Egypt</a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>+201-06-404-6540</a></li>
-                            <li><a href="#"><i class="fa fa-envelope-o"></i>fares.helmy93@email.com</a></li>
+                            <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City"><i class="fa fa-map-marker" target="blank"></i>17 Tenth District, October City, Egypt</a></li>
+                            <li><a href="tel:+201-06-404-6540" target="blank"><i class="fa fa-phone"></i>+201-06-404-6540</a></li>
+                            <li><a href="mailto:fares.helmy93@email.com" target="blank"><i class="fa fa-envelope-o"></i>fares.helmy93@email.com</a></li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Categories</h3>
+                        <h3 class="footer-title">All Categories</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Meat & Poultry</a></li>
-                            <li><a href="#">Seafood</a></li>
-                            <li><a href="#">Fruits & Vegetables</a></li>
-                            <li><a href="#">Bakery & Pastry</a></li>
-                            <li><a href="#">Cheese, Dairy & Deli</a></li>
-                            <li><a href="#">Desserts & Sweets</a></li>
-                            <li><a href="#">Home & Garden</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=All%20Categories">All Category</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=meat">Meat & Poultry</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=sea">Seafood</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=fruits">Fruits & Vegetables</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=bakery">Bakery & Pastry</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=cheese">Cheese, Dairy & Deli</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=desserts">Desserts & Sweets</a></li>
+                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=home">Home & Garden</a></li>
                         </ul>
                     </div>
                 </div>
@@ -90,7 +90,8 @@
 <script src="/ecommerce/customer/js/jquery.zoom.min.js"></script>
 <script src="/ecommerce/customer/js/main.js"></script>
 <script src="/ecommerce/customer/js/cart.js"></script>
-
+<script src="/ecommerce/customer/js/wishlist.js"></script>
+<script src="/ecommerce/customer/js/logout.js"></script>
 
 </body>
 </html>

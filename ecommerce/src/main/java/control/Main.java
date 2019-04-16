@@ -5,27 +5,26 @@
  */
 package control;
 
-import java.math.BigDecimal;
 import java.util.List;
-import model.dao.CategoryDAO;
 import model.dao.OrderItemDAO;
 import model.dao.ProductDAO;
-import model.dao.UserDAO;
-import model.entity.OrderItem;
-import model.entity.OrderItemId;
 import model.entity.Product;
-import model.entity.User;
-import model.service.SearchService;
 
-
+/**
+ *
+ * @author Lamiaa Abdrabou
+ */
 public class Main {
-
-    public static void main(String[] args) {
-        SearchService search = new SearchService();
-        List<Product> products = search.getTopSelling("All Categories");
-        for(Product product:products){
-            System.out.println(product.getName());
+    public static void main(String[] args){
+        ProductDAO order = new ProductDAO();
+        for(int i=1;i<6;i++){
+        List<Product> first = order.retrievePage(null, i, 9);
+        System.out.println(first.size());
+        for(Product p:first){
+            System.out.println(p.getName());
         }
-      
+        }
     }
 }
+
+

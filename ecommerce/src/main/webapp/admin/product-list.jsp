@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <html class="no-js" lang="en">
 
     <head>
@@ -139,16 +141,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                            <div class="header-top-menu tabl-d-n">
-                                                <div class="breadcome-heading">
-                                                    <form role="search" class="">
-                                                        <input type="text" placeholder="Search..." class="form-control">
-                                                        <a href=""><i class="fa fa-search"></i></a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                                 <div class="header-right-info">
@@ -241,6 +234,16 @@
             <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                            <div class="header-top-menu tabl-d-n">
+                                <div class="breadcome-heading">
+                                    <form role="search" action="ProductSearchServlet">
+                                        <input type="text" id="searchProduct" name="searchProduct" placeholder="Search..." class="form-control">
+                                        <a href="ProductSearchServlet"><i class="fa fa-search"></i></a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
                                 <h4>Products List</h4>
@@ -258,33 +261,39 @@
                                         <th>Settings</th>
                                     </tr>
 
-                                    <c:forEach items="${requestScope.products}" var="product">
-                                        <tr>
-                                            <td><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
-                                            <td>${product.name}</td>
-                                            <td>${product.itemsSold}</td>
-                                            <td>EGP${product.itemsSold * product.price}</td>
-                                            <td>
-                                                <c:choose>
-                                                    <c:when test="${product.quantity == 0}">
-                                                        <c:out value="Out Of Stock"/>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <c:out value="In Stock"/>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </td>
-                                            <td>${product.price}</td>
-                                            <td>
-                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed" ><a href="EditProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
-                                                <button type="button" data-toggle="tooltip" title="Trash" class="pd-setting-ed" onclick="deleteFun(${product.id});"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
 
-<!--                                                <a href="EditProductServlet?productIdDeleted=${product.id}">-->
-<!--                                                <input type="submit" value="delete" onclick="if (confirm('Are you sure you want to delete?')) form.action='/Config?pg=FIBiller&amp;cmd=delete'; else return false;" />                              -->
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+                                    <c:choose>
+                                        <c:when test="${fn:length(requestScope.products) > 0}">
 
+                                                <c:forEach items="${requestScope.products}" var="product">
+                                                        <tr>
+                                                            <td><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
+                                                            <td>${product.name}</td>
+                                                            <td>${product.itemsSold}</td>
+                                                            <td>EGP${product.itemsSold * product.price}</td>
+                                                            <td>
+                                                                <c:choose>
+                                                                    <c:when test="${product.quantity == 0}">
+                                                                        <c:out value="Out Of Stock"/>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <c:out value="In Stock"/>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </td>
+                                                            <td>${product.price}</td>
+                                                            <td>
+                                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed" ><a href="EditProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                                <button type="button" data-toggle="tooltip" title="Trash" class="pd-setting-ed" onclick="deleteFun(${product.id});"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <center><c:out value="No Results Found"></c:out></center>
+                                            </c:otherwise>
+
+                                    </c:choose>
 
                                 </table>
                                 <div class="custom-pagination">

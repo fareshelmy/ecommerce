@@ -87,7 +87,7 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                        <a href="#"><img src="admin/img/notification/4.jpg" alt="" /></a>
+                       
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -147,21 +147,12 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                            <div class="header-top-menu tabl-d-n">
-                                                <div class="breadcome-heading">
-                                                    <form role="search" class="">
-                                                        <input type="text" placeholder="Search..." class="form-control">
-                                                        <a href=""><i class="fa fa-search"></i></a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                    <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                     </li>
 
 
@@ -300,6 +291,7 @@
                                                             <option value="l">l</option>
                                                             <option value="ml">ml</option>
                                                             <option value="Pcs">Pcs</option>
+                                                            <option value="Inch">Inch</option>
                                                         </select>
                                                     </div>
                                                 </div>

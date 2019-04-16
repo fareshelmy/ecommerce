@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -68,7 +69,6 @@
     </head>
 
     <body>
-
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 <div class="sidebar-header">
@@ -77,7 +77,7 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                       
+
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -141,24 +141,13 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-                                            <div class="header-top-menu tabl-d-n">
-                                                <div class="breadcome-heading">
-                                                    <form role="search" class="">
-                                                        <input type="text" placeholder="Search..." class="form-control">
-                                                        <a href=""><i class="fa fa-search"></i></a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                    <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                     </li>
-
-
                                                 </ul>
                                             </div>
                                         </div>
@@ -191,7 +180,7 @@
                                                     <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-                                                <li><a href="AddAdminServlet">Add admin</a></li></ul>
+                                            <li><a href="AddAdminServlet">Add admin</a></li></ul>
                                     </nav>
                                 </div>
                             </div>
@@ -227,6 +216,16 @@
             <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
+                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                            <div class="header-top-menu tabl-d-n">
+                                <div class="breadcome-heading">
+                                    <form role="search" action="UserSearchServlet">
+                                        <input type="text" id="searchText" name="searchText" placeholder="Search..." class="form-control">
+                                        <a href="UserSearchServlet"><i class="fa fa-search"></i></a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
                                 <h4>All Users</h4>
@@ -239,35 +238,31 @@
                                         <th>job</th>
                                         <th>address</th>
                                         <th>credit Limit</th>
-                                        <th>Category</th>
-                                        <th>Total orders</th>
-                                        <th>Setting</th>
-                                    </tr>
-                                    <c:forEach items="${requestScope.users}" var="user">
-                                        <tr>
-                                            <td>${user.email}</td>
-                                            <td>${user.username}</td>
-                                            <td>${user.birthday}</td>
-                                            <td>${user.job}</td>
-                                            <td>${user.address}</td>
-                                            <td>${user.creditLimit}</td>
+                                        <th>Show orders</th>
 
-                                        
-                                        <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="admin/user-detail.jsp?userId=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
-                                        </td>
-                                        </tr>
-                                    </c:forEach>
+                                    </tr>
+                                    <c:choose>
+                                        <c:when test="${fn:length(sessionScope.users) > 0}">
+                                            <c:forEach items="${requestScope.users}" var="user">
+                                                <tr>
+                                                    <td>${user.email}</td>
+                                                    <td>${user.username}</td>
+                                                    <td>${user.birthday}</td>
+                                                    <td>${user.job}</td>
+                                                    <td>${user.address}</td>
+                                                    <td>${user.creditLimit}</td>
+                                                    <td>
+                                                        <button data-toggle="tooltip" title="Show" class="pd-setting-ed"><a href=" servletName ! ?userID=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <center><c:out value="No Results Found"></c:out></center>
+                                            </c:otherwise>
+
+                                    </c:choose>
                                 </table>
-                                <div class="custom-pagination">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>

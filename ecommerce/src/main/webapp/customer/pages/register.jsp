@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page errorPage="errorPage.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>

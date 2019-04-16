@@ -1,5 +1,5 @@
 package model.entity;
-// Generated Apr 3, 2019 2:34:45 AM by Hibernate Tools 4.3.1
+// Generated Apr 12, 2019 1:32:42 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -33,7 +33,7 @@ public class User  implements java.io.Serializable, model.entity.Entity {
      private Date birthday;
      private String job;
      private String address;
-     private int creditLimit;
+     private double creditLimit;
      private String role;
      private Set<Order> orders = new HashSet<Order>(0);
      private Set<Category> categories = new HashSet<Category>(0);
@@ -42,13 +42,13 @@ public class User  implements java.io.Serializable, model.entity.Entity {
     }
 
 	
-    public User(String email, String username, String password, int creditLimit) {
+    public User(String email, String username, String password, double creditLimit) {
         this.email = email;
         this.username = username;
         this.password = password;
         this.creditLimit = creditLimit;
     }
-    public User(String email, String username, String password, Date birthday, String job, String address, int creditLimit, String role, Set<Order> orders, Set<Category> categories) {
+    public User(String email, String username, String password, Date birthday, String job, String address, double creditLimit, String role, Set<Order> orders, Set<Category> categories) {
        this.email = email;
        this.username = username;
        this.password = password;
@@ -124,12 +124,12 @@ public class User  implements java.io.Serializable, model.entity.Entity {
     }
 
     
-    @Column(name="credit_limit", nullable=false)
-    public int getCreditLimit() {
+    @Column(name="credit_limit", nullable=false, precision=22, scale=0)
+    public double getCreditLimit() {
         return this.creditLimit;
     }
     
-    public void setCreditLimit(int creditLimit) {
+    public void setCreditLimit(double creditLimit) {
         this.creditLimit = creditLimit;
     }
 

@@ -1,6 +1,9 @@
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,7 +35,11 @@
 
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -41,32 +48,40 @@
         <![endif]-->
 
     </head>
-    <body>
+    <body onload="addToCart(null, 0);checkCreditWithQuantity('${sessionScope.userCredit}')">
         <!-- HEADER -->
         <header>
             <!-- TOP HEADER -->
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
+                        <li><a href="tel:+201-06-404-6540" target="blank"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
+                        <li><a href="mailto:fares.helmy93@email.com" target="blank"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
+                        <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City" target="blank"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        <li>    
-                            <c:choose>
-                                <c:when test="${sessionScope.loggedIn == 'true'}">
+
+                        <c:choose>
+                            <c:when test="${sessionScope.loggedIn == 'true'}">
+                                <li>
                                     <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
                                         My Account
                                     </a>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-user-o"></i>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="return processLogout()"><i class="fa fa-sign-out"></i>
+                                        Sign Out
+                                    </a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-sign-in"></i>
                                         Sign In
                                     </a>
-                                </c:otherwise>
-                            </c:choose>
-                        </li>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                     </ul>
                 </div>
             </div>
@@ -81,7 +96,7 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="/ecommerce/home" class="logo">
+                                <a href="/ecommerce/customer/pages/index.jsp" class="logo">
                                     <img src="/ecommerce/img/products/logo.png" alt="">
                                 </a>
                             </div>
@@ -91,7 +106,7 @@
                         <!-- SEARCH BAR -->
                         <div class="col-md-6">
                             <div class="header-search">
-                                <form method="post" action="/ecommerce/customer/searchHandler">
+                                <form method="GET" action="/ecommerce/customer/searchHandler">
                                     <select class="input-select" name="searchBarCategory">
                                         <option value="All Categories">All Categories</option>
                                         <option value="Meat & Poultry">Meat & Poultry</option>
@@ -114,30 +129,29 @@
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
-                                    <a href="#">
+                                    <a href="/ecommerce/wishlist">
                                         <i class="fa fa-heart-o"></i>
                                         <span>My Wishlist</span>
-                                        <div class="qty">0</div>
+                                        <div class="qty" id="wishlistQuantity">${fn:length(sessionScope.wishlist)}</div>
                                     </a>
                                 </div>
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart('${pageContext.session.id}')">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart()">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>My Cart</span>
-                                        <div class="qty" id="cartQuantity">0</div>
+                                        <div class="qty" id="cartQuantity"></div>
                                     </a>
                                     <div class="cart-dropdown">
                                         <div id="cartDropDownList" class="cart-list">
                                         </div>
                                         <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: EGP2940.00</h5>
+                                            <small id="itemsCount"></small>
+                                            <h5 id="subtotal"></h5>
                                         </div>
                                         <div class="cart-btns">
-                                            <a href="#">View Cart</a>
                                             <a href="/ecommerce/customer/pages/checkout.jsp">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                         </div>
                                     </div>
@@ -164,22 +178,3 @@
         </header>
         <!-- /HEADER -->
 
-        <!-- NAVIGATION -->
-        <nav id="navigation">
-            <!-- container -->
-            <div class="container">
-                <!-- responsive-nav -->
-                <div id="responsive-nav">
-                    <!-- NAV -->
-                    <ul class="main-nav nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Top Rated</a></li>
-                        <li><a href="#">Most Popular</a></li>
-                    </ul>
-                    <!-- /NAV -->
-                </div>
-                <!-- /responsive-nav -->
-            </div>
-            <!-- /container -->
-        </nav>
-        <!-- /NAVIGATION -->

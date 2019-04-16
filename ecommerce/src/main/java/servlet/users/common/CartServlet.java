@@ -13,11 +13,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.dao.ProductDAO;
 import model.dto.ProductDTO;
 import model.entity.Product;
@@ -30,25 +32,42 @@ import model.util.ObjectMappingUtil;
 @WebServlet(value = "/cartHandler")
 public class CartServlet extends HttpServlet {
 
-    private Map<String, Set<Integer>> carts = new HashMap<>();
+    private ServletConfig config;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        this.config = config;
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String sessionId = req.getParameter("sessionId");
-        Integer productId = Integer.parseInt(req.getParameter("productId"));
-        String reason = req.getParameter("reason");
-        if (reason.equals("add")) {
-            if (carts.containsKey(sessionId)) {
-                carts.get(sessionId).add(productId);
-            } else {
-                Set<Integer> productIdList = new HashSet<>();
-                productIdList.add(productId);
-                carts.put(sessionId, productIdList);
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            String sessionId = session.getId();
+            Map<String, Set<Integer>> carts = (Map) config.getServletContext().getAttribute("carts");
+            Integer productId = Integer.parseInt(req.getParameter("productId"));
+            if (productId != 0) {
+                String reason = req.getParameter("reason");
+                if (reason.equals("add")) {
+                    if (carts.containsKey(sessionId)) {
+                        carts.get(sessionId).add(productId);
+                    } else {
+                        Set<Integer> productIdList = new HashSet<>();
+                        productIdList.add(productId);
+                        carts.put(sessionId, productIdList);
+                    }
+                } else {
+                    carts.get(sessionId).remove(productId);
+                }
             }
-        } else {
-            carts.get(sessionId).remove(productId);
+            Set<Integer> productIdSet = carts.get(sessionId);
+            if (productIdSet != null) {
+                resp.getWriter().print(String.valueOf(productIdSet.size()));
+            } else {
+                resp.getWriter().print("0");
+            }
+            config.getServletContext().setAttribute("carts", carts);
         }
-        resp.getWriter().print(String.valueOf(carts.get(sessionId).size()));
     }
 
     @Override
@@ -59,25 +78,27 @@ public class CartServlet extends HttpServlet {
         List<ProductDTO> productDTOs = new ArrayList<>();
         Gson gson = new Gson();
 
-        String sessionId = req.getParameter("sessionId");
-        if (carts.containsKey(sessionId)) {
-            productIdList = carts.get(sessionId);
-            for (Integer product : productIdList) {
-                System.out.println(product);
-            }
-            ProductDAO productDAO = new ProductDAO();
-            productIdList.stream()
-                    .map((id) -> productDAO.retrieve((int) id))
-                    .forEachOrdered((product) -> {
-                        productList.add(product);
-                    });
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            String sessionId = session.getId();
+            Map<String, Set<Integer>> carts = (Map) config.getServletContext().getAttribute("carts");
+            if (carts.containsKey(sessionId)) {
+                productIdList = carts.get(sessionId);
+                ProductDAO productDAO = new ProductDAO();
+                productIdList.stream()
+                        .map((id) -> productDAO.retrieve((int) id))
+                        .forEachOrdered((product) -> {
+                            productList.add(product);
+                        });
 
-            for (Product product : productList) {
-                productDTOs.add(ObjectMappingUtil.mapToDTO(product));
+                for (Product product : productList) {
+                    productDTOs.add(ObjectMappingUtil.mapToDTO(product));
+                }
             }
+            session.setAttribute("cartProducts", productList);
+            String productListJson = gson.toJson(productDTOs);
+            resp.getWriter().print(productListJson);
         }
-        String productListJson = gson.toJson(productDTOs);
-        resp.getWriter().print(productListJson);
     }
 
 }

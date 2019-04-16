@@ -6,7 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page errorPage="errorPage.jsp" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
@@ -16,7 +17,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/ecommerce/home">Home</a></li>
                     <li><a href="#">All Categories</a></li>
                     <li><a href="#">Seafood (227,490 Results)</a></li>
                 </ul>
@@ -42,7 +43,7 @@
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Meat")' 
+                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Meat")' 
                                    <c:if test="${sessionScope.selectedCategory == 'select'}">
                                        checked
                                    </c:if>
@@ -55,7 +56,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Seafood")'
+                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Seafood")'
                                    <c:if test="${sessionScope.Seafood != null}">
                                        checked="checked"
                                    </c:if>>
@@ -67,7 +68,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Fruits")'
+                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Fruits")'
                                    <c:if test="${sessionScope.Fruits} != null">
                                        checked="checked"
                                    </c:if>>
@@ -79,7 +80,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Bakery")'
+                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Bakery")'
                                    <c:if test="${sessionScope.Bakery} != null">
                                        checked="checked"
                                    </c:if>>
@@ -91,7 +92,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Cheese")'
+                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Cheese")'
                                    <c:if test="${sessionScope.Cheese} != null">
                                        checked="checked"
                                    </c:if>>
@@ -103,7 +104,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Desserts")'
+                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Desserts")'
                                    <c:if test="${sessionScope.Desserts} != null">
                                        checked="checked"
                                    </c:if>>
@@ -115,7 +116,7 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("/ecommerce/customer/searchHandler?category=Home")'
+                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Home")'
                                    <c:if test="${sessionScope.Home} != null">
                                        checked="checked"
                                    </c:if>>
@@ -159,17 +160,17 @@
                     <div class="store-sort">
                         <label>
                             Sort By:
-                            <select class="input-select">
-                                <option value="0">Most Popular</option>
-                                <option value="1">Top Rated</option>
+                            <select class="input-select" id="sortBy">
+                                <option value="0">Top Rated</option>
+                                <option value="1">Lowest Price</option>
                             </select>
                         </label>
 
                         <label>
                             Show:
-                            <select class="input-select">
-                                <option value="0">20</option>
-                                <option value="1">50</option>
+                            <select class="input-select" id="show">
+                                <option value="0">9</option>
+                                <option value="1">15</option>
                             </select>
                         </label>
                     </div>
@@ -183,12 +184,19 @@
                     <c:choose>
                         <c:when test="${fn:length(sessionScope.searchedResults) > 0}">
                             <c:forEach items="${sessionScope.searchedResults}" var="product">
-                                <div class="col-md-4 col-xs-6">
-                                    <div class="product">
-                                        <div class="product-img">
-                                            <img src="${product.image}" alt="Image" />
-                                            <div class="product-label">
-                                                <span class="new">NEW</span>
+                                <c:if test="${product.quantity gt 0}">
+                                    <div class="col-md-4 col-xs-6">
+                                        <div class="product">
+                                            <div class="product-img">
+                                                <img src="${product.image}" alt="Image" />
+                                                <div class="product-label">
+                                                    <c:if test="${product.quantity < 4}">
+                                                        <span class="sale">Only ${product.quantity} Left</span>
+                                                    </c:if>
+                                                    <c:if test="${((now.time - product.entranceDate.time) / (1000*60*60*24)) le 6}">
+                                                        <span class="new">NEW</span>
+                                                    </c:if>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="product-body">
@@ -196,51 +204,46 @@
                                             <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                             <h4 class="product-price">EGP${product.price}</h4>
                                             <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                                <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
+                                                    <i class="fa fa-star"></i>
+                                                </c:forEach>
                                             </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                            <div class="add-to-cart">
+                                                <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                             </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>
-                            <!-- /product -->
-
-                        </div>
-                        <!--    /try to know what it happen if i put it -->
-                        <div class="clearfix visible-sm visible-xs"></div>
+                            </c:if>
+                        </c:forEach>
                         <!-- /product -->
                         <!-- store bottom filter -->
                         <div class="store-filter clearfix">
                             <span class="store-qty">Showing 20-100 products</span>
                             <ul class="store-pagination">
-                                <li class="active">1</li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                 <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
+                                    <li <c:if test="${sessionScope.pageNumber == i }">
+                                    class="active"
+                                        </c:if> onclick="${sessionScope.pageNumber = i};"><a href="#">${i}</a></li>
+                                 </c:forEach>
+                                <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
                             </ul>
                         </div>
                         <!-- /store bottom filter -->
                     </c:when>    
                     <c:otherwise>
-                        <center><c:out value="No Results Found"></c:out></center>
-                        </c:otherwise>
-                    </c:choose>
+                        <div class="section-title text-center">
+                            <h5 class="title">No results found</h5>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
             <!-- /STORE -->
         </div>
-        <!-- /row -->
+        <!-- /STORE -->
     </div>
-    <!-- /container -->
+    <!-- /row -->
+</div>
+<!-- /container -->
 </div>
 <!-- /SECTION -->

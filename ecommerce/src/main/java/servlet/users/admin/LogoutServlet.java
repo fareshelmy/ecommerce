@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author lapshop
  */
-@WebServlet(urlPatterns = {"/admin/LogoutServlet"}, name = "LogoutServlet")
+@WebServlet(urlPatterns = {"/LogoutServlet"}, name = "LogoutServlet")
 public class LogoutServlet extends HttpServlet {
 
     @Override
