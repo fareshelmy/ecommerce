@@ -16,14 +16,9 @@ import model.entity.Product;
  */
 public class Main {
     public static void main(String[] args){
-        ProductDAO order = new ProductDAO();
-        for(int i=1;i<6;i++){
-        List<Product> first = order.retrievePage(null, i, 9);
-        System.out.println(first.size());
-        for(Product p:first){
-            System.out.println(p.getName());
-        }
-        }
+     OrderItemDAO order = new OrderItemDAO();
+     double d = order.getCategorySales("Meat & Poultry");
+     System.out.println("The Sales are: "+d);
     }
 }
 

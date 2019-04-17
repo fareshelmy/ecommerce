@@ -146,8 +146,13 @@ public class OrderItemDAO implements DAO<OrderItem> {
                 .createAlias("product", "prod")
                 .createAlias("prod.category", "cat")
                 .add(Restrictions.ilike("cat.name", categoryName))
-                .setProjection(Projections.sum("total"));       
-        return (double)orderItemCriteria.list().get(0);
+                .setProjection(Projections.sum("total"));  
+        List temp = orderItemCriteria.list();
+        if(temp == null || temp.get(0) == null){
+            return 0;
+        }else{
+            return (double)temp.get(0);
+        }
     }
     
 }
