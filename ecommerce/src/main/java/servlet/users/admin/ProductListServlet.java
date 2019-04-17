@@ -28,5 +28,11 @@ public class ProductListServlet extends HttpServlet {
         req.setAttribute("products", products);
         req.getRequestDispatcher("/admin/product-list.jsp").include(req, resp);
     }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Product> products = new ProductDAO().retrieveAll();
+        req.setAttribute("products", products);
+        req.getRequestDispatcher("/admin/product-list.jsp").include(req, resp);
+    }
 
 }

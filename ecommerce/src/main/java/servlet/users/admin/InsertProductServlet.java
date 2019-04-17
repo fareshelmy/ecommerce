@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -68,7 +69,8 @@ public class InsertProductServlet extends HttpServlet {
             }
             context.log(productIdSession);
             productDAO.persist(product);
-            req.getRequestDispatcher("ProductListServlet").include(req, resp);
+          //  resp.sendRedirect("ProductListServlet");
+            req.getRequestDispatcher("ProductListServlet").forward(req, resp);
 
         } else {
             Part file = req.getPart("image");
@@ -86,7 +88,7 @@ public class InsertProductServlet extends HttpServlet {
             context.log(productIdSession);
             product.setId(Integer.parseInt(productIdSession));
             productDAO.update(product);
-            req.getRequestDispatcher("ProductListServlet").include(req, resp);
+            req.getRequestDispatcher("ProductListServlet").forward(req, resp);
         }
     }
 
@@ -99,7 +101,7 @@ public class InsertProductServlet extends HttpServlet {
             final Part imagePart = req.getPart("image");
             String realPath = req.getServletContext().getRealPath("");
             String appendedPath ="img" + File.separator + "products" + File.separator;
-            imageName = appendedPath + "product" + productCounter + ".jpg";
+            imageName = appendedPath + "product" + new Date().getSeconds() + ".jpg";
             productCounter++;
 
             savePath = realPath + appendedPath;

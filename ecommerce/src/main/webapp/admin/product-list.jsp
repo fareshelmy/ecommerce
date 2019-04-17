@@ -261,40 +261,39 @@
                                         <th>Settings</th>
                                     </tr>
 
+
                                     <c:choose>
                                         <c:when test="${fn:length(requestScope.products) > 0}">
 
-                                            <c:forEach items="${requestScope.products}" var="product">
-                                                <tr>
-                                                    <td><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
-                                                    <td>${product.name}</td>
-                                                    <td>${product.itemsSold}</td>
-                                                    <td>EGP${product.itemsSold * product.price}</td>
-                                                    <td>
-                                                        <c:choose>
-                                                            <c:when test="${product.quantity == 0}">
-                                                                <c:out value="Out Of Stock"/>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <c:out value="In Stock"/>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </td>
-                                                    <td>${product.price}</td>
-                                                    <td>
-                                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><a href="EditProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
-                                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><a href="EditProductServlet?productIdDeleted=${product.id}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></button>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
+                                                <c:forEach items="${requestScope.products}" var="product">
+                                                        <tr>
+                                                            <td><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
+                                                            <td>${product.name}</td>
+                                                            <td>${product.itemsSold}</td>
+                                                            <td>EGP${product.itemsSold * product.price}</td>
+                                                            <td>
+                                                                <c:choose>
+                                                                    <c:when test="${product.quantity == 0}">
+                                                                        <c:out value="Out Of Stock"/>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <c:out value="In Stock"/>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </td>
+                                                            <td>${product.price}</td>
+                                                            <td>
+                                                                <button data-toggle="tooltip" title="Edit" class="pd-setting-ed" ><a href="EditProductServlet?productId=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                                <button type="button" data-toggle="tooltip" title="Trash" class="pd-setting-ed" onclick="deleteFun(${product.id});"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
                                         </c:when>
                                         <c:otherwise>
                                             <center><c:out value="No Results Found"></c:out></center>
                                             </c:otherwise>
 
                                     </c:choose>
-
-
 
                                 </table>
                                 <div class="custom-pagination">
@@ -366,6 +365,8 @@
         <!-- main JS
                     ============================================ -->
         <script src="/ecommerce/admin/js/main.js"></script>
+        <script src="/ecommerce/admin/js/deletescript.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     </body>
 
