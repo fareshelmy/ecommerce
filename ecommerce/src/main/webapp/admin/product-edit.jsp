@@ -87,7 +87,7 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                       
+
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -147,7 +147,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
@@ -180,7 +180,7 @@
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="ProductListServlet">Product List</a></li>
-                                                    <li><a href="insertProductServlet">Product Edit</a></li>
+                                                    <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>

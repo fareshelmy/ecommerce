@@ -177,31 +177,21 @@ single-product-tab-area mg-t-0 mg-b-30<!doctype html>
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
                                             <li>
-                                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+                                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="product-list.html">Product List</a></li>
-                                                    <li><a href="product-edit.html">Product Edit</a></li>
+                                                    <li><a href="ProductListServlet">Product List</a></li>
+                                                    <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="user-list.html">All user</a></li>
-                                                    <li><a href="user-edit.html">Edit user</a></li>
-
+                                                    <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-
-                                            <li>
-                                                <a  href="Add-Adnin.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
-
-                                            </li>
+                                                <li><a href="AddAdminServlet">Add admin</a></li>
                                         </ul>
                                     </nav>
                                 </div>
