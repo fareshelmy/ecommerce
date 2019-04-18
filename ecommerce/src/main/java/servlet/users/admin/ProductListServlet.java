@@ -34,5 +34,5 @@ public class ProductListServlet extends HttpServlet {
         req.setAttribute("products", products);
         req.getRequestDispatcher("/admin/product-list.jsp").include(req, resp);
     }
-
+    
 }
