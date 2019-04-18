@@ -62,7 +62,8 @@
                                             <div class="product-rating">
                                                 <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
                                                     <i class="fa fa-star"></i>    
-                                                </c:forEach>                        </div>
+                                                </c:forEach>
+                                            </div>
                                             <a class="review-link" href="#">10 Review(s)</a>
                                         </div>
                                         <div>
@@ -72,10 +73,11 @@
                                         <p>${product.description}</p>
 
                                         <div class="add-to-cart">
+                                            <div class="text-center" id='error${product.id}'></div>
                                             <div class="qty-label">
                                                 Qty
                                                 <div class="input-number">
-                                                    <input type="number" value="1" name="inputQty" onchange="checkCreditWithQuantity()">
+                                                    <input type="number" value="1" name="inputQty" onchange="checkCreditWithQuantity('${sessionScope.userCredit}')">
                                                     <span class="qty-up">+</span>
                                                     <span class="qty-down">-</span>
                                                 </div>
@@ -85,7 +87,7 @@
                                                 <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=${product.category.name}">${product.category.name}</a></li>
                                             </ul><br/>
 
-                                            <button class="add-to-cart-btn" onclick="removeFromCart('${product.id}'); updateView('${product.id}')"><i class="fa fa-shopping-cart"></i> remove from cart</button>
+                                            <button class="add-to-cart-btn" onclick="removeFromCart('${product.id}'); updateView('${product.id}'); checkCreditWithQuantity('${sessionScope.userCredit}')"><i class="fa fa-shopping-cart"></i> remove from cart</button>
                                         </div>
 
                                     </div>
@@ -118,45 +120,36 @@
                         <c:choose>
                             <c:when test="${fn:length(sessionScope.cartProducts) > 0}">
                                 <c:forEach items="${sessionScope.cartProducts}" var="product">
-                                    <div class="order-col">
-                                        <div> <span name="spanQty">1</span> x ${product.name}</div>
+                                    <div name='orderSpecification' id="${product.id}" class="order-col">
+                                        <div> <span name="spanQty">1</span>x ${product.name}</div>
                                         <div>EGP<span name="spanPrice">${product.price}</span></div>
                                     </div>
                                 </c:forEach>
-                                </c:when>
-                            </c:choose>
-                            </div>
-                            <div class="order-col">
-                                <div>Shipping</div>
-                                <div><strong>FREE</strong></div>
-                            </div>
-                            <div class="order-col">
-                                <div><strong>TOTAL</strong></div>
-                                <div><strong class="order-total">
-                                        EGP<span id="total">${sessionScope.cartProducts.stream()
-                                             .map(product -> product.price)
-                                             .sum()
-                                        }</span>
-                                    </strong></div>
-                            </div>
-                        </div>
-
-                        <button type="button" id="submitBtn" class="primary-btn order-submit">
-                            Place order
-                        </button>
-
+                            </c:when>
+                        </c:choose>
                     </div>
-                    <!-- /Order Details -->
+
+                    <div class="order-col">
+                        <div><strong>TOTAL</strong></div>
+                        <div><strong class="order-total">
+                                EGP<span id="total">${sessionScope.cartProducts.stream()
+                                                      .map(product -> product.price)
+                                                      .sum()
+                                    }</span>
+                            </strong></div>
+                    </div>
                 </div>
-                
-                <button type="button" id="submitBtn" class="primary-btn order-submit"  
-                        data-toggle="tooltip" title="Your Credit Is Not Sufficient" onclick="placeOrder('${sessionScope.cartProducts}')">
+
+                <button type="button" id="submitBtn" class="primary-btn order-submit" onclick="placeOrder('${sessionScope.cartProducts}')">
                     Place order
                 </button>
-                
-                <!-- /row -->
+
             </div>
-            <!-- /container -->
+            <!-- /Order Details -->
         </div>
-        <!-- /SECTION -->
-        <script src="/ecommerce/customer/js/checkoutScript.js"></script>
+
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+</div>
+<script src="/ecommerce/customer/js/checkoutScript.js"></script>

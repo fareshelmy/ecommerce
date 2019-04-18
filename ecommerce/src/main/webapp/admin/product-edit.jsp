@@ -241,16 +241,8 @@
                                     <c:forEach var = "i" begin = "1" end = "${5-requestScope.productDetails.rating}"> 
                                         <span class="fa fa-star"></span>
                                     </c:forEach>    
-
-                                    <%--        <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <label id="solidItemtitle" style="color: red">Sold Item </label>
-                                            <input id="solidItemtitle" value="${requestScope.productDetails.itemsSold}" disabled="disabled">--%>
-
-
+                                    <label id="soldItem" style="color: red">Sold Item </label>
+                                    <input id="soldItemtvalue" value="${requestScope.productDetails.itemsSold}" disabled="disabled">
 
                                     <div id="myTabContent" class="tab-content custom-product-edit">
                                         <form action="insertProductServlet" method="post" enctype="multipart/form-data">
@@ -299,6 +291,7 @@
                                                             <option value="l">l</option>
                                                             <option value="ml">ml</option>
                                                             <option value="Pcs">Pcs</option>
+                                                            <option value="Inch">Inch</option>
                                                         </select>
                                                     </div>
                                                 </div>

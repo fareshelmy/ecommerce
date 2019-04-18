@@ -54,6 +54,8 @@ public class WishlistServlet extends HttpServlet {
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
+            Set<Integer> productIdList = wishlists.get(sessionId);
+            session.setAttribute("wishlist", productIdList);
             resp.getWriter().print(String.valueOf(wishlists.get(sessionId).size()));
         }
     }

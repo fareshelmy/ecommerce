@@ -8,8 +8,6 @@ package model.dao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import model.entity.Category;
-import model.entity.Order;
 import model.entity.OrderItem;
 import model.entity.OrderItemId;
 import model.entity.Product;
@@ -17,7 +15,6 @@ import model.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;
-import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -79,15 +76,17 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().begin();
         Criteria orderItemCriteria = session.createCriteria(model.entity.OrderItem.class);
         for (int i = 0; i < columnNames.length; i++) {
-            if(columnValues[i] instanceof String)
+            if (columnValues[i] instanceof String) {
                 orderItemCriteria = orderItemCriteria.add(Restrictions.ilike(columnNames[i], columnValues[i]));
-            else
+            } else {
                 orderItemCriteria = orderItemCriteria.add(Restrictions.eq(columnNames[i], columnValues[i]));
+            }
         }
         List subsetOrderItem = orderItemCriteria.list();
         session.getTransaction().commit();
         return subsetOrderItem;
     }
+
     @Override
     public List<OrderItem> getAll(Object orderitem) {
         getSession();
@@ -108,41 +107,43 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().commit();
         return orderItemList;
     }
-    public List<Product> getTopSelling(String categoryName, String customize){
+
+    public List<Product> getTopSelling(String categoryName, String customize) {
         getSession();
         session.getTransaction().begin();
         Criteria productCriteria = session.createCriteria(OrderItem.class);
         productCriteria = productCriteria.setProjection(Projections.projectionList()
-            .add(Projections.sum("quantity").as("total"))
-            .add(Projections.groupProperty("product"))).setFetchMode("product", FetchMode.EAGER)
-            .addOrder(org.hibernate.criterion.Order.desc("total"));
+                .add(Projections.sum("quantity").as("total"))
+                .add(Projections.groupProperty("product"))).setFetchMode("product", FetchMode.EAGER)
+                .addOrder(org.hibernate.criterion.Order.desc("total"));
         List<Product> categorizedProducts = new ArrayList<>();
-        if(categoryName.equals("All Categories")){
-                Iterator results = productCriteria.list().iterator();
-                while(results.hasNext()){
-                    Object[] result = (Object[])results.next();
-                    Product product = (Product)result[1];
-                        categorizedProducts.add(product);
-                }
-        }else{
+        if (categoryName.equals("All Categories")) {
             Iterator results = productCriteria.list().iterator();
-            while(results.hasNext()){
-                Object[] result = (Object[])results.next();
-                Product product = (Product)result[1];
-                if(product.getCategory().getName().startsWith(categoryName)){
+            while (results.hasNext()) {
+                Object[] result = (Object[]) results.next();
+                Product product = (Product) result[1];
+                categorizedProducts.add(product);
+            }
+        } else {
+            Iterator results = productCriteria.list().iterator();
+            while (results.hasNext()) {
+                Object[] result = (Object[]) results.next();
+                Product product = (Product) result[1];
+                if (product.getCategory().getName().startsWith(categoryName)) {
                     categorizedProducts.add(product);
                 }
             }
         }
-        for(Product product:categorizedProducts){
+        for (Product product : categorizedProducts) {
             product.getName();
             product.getCategory().getName();
         }
         session.getTransaction().commit();
         return categorizedProducts;
-           
+
     }
-    public double getCategorySales(String categoryName){
+
+    public double getCategorySales(String categoryName) {
         getSession();
         session.getTransaction().begin();
         Criteria orderItemCriteria = session.createCriteria(OrderItem.class)
@@ -150,11 +151,11 @@ public class OrderItemDAO implements DAO<OrderItem> {
                 .createAlias("prod.category", "cat")
                 .add(Restrictions.ilike("cat.name", categoryName))
                 .setProjection(Projections.sum("total"));
-        System.out.println("REsult"+orderItemCriteria.list());
-        Double result = (double)orderItemCriteria.list().get(0);
-        if(result == null)
+        List temp = orderItemCriteria.list();
+        if (temp == null || temp.get(0) == null) {
             return 0;
-        else
-            return result;
+        } else {
+            return (double) temp.get(0);
+        }
     }
 }

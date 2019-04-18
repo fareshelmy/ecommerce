@@ -126,7 +126,6 @@
                                 </div>
                                 <div class="form-group">
                                     <strong>Password</strong>
-                                    <span class="right"><a href="#">Forgot your password?</a></span>
                                     <input id="password" name="password" type="password" maxlength="25" class="form-control" placeholder="Password">
                                 </div>
                                 <div style="color: #FF0000;">${invalidData}</div>

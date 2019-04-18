@@ -47,7 +47,7 @@ public class EditProductServlet extends HttpServlet {
             Product product = productDAO.retrieve(Integer.parseInt(productId));
             if (product != null) {
                 req.setAttribute("productDetails", product);
-                System.out.println(product.getCategory().getName());
+              //  System.out.println(product.getCategory().getName());
                 req.getRequestDispatcher("/admin/product-edit.jsp").include(req, resp);
             }
         }
