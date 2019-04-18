@@ -69,8 +69,8 @@ public class InsertProductServlet extends HttpServlet {
             }
             context.log(productIdSession);
             productDAO.persist(product);
-          //  resp.sendRedirect("ProductListServlet");
-            req.getRequestDispatcher("ProductListServlet").forward(req, resp);
+            //  resp.sendRedirect("ProductListServlet");
+            req.getRequestDispatcher("ProductListServlet").include(req, resp);
 
         } else {
             Part file = req.getPart("image");
@@ -82,13 +82,11 @@ public class InsertProductServlet extends HttpServlet {
                 context.log("in else if");
                 product.setImage(req.getParameter("productImage"));
             }
-            // if(req.getPart("image")==null){
-            //  product.setImage(req.getParameter("productImage"));
-            //  else{product.setImage(getImagePath(req, resp));}
             context.log(productIdSession);
             product.setId(Integer.parseInt(productIdSession));
             productDAO.update(product);
-            req.getRequestDispatcher("ProductListServlet").forward(req, resp);
+            //  resp.sendRedirect("/ecommerce/admin/index.jsp");
+            req.getRequestDispatcher("ProductListServlet").include(req, resp);
         }
     }
 
@@ -100,7 +98,7 @@ public class InsertProductServlet extends HttpServlet {
         try {
             final Part imagePart = req.getPart("image");
             String realPath = req.getServletContext().getRealPath("");
-            String appendedPath ="img" + File.separator + "products" + File.separator;
+            String appendedPath = "img" + File.separator + "products" + File.separator;
             imageName = appendedPath + "product" + new Date().getSeconds() + ".jpg";
             productCounter++;
 

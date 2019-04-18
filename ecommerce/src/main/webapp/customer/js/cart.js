@@ -63,5 +63,5 @@ function removeFromCart(productId) {
 
 function updateView(divId) {
     jQuery("#" + divId).remove();
-    jQuery("#" + divId).remove();
+    jQuery("#total" + divId).remove();
 }
