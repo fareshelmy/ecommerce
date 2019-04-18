@@ -6,6 +6,7 @@
 
     <head>
         <meta charset="utf-8">
+        <title>Product List</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,32 +86,31 @@
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
                             <li>
-                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                             </li>
                             <li>
-                                <a class="has-arrow" href="index.html">
+                                <a class="has-arrow" href="">
                                     <i class="icon nalika-table icon-wrap"></i>
                                     <span class="mini-click-non">Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Product List" href="product-list.jsp"><span class="mini-sub-pro">Product List</span></a></li>
-                                    <li><a title="Product Edit" href="product-edit.html"><span class="mini-sub-pro">Product Edit</span></a></li>
+                                    <li><a title="Product List" href="ProductListServlet"><span class="mini-sub-pro">Product List</span></a></li>
+                                    <li><a title="Product Edit" href="insertProductServlet"><span class="mini-sub-pro">Add/Edit Product</span></a></li>
                                 </ul>
                             </li>
 
+
                             <li>
-                                <a class="has-arrow" href="all-students.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="All Users" href="user-list.jsp"><span class="mini-sub-pro">All Users</span></a></li>
-                                    <li><a title="Edit User" href="user-edit.html"><span class="mini-sub-pro">Edit User</span></a></li>
+                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro">All Users</span></a></li>
                                 </ul>
                             </li>
-
                             <li>
-                                <a  href="Add-Adnin.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
+                                <a  href="AddAdminServlet" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
 
-                            </li> 
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -123,6 +123,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
                             <a href="index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -131,28 +132,46 @@
                 <div class="header-top-area">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="header-top-wraper">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                                    <i class="icon nalika-menu-task"></i>
-                                                </button>
+                                                
                                             </div>
                                         </div>
-
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                                <div class="header-right-info">
-                                                    <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                            <div class="header-right-info">
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                        <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-                                                        </li>
-
-
-                                                    </ul>
-                                                </div>
+                                                    <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -170,32 +189,21 @@
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
                                             <li>
-                                                <a  href="index.html" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+                                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="product-list.jsp">Product List</a></li>
-                                                    <li><a href="product-edit.html">Product Edit</a></li>
+                                                    <li><a href="ProductListServlet">Product List</a></li>
+                                                    <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
-
-
-
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
-
-                                                    <li><a href="user-list.jsp">All user</a></li>
-                                                    <li><a href="user-edit.html">Edit user</a></li>
-
+                                                    <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <a  href="Add-Adnin.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
-
-                                            </li>
+                                            <li><a href="AddAdminServlet">Add admin</a></li>
 
                                         </ul>
                                     </nav>
@@ -291,7 +299,7 @@
                                         </c:when>
                                         <c:otherwise>
                                             <center><c:out value="No Results Found"></c:out></center>
-                                            </c:otherwise>
+                                        </c:otherwise>
 
                                     </c:choose>
 

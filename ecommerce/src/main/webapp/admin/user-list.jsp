@@ -123,6 +123,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
                             <a href="index.html"><img class="main-logo" src="admin/img/logo/logo.png" alt="" /></a>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -136,12 +137,34 @@
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                                    <i class="icon nalika-menu-task"></i>
-                                                </button>
+                                                
                                             </div>
                                         </div>
-
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
@@ -172,7 +195,7 @@
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="ProductListServlet">Product List</a></li>
-                                                    <li><a href="insertProductServlet">Product Edit</a></li>
+                                                    <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
@@ -180,7 +203,8 @@
                                                     <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="AddAdminServlet">Add admin</a></li></ul>
+                                            <li><a href="AddAdminServlet">Add admin</a></li>
+                                        </ul>
                                     </nav>
                                 </div>
                             </div>
@@ -203,6 +227,7 @@
                                                     <h2>Dashboard</h2>
                                                     <p>Welcome to <span class="bread-ntd">Your Grocery Connection Page</span></p>
                                                 </div>
+                                                
                                             </div>
                                         </div>
 
@@ -241,9 +266,10 @@
                                         <th>Show orders</th>
 
                                     </tr>
-                                    <c:choose>
-                                        <c:when test="${fn:length(sessionScope.users) > 0}">
-                                            <c:forEach items="${requestScope.users}" var="user">
+                                      <!--c:choose-->
+                                        <!--c:when test="${fn:length(requestScope.users) > 0}"-->
+
+                                             <c:forEach items="${requestScope.users}" var="user">
                                                 <tr>
                                                     <td>${user.email}</td>
                                                     <td>${user.username}</td>
@@ -252,16 +278,17 @@
                                                     <td>${user.address}</td>
                                                     <td>${user.creditLimit}</td>
                                                     <td>
-                                                        <button data-toggle="tooltip" title="Show" class="pd-setting-ed"><a href=" servletName ! ?userID=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                        <button data-toggle="tooltip" title="Show" class="pd-setting-ed"><a href="ViewUserServlet?userId=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <center><c:out value="No Results Found"></c:out></center>
-                                            </c:otherwise>
+                                        <!--/c:when-->
+                                        <!--c:otherwise-->
+<!--                                            <center>c:out value="No Results Found"/c:out</center>-->
+                                        <!--/c:otherwise-->
 
-                                    </c:choose>
+                                    <!--/c:choose-->
+                                   
                                 </table>
                             </div>
                         </div>

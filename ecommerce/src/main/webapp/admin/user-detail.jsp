@@ -74,7 +74,7 @@
     </head>
 
     <body>
-     se
+        
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 <div class="sidebar-header">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                      
+
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -112,6 +112,7 @@
                             </li>
                             <li>
                                 <a  href="AddAdminServlet" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
+
                             </li>
                         </ul>
                     </nav>
@@ -123,35 +124,56 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="logo-pro">
-                            <a href="index.html"><img class="main-logo" src="admin/img/logo/logo.png" alt="" /></a>
+                      <div class="logo-pro">
+                          <br><br>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
             <div class="header-advance-area">
                 <div class="header-top-area">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="header-top-wraper">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                                    <i class="icon nalika-menu-task"></i>
-                                                </button>
+                                                
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                                     <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                     </li>
-
-
                                                 </ul>
                                             </div>
                                         </div>
@@ -169,14 +191,14 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
-                                          <li>
+                                            <li>
                                                 <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="ProductListServlet">Product List</a></li>
-                                                    <li><a href="insertProductServlet">Product Edit</a></li>
+                                                    <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
@@ -184,7 +206,8 @@
                                                     <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
                                             </li>
-                                                <li><a href="AddAdminServlet">Add admin</a></li> </ul>
+                                            <li><a href="AddAdminServlet">Add admin</a></li>
+                                        </ul>
                                     </nav>
                                 </div>
                             </div>
@@ -228,11 +251,6 @@
                                         <div class="single-product-details res-pro-tb">
                                             <h1>User Name : </h1>
                                             <h2>${currentUser.username}</h2><br>
-
-                                            <div class="single-pro-cn">
-                                                <h3>${currentUser.username} Interest's overview :</h3>
-                                                <p>${currentUser.categories}</p>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -253,43 +271,13 @@
                                         <ul id="myTab" class="tab-review-design">
                                             <li><a href="#reviews"><span><i class="fa fa-star"></i></span> More details :</a></li>
                                         </ul>
-                                        <div id="myTabContent" class="tab-content">
-
-                                            <div class="product-tab-list tab-pane fade" id="reviews">
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="review-content-section">
-                                                            <div class="review-content-section">
-                                                                <div class="card-block">
-                                                                    <div class="m-t-10">
-                                                                        <div class="txt-primary f-18 f-w-600">
-                                                                            <p>Your Rating</p>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="input-group mg-b-15 mg-t-15">
-                                                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                                        <input type="date" class="form-control" placeholder="Birth of date : ${currentUser.username}">
-                                                                    </div>
-                                                                    <div class="input-group mg-b-15">
-                                                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                                        <input type="text" class="form-control" placeholder="Address : ${currentUser.address}">
-                                                                    </div>
-                                                                    <div class="input-group mg-b-15">
-                                                                        <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                                                        <input type="text" class="form-control" placeholder="Job : ${currentUser.job} ">
-                                                                    </div>
-                                                                    <div class="input-group mg-b-15">
-                                                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                                        <input type="text" class="form-control" placeholder="credit Limit ${currentUser.creditLimit}">
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="product-status-wrap">
+                                                <table>
+                                                    <tr>
+                                                        <th>${currentUser.username}'s orders</th>
+                                                    </tr>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>

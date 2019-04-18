@@ -126,6 +126,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
                             <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -135,25 +136,45 @@
                 <div class="header-top-area">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="header-top-wraper">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                                    <i class="icon nalika-menu-task"></i>
-                                                </button>
+                                                
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                
+                                            </div>
+                                        </div>
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
                                                     <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                     </li>
-
-
                                                 </ul>
                                             </div>
                                         </div>
@@ -178,7 +199,7 @@
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="ProductListServlet">Product List</a></li>
-                                                    <li><a href="insertProductServlet">Product Edit</a></li>
+                                                    <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
@@ -206,6 +227,7 @@
                                                 <div class="breadcomb-icon">
                                                     <i class="icon nalika-home"></i>
                                                 </div>
+                                                <br><br>
                                                 <div class="breadcomb-ctn">
                                                     <h2>Dashboard</h2>
                                                     <p>Welcome to <span class="bread-ntd">Your Grocery Connection Page</span></p>
@@ -244,6 +266,10 @@
                              <input type="hidden" id="hidReqAttr1" value="${requestScope.Meat_oultrySize}" />
                              <input type="hidden" id="hidReqAttr2" value="${requestScope.DessertsSweetsSize}" />
                              <input type="hidden" id="hidReqAttr3" value="${requestScope.CheeseDairyDeliSize}" />
+                             <input type="hidden" id="hidReqAttr4" value="${requestScope.SeafoodSize}" />
+                             <input type="hidden" id="hidReqAttr5" value="${requestScope.FreshFruitsVegetablesHerbsSize}" />
+                             <input type="hidden" id="hidReqAttr6" value="${requestScope.BakeryPastrySize}" />
+                             
                              <div id="piechart"></div>
                             <script type="text/javascript">
                                     google.charts.load('current', {'packages':['corechart']});

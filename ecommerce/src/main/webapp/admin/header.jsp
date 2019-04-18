@@ -177,14 +177,14 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul class="mobile-menu-nav">
-                                            <li>
+                                           <li>
                                                 <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="ProductListServlet">Product List</a></li>
-                                                    <li><a href="insertProductServlet">Product Edit</a></li>
+                                                    <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
                                             <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
