@@ -299,11 +299,16 @@
                                                         <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
                                                         <input type="number" class="form-control" placeholder="Price" value="${requestScope.productDetails.price}" id="price" name="price" required>
                                                     </div>
+                                                    
                                                     <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                                                        <input  type="number" min="0"  class="form-control" placeholder="Amount" value="${requestScope.productDetails.amount}" id="price" name="price" required>
+                                                    </div>
+<!--                                                    <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
                                                         <input type="number" min="0" class="form-control" placeholder="Amount" value=${requestScope.productDetails.amount} id="amount" name="amount" required>
 
-                                                    </div>
+                                                    </div>-->
                                                     <div class="input-group mg-b-pro-edt">
                                                         <select class="form-control pro-edt-select form-control-primary" id ="unit" name="unit" required>
                                                             <option value="Unit" disabled="disabled" selected="selected">unit: ${requestScope.productDetails.unit}</option>
