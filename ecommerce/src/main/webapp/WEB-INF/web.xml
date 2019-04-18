@@ -70,7 +70,8 @@
         <servlet-name>Home Servlet</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>-->
+<!--    ///admin/index.jsp-->
     <welcome-file-list>
-        <welcome-file>/admin/index.jsp</welcome-file>
+        <welcome-file>ProductListServlet</welcome-file>
     </welcome-file-list>
 </web-app>
