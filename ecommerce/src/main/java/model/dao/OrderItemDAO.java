@@ -152,10 +152,13 @@ public class OrderItemDAO implements DAO<OrderItem> {
                 .add(Restrictions.ilike("cat.name", categoryName))
                 .setProjection(Projections.sum("total"));
         List temp = orderItemCriteria.list();
-        if (temp == null || temp.get(0) == null) {
-            return 0;
-        } else {
-            return (double) temp.get(0);
+        double result = 0.0;
+        if(temp == null || temp.get(0) == null){
+            result = 0.0;
+        }else{
+            result = (double)temp.get(0);
         }
+        session.getTransaction().commit();
+        return result;
     }
 }
