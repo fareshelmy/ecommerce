@@ -65,7 +65,7 @@ function changeTotal() {
     var sum = 0;
 
     for (var i = 0; i < initialPrice.length; i++) {
-        sum += parseInt(initialPrice[i].innerHTML.trim());
+        sum += parseDouble(initialPrice[i].innerHTML.trim());
     }
 
     return sum.toFixed(1);
@@ -73,6 +73,14 @@ function changeTotal() {
 
 
 function placeOrder() {
+    Swal.fire({
+        title: "Processing...",
+        text: "Your order is now being processed...",
+        type: "info",
+        showCancelButton: false,
+        showConfirmButton: false
+    });
+
     var recieptQTy = document.getElementsByName("spanQty");
     var orderSpecificationIds = document.getElementsByName("orderSpecification");
 
@@ -91,14 +99,6 @@ function placeOrder() {
         dataType: 'text',
         success: function (data, textStatus, jqXHR) {
             if (data == "done") {
-//                swal({
-//                    title: "Thank you!",
-//                    text: "Your order has been submitted successfully",
-//                    type: "success"
-//                }, function () {
-//                    window.location = "/ecommerce/home";
-//                });
-
 
                 Swal.fire({
                     title: "Thank you!",

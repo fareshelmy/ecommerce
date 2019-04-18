@@ -57,7 +57,17 @@
                                 <!-- Product details -->
                                 <div class="col-md-5">
                                     <div class="product-details">
-                                        <h2 class="product-name">${product.name}</h2>
+                                        <c:choose>
+                                            <c:when test="${product.quantity > 0}">
+                                                <h2 class="product-name">${product.name}</h2>
+                                            </c:when>
+
+                                            <c:otherwise>
+                                                <h2 class="product-name"><del>${product.name}</del></h2>
+                                                <span class="product-available">Out Of Stock</span>
+                                                <br/><br/>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <div>
                                             <div class="product-rating">
                                                 <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
@@ -67,8 +77,10 @@
                                             <a class="review-link" href="#">10 Review(s)</a>
                                         </div>
                                         <div>
-                                            <h3 class="product-price">EGP${product.price} <p class="product-old-price">500g</p></h3>
-                                            <span class="product-available">In Stock</span>
+                                            <h3 class="product-price">EGP${product.price} <p class="product-old-price">${product.amount}${product.unit}</p></h3>
+                                                <c:if test="${product.quantity >0}">
+                                                <span class="product-available">In Stock</span>
+                                            </c:if>
                                         </div>
                                         <p>${product.description}</p>
 
@@ -120,10 +132,12 @@
                         <c:choose>
                             <c:when test="${fn:length(sessionScope.cartProducts) > 0}">
                                 <c:forEach items="${sessionScope.cartProducts}" var="product">
-                                    <div name='orderSpecification' id="${product.id}" class="order-col">
-                                        <div> <span name="spanQty">1</span>x ${product.name}</div>
-                                        <div>EGP<span name="spanPrice">${product.price}</span></div>
-                                    </div>
+                                    <c:if test="${product.quantity > 0}">
+                                        <div name='orderSpecification' id="total${product.id}" class="order-col">
+                                            <div> <span name="spanQty">1</span>x ${product.name}</div>
+                                            <div>EGP<span name="spanPrice">${product.price}</span></div>
+                                        </div>
+                                    </c:if>
                                 </c:forEach>
                             </c:when>
                         </c:choose>
@@ -133,6 +147,7 @@
                         <div><strong>TOTAL</strong></div>
                         <div><strong class="order-total">
                                 EGP<span id="total">${sessionScope.cartProducts.stream()
+                                                      .filter(product -> product.quantity > 0)
                                                       .map(product -> product.price)
                                                       .sum()
                                     }</span>
