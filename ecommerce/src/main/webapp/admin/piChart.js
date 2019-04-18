@@ -1,8 +1,8 @@
 
 function drawChart() {
-//      console.log("theeeeeeee : "+document.getElementById("hidReqAttr1").value );
-//      console.log("666 : "+document.getElementById("hidReqAttr2").value );
-//      console.log("theeeee98eee : "+document.getElementById("hidReqAttr3").value );
+      console.log("theeeeeeee : "+document.getElementById("hidReqAttr1").value );
+      console.log("666 : "+document.getElementById("hidReqAttr2").value );
+      console.log("theeeee98eee : "+document.getElementById("hidReqAttr3").value );
       
         var data = google.visualization.arrayToDataTable
         ([

@@ -123,6 +123,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
                             <a href="index.html"><img class="main-logo" src="admin/img/logo/logo.png" alt="" /></a>
+                            <br>
                         </div>
                     </div>
                 </div>
