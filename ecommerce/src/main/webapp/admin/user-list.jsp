@@ -277,7 +277,7 @@
                                                     <td>${user.address}</td>
                                                     <td>${user.creditLimit}</td>
                                                     <td>
-                                                        <button data-toggle="tooltip" title="Show" class="pd-setting-ed"><a href=" servletName ! ?userID=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
+                                                        <button data-toggle="tooltip" title="Show" class="pd-setting-ed"><a href="ViewUserServlet?userId=${user.email}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></button>
                                                     </td>
                                                 </tr>
                                             </c:forEach>

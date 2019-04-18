@@ -1,26 +1,30 @@
 
 function drawChart() {
-    console.log("theeeeeeee : "+document.getElementById("hidReqAttr1").value );
-     console.log("666 : "+document.getElementById("hidReqAttr2").value );
-      console.log("theeeee98eee : "+document.getElementById("hidReqAttr3").value );
-        var data = google.visualization.arrayToDataTable([
+//      console.log("theeeeeeee : "+document.getElementById("hidReqAttr1").value );
+//      console.log("666 : "+document.getElementById("hidReqAttr2").value );
+//      console.log("theeeee98eee : "+document.getElementById("hidReqAttr3").value );
+      
+        var data = google.visualization.arrayToDataTable
+        ([
           ['Task', 'Hours per Day'],
           ['Meat & Poultry',    document.getElementById("hidReqAttr1").value ],
-          ['Desserts & Sweets',      document.getElementById("hidReqAttr2").value],
-          ['"Cheese, Dairy & Deli"',  document.getElementById("hidReqAttr3").value]// ,
-//          ['SeaFood','<c:out value="${requestScope.SeafoodSize}" />'],
-//          ['Fruits & Vegetables',   '<c:out value="${requestScope.FreshFruitsVegetablesHerbsSize}" />'],
-//          ['Bakery & Pastry','<c:out value="${requestScope.BakeryPastrySize}" />']
+          ['Desserts & Sweets',    document.getElementById("hidReqAttr2").value],
+          ['"Cheese, Dairy & Deli"',  document.getElementById("hidReqAttr3").value],
+          ['SeaFood',document.getElementById("hidReqAttr4").value],
+          ['Fruits & Vegetables', document.getElementById("hidReqAttr5").value],
+          ['Bakery & Pastry',document.getElementById("hidReqAttr6").value]
         ]);
 
         var options = {
-          title: 'precentage of product for categorys',
+          title: 'precentage of sales for each categorys',
           is3D: true,
+          width:550, 
+          height:400
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
-      }
+}
 //window.onload = function () {
 //
 //    var chart = new CanvasJS.Chart("chartContainer",

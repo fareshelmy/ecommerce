@@ -244,6 +244,10 @@
                              <input type="hidden" id="hidReqAttr1" value="${requestScope.Meat_oultrySize}" />
                              <input type="hidden" id="hidReqAttr2" value="${requestScope.DessertsSweetsSize}" />
                              <input type="hidden" id="hidReqAttr3" value="${requestScope.CheeseDairyDeliSize}" />
+                             <input type="hidden" id="hidReqAttr4" value="${requestScope.SeafoodSize}" />
+                             <input type="hidden" id="hidReqAttr5" value="${requestScope.FreshFruitsVegetablesHerbsSize}" />
+                             <input type="hidden" id="hidReqAttr6" value="${requestScope.BakeryPastrySize}" />
+                             
                              <div id="piechart"></div>
                             <script type="text/javascript">
                                     google.charts.load('current', {'packages':['corechart']});
