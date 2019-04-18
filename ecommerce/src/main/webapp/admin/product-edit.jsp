@@ -71,6 +71,8 @@
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>.checked {color: red;}</style>
     </head>
 
@@ -94,28 +96,29 @@
                 </div>
                 <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
-                        <ul class="metismenu" id="menu1">
+                       <ul class="metismenu" id="menu1">
                             <li>
-                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+                                <a  href="HomeServlet" aria-expanded="false"><span class="glyphicon">&#xe021; Home</span> </a>
+
                             </li>
                             <li>
                                 <a class="has-arrow" href="">
-                                    <i class="icon nalika-table icon-wrap"></i>
-                                    <span class="mini-click-non">Your Product</span>
+                                    
+                                       <span class="glyphicon">&#xe080; Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Product List" href="ProductListServlet"><span class="mini-sub-pro">Product List</span></a></li>
-                                    <li><a title="Product Edit" href="insertProductServlet"><span class="mini-sub-pro">Add/Edit Product</span></a></li>
+                                    <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
+                                    <li><a title="Product Edit" href="insertProductServlet">  Add/Edit Product</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow" href="" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; View Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro">All Users</span></a></li>
+                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro"> All Users</span></a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a  href="AddAdminServlet" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
+                                <a  href="AddAdminServlet" aria-expanded="false"><span class="glyphicon">&#xe080; Add Admin</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -128,7 +131,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
-                            <a href="index.html"><img class="main-logo" src="admin/img/logo/logo.png" alt="" /></a>
+                             <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
                             <br>
                         </div>
                     </div>
@@ -138,44 +141,44 @@
                 <div class="header-top-area">
                     <div class="container-fluid">
                         <div class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="header-top-wraper">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                    <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                    <li><a href="LogoutServlet"> <span class="glyphicon">&#xe163; LogOut</span></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -225,13 +228,14 @@
                                 <div class="breadcome-list">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <div class="breadcomb-wp">
+                                           <div class="breadcomb-wp">
                                                 <div class="breadcomb-icon">
-                                                    <i class="icon nalika-home"></i>
+                                                    <i> <span class="glyphicon">&#xe239;</span></i>
                                                 </div>
+                                                <br><br>
                                                 <div class="breadcomb-ctn">
                                                     <h2>Dashboard</h2>
-                                                    <p>Welcome to <span class="bread-ntd">Your Grocery Connection Page</span></p>
+                                                    <p>Welcome to <span class="bread-ntd">Your Grocery FoodLand Page</span></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -292,7 +296,7 @@
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                 <div class="review-content-section">
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                                                        <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe234;</i></span>
                                                         <input type="text" class="form-control" placeholder="product Name" value="${requestScope.productDetails.name}" id="name" name="name" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
@@ -300,7 +304,7 @@
                                                         <input type="number" class="form-control" placeholder="Price" value="${requestScope.productDetails.price}" id="price" name="price" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
+                                                        <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe007;</i></span>
                                                         <input type="number" min="0" class="form-control" placeholder="Amount" value=${requestScope.productDetails.amount} id="amount" name="amount" required>
 
                                                     </div>
@@ -321,7 +325,7 @@
                                                 <div class="review-content-section">
 
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
+                                                        <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe052;</i></span>
                                                         <textarea class="form-control" placeholder="Description"  id="description" name="description" required>${requestScope.productDetails.description}</textarea>
                                                     </div>
 
