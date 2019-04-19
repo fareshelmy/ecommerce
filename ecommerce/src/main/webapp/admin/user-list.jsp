@@ -86,15 +86,15 @@
                 </div>
                 <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
-                       <ul class="metismenu" id="menu1">
+                        <ul class="metismenu" id="menu1">
                             <li>
                                 <a  href="HomeServlet" aria-expanded="false"><span class="glyphicon">&#xe021; Home</span> </a>
 
                             </li>
                             <li>
                                 <a class="has-arrow" href="">
-                                    
-                                       <span class="glyphicon">&#xe080; Your Product</span>
+
+                                    <span class="glyphicon">&#xe080; Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
                                     <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
@@ -264,29 +264,31 @@
                                         <th>Show orders</th>
 
                                     </tr>
-                                    <!--c:choose-->
-                                      <!--c:when test="${fn:length(requestScope.users) > 0}"-->
 
-                                    <c:forEach items="${requestScope.users}" var="user">
-                                        <tr>
-                                            <td>${user.email}</td>
-                                            <td>${user.username}</td>
-                                            <td>${user.birthday}</td>
-                                            <td>${user.job}</td>
-                                            <td>${user.address}</td>
-                                            <td>${user.creditLimit}</td>
-                                            <td>
-                                                <button data-toggle="tooltip" title="Show" class="pd-setting-ed"><a href="ViewUserServlet?userId=${user.email}"><i class="glyphicon" aria-hidden="true">&#xe015;</i></a></button>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                    <!--/c:when-->
-                                    <!--c:otherwise-->
-                                    <!--<center>c:out value="No Results Found"/c:out</center>-->
-                                    <!--/c:otherwise-->
+                                    <c:choose>
+                                        <c:when test="${fn:length(requestScope.users) <= 0}">
+                                            <tr>
+                                                <th>Sorry No users to show</th>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:forEach items="${requestScope.users}" var="user">
+                                                <tr>
+                                                    <td>${user.email}</td>
+                                                    <td>${user.username}</td>
+                                                    <td>${user.birthday}</td>
+                                                    <td>${user.job}</td>
+                                                    <td>${user.address}</td>
+                                                    <td>${user.creditLimit}</td>
+                                                    <td>
+                                                        <button data-toggle="tooltip" title="Show" class="pd-setting-ed"><a href="ViewUserServlet?userId=${user.email}"><i class="glyphicon" aria-hidden="true">&#xe015;</i></a></button>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
 
-                                    <!--/c:choose-->
+                                        </c:otherwise>
 
+                                    </c:choose>
                                 </table>
                             </div>
                         </div>
