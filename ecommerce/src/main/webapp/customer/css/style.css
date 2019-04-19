@@ -752,6 +752,11 @@ textarea.input {
     z-index: -1;
 }
 
+.shopimg{
+    min-width: 200px;
+    min-height: 300px;
+}
+
 .shop .shop-img>img {
     width: 100%;
     -webkit-transition: 0.2s all;

@@ -48,7 +48,7 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src="/ecommerce/img/products/shop01.png" alt="">
+                        <img class="shopimg" src="/ecommerce/img/products/seafoodmain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Seafood<br>Collection</h3>
@@ -62,7 +62,7 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src="/ecommerce/img/products/shop03.png" alt="">
+                        <img class="shopimg" src="/ecommerce/img/products/bakerymain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Bakery<br>Collection</h3>
@@ -76,7 +76,7 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src="/ecommerce/img/products/shop02.png" alt="">
+                        <img class="shopimg" src="/ecommerce/img/products/dessertsmain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Desserts<br>Collection</h3>
