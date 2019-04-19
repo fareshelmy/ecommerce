@@ -1,19 +1,14 @@
-<%-- 
-    Document   : user-detail
-    Created on : Apr 1, 2019, 6:30:28 PM
-    Author     : Mayada Khaled
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="en">
 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Users Details</title>
+        <title>Users List</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -71,12 +66,12 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
+          <script src="admin/goBack.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
     <body>
-
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 <div class="sidebar-header">
@@ -85,6 +80,7 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
+
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -126,134 +122,117 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
-                             <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
+                            <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
                             <br>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="header-advance-area">
-            <div class="header-top-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="header-top-wraper">
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                        <div class="header-right-info">
-                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
-
-                                                <li><a href="LogoutServlet"> <span class="glyphicon">&#xe163; LogOut</span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu start -->
-            <div class="mobile-menu-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="mobile-menu">
-                                <nav id="dropdown">
-                                    <ul class="mobile-menu-nav">
-                                        <li>
-                                            <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
-
-                                        </li>
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul class="collapse dropdown-header-top">
-                                                <li><a href="ProductListServlet">Product List</a></li>
-                                                <li><a href="insertProductServlet">Add/Edit Product</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul class="collapse dropdown-header-top">
-                                                <li><a href="AllUsersListServlet">All user</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="AddAdminServlet">Add admin</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu end -->
-            <div class="breadcome-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <div class="breadcomb-wp">
-                                            <div class="breadcomb-icon">
-                                                <i> <span class="glyphicon">&#xe239;</span></i>
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li><a href="#"><button onclick="goBack()" ><span class="glyphicon">&#xe091;</span></button></a>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <br><br>
-                                            <div class="breadcomb-ctn">
-                                                <h2>Dashboard</h2>
-                                                <p>Welcome to <span class="bread-ntd">Your Grocery FoodLand Page</span></p>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                            <div class="header-right-info">
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li><a href="LogoutServlet"> <span class="glyphicon">&#xe163; LogOut</span></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Single pro tab start-->
-        <div class="single-product-tab-area mg-t-0 mg-b-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="single-product-pr">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                                    <div class="single-product-details res-pro-tb">
-                                        <h1>User Name : </h1>
-                                        <h2>${currentUser.username}</h2><br>
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            <li>
+                                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+
+                                            </li>
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                                <ul class="collapse dropdown-header-top">
+                                                    <li><a href="ProductListServlet">Product List</a></li>
+                                                    <li><a href="insertProductServlet">Add/Edit Product</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                                <ul class="collapse dropdown-header-top">
+                                                    <li><a href="AllUsersListServlet">All user</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="AddAdminServlet">Add admin</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu end -->
+                <div class="breadcome-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="breadcome-list">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="breadcomb-wp">
+                                                <div class="breadcomb-icon">
+                                                    <i> <span class="glyphicon">&#xe239;</span></i>
+                                                </div>
+                                                <br><br>
+                                                <div class="breadcomb-ctn">
+                                                    <h2>Dashboard</h2>
+                                                    <p>Welcome to <span class="bread-ntd">Your Grocery FoodLand Page</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -261,34 +240,56 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Single pro tab End-->
-        <!-- Single pro tab review Start-->
-        <div class="single-pro-review-area mt-t-30 mg-b-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="single-tb-pr">
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <ul id="myTab" class="tab-review-design">
-                                        <li><a href="#reviews"><span><i class="fa fa-star"></i></span> More details :</a></li>
-                                    </ul>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="product-status-wrap">
-                                            <table>
+            <div class="product-status mg-b-30">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                            <div class="header-top-menu tabl-d-n">
+                                <div class="breadcome-heading">
+                                    <form role="search" action="UserSearchServlet">
+                                        <input type="text" id="searchText" name="searchText" placeholder="Search..." class="form-control">
+                                        <a href="UserSearchServlet"><i class="fa fa-search"></i></a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="product-status-wrap">
+                                <table>
+                                    <tr>
+                                        <td><h2> ${currentUser.username}'s orders</h2></td>
+                                    </tr>
+                                    <tr>
+                                         <th>Order ID</th>
+                                        <th>Order Date</th>
+                                       
+                                    </tr>
+                                    <c:choose>
+                                        <c:when test="${fn:length(requestScope.UserOrders) <= 0}">
+                                            <tr>
+                                                <td>${currentUser.username}'s has no orders</td>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:forEach items="${requestScope.UserOrders}" var="userOrders">
                                                 <tr>
-                                                    <th>${currentUser.username}'s orders</th>
+                                                     <td>${userOrders.id}</td>
+                                                    <td>${userOrders.timestamp}</td>
+                                                   
                                                 </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                                            </c:forEach>
+
+                                        </c:otherwise>
+
+                                    </c:choose>
+
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="footer-copyright-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -341,9 +342,6 @@
         <script src="admin/js/calendar/moment.min.js"></script>
         <script src="admin/js/calendar/fullcalendar.min.js"></script>
         <script src="admin/js/calendar/fullcalendar-active.js"></script>
-        <!-- tab JS
-                    ============================================ -->
-        <script src="admin/js/tab.js"></script>
         <!-- plugins JS
                     ============================================ -->
         <script src="admin/js/plugins.js"></script>

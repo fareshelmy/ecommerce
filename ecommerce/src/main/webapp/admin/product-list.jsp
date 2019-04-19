@@ -65,6 +65,7 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="/ecommerce/admin/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="admin/goBack.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -79,22 +80,22 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                       
+
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
                 </div>
                 <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     <nav class="sidebar-nav left-sidebar-menu-pro">
-                       <ul class="metismenu" id="menu1">
+                        <ul class="metismenu" id="menu1">
                             <li>
                                 <a  href="HomeServlet" aria-expanded="false"><span class="glyphicon">&#xe021; Home</span> </a>
 
                             </li>
                             <li>
                                 <a class="has-arrow" href="">
-                                    
-                                       <span class="glyphicon">&#xe080; Your Product</span>
+
+                                    <span class="glyphicon">&#xe080; Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
                                     <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
@@ -136,7 +137,10 @@
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li><a href="#"><button onclick="goBack()" ><span class="glyphicon">&#xe091;</span></button></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
@@ -168,7 +172,7 @@
                                             <div class="header-right-info">
                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
 
-                                                   <li><a href="LogoutServlet"> <span class="glyphicon">&#xe163; LogOut</span></a>
+                                                    <li><a href="LogoutServlet"> <span class="glyphicon">&#xe163; LogOut</span></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -219,7 +223,7 @@
                                 <div class="breadcome-list">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                           <div class="breadcomb-wp">
+                                            <div class="breadcomb-wp">
                                                 <div class="breadcomb-icon">
                                                     <i> <span class="glyphicon">&#xe239;</span></i>
                                                 </div>
@@ -269,10 +273,13 @@
                                         <th>Settings</th>
                                     </tr>
 
-
                                     <c:choose>
-                                        <c:when test="${fn:length(requestScope.products) > 0}">
-
+                                        <c:when test="${fn:length(requestScope.products) <= 0}">
+                                            <tr>
+                                                <th>Sorry No products to show</th>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
                                             <c:forEach items="${requestScope.products}" var="product">
                                                 <tr>
                                                     <td><a href="EditProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
@@ -296,10 +303,8 @@
                                                     </td>
                                                 </tr>
                                             </c:forEach>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <center><c:out value="No Results Found"></c:out></center>
-                                            </c:otherwise>
+
+                                        </c:otherwise>
 
                                     </c:choose>
 

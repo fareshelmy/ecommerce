@@ -71,6 +71,8 @@
                     ============================================ -->
         <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="admin/piChart.js"></script>
+        <script src="admin/goBack.js"></script>
+         <script src="/ecommerce/admin/js/main.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -100,8 +102,8 @@
                             </li>
                             <li>
                                 <a class="has-arrow" href="">
-                                    
-                                       <span class="glyphicon">&#xe080; Your Product</span>
+
+                                    <span class="glyphicon">&#xe080; Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
                                     <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
@@ -144,7 +146,10 @@
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li><a href="#"><button onclick="goBack()" ><span class="glyphicon">&#xe091;</span></button></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
@@ -263,24 +268,24 @@
 
                 <div class="product-new-list-area">
                     <div class="container-fluid">
-                        
-                            <!-- some of product start -->
 
-                            <input type="hidden" id="hidReqAttr1" value="${requestScope.Meat_oultrySize}" />
-                            <input type="hidden" id="hidReqAttr2" value="${requestScope.DessertsSweetsSize}" />
-                            <input type="hidden" id="hidReqAttr3" value="${requestScope.CheeseDairyDeliSize}" />
-                            <input type="hidden" id="hidReqAttr4" value="${requestScope.SeafoodSize}" />
-                            <input type="hidden" id="hidReqAttr5" value="${requestScope.FreshFruitsVegetablesHerbsSize}" />
-                            <input type="hidden" id="hidReqAttr6" value="${requestScope.BakeryPastrySize}" />
+                        <!-- some of product start -->
 
-                            <div id="piechart" class="col-md-2 col-md-offset-2"></div>
-                            <script type="text/javascript">
-                                google.charts.load('current', {'packages': ['corechart']});
-                                google.charts.setOnLoadCallback(drawChart);
-                            </script>
+                        <input type="hidden" id="hidReqAttr1" value="${requestScope.Meat_oultrySize}" />
+                        <input type="hidden" id="hidReqAttr2" value="${requestScope.DessertsSweetsSize}" />
+                        <input type="hidden" id="hidReqAttr3" value="${requestScope.CheeseDairyDeliSize}" />
+                        <input type="hidden" id="hidReqAttr4" value="${requestScope.SeafoodSize}" />
+                        <input type="hidden" id="hidReqAttr5" value="${requestScope.FreshFruitsVegetablesHerbsSize}" />
+                        <input type="hidden" id="hidReqAttr6" value="${requestScope.BakeryPastrySize}" />
 
-                            <!-- some of product end-->
-                        
+                        <div id="piechart" class="col-md-2 col-md-offset-2"></div>
+                        <script type="text/javascript">
+                            google.charts.load('current', {'packages': ['corechart']});
+                            google.charts.setOnLoadCallback(drawChart);
+                        </script>
+
+                        <!-- some of product end-->
+
                     </div>
                 </div>
                 <div class="product-sales-area mg-tb-30">
