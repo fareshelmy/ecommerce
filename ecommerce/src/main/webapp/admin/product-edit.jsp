@@ -384,7 +384,7 @@
                                                     
                                                     <div class="input-group mg-b-pro-edt" >
                                                         <span  class="input-group-addon" data-toggle="tooltip" data-placement="top" title="Sold Item!"><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i></span>
-                                                        <input data-toggle="tooltip" data-placement="top" title="Sold Item" type="number" class="form-control" style="background-color:transparent" placeholder="Price" value="${requestScope.productDetails.itemsSold}" id="price" name="price" disabled>
+                                                        <input data-toggle="tooltip" data-placement="top" title="Sold Item" type="number" class="form-control" style="background-color:transparent" placeholder="Item Sold" value="${requestScope.productDetails.itemsSold}" id="price" name="price" disabled>
                                                     </div>
 
                                                     <div class="input-group mg-b-pro-edt">
