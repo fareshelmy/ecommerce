@@ -40,7 +40,7 @@
                     <c:when test="${fn:length(sessionScope.cartProducts) > 0}">
                         <c:forEach items="${sessionScope.cartProducts}" var="product">
                             <!-- Product main img -->
-                            <div id="${product.id}">
+                            <div id="total${product.id}">
                                 <div class="col-md-5 col-md-push-2">
                                     <div id="product-main-img">
                                         <div class="product-preview">
@@ -133,7 +133,7 @@
                             <c:when test="${fn:length(sessionScope.cartProducts) > 0}">
                                 <c:forEach items="${sessionScope.cartProducts}" var="product">
                                     <c:if test="${product.quantity > 0}">
-                                        <div name='orderSpecification' id="total${product.id}" class="order-col">
+                                        <div name='orderSpecification' id="${product.id}" class="order-col">
                                             <div> <span name="spanQty">1</span>x ${product.name}</div>
                                             <div>EGP<span name="spanPrice">${product.price}</span></div>
                                         </div>

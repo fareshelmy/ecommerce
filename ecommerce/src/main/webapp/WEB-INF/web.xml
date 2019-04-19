@@ -57,6 +57,18 @@
     <filter-mapping>
         <filter-name>AdminValidator</filter-name>
         <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/AddAdminServlet</url-pattern>
+        <url-pattern>/AllUsersListServlet</url-pattern>
+        <url-pattern>/EditProductServlet</url-pattern>
+        <url-pattern>/HomeServlet</url-pattern>
+        <url-pattern>/insertProductServlet</url-pattern>
+        <url-pattern>/LogoutServlet</url-pattern>
+        <url-pattern>/PiChartServlet</url-pattern>
+        <url-pattern>/ProductListServlet</url-pattern>
+        <url-pattern>/ProductSearchServlet</url-pattern>
+        <url-pattern>/UserSearchServlet</url-pattern>
+        <url-pattern>/admin/viewProductServlet</url-pattern>
+        <url-pattern>/ViewUserServlet</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Home Servlet</servlet-name>

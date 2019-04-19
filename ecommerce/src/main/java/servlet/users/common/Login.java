@@ -59,14 +59,12 @@ public class Login extends HttpServlet {
 
                     } else {
                         //The user is an admin
-                        System.out.println("Loggedin");
-                        response.sendRedirect("/ecommerce/admin/index.jsp");
+                        response.sendRedirect("/ecommerce/HomeServlet");
                     }
                 } else {
                     //The user is not authenticated
                     request.setAttribute("invalidData", "Inavlid Email Or Password");
                     if (referer.equals("checkout")) {
-                        System.out.println("redirect attribute is added");
                         request.setAttribute("redirect", "checkout");
                     }
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/pages/login.jsp");

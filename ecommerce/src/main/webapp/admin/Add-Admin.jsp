@@ -82,37 +82,37 @@
             <div class="nalika-profile">
                 <div class="profile-dtl">
 
-                    <h2>Admin <span class="min-dtn">Name</span></h2>
+                    <h2>Admin <span class="min-dtn">${sessionScope.username}</span></h2>
                 </div>
 
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
-                   <ul class="metismenu" id="menu1">
-                            <li>
-                                <a  href="HomeServlet" aria-expanded="false"><span class="glyphicon">&#xe021; Home</span> </a>
+                    <ul class="metismenu" id="menu1">
+                        <li>
+                            <a  href="HomeServlet" aria-expanded="false"><span class="glyphicon">&#xe021; Home</span> </a>
 
-                            </li>
-                            <li>
-                                <a class="has-arrow" href="">
-                                    
-                                       <span class="glyphicon">&#xe080; Your Product</span>
-                                </a>
-                                <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
-                                    <li><a title="Product Edit" href="insertProductServlet">  Add/Edit Product</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; View Users</span></a>
-                                <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro"> All Users</span></a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a  href="AddAdminServlet" aria-expanded="false"><span class="glyphicon">&#xe080; Add Admin</span></a>
-                            </li>
-                        </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="">
+
+                                <span class="glyphicon">&#xe080; Products</span>
+                            </a>
+                            <ul class="submenu-angle" aria-expanded="true">
+                                <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
+                                <li><a title="Product Edit" href="insertProductServlet">  Add/Edit Product</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; Users</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro"> All Users</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a  href="AddAdminServlet" aria-expanded="false"><span class="glyphicon">&#xe080; Add Admin</span></a>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </nav>
@@ -124,7 +124,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
                         <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
-                            <br>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -193,13 +193,13 @@
                                             <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                         </li>
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Products<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
                                                 <li><a href="ProductListServlet">Product List</a></li>
                                                 <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                             </ul>
                                         </li>
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
                                                 <li><a href="AllUsersListServlet">All user</a></li>
                                             </ul>
@@ -269,19 +269,15 @@
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe021;</i></span>
                                                             <input type="text" class="form-control" placeholder="Adress" name ="address">
                                                         </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe007;</i></span>
-                                                            <input type="date" class="form-control" placeholder="Date of birth" name ="adminBirthday">
-                                                        </div>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="review-content-section">
 
+                                                    <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#x20ac;</i></span>
-                                                            <input type="text" class="form-control" placeholder="Credit Limit" name ="creditLimit">
+                                                            <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe007;</i></span>
+                                                            <input type="date" class="form-control" placeholder="Date of birth" name ="adminBirthday">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe139;</i></span>
@@ -292,11 +288,6 @@
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe033;</i></span>
                                                             <input type="password" class="form-control" placeholder="Password" name ="password">
                                                         </div>
-                                                        <select name="gender" class="form-control pro-edt-select form-control-primary" name ="adminGender">
-                                                            <option value="none" selected="" disabled="">Select Gender</option>
-                                                            <option value="0">Male</option>
-                                                            <option value="1">Female</option>
-                                                        </select>
 
                                                     </div>
                                                 </div>

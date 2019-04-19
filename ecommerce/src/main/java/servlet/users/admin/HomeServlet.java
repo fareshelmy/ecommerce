@@ -27,27 +27,26 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         OrderItemDAO salesCategoryPrecentage = new OrderItemDAO();
-         
+
+        OrderItemDAO salesCategoryPrecentage = new OrderItemDAO();
+
         double listOfMeatAndPoultry = salesCategoryPrecentage.getCategorySales("Meat & Poultry");
-        double listOfSeafood = salesCategoryPrecentage.getCategorySales("Seafood" );
+        double listOfSeafood = salesCategoryPrecentage.getCategorySales("Seafood");
         double listOfFruitsAndVegetables = salesCategoryPrecentage.getCategorySales("Fruits & Vegetables");
         double listOfBakeryAndPastry = salesCategoryPrecentage.getCategorySales("Bakery & Pastry");
-        double listOfCheeseAndDairyAndDeli = salesCategoryPrecentage.getCategorySales("Cheese, Dairy & Deli" );
+        double listOfCheeseAndDairyAndDeli = salesCategoryPrecentage.getCategorySales("Cheese, Dairy & Deli");
         double listOfDessertsAndSweets = salesCategoryPrecentage.getCategorySales("Desserts & Sweets");
-        
-        request.setAttribute("Meat_oultrySize",3434);
+        double listOfHomeSales = salesCategoryPrecentage.getCategorySales("Home & Gardern");
+
+        request.setAttribute("Meat_oultrySize", listOfMeatAndPoultry);
         request.setAttribute("SeafoodSize", listOfSeafood);
-        request.setAttribute("FreshFruitsVegetablesHerbsSize",listOfFruitsAndVegetables );
-        request.setAttribute("BakeryPastrySize",listOfBakeryAndPastry);
+        request.setAttribute("FreshFruitsVegetablesHerbsSize", listOfFruitsAndVegetables);
+        request.setAttribute("BakeryPastrySize", listOfBakeryAndPastry);
         request.setAttribute("CheeseDairyDeliSize", listOfCheeseAndDairyAndDeli);
-        request.setAttribute("DessertsSweetsSize",listOfDessertsAndSweets);
-        
-        
-         request.getRequestDispatcher("/admin/index.jsp").forward(request, response);
-    
+        request.setAttribute("DessertsSweetsSize", listOfDessertsAndSweets);
+        request.setAttribute("HomeSize", listOfHomeSales);
+
+        request.getRequestDispatcher("/admin/index.jsp").forward(request, response);
+
     }
 }
-    
-

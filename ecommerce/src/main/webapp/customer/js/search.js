@@ -23,4 +23,4 @@ show.onchange = function changeShow() {
             console.log("error");
         }
     });
-}
+};

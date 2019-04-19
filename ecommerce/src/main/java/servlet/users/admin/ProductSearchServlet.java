@@ -24,29 +24,25 @@ import model.entity.Product;
 @WebServlet(name = "ProductSearchServlet", urlPatterns = {"/ProductSearchServlet"})
 public class ProductSearchServlet extends HttpServlet {
 
-     @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         ProductDAO productDAO = new ProductDAO();
         String name = request.getParameter("searchProduct");
-        List<Product> listOfUsers = productDAO.getByName(name);
-        if(listOfUsers != null)
-        {
-            request.setAttribute("products", listOfUsers);
-        }
-        else
-        {
-            request.setAttribute("products", "no user is founded");
+        List<Product> productList = productDAO.getByName(name);
+        if (productList != null) {
+            request.setAttribute("products", productList);
+        } else {
+            request.setAttribute("products", "no products found");
         }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/product-list.jsp");
         requestDispatcher.include(request, response);
     }
 
-  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+
     }
 }

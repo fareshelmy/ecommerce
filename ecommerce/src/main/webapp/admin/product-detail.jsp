@@ -79,7 +79,7 @@ single-product-tab-area mg-t-0 mg-b-30<!doctype html>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
                         <a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-                        <h2>Admin <span class="min-dtn">Name</span></h2>
+                        <h2>Admin <span class="min-dtn">${sessionScope.username}</span></h2>
                     </div>
 
                 </div>
@@ -93,7 +93,7 @@ single-product-tab-area mg-t-0 mg-b-30<!doctype html>
                             <li>
                                 <a class="has-arrow" href="">
                                     
-                                       <span class="glyphicon">&#xe080; Your Product</span>
+                                       <span class="glyphicon">&#xe080; Products</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
                                     <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
@@ -101,7 +101,7 @@ single-product-tab-area mg-t-0 mg-b-30<!doctype html>
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
                                     <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro"> All Users</span></a></li>
                                 </ul>
@@ -179,13 +179,13 @@ single-product-tab-area mg-t-0 mg-b-30<!doctype html>
                                                 <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Products<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="ProductListServlet">Product List</a></li>
                                                     <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>

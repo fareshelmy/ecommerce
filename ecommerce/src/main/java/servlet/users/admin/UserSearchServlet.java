@@ -30,7 +30,7 @@ public class UserSearchServlet extends HttpServlet {
             throws ServletException, IOException {
         
         UserDAO userDAO = new UserDAO();
-        String name = request.getParameter("searchText");
+        String name = request.getParameter("searchedUser");
         List<User> listOfUsers = userDAO.getByName(name);
         if(listOfUsers != null)
         {
@@ -38,7 +38,7 @@ public class UserSearchServlet extends HttpServlet {
         }
         else
         {
-            request.setAttribute("users", "no user is founded");
+            request.setAttribute("users", "no users found");
         }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/user-list.jsp");
         requestDispatcher.include(request, response);
