@@ -7,6 +7,8 @@ package servlet.users.customers;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,49 +34,17 @@ public class SearchHandlerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         populateBean(req);
         resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
-        
+
         //*********Side Search *********
-        
-        /*String selectedCategory = req.getParameter("category");
-        //System.out.println(" printing the selected category"+selectedCategory);
-        HttpSession session = req.getSession(false);
-        if (session != null) {
-            session.setAttribute("selectedCategory", "select");
-            List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
-            int i = 0;
-            if (categoryList != null) {
-                boolean exists = false;
-                while (!exists && i < categoryList.size()) {
-                    String categoryName = categoryList.get(i);
-                    if (categoryName.equalsIgnoreCase(selectedCategory)) {
-                        categoryList.remove(categoryName);
-                        exists = true;
-                    }
-                    i++;
-                }
-                if (!exists) {
-                    categoryList.add(selectedCategory);
-                }
-                categoryList.forEach(category -> {
-                    System.out.println(category);
-                });
-                System.out.println("________");
-                session.setAttribute("searchCategories", categoryList);
-                System.out.println(session.getAttribute("selectedCategory"));
-            }
-            populateBean(req);
-
-            resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
-//            req.getRequestDispatcher("ecommerce/customer/pages/store.jsp").forward(req, resp);
-        }*/
-
-        
     }
-
 
     private void populateBean(HttpServletRequest req) {
         try {
             SearchCriteria searchCriteria = new SearchCriteria();
+            String sideSelectedCategories = req.getParameter("categories");
+            if (sideSelectedCategories != null) {
+                System.out.println(sideSelectedCategories);
+            }
             BeanUtils.populate(searchCriteria, req.getParameterMap());
             System.out.println("Inside PopulateBean --> " + searchCriteria.getSearchBarCategory());
             doSearch(req, searchCriteria);
@@ -89,24 +59,26 @@ public class SearchHandlerServlet extends HttpServlet {
         //Hamada
         int showNumber = 9;
         int pageNumber = 1;
-        if(req.getParameter("showNumber") != null)
-            showNumber = Integer.parseInt(req.getParameter("showNumber"));  
-        if(req.getParameter("pageNumber") != null)
+        if (req.getParameter("showNumber") != null) {
+            showNumber = Integer.parseInt(req.getParameter("showNumber"));
+        }
+        if (req.getParameter("pageNumber") != null) {
             pageNumber = Integer.parseInt(req.getParameter("pageNumber"));
+        }
         //
-        System.out.println("The ShowNumber is: "+showNumber);
-        System.out.println("The PageNumber is: "+pageNumber);
+
         HttpSession session = req.getSession(false);
         if (session != null) {
             System.out.println("Inside do search method --> " + searchCriteria.getSearchBarCategory());
             List<String> categoryList = (List<String>) session.getAttribute("searchCategories");
             searchCriteria.setSelectedCategories(categoryList);
-            SearchService  searchService = new SearchService();
+            SearchService searchService = new SearchService();
             List<Product> searchResult = searchService.getSearchResult(searchCriteria, showNumber, pageNumber);
             int numberOfPages = searchService.getNumberOfPages();
+            numberOfPages = 3;
             session.setAttribute("numberOfPages", numberOfPages);
             session.setAttribute("pageNumber", 1);
-            System.out.println("Number of Pages"+numberOfPages);
+            System.out.println("Number of Pages" + numberOfPages);
             session.setAttribute("searchedResults", searchResult);
             List<Product> test = (List<Product>) session.getAttribute("searchedResults");
             test.forEach((t) -> {

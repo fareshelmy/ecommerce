@@ -8,7 +8,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page errorPage="errorPage.jsp" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<script src="/ecommerce/customer/js/search.js"></script>
+
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
     <!-- container -->
@@ -169,8 +169,8 @@
                         <label>
                             Show:
                             <select class="input-select" id="show">
-                                <option value="9">9</option>
-                                <option value="15">15</option>
+                                <option value="0">9</option>
+                                <option value="1">15</option>
                             </select>
                         </label>
                     </div>
@@ -198,37 +198,33 @@
                                                     </c:if>
                                                 </div>
                                             </div>
-                                            <div class="product-body">
-                                                <p class="product-category">${product.category.name}</p>
-                                                <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
-                                                <h4 class="product-price">EGP${product.price}</h4>
-                                                <div class="product-rating">
-                                                    <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
-                                                        <i class="fa fa-star"></i>
-                                                    </c:forEach>
-                                                </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist" onclick="addToWishlist(this, '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                
-                                                    <button class="quick-view" ><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
-                                                </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">${product.category.name}</p>
+                                            <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
+                                            <h4 class="product-price">EGP${product.price}</h4>
+                                            <div class="product-rating">
+                                                <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
+                                                    <i class="fa fa-star"></i>
+                                                </c:forEach>
                                             </div>
                                             <div class="add-to-cart">
                                                 <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                             </div>
                                         </div>
                                     </div>
-                                </c:if>
-                            </c:forEach>
-                            <!-- /product -->
-                        </div>
+                                </div>
+                            </c:if>
+                        </c:forEach>
+                        <!-- /product -->
                         <!-- store bottom filter -->
                         <div class="store-filter clearfix">
                             <span class="store-qty">Showing 20-100 products</span>
                             <ul class="store-pagination">
-                                <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
+                                 <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
                                     <li <c:if test="${sessionScope.pageNumber == i }">
-                                        class="active"
-                                    </c:if> onclick="${sessionScope.pageNumber = i};"><a href="/ecommerce/customer/searchHandler?showNumber=3&pageNumber=${i}&searchBarCategory=All%20Categories">${i}</a></li>
+                                    class="active"
+                                        </c:if> onclick="${sessionScope.pageNumber = i};"><a href="#">${i}</a></li>
                                  </c:forEach>
                                 <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
                             </ul>
@@ -251,3 +247,4 @@
 <!-- /container -->
 </div>
 <!-- /SECTION -->
+<script src="/ecommerce/customer/js/storeSearch.js"></script>
