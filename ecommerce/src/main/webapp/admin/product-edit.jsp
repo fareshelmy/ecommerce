@@ -258,16 +258,15 @@
                                     <ul id="myTab3" class="tab-review-design">
                                         <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Product Edit</a></li>
                                     </ul>
-
-
+                                    
                                     <c:forEach var = "i" begin = "1" end = "${requestScope.productDetails.rating}">
                                         <span class="fa fa-star checked"></span>
                                     </c:forEach>
                                     <c:forEach var = "i" begin = "1" end = "${5-requestScope.productDetails.rating}"> 
                                         <span class="fa fa-star"></span>
                                     </c:forEach>    
-                                    <label id="soldItem" style="color: red">Sold Item </label>
-                                    <input id="soldItemtvalue" value="${requestScope.productDetails.itemsSold}" disabled="disabled">
+<!--                                    <label id="soldItem" style="color: red">Sold Item </label>
+                                    <input id="soldItemtvalue" value="${requestScope.productDetails.itemsSold}" disabled="disabled">-->
 
                                     <div id="myTabContent" class="tab-content custom-product-edit">
                                         <form action="insertProductServlet" method="post" enctype="multipart/form-data">
@@ -296,18 +295,18 @@
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                 <div class="review-content-section">
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe234;</i></span>
-                                                        <input type="text" class="form-control" placeholder="product Name" value="${requestScope.productDetails.name}" id="name" name="name" required>
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>
+                                                        <input type="text" data-toggle="tooltip" data-placement="top" title="Name" class="form-control" placeholder="product Name" value="${requestScope.productDetails.name}" id="name" name="name" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                                                        <input type="number" class="form-control" placeholder="Price" value="${requestScope.productDetails.price}" id="price" name="price" required>
+                                                        <input type="number" data-toggle="tooltip" data-placement="top" title="Price"  class="form-control" placeholder="Price" value="${requestScope.productDetails.price}" id="price" name="price" required>
                                                     </div>
                                                     
                                                     <div class="input-group mg-b-pro-edt">
 
-                                                        <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe007;</i></span>
-                                                        <input  type="number" min="0"  class="form-control" placeholder="Amount" value="${requestScope.productDetails.amount}" id="price" name="price" required>
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-scale" aria-hidden="true"></i></span>
+                                                        <input data-toggle="tooltip" data-placement="top" title="Amount"  type="number" min="0"  class="form-control" placeholder="Amount" value="${requestScope.productDetails.amount}" id="price" name="price" required>
                                                     </div>
 <!--                                                    <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
@@ -315,15 +314,58 @@
                                                         <input type="number" min="0" class="form-control" placeholder="Amount" value=${requestScope.productDetails.amount} id="amount" name="amount" required>
 
                                                     </div>-->
+
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <select class="form-control pro-edt-select form-control-primary" id ="unit" name="unit" required>
-                                                            <option value="Unit" disabled="disabled" selected="selected">unit: ${requestScope.productDetails.unit}</option>
-                                                            <option value="kg">kg</option>
-                                                            <option value="g">g</option>
-                                                            <option value="l">l</option>
-                                                            <option value="ml">ml</option>
-                                                            <option value="Pcs">Pcs</option>
-                                                            <option value="Inch">Inch</option>
+                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-tint" aria-hidden="true"></i></span>
+                                                        <select data-toggle="tooltip" data-placement="top" title="Unit" class="form-control pro-edt-select form-control-primary" id ="unit" name="unit" required>
+                                                         <c:choose>
+                                                                <c:when test="${requestScope.productDetails.unit=='kg'}">
+                                                                    <option selected="selected"  value="kg">kg</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="kg">kg</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:choose>
+                                                                <c:when test="${requestScope.productDetails.unit=='g'}">
+                                                                    <option selected="selected"  value="g">g</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="g">g</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:choose>
+                                                                <c:when test="${requestScope.productDetails.unit=='l'}">
+                                                                    <option selected="selected"  value="l">l</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="l">l</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:choose>
+                                                                <c:when test="${requestScope.productDetails.unit=='ml'}">
+                                                                    <option selected="selected"  value="ml">ml</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="ml">ml</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <c:choose>
+                                                                <c:when test="${requestScope.productDetails.unit=='Pcs'}">
+                                                                    <option selected="selected"  value="Pcs">Pcs</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Pcs">Pcs</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                           <c:choose>
+                                                                <c:when test="${requestScope.productDetails.unit=='Inch'}">
+                                                                    <option selected="selected"  value="Inch">Inch</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Inch">Inch</option>
+                                                                </c:otherwise>
+                                                            </c:choose>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -333,35 +375,17 @@
 
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe052;</i></span>
-                                                        <textarea class="form-control" placeholder="Description"  id="description" name="description" required>${requestScope.productDetails.description}</textarea>
+                                                        <textarea data-toggle="tooltip" data-placement="top" title="Description" class="form-control" placeholder="Description"  id="description" name="description" required>${requestScope.productDetails.description}</textarea>
+                                                    </div>
+                                                    
+                                                    <div class="input-group mg-b-pro-edt" >
+                                                        <span  class="input-group-addon" data-toggle="tooltip" data-placement="top" title="Sold Item!"><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i></span>
+                                                        <input data-toggle="tooltip" data-placement="top" title="Sold Item" type="number" class="form-control" style="background-color:transparent" placeholder="Price" value="${requestScope.productDetails.itemsSold}" id="price" name="price" disabled>
                                                     </div>
 
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <select class="form-control pro-edt-select form-control-primary" id ="selected_category"  name="selected_category"  required>
-                                                            <%/**
-                                                                 * *
-                                                                 * <option value="Category" disabled="disabled" selected="selected">Category:
-                                                                 * ${requestScope.productDetails.category.name}</option>
-                                                                 * <option value="Meat & Poultry">Meat
-                                                                 * &
-                                                                 * Poultry</option>
-                                                                 * <option value="Seafood">Seafood</option>
-                                                                 * <option value="Fresh Fruits, Vegetables & Herbs">Fresh
-                                                                 * Fruits,
-                                                                 * Vegetables &
-                                                                 * Herbs</option>
-                                                                 * <option value="Bakery & Pastry">Bakery
-                                                                 * &
-                                                                 * Pastry</option>
-                                                                 * <option value="Cheese, Dairy & Deli">Cheese,
-                                                                 * Dairy &
-                                                                 * Deli</option>
-                                                                 * <option value="Desserts & Sweets">Desserts
-                                                                 * &
-                                                                 * Sweets</option>
-                                                                 *
-                                                                 */%>
-
+                                                        <span class="input-group-addon" data-toggle="tooltip" data-placement="top" title="Category"><i class="glyphicon glyphicon-th" aria-hidden="true"></i></span>
+                                                        <select class="form-control pro-edt-select form-control-primary"  data-toggle="tooltip" data-placement="top" title="Category" id ="selected_category"  name="selected_category"  required>
                                                             <c:choose> 
                                                                 <c:when test="${requestScope.productDetails.category.id >6}">
                                                                     <option value="Category" disabled="disabled" selected="selected">Category</option>
@@ -425,8 +449,10 @@
 
                                                         </select>
                                                     </div>
+<!--                                                    fas fa-clipboard-list	-->
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <input type="number" min="0" class="form-control" placeholder="Quantity" value="${requestScope.productDetails.quantity}" id="quantity" name="quantity" required>
+                                                        <span class="input-group-addon" data-toggle="tooltip" data-placement="top" title="Quantity"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
+                                                        <input type="number" min="0" data-toggle="tooltip" data-placement="top" title="Quantity" class="form-control" placeholder="Quantity" value="${requestScope.productDetails.quantity}" id="quantity" name="quantity" required>
                                                     </div>
                                                 </div>
                                             </div>
