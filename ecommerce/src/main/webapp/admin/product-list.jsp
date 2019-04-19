@@ -275,7 +275,7 @@
 
                                             <c:forEach items="${requestScope.products}" var="product">
                                                 <tr>
-                                                    <td><a href="/ecommerce/admin/viewProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
+                                                    <td><a href="EditProductServlet?productId=${product.id}"><img src="${product.image}" alt="Image" /></a></td>
                                                     <td>${product.name}</td>
                                                     <td>${product.itemsSold}</td>
                                                     <td>EGP${product.itemsSold * product.price}</td>
