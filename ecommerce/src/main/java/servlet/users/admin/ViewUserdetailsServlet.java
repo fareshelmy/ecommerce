@@ -28,10 +28,10 @@ public class ViewUserdetailsServlet extends HttpServlet {
         
         String userId = request.getParameter("userId");
         UserDAO userDao = new UserDAO();
-        User user = userDao.retrieve(Integer.parseInt(userId));
+        User user = userDao.retrieve(userId);
         if (user != null) {
             request.setAttribute("currentUser", user);
-            request.getRequestDispatcher("admin/user-edit.jsp").include(request, response);
+            request.getRequestDispatcher("admin/user-detail.jsp").include(request, response);
         }
 
     }

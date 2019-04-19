@@ -71,10 +71,12 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
     <body>
-     se
+
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 <div class="sidebar-header">
@@ -83,7 +85,6 @@
                 </div>
                 <div class="nalika-profile">
                     <div class="profile-dtl">
-                      
                         <h2>Admin <span class="min-dtn">Name</span></h2>
                     </div>
 
@@ -92,26 +93,27 @@
                     <nav class="sidebar-nav left-sidebar-menu-pro">
                         <ul class="metismenu" id="menu1">
                             <li>
-                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+                                <a  href="HomeServlet" aria-expanded="false"><span class="glyphicon">&#xe021; Home</span> </a>
+
                             </li>
                             <li>
                                 <a class="has-arrow" href="">
-                                    <i class="icon nalika-table icon-wrap"></i>
-                                    <span class="mini-click-non">Your Product</span>
+
+                                    <span class="glyphicon">&#xe080; Your Product</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Product List" href="ProductListServlet"><span class="mini-sub-pro">Product List</span></a></li>
-                                    <li><a title="Product Edit" href="insertProductServlet"><span class="mini-sub-pro">Add/Edit Product</span></a></li>
+                                    <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
+                                    <li><a title="Product Edit" href="insertProductServlet">  Add/Edit Product</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow" href="" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; View Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
-                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro">All Users</span></a></li>
+                                    <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro"> All Users</span></a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a  href="AddAdminServlet" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Add Admin</span></a>
+                                <a  href="AddAdminServlet" aria-expanded="false"><span class="glyphicon">&#xe080; Add Admin</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -124,115 +126,57 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
-                            <a href="index.html"><img class="main-logo" src="admin/img/logo/logo.png" alt="" /></a>
+                             <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
+                            <br>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="header-advance-area">
-                <div class="header-top-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="header-top-wraper">
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                            <div class="menu-switcher-pro">
-                                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-                                                    <i class="icon nalika-menu-task"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                            <div class="header-right-info">
-                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
-
-                                                    <li><a href="LogoutServlet"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-                                                    </li>
-
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Mobile Menu start -->
-                <div class="mobile-menu-area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="mobile-menu">
-                                    <nav id="dropdown">
-                                        <ul class="mobile-menu-nav">
-                                          <li>
-                                                <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
-
-                                            </li>
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                                <ul class="collapse dropdown-header-top">
-                                                    <li><a href="ProductListServlet">Product List</a></li>
-                                                    <li><a href="insertProductServlet">Product Edit</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                                <ul class="collapse dropdown-header-top">
-                                                    <li><a href="AllUsersListServlet">All user</a></li>
-                                                </ul>
-                                            </li>
-                                                <li><a href="AddAdminServlet">Add admin</a></li> </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Mobile Menu end -->
-                <div class="breadcome-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="breadcome-list">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <div class="breadcomb-wp">
-                                                <div class="breadcomb-icon">
-                                                    <i class="icon nalika-home"></i>
-                                                </div>
-                                                <div class="breadcomb-ctn">
-                                                    <h2>Dashboard</h2>
-                                                    <p>Welcome to <span class="bread-ntd">Your Grocery Connection Page</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single pro tab start-->
-            <div class="single-product-tab-area mg-t-0 mg-b-30">
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="single-product-pr">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
                                 <div class="row">
-                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                                        <div class="single-product-details res-pro-tb">
-                                            <h1>User Name : </h1>
-                                            <h2>${currentUser.username}</h2><br>
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
 
-                                            <div class="single-pro-cn">
-                                                <h3>${currentUser.username} Interest's overview :</h3>
-                                                <p>${currentUser.categories}</p>
-                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+
+                                                <li><a href="LogoutServlet"> <span class="glyphicon">&#xe163; LogOut</span></a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -241,56 +185,102 @@
                     </div>
                 </div>
             </div>
-            <!-- Single pro tab End-->
-            <!-- Single pro tab review Start-->
-            <div class="single-pro-review-area mt-t-30 mg-b-30">
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="mobile-menu-nav">
+                                        <li>
+                                            <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
+
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <ul class="collapse dropdown-header-top">
+                                                <li><a href="ProductListServlet">Product List</a></li>
+                                                <li><a href="insertProductServlet">Add/Edit Product</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <ul class="collapse dropdown-header-top">
+                                                <li><a href="AllUsersListServlet">All user</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="AddAdminServlet">Add admin</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="single-tb-pr">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
                                 <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-wp">
+                                            <div class="breadcomb-icon">
+                                                <i> <span class="glyphicon">&#xe239;</span></i>
+                                            </div>
+                                            <br><br>
+                                            <div class="breadcomb-ctn">
+                                                <h2>Dashboard</h2>
+                                                <p>Welcome to <span class="bread-ntd">Your Grocery FoodLand Page</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single pro tab start-->
+        <div class="single-product-tab-area mg-t-0 mg-b-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="single-product-pr">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                    <div class="single-product-details res-pro-tb">
+                                        <h1>User Name : </h1>
+                                        <h2>${currentUser.username}</h2><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single pro tab End-->
+        <!-- Single pro tab review Start-->
+        <div class="single-pro-review-area mt-t-30 mg-b-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="single-tb-pr">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <ul id="myTab" class="tab-review-design">
+                                        <li><a href="#reviews"><span><i class="fa fa-star"></i></span> More details :</a></li>
+                                    </ul>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <ul id="myTab" class="tab-review-design">
-                                            <li><a href="#reviews"><span><i class="fa fa-star"></i></span> More details :</a></li>
-                                        </ul>
-                                        <div id="myTabContent" class="tab-content">
-
-                                            <div class="product-tab-list tab-pane fade" id="reviews">
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="review-content-section">
-                                                            <div class="review-content-section">
-                                                                <div class="card-block">
-                                                                    <div class="m-t-10">
-                                                                        <div class="txt-primary f-18 f-w-600">
-                                                                            <p>Your Rating</p>
-                                                                        </div>
-
-                                                                    </div>
-                                                                    <div class="input-group mg-b-15 mg-t-15">
-                                                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                                        <input type="date" class="form-control" placeholder="Birth of date : ${currentUser.username}">
-                                                                    </div>
-                                                                    <div class="input-group mg-b-15">
-                                                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                                        <input type="text" class="form-control" placeholder="Address : ${currentUser.address}">
-                                                                    </div>
-                                                                    <div class="input-group mg-b-15">
-                                                                        <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                                                        <input type="text" class="form-control" placeholder="Job : ${currentUser.job} ">
-                                                                    </div>
-                                                                    <div class="input-group mg-b-15">
-                                                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                                        <input type="text" class="form-control" placeholder="credit Limit ${currentUser.creditLimit}">
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                                        <div class="product-status-wrap">
+                                            <table>
+                                                <tr>
+                                                    <th>${currentUser.username}'s orders</th>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -298,67 +288,68 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-copyright-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
+            </div>
+            <div class="footer-copyright-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- jquery
-                        ============================================ -->
-            <script src="admin/js/vendor/jquery-1.12.4.min.js"></script>
-            <!-- bootstrap JS
-                        ============================================ -->
-            <script src="admin/js/bootstrap.min.js"></script>
-            <!-- wow JS
-                        ============================================ -->
-            <script src="admin/js/wow.min.js"></script>
-            <!-- price-slider JS
-                        ============================================ -->
-            <script src="admin/js/jquery-price-slider.js"></script>
-            <!-- meanmenu JS
-                        ============================================ -->
-            <script src="admin/js/jquery.meanmenu.js"></script>
-            <!-- owl.carousel JS
-                        ============================================ -->
-            <script src="admin/js/owl.carousel.min.js"></script>
-            <!-- sticky JS
-                        ============================================ -->
-            <script src="admin/js/jquery.sticky.js"></script>
-            <!-- scrollUp JS
-                        ============================================ -->
-            <script src="admin/js/jquery.scrollUp.min.js"></script>
-            <!-- mCustomScrollbar JS
-                        ============================================ -->
-            <script src="admin/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-            <script src="admin/js/scrollbar/mCustomScrollbar-active.js"></script>
-            <!-- metisMenu JS
-                        ============================================ -->
-            <script src="admin/js/metisMenu/metisMenu.min.js"></script>
-            <script src="admin/js/metisMenu/metisMenu-active.js"></script>
-            <!-- morrisjs JS
-                        ============================================ -->
-            <script src="admin/js/sparkline/jquery.sparkline.min.js"></script>
-            <script src="admin/js/sparkline/jquery.charts-sparkline.js"></script>
-            <!-- calendar JS
-                        ============================================ -->
-            <script src="admin/js/calendar/moment.min.js"></script>
-            <script src="admin/js/calendar/fullcalendar.min.js"></script>
-            <script src="admin/js/calendar/fullcalendar-active.js"></script>
-            <!-- tab JS
-                        ============================================ -->
-            <script src="admin/js/tab.js"></script>
-            <!-- plugins JS
-                        ============================================ -->
-            <script src="admin/js/plugins.js"></script>
-            <!-- main JS
-                        ============================================ -->
-            <script src="admin/js/main.js"></script>
+        <!-- jquery
+                    ============================================ -->
+        <script src="admin/js/vendor/jquery-1.12.4.min.js"></script>
+        <!-- bootstrap JS
+                    ============================================ -->
+        <script src="admin/js/bootstrap.min.js"></script>
+        <!-- wow JS
+                    ============================================ -->
+        <script src="admin/js/wow.min.js"></script>
+        <!-- price-slider JS
+                    ============================================ -->
+        <script src="admin/js/jquery-price-slider.js"></script>
+        <!-- meanmenu JS
+                    ============================================ -->
+        <script src="admin/js/jquery.meanmenu.js"></script>
+        <!-- owl.carousel JS
+                    ============================================ -->
+        <script src="admin/js/owl.carousel.min.js"></script>
+        <!-- sticky JS
+                    ============================================ -->
+        <script src="admin/js/jquery.sticky.js"></script>
+        <!-- scrollUp JS
+                    ============================================ -->
+        <script src="admin/js/jquery.scrollUp.min.js"></script>
+        <!-- mCustomScrollbar JS
+                    ============================================ -->
+        <script src="admin/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="admin/js/scrollbar/mCustomScrollbar-active.js"></script>
+        <!-- metisMenu JS
+                    ============================================ -->
+        <script src="admin/js/metisMenu/metisMenu.min.js"></script>
+        <script src="admin/js/metisMenu/metisMenu-active.js"></script>
+        <!-- morrisjs JS
+                    ============================================ -->
+        <script src="admin/js/sparkline/jquery.sparkline.min.js"></script>
+        <script src="admin/js/sparkline/jquery.charts-sparkline.js"></script>
+        <!-- calendar JS
+                    ============================================ -->
+        <script src="admin/js/calendar/moment.min.js"></script>
+        <script src="admin/js/calendar/fullcalendar.min.js"></script>
+        <script src="admin/js/calendar/fullcalendar-active.js"></script>
+        <!-- tab JS
+                    ============================================ -->
+        <script src="admin/js/tab.js"></script>
+        <!-- plugins JS
+                    ============================================ -->
+        <script src="admin/js/plugins.js"></script>
+        <!-- main JS
+                    ============================================ -->
+        <script src="admin/js/main.js"></script>
     </body>
 
 </html>
