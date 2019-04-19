@@ -103,61 +103,15 @@ public class OrderDAO implements DAO<Order> {
         session.getTransaction().commit();
         return orderList;
     }
-
+    
+    public List<Order> retrieveUserOrders(String userEmail){
+        getSession();
+        session.getTransaction().begin();
+        Criteria orderCriteria = session.createCriteria(Order.class);
+        orderCriteria = orderCriteria.createAlias("user", "u").add(Restrictions.eq("u.email", userEmail));
+        List<Order> userOrders = orderCriteria.list();
+        session.getTransaction().commit();
+        return userOrders;
+    }
+    
 }
-
-
-
-    /*
-    Previous Back Up Implementation
-    @Override
-    public Object mapToEntity(Order dtoOrder){
-        model.entity.Order entityOrder = new model.entity.Order();
-        entityOrder.setId(dtoOrder.getId());
-        entityOrder.setUser(dtoOrder.getUser());
-        entityOrder.setTimestamp(dtoOrder.getTimestamp());
-        Set<model.entity.OrderItem> orderContent = new HashSet<model.entity.OrderItem>(0);
-        OrderItemDAO helper = new OrderItemDAO();
-        dtoOrder.getOrderItems().forEach((dtoOrderItem)->{
-            orderContent.add((model.entity.OrderItem)helper.mapToEntity(dtoOrderItem));
-        });
-        entityOrder.setOrderItems(orderContent);
-        return entityOrder;
-    }
-    @Override
-    public Order mapToDTO(Object obj) {
-        model.entity.Order entityOrder = (model.entity.Order)obj;
-        Order dtoOrder = new Order();
-        dtoOrder.setId(entityOrder.getId());
-        dtoOrder.setUser(entityOrder.getUser());
-        dtoOrder.setTimestamp(entityOrder.getTimestamp());
-        Set<OrderItem> orderContent = new HashSet<OrderItem>(0);
-        OrderItemDAO helper = new OrderItemDAO();
-        entityOrder.getOrderItems().forEach((entityOrderItem)->{
-            orderContent.add(helper.mapToDTO(entityOrderItem));
-        });
-        dtoOrder.setOrderItems(orderContent);
-        return dtoOrder;
-    }
- //DTO projections using ResultTransformer and JPQL
-    //transform the result set using the setResultTransformer method of the Hibernate-specific org.hibernate.query.Query interface which you can unwrap from the JPA Query.
-    public List<CustomOrderDTO> getCustomOrderDTO(Object primaryKey, List<Object> columnNames){
-        EntityManagerFactory entityManagerFactory = new EntityManagerFactoryImpl(persistenceUnitName, sessionFactory, settings, configurationValues, cfg);
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        StringBuilder orderQuery = new StringBuilder( "select");
-        for(int i = 0; i<columnNames.size();i++){
-            if(i==columnNames.size()-1)
-                orderQuery.append("o." + columnNames.get(i));
-            else
-                orderQuery.append("o." + columnNames.get(i) + ",");
-        }
-        orderQuery.append("from model.entity.Order o");
-        orderQuery.append("where o.id= :orderId");
-        List<CustomOrderDTO> customOrderDTOs =  entityManager.createQuery(orderQuery.toString())
-                .setParameter("orderId", (int)primaryKey)
-//                .unwrap(org.hibernate.query.Query.class)
-//                .setResultTransformer(Transformers.aliasToBean(CustomOrderDTO.class))
-                .getResultList();
-        return customOrderDTOs;
-    }
-    */
