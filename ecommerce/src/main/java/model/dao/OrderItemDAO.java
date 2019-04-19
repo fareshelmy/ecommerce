@@ -161,4 +161,13 @@ public class OrderItemDAO implements DAO<OrderItem> {
         session.getTransaction().commit();
         return result;
     }
+    public List<OrderItem> retrieveOrderItems(Integer orderId){
+        getSession();
+        session.getTransaction().begin();
+        Criteria orderCriteria = session.createCriteria(OrderItem.class);
+        orderCriteria = orderCriteria.createAlias("order", "o").add(Restrictions.eq("o.id", orderId)).setFetchMode("order", FetchMode.EAGER).setFetchMode("product", FetchMode.EAGER);;
+        List<OrderItem> orderItems = orderCriteria.list();
+        session.getTransaction().commit();
+        return orderItems;
+    }
 }

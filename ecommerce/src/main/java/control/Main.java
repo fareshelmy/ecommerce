@@ -6,9 +6,10 @@
 package control;
 
 import java.util.List;
+import model.dao.OrderDAO;
 import model.dao.OrderItemDAO;
-import model.dao.ProductDAO;
-import model.entity.Product;
+import model.entity.Order;
+import model.entity.OrderItem;
 
 /**
  *
@@ -16,9 +17,16 @@ import model.entity.Product;
  */
 public class Main {
     public static void main(String[] args){
-     OrderItemDAO order = new OrderItemDAO();
-     double d = order.getCategorySales("Meat & Poultry");
-     System.out.println("The Sales are: "+d);
+        OrderDAO order = new OrderDAO();
+        OrderItemDAO orderitem = new OrderItemDAO();
+        List<Order> orders =  order.retrieveUserOrders("Hamada@gmail.com");
+        for(Order o: orders){
+            System.out.println("Order ID is: "+o.getId());
+            List<OrderItem> orderItems = orderitem.retrieveOrderItems(o.getId());
+            for(OrderItem oi:orderItems){
+                System.out.println("Product Name: " + oi.getProduct().getName());
+            }
+        }
     }
 }
 
