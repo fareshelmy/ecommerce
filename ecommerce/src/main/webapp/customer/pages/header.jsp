@@ -139,7 +139,7 @@
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart()">
+                                    <a class="dropdown-toggle" href="#" onclick="return viewCart()">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>My Cart</span>
                                         <div class="qty" id="cartQuantity"></div>
