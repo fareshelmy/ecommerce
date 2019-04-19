@@ -206,10 +206,6 @@
                                                         <i class="fa fa-star"></i>
                                                     </c:forEach>
                                                 </div>
-                                                <div class="product-btns">
-                                                    <button class="add-to-wishlist" onclick="addToWishlist(this, '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                
-                                                    <button class="quick-view" ><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
-                                                </div>
                                             </div>
                                             <div class="add-to-cart">
                                                 <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
@@ -218,8 +214,9 @@
                                     </div>
                                 </c:if>
                             </c:forEach>
-                            <!-- /product -->
                         </div>
+
+                        <!-- /product -->
                         <!-- store bottom filter -->
                         <div class="store-filter clearfix">
                             <span class="store-qty">Showing 20-100 products</span>
@@ -241,12 +238,15 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-            <!-- /STORE -->
+
         </div>
         <!-- /STORE -->
     </div>
-    <!-- /row -->
+    <!-- /STORE -->
+</div>
+<!-- /row -->
 </div>
 <!-- /container -->
 </div>
 <!-- /SECTION -->
+<script src="/ecommerce/customer/js/storeSearch.js"></script>

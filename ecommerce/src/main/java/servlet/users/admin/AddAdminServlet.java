@@ -29,44 +29,38 @@ public class AddAdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
         User retrievedUser = new UserDAO().retrieve(request.getParameter("email"));
-        
+
         if (retrievedUser == null) {
-            
+
             User user = new User();
             UserDAO userDAO = new UserDAO();
             user.setRole("admin");
             String date = request.getParameter("adminBirthday");
-        try {  
-            Date newDate=new SimpleDateFormat("dd/MM/yyyy").parse(date);
-            user.setBirthday(newDate);
+            try {
+                Date newDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+                user.setBirthday(newDate);
 
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
+            } catch (ParseException ex) {
+                ex.printStackTrace();
+            }
 
             try {
                 BeanUtils.populate(user, request.getParameterMap());
             } catch (IllegalAccessException ex) {
-               ex.printStackTrace();
+                ex.printStackTrace();
             } catch (InvocationTargetException ex) {
-                 ex.printStackTrace();
+                ex.printStackTrace();
             }
             userDAO.persist(user);
-            request.getRequestDispatcher("/admin/index.jsp").forward(request, response);  
+            response.sendRedirect("/ecommerce/HomeServlet");
         }
-        else
-        {
-            
-        }
-
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            req.getRequestDispatcher("/admin/Add-Admin.jsp").forward(req, resp);   
+        req.getRequestDispatcher("/admin/Add-Admin.jsp").forward(req, resp);
     }
-    
 
 }

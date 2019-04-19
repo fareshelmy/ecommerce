@@ -48,7 +48,7 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src="/ecommerce/img/products/shop01.png" alt="">
+                        <img class="shopimg" src="/ecommerce/img/products/seafoodmain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Seafood<br>Collection</h3>
@@ -62,7 +62,7 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src="/ecommerce/img/products/shop03.png" alt="">
+                        <img class="shopimg" src="/ecommerce/img/products/bakerymain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Bakery<br>Collection</h3>
@@ -76,7 +76,7 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src="/ecommerce/img/products/shop02.png" alt="">
+                        <img class="shopimg" src="/ecommerce/img/products/dessertsmain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Desserts<br>Collection</h3>
@@ -258,34 +258,36 @@
                                         <!-- product -->
                                         <c:forEach items="${sessionScope.topSellingProducts}" var="product">
                                             <c:if test="${product.quantity gt 0}">
-                                                <div class="product">
-                                                    <div class="product-img">
-                                                        <img src="${product.image}" alt="">
-                                                        <div class="product-label">
-                                                            <c:if test="${product.quantity < 4}">
-                                                                <span class="sale">Only ${product.quantity} Left</span>
-                                                            </c:if>
-                                                            <c:if test="${((now.time - product.entranceDate.time) / (1000*60*60*24)) le 6}">
-                                                                <span class="new">NEW</span>
-                                                            </c:if>
+                                                <div class="col-md-4 col-xs-6">
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img src="${product.image}" alt="">
+                                                            <div class="product-label">
+                                                                <c:if test="${product.quantity < 4}">
+                                                                    <span class="sale">Only ${product.quantity} Left</span>
+                                                                </c:if>
+                                                                <c:if test="${((now.time - product.entranceDate.time) / (1000*60*60*24)) le 6}">
+                                                                    <span class="new">NEW</span>
+                                                                </c:if>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="product-body">
-                                                        <p class="product-category">${product.category.name}</p>
-                                                        <h3 class="product-name"><a href="#">${product.name}</a></h3>
-                                                        <h4 class="product-price">EGP${product.price}</h4>
-                                                        <div class="product-rating">
-                                                            <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
-                                                                <i class="fa fa-star"></i>    
-                                                            </c:forEach>
+                                                        <div class="product-body">
+                                                            <p class="product-category">${product.category.name}</p>
+                                                            <h3 class="product-name"><a href="#">${product.name}</a></h3>
+                                                            <h4 class="product-price">EGP${product.price}</h4>
+                                                            <div class="product-rating">
+                                                                <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
+                                                                    <i class="fa fa-star"></i>    
+                                                                </c:forEach>
+                                                            </div>
+                                                            <div class="product-btns">
+                                                                <button class="add-to-wishlist" onclick="addToWishlist(this, '${pageContext.session.id}', '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                            </div>
                                                         </div>
-                                                        <div class="product-btns">
-                                                            <button class="add-to-wishlist" onclick="addToWishlist(this, '${pageContext.session.id}', '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                        <div class="add-to-cart">
+                                                            <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                                         </div>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                                     </div>
                                                 </div>
                                             </c:if>
@@ -296,17 +298,16 @@
                                         <center><c:out value="No Results Found"></c:out></center>
                                         </c:otherwise>    
                                     </c:choose>  
+                                <div id="slick-nav-2" class="products-slick-nav"></div>
                             </div>
-                            <div id="slick-nav-2" class="products-slick-nav"></div>
+                            <!-- /tab -->
                         </div>
-                        <!-- /tab -->
                     </div>
                 </div>
+                <!-- /Products tab & slick -->
             </div>
-            <!-- /Products tab & slick -->
+            <!-- /row -->
         </div>
-        <!-- /row -->
+        <!-- /container -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /SECTION -->
+    <!-- /SECTION -->

@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>jersey-servlet</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>servlet.users.customers.webservice</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ViewProductServlet</servlet-name>
         <url-pattern>/customer/viewProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>jersey-servlet</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -57,7 +70,19 @@
     <filter-mapping>
         <filter-name>AdminValidator</filter-name>
         <url-pattern>/admin/*</url-pattern>
-    </filter-mapping>
+        <url-pattern>/AddAdminServlet</url-pattern>
+        <url-pattern>/AllUsersListServlet</url-pattern>
+        <url-pattern>/EditProductServlet</url-pattern>
+        <url-pattern>/HomeServlet</url-pattern>
+        <url-pattern>/insertProductServlet</url-pattern>
+        <url-pattern>/LogoutServlet</url-pattern>
+        <url-pattern>/PiChartServlet</url-pattern>
+        <url-pattern>/ProductListServlet</url-pattern>
+        <url-pattern>/ProductSearchServlet</url-pattern>
+        <url-pattern>/UserSearchServlet</url-pattern>
+        <url-pattern>/admin/viewProductServlet</url-pattern>
+        <url-pattern>/ViewUserServlet</url-pattern>
+        </filter-mapping>
     <servlet>
         <servlet-name>Home Servlet</servlet-name>
         <servlet-class>servlet.users.common.HomeServlet</servlet-class>

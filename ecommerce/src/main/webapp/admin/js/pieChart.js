@@ -6,10 +6,10 @@ function drawChart() {
     var meat = Number(document.getElementById("hidReqAttr1").value);
     var cheese = Number(document.getElementById("hidReqAttr3").value);
     var seafood = Number(document.getElementById("hidReqAttr4").value);
-    var Bakery = Number(document.getElementById("hidReqAttr6").value);
+    var bakery = Number(document.getElementById("hidReqAttr6").value);
     var fruit = Number(document.getElementById("hidReqAttr5").value);
     var sweet = Number(document.getElementById("hidReqAttr2").value);
-    console.log("meat "+ meat);
+    var home = Number(document.getElementById("hidReqAttr7").value);
     var data = google.visualization.arrayToDataTable
             ([
                 ['Task', 'Hours per Day'],
@@ -18,16 +18,17 @@ function drawChart() {
                 ['Cheese, Dairy & Deli', cheese],
                 ['SeaFood', seafood ],
                 ['Fruits & Vegetables',fruit ],
-                ['Bakery & Pastry', Bakery]
+                ['Bakery & Pastry', bakery],
+                ['Home & Garden', home]
             ]);
 
     var options = {
-        title: 'precentage of sales for each categorys',
+        title: 'Current Sales',
         is3D: true,
         width: 900,
         height: 600,
         'backgroundColor':'#1b2a47',
-        'fontcolor' : "#fffffff"
+        'fontColor' : "#1b2a47"
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));

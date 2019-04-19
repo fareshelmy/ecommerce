@@ -66,6 +66,7 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
+          <script src="admin/goBack.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -80,7 +81,7 @@
                 <div class="nalika-profile">
                     <div class="profile-dtl">
 
-                        <h2>Admin <span class="min-dtn">Name</span></h2>
+                        <h2>Admin <span class="min-dtn">${sessionScope.username}</span></h2>
                     </div>
 
                 </div>
@@ -94,7 +95,7 @@
                             <li>
                                 <a class="has-arrow" href="">
 
-                                    <span class="glyphicon">&#xe080; Your Product</span>
+                                    <span class="glyphicon">&#xe080; Products</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
                                     <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
@@ -102,7 +103,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
                                     <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro"> All Users</span></a></li>
                                 </ul>
@@ -136,7 +137,10 @@
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li><a href="#"><button onclick="goBack()" ><span class="glyphicon">&#xe091;</span></button></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
@@ -190,13 +194,13 @@
                                                 <a  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i> <span class="mini-click-non">Home</span></a>
 
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Products<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="ProductListServlet">Product List</a></li>
                                                     <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>

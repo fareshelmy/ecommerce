@@ -70,7 +70,9 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="admin/piChart.js"></script>
+        <script src="/ecommerce/admin/js/pieChart.js"></script>
+        <script src="/ecommerce/admin/js/goBack.js"></script>
+         <script src="/ecommerce/admin/js/main.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -87,7 +89,7 @@
                 <div class="nalika-profile">
                     <div class="profile-dtl">
 
-                        <h2>Admin <span class="min-dtn">Name</span></h2>
+                        <h2>Admin <span class="min-dtn">${sessionScope.username}</span></h2>
                     </div>
 
                 </div>
@@ -101,7 +103,7 @@
                             <li>
                                 <a class="has-arrow" href="">
                                     
-                                       <span class="glyphicon">&#xe080; Your Product</span>
+                                       <span class="glyphicon">&#xe080; Products</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
                                     <li><a title="Product List" href="ProductListServlet">  Product List</a></li>
@@ -109,7 +111,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; View Users</span></a>
+                                <a class="has-arrow" href="" aria-expanded="false"><span class="glyphicon">&#xe080; Users</span></a>
                                 <ul class="submenu-angle" aria-expanded="false">
                                     <li><a title="All Users" href="AllUsersListServlet"><span class="mini-sub-pro"> All Users</span></a></li>
                                 </ul>
@@ -144,7 +146,10 @@
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li><a href="#"><button onclick="goBack()" ><span class="glyphicon">&#xe091;</span></button></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
@@ -199,13 +204,13 @@
                                                 <a  class="btn btn-info btn-lg"  href="HomeServlet" aria-expanded="false"><i class="icon nalika-home icon-wrap"></i>  <span class="glyphicon glyphicon-home"></span> </a>
 
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Your Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Products<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="ProductListServlet">Product List</a></li>
                                                     <li><a href="insertProductServlet">Add/Edit Product</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">View Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <li><a data-toggle="collapse" data-target="#Charts" href="#">Users<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                                 <ul class="collapse dropdown-header-top">
                                                     <li><a href="AllUsersListServlet">All user</a></li>
                                                 </ul>
@@ -263,8 +268,6 @@
 
                 <div class="product-new-list-area">
                     <div class="container-fluid">
-                        
-                            <!-- some of product start -->
 
                             <input type="hidden" id="hidReqAttr1" value="${requestScope.Meat_oultrySize}" />
                             <input type="hidden" id="hidReqAttr2" value="${requestScope.DessertsSweetsSize}" />
@@ -272,15 +275,15 @@
                             <input type="hidden" id="hidReqAttr4" value="${requestScope.SeafoodSize}" />
                             <input type="hidden" id="hidReqAttr5" value="${requestScope.FreshFruitsVegetablesHerbsSize}" />
                             <input type="hidden" id="hidReqAttr6" value="${requestScope.BakeryPastrySize}" />
-
+                            <input type="hidden" id="hidReqAttr7" value="${requestScope.HomeSize}" />
                             <div id="piechart" class="col-md-2 col-md-offset-2"></div>
-                            <script type="text/javascript">
-                                google.charts.load('current', {'packages': ['corechart']});
-                                google.charts.setOnLoadCallback(drawChart);
-                            </script>
+                        <script type="text/javascript">
+                            google.charts.load('current', {'packages': ['corechart']});
+                            google.charts.setOnLoadCallback(drawChart);
+                        </script>
 
-                            <!-- some of product end-->
-                        
+                        <!-- some of product end-->
+
                     </div>
                 </div>
                 <div class="product-sales-area mg-tb-30">

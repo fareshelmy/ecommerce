@@ -13,7 +13,7 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
         <title>Foodland</title>
-
+        <link rel="shortcut icon" type="image/x-icon" href="/ecommerce/img/products/minilogo.png">
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -139,7 +139,7 @@
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" onclick="viewCart()">
+                                    <a class="dropdown-toggle" href="#" onclick="return viewCart()">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>My Cart</span>
                                         <div class="qty" id="cartQuantity"></div>
