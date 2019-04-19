@@ -8,7 +8,6 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page errorPage="errorPage.jsp" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
     <!-- container -->
@@ -169,8 +168,8 @@
                         <label>
                             Show:
                             <select class="input-select" id="show">
-                                <option value="0">9</option>
-                                <option value="1">15</option>
+                                <option value="9" <c:if test="${sessionScope.showNumber == 9}">selected</c:if>>9</option>
+                                <option value="15" <c:if test="${sessionScope.showNumber == 15}">selected</c:if>>15</option>
                             </select>
                         </label>
                     </div>
@@ -224,9 +223,9 @@
                             <ul class="store-pagination">
                                 <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
                                     <li <c:if test="${sessionScope.pageNumber == i }">
-                                            class="active"
-                                        </c:if> onclick="${sessionScope.pageNumber = i};"><a href="#">${i}</a></li>
-                                    </c:forEach>
+                                        class="active"
+                                        </c:if> ><a href="#" onclick="gotoSpecificPage(${i})">${i}</a></li>
+                                </c:forEach>
                                 <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
                             </ul>
                         </div>

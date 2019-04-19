@@ -66,7 +66,6 @@ public class SearchHandlerServlet extends HttpServlet {
             pageNumber = Integer.parseInt(req.getParameter("pageNumber"));
         }
         //
-
         HttpSession session = req.getSession(false);
         if (session != null) {
             System.out.println("Inside do search method --> " + searchCriteria.getSearchBarCategory());
@@ -77,9 +76,13 @@ public class SearchHandlerServlet extends HttpServlet {
             int numberOfPages = searchService.getNumberOfPages();
             numberOfPages = 3;
             session.setAttribute("numberOfPages", numberOfPages);
-            session.setAttribute("pageNumber", 1);
-            System.out.println("Number of Pages" + numberOfPages);
+            session.setAttribute("pageNumber", pageNumber);
+            session.setAttribute("showNumber", showNumber);
             session.setAttribute("searchedResults", searchResult);
+            System.out.println("The ShowNumber is: "+showNumber);
+            System.out.println("The PageNumber is: "+pageNumber);
+            System.out.println("The Number of Pages is: "+numberOfPages);
+
             List<Product> test = (List<Product>) session.getAttribute("searchedResults");
             test.forEach((t) -> {
 
