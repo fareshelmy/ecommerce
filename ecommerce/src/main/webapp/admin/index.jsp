@@ -70,8 +70,8 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="admin/piChart.js"></script>
-        <script src="admin/goBack.js"></script>
+        <script src="/ecommerce/admin/js/pieChart.js"></script>
+        <script src="/ecommerce/admin/js/goBack.js"></script>
          <script src="/ecommerce/admin/js/main.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

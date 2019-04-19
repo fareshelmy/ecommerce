@@ -198,34 +198,35 @@
                                                     </c:if>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="product-body">
-                                            <p class="product-category">${product.category.name}</p>
-                                            <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
-                                            <h4 class="product-price">EGP${product.price}</h4>
-                                            <div class="product-rating">
-                                                <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
-                                                    <i class="fa fa-star"></i>
-                                                </c:forEach>
+                                            <div class="product-body">
+                                                <p class="product-category">${product.category.name}</p>
+                                                <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
+                                                <h4 class="product-price">EGP${product.price}</h4>
+                                                <div class="product-rating">
+                                                    <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
+                                                        <i class="fa fa-star"></i>
+                                                    </c:forEach>
+                                                </div>
                                             </div>
                                             <div class="add-to-cart">
                                                 <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </c:if>
-                        </c:forEach>
+                                </c:if>
+                            </c:forEach>
+                        </div>
+
                         <!-- /product -->
                         <!-- store bottom filter -->
                         <div class="store-filter clearfix">
                             <span class="store-qty">Showing 20-100 products</span>
                             <ul class="store-pagination">
-                                 <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
+                                <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
                                     <li <c:if test="${sessionScope.pageNumber == i }">
-                                    class="active"
+                                            class="active"
                                         </c:if> onclick="${sessionScope.pageNumber = i};"><a href="#">${i}</a></li>
-                                 </c:forEach>
+                                    </c:forEach>
                                 <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
                             </ul>
                         </div>
@@ -238,11 +239,13 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-            <!-- /STORE -->
+
         </div>
         <!-- /STORE -->
     </div>
-    <!-- /row -->
+    <!-- /STORE -->
+</div>
+<!-- /row -->
 </div>
 <!-- /container -->
 </div>

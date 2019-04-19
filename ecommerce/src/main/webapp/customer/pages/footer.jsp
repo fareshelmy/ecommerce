@@ -68,9 +68,9 @@
                     <div class="footer">
                         <h3 class="footer-title">Service</h3>
                         <ul class="footer-links">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="/ecommerce/profile">My Account</a></li>
+                            <li><a href="/ecommerce/customer/pages/checkout.jsp">View Cart</a></li>
+                            <li><a href="/ecommerce/wishlist">Wishlist</a></li>
                         </ul>
                     </div>
                 </div>
