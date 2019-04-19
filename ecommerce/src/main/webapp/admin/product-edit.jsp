@@ -70,6 +70,7 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
+          <script src="admin/goBack.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -146,7 +147,10 @@
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li><a href="#"><button onclick="goBack()" ><span class="glyphicon">&#xe091;</span></button></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
@@ -380,7 +384,7 @@
                                                     
                                                     <div class="input-group mg-b-pro-edt" >
                                                         <span  class="input-group-addon" data-toggle="tooltip" data-placement="top" title="Sold Item!"><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i></span>
-                                                        <input data-toggle="tooltip" data-placement="top" title="Sold Item" type="number" class="form-control" style="background-color:transparent" placeholder="Price" value="${requestScope.productDetails.itemsSold}" id="price" name="price" disabled>
+                                                        <input data-toggle="tooltip" data-placement="top" title="Sold Item" type="number" class="form-control" style="background-color:transparent" placeholder="Item Sold" value="${requestScope.productDetails.itemsSold}" id="price" name="price" disabled>
                                                     </div>
 
                                                     <div class="input-group mg-b-pro-edt">

@@ -1,6 +1,12 @@
 sortBy = document.getElementById("sortBy");
 show = document.getElementById("show");
 
+function getShowNumber(){
+    return show.options[show.selectedIndex].value;
+}
+function getPageNumber(){
+    return ;
+}
 show.onchange = function changeShow() {
     jQuery.ajax({
         url: "/ecommerce/customer/searchHandler",
