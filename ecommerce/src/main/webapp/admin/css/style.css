@@ -31,6 +31,7 @@
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
 }
+
 html, body {height: 100%; font-family: 'Roboto', sans-serif;font-weight:400;background:#152036;}
 .floatleft {float:left}
 .floatright {float:right}

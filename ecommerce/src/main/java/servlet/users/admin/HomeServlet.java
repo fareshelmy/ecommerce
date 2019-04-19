@@ -37,7 +37,7 @@ public class HomeServlet extends HttpServlet {
         double listOfCheeseAndDairyAndDeli = salesCategoryPrecentage.getCategorySales("Cheese, Dairy & Deli" );
         double listOfDessertsAndSweets = salesCategoryPrecentage.getCategorySales("Desserts & Sweets");
         
-        request.setAttribute("Meat_oultrySize",listOfMeatAndPoultry);
+        request.setAttribute("Meat_oultrySize",3434);
         request.setAttribute("SeafoodSize", listOfSeafood);
         request.setAttribute("FreshFruitsVegetablesHerbsSize",listOfFruitsAndVegetables );
         request.setAttribute("BakeryPastrySize",listOfBakeryAndPastry);

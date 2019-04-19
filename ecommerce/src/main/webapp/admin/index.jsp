@@ -263,7 +263,7 @@
 
                 <div class="product-new-list-area">
                     <div class="container-fluid">
-                        <div class="row" >
+                        
                             <!-- some of product start -->
 
                             <input type="hidden" id="hidReqAttr1" value="${requestScope.Meat_oultrySize}" />
@@ -273,14 +273,14 @@
                             <input type="hidden" id="hidReqAttr5" value="${requestScope.FreshFruitsVegetablesHerbsSize}" />
                             <input type="hidden" id="hidReqAttr6" value="${requestScope.BakeryPastrySize}" />
 
-                            <div id="piechart"></div>
+                            <div id="piechart" class="col-md-2 col-md-offset-2"></div>
                             <script type="text/javascript">
                                 google.charts.load('current', {'packages': ['corechart']});
                                 google.charts.setOnLoadCallback(drawChart);
                             </script>
 
                             <!-- some of product end-->
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="product-sales-area mg-tb-30">
