@@ -174,7 +174,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="add-to-cart">
-                                                        <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>                                        </div>
+                                                        <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button> 
+                                                    </div>
                                                 </div>
                                             </c:if>
                                         </c:forEach>
