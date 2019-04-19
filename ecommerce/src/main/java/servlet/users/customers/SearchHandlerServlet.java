@@ -89,12 +89,13 @@ public class SearchHandlerServlet extends HttpServlet {
         //Hamada
         int showNumber = 9;
         int pageNumber = 1;
-        if(req.getParameter("showNumber")!= null)
+        if(req.getParameter("showNumber") != null)
             showNumber = Integer.parseInt(req.getParameter("showNumber"));  
-        if(req.getParameter("pageNumber")!= null)
+        if(req.getParameter("pageNumber") != null)
             pageNumber = Integer.parseInt(req.getParameter("pageNumber"));
         //
-        
+        System.out.println("The ShowNumber is: "+showNumber);
+        System.out.println("The PageNumber is: "+pageNumber);
         HttpSession session = req.getSession(false);
         if (session != null) {
             System.out.println("Inside do search method --> " + searchCriteria.getSearchBarCategory());
@@ -103,7 +104,6 @@ public class SearchHandlerServlet extends HttpServlet {
             SearchService  searchService = new SearchService();
             List<Product> searchResult = searchService.getSearchResult(searchCriteria, showNumber, pageNumber);
             int numberOfPages = searchService.getNumberOfPages();
-            numberOfPages = 3;
             session.setAttribute("numberOfPages", numberOfPages);
             session.setAttribute("pageNumber", 1);
             System.out.println("Number of Pages"+numberOfPages);
