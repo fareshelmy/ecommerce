@@ -121,6 +121,7 @@ ul, ol {
     border: 1px solid #E4E7ED;
     background-color: #FFF;
     width: 100%;
+    min-width: 150px;
 }
 
 textarea.input {
@@ -187,6 +188,7 @@ textarea.input {
     background: #FFF;
     border: 1px solid #E4E7ED;
     height: 40px;
+    max-width: 140px;
 }
 
 /*-- checkbox & radio input --*/

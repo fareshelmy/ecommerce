@@ -97,7 +97,7 @@ public class InsertProductServlet extends HttpServlet {
         try {
             final Part imagePart = req.getPart("image");
             String realPath = req.getServletContext().getRealPath("");
-            String appendedPath = "/ecommerce/img" + File.separator + "products" + File.separator;
+            String appendedPath = File.separator + "ecommerce" + File.separator + "img" + File.separator + "products" + File.separator;
             imageName = appendedPath + "product" + new Date().getTime()+ ".jpg";
 
             savePath = realPath + appendedPath;

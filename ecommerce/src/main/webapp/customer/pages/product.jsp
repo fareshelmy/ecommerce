@@ -59,33 +59,20 @@
                                 <i class="fa fa-star"></i>    
                             </c:forEach>
                         </div>
-                        <a class="review-link" href="#">10 Review(s) | Add your review</a>
                     </div>
                     <div>
                         <h3 class="product-price">EGP${sessionScope.product.price} <span class="product-old-price">500g</span></h3>
                         <span class="product-available">In Stock</span>
                     </div>
-                        <p>${sessionScope.product.description}</p>
 
                     <div class="add-to-cart">
-                        <div class="qty-label">
-                            Qty
-                            <div class="input-number">
-                                <input type="number" value="1">
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
-                            </div>
-                        </div>
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        <button class="add-to-cart-btn" onclick="addToCart(this, '${product.id}')"><i class="fa fa-shopping-cart"></i> add to cart</button>
                     </div>
 
-                    <ul class="product-btns">
-                        <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-                    </ul>
 
                     <ul class="product-links">
                         <li>Category:</li>
-                        <li><a href="#">Seafood</a></li>
+                        <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=${sessionScope.product.category.name}">${sessionScope.product.category.name}</a></li>
                     </ul>
 
                 </div>
