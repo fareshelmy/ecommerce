@@ -32,6 +32,7 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/loader.css"/>
 
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>

@@ -42,36 +42,34 @@
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Meat")' 
+                            <input type="checkbox" name="categories" id="meat"
                                    <c:if test="${sessionScope.selectedCategory == 'select'}">
                                        checked
                                    </c:if>
                                    >
-                            <label for="category-1">
+                            <label for="meat">
                                 <span></span>
                                 Meat & Poultry
-                                <small>(120)</small>
                             </label>
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Seafood")'
+                            <input type="checkbox" name="categories" id="seafood" 
                                    <c:if test="${sessionScope.Seafood != null}">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-2">
+                            <label for="seafood">
                                 <span></span>
                                 Seafood
-                                <small>(740)</small>
                             </label>
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Fruits")'
+                            <input type="checkbox" name="categories" id="fruit" 
                                    <c:if test="${sessionScope.Fruits} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-3">
+                            <label for="fruit">
                                 <span></span>
                                 Fruits & Vegetables
                                 <small>(1450)</small>
@@ -79,11 +77,11 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Bakery")'
+                            <input type="checkbox" name="categories" id="bakery"
                                    <c:if test="${sessionScope.Bakery} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-4">
+                            <label for="bakery">
                                 <span></span>
                                 Bakery & Pastry
                                 <small>(578)</small>
@@ -91,38 +89,35 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Cheese")'
+                            <input type="checkbox" name="categories" id="cheese"
                                    <c:if test="${sessionScope.Cheese} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-5">
+                            <label for="cheese">
                                 <span></span>
                                 Cheese & Dairy
-                                <small>(120)</small>
                             </label>
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Desserts")'
+                            <input type="checkbox" name="categories" id="dessert" 
                                    <c:if test="${sessionScope.Desserts} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-6">
+                            <label for="dessert">
                                 <span></span>
                                 Desserts & Sweets
-                                <small>(740)</small>
                             </label>
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Home")'
+                            <input type="checkbox" name="categories" id="home" 
                                    <c:if test="${sessionScope.Home} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-7">
+                            <label for="home">
                                 <span></span>
                                 Home & Garden
-                                <small>(740)</small>
                             </label>
                         </div>
                     </div>
@@ -176,9 +171,11 @@
 
                 </div>
                 <!-- /store top filter -->
-
                 <!-- store products -->
-                <div class="row">
+                
+                    
+                <div class="row" id="products">
+                    
                     <!-- product -->
                     <c:choose>
                         <c:when test="${fn:length(sessionScope.searchedResults) > 0}">
