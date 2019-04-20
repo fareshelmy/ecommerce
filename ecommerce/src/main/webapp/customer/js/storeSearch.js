@@ -16,7 +16,6 @@ function generataSearchRequest() {
         JsonSelected = JSON.stringify(selectedItemsArray);
 
     }
-    console.log(JsonSelected);
      if (window.XMLHttpRequest) {
      request = new XMLHttpRequest();
      } else if (window.ActiveXObject) {
@@ -32,8 +31,6 @@ function generataSearchRequest() {
 
 function searchItems() {
     if (request.readyState === 4 && request.status === 200) {
-        var text = request.responseText;
-        console.log(text);
         $("#products").load(" #products");
     }
 }

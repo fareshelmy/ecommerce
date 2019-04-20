@@ -1,30 +1,20 @@
 var initialPrice = document.getElementsByName("spanPrice");
 var price = convertToArray(initialPrice);
 var userCredit;
-//$(document).ready(checkUserCredit);
 function checkUserCredit(userCredit, total) {
-
     try {
         total = total.trim();
         total = parseInt(total, 10);
         userCredit = parseInt(userCredit, 10);
 
-        console.log(total + "  ----- " + userCredit);
         if (total > userCredit) {
             $("#submitBtn").attr("disabled", true);
-            console.log("Btn is disabled");
-            console.log($("#submitBtn").attr("disabled"));
         } else {
             $("#submitBtn").attr("disabled", false);
-            console.log("Btn is enabled");
-            console.log($("#submitBtn").attr("disabled"));
         }
-
     } catch (e) {
-        console.log("somethimg happed");
+        console.log("exception happened");
     }
-
-
 }
 
 function checkCreditWithQuantity(credit) {
@@ -45,7 +35,6 @@ function checkCreditWithQuantity(credit) {
 
 
 function changePrice(quantity, price) {
-
     quantity = parseInt(quantity.trim());
     price = parseInt(price);
     var result = price * quantity;
@@ -65,7 +54,7 @@ function changeTotal() {
     var sum = 0;
 
     for (var i = 0; i < initialPrice.length; i++) {
-        sum += parseDouble(initialPrice[i].innerHTML.trim());
+        sum += parseFloat(initialPrice[i].innerHTML.trim());
     }
 
     return sum.toFixed(1);
@@ -99,7 +88,6 @@ function placeOrder() {
         dataType: 'text',
         success: function (data, textStatus, jqXHR) {
             if (data == "done") {
-
                 Swal.fire({
                     title: "Thank you!",
                     text: "Your order has been submitted successfully",
@@ -117,9 +105,6 @@ function placeOrder() {
                     $("#error" + notAvailableProducts[i].productId).html("<h6 class='title' style='color: #D10024;'>Only " + notAvailableProducts[i].productQuantity + " items left</h6>");
                 }
             }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("error");
         }
     });
 }

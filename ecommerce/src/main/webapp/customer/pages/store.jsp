@@ -165,18 +165,18 @@
                             <select class="input-select" id="show">
                                 <option value="9" <c:if test="${sessionScope.showNumber == 9}">selected</c:if>>9</option>
                                 <option value="15" <c:if test="${sessionScope.showNumber == 15}">selected</c:if>>15</option>
-                            </select>
-                        </label>
-                    </div>
+                                </select>
+                            </label>
+                        </div>
 
-                </div>
-                <!-- /store top filter -->
-                <!-- store products -->
-                
-                    
-                <div class="row" id="products">
-                    
-                    <!-- product -->
+                    </div>
+                    <!-- /store top filter -->
+                    <!-- store products -->
+
+
+                    <div class="row" id="products">
+
+                        <!-- product -->
                     <c:choose>
                         <c:when test="${fn:length(sessionScope.searchedResults) > 0}">
                             <c:forEach items="${sessionScope.searchedResults}" var="product">
@@ -203,6 +203,10 @@
                                                         <i class="fa fa-star"></i>
                                                     </c:forEach>
                                                 </div>
+                                                <div class="product-btns">
+                                                    <button class="add-to-wishlist" onclick="addToWishlist(this, '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                
+                                                    <button class="quick-view" ><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
+                                                </div>
                                             </div>
                                             <div class="add-to-cart">
                                                 <button id="cartButton" onclick="addToCart(this, '${product.id}')" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
@@ -220,9 +224,9 @@
                             <ul class="store-pagination">
                                 <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
                                     <li <c:if test="${sessionScope.pageNumber == i }">
-                                        class="active"
+                                            class="active"
                                         </c:if> ><a href="#" onclick="gotoSpecificPage(${i})">${i}</a></li>
-                                </c:forEach>
+                                    </c:forEach>
                                 <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
                             </ul>
                         </div>
