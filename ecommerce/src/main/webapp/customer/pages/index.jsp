@@ -161,7 +161,7 @@
                                                     </div>
                                                     <div class="product-body">
                                                         <p class="product-category">${product.category.name}</p>
-                                                        <h3 class="product-name"><a href="#">${product.name}</a></h3>
+                                                        <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                                         <h4 class="product-price">EGP${product.price}</h4>
                                                         <div class="product-rating">
                                                             <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
@@ -273,7 +273,7 @@
                                                         </div>
                                                         <div class="product-body">
                                                             <p class="product-category">${product.category.name}</p>
-                                                            <h3 class="product-name"><a href="#">${product.name}</a></h3>
+                                                            <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                                             <h4 class="product-price">EGP${product.price}</h4>
                                                             <div class="product-rating">
                                                                 <c:forEach var="i" begin="0" end="${product.rating}" step="1" >

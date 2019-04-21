@@ -118,7 +118,7 @@
                                         <option value="Desserts & Sweets">Desserts & Sweets</option>
                                         <option value="Home & Garden">Home & Garden</option>
                                     </select>
-                                    <input class="input" name="productSubString" placeholder="Search here" onblur="submitSearch()">
+                                    <input class="input" name="productSubString" placeholder="Search here">
                                 </form>
                             </div>
                         </div>

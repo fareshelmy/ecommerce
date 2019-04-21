@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <h3 class="breadcrumb-header">Checkout</h3>
                 <ul class="breadcrumb-tree">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/ecommerce/home">Home</a></li>
                     <li class="active">Checkout</li>
                 </ul>
             </div>
@@ -74,7 +74,6 @@
                                                     <i class="fa fa-star"></i>    
                                                 </c:forEach>
                                             </div>
-                                            <a class="review-link" href="#">10 Review(s)</a>
                                         </div>
                                         <div>
                                             <h3 class="product-price">EGP${product.price} <p class="product-old-price">${product.amount}${product.unit}</p></h3>
