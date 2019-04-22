@@ -24,7 +24,7 @@ function drawChart() {
         is3D: true,
         width: 900,
         height: 600,
-        'backgroundColor':'#1b2a47',
+        'backgroundColor':'#fffffff',
         'fontColor' : "#1b2a47"
     };
 
