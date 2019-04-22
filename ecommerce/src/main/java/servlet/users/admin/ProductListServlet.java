@@ -51,13 +51,28 @@ public class ProductListServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Accessed Dopost productListSrevletyy");
-        List<Product> products = new ProductDAO().retrieveAll();
-        req.setAttribute("products", products);
+            int pageNumb,pageCount ;
+        ProductDAO pdao=new ProductDAO();
         ServletContext context = getServletContext();
-        context.log("ProductListServlet  ... doPost");
-        //  resp.sendRedirect("/admin/product-list.jsp");
-        req.getRequestDispatcher("/admin/product-list.jsp").include(req, resp);
+        //---------------- set pageCount--------------
+        List<Product> productList = pdao.retrieveAll();
+        int lisSize = productList.size();
+        pdao.setNumberOfPages(lisSize, 10);
+        pageCount =pdao.getNumberOfPages();
+        req.setAttribute("pageCount", pageCount);
+        //-----------------pageCount--------------
+        context.log("pageNumb: " +req.getParameter("pagNumb") );
+        if (req.getParameter("pagNumb") == null) {
+            pageNumb = 1;
+        } else {
+            pageNumb = Integer.parseInt(req.getParameter("pagNumb"));
+        }
+        ProductDAO productDAO = new ProductDAO();
+        List<Product> products = productDAO.retrieveAll(null, 10, pageNumb);   
+        //  List<Product> products = new ProductDAO().retrieveAll();
+        req.setAttribute("products", products);
+        context.log("ProductListServlet  ... doGet");
+        req.getRequestDispatcher("/admin/product-list.jsp").forward(req, resp);
     }
 
 }
