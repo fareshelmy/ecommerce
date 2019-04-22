@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -168,7 +169,7 @@
 
         </div>
         <!-- /SECTION -->
-       
+
 
         <!-- FOOTER -->
         <footer id="footer">
@@ -212,7 +213,14 @@
                             <div class="footer">
                                 <h3 class="footer-title">Service</h3>
                                 <ul class="footer-links">
-                                    <li><a href="/ecommerce/profile">My Account</a></li>
+                                    <c:choose>
+                                        <c:when test="${sessionScope.loggedIn == 'true'}">
+                                            <li><a href="/ecommerce/profile">My Account</a></li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li><a href="/ecommerce/customer/pages/login.jsp">My Account</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <li><a href="/ecommerce/customer/pages/checkout.jsp">View Cart</a></li>
                                     <li><a href="/ecommerce/wishlist">Wishlist</a></li>
                                 </ul>

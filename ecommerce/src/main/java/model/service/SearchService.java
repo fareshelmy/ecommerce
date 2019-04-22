@@ -77,7 +77,6 @@ public class SearchService {
         return products;
     }
 
-    //I may change it to switch it to searchCriteria
     public List<Product> getSearchResult(List<String> selectedCategoriesList,int showNumber) {
         List<Product> retrievedProductsList = new ArrayList<>();
         CategoryDAO categoryDAO = new CategoryDAO();
