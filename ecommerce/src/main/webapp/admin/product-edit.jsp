@@ -388,12 +388,12 @@
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon" data-toggle="tooltip" data-placement="top" title="Category"><i class="glyphicon glyphicon-th" aria-hidden="true"></i></span>
                                                         <select class="form-control pro-edt-select form-control-primary"  data-toggle="tooltip" data-placement="top" title="Category" id ="selected_category"  name="selected_category"  required>
-                                                            <c:choose> 
+                                                    <%--        <c:choose> 
                                                                 <c:when test="${requestScope.productDetails.category.id >6}">
                                                                     <option value="Category" disabled="disabled" selected="selected">Category</option>
                                                                 </c:when>    
 
-                                                            </c:choose>
+                                                            </c:choose> --%>
                                                             <c:choose> 
                                                                 <c:when test="${requestScope.productDetails.category.id==1}">
                                                                     <option selected="selected"  value="Meat & Poultry">Meat & Poultry</option>
@@ -448,6 +448,16 @@
                                                                     <option value="Desserts & Sweets">Desserts & Sweets</option>
                                                                 </c:otherwise>
                                                             </c:choose> 
+                                                                    
+                                                            <c:choose>
+                                                                <c:when test="$requestScope.productDetails.category.id==7">
+                                                                    <option selected="selected" value="Home & Garden">Desserts & Sweets</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Home & Garden">Home & Garden</option>
+                                                                </c:otherwise>
+                                                            </c:choose>         
+                                                                    
 
                                                         </select>
                                                     </div>

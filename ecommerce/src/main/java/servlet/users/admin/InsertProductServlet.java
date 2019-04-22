@@ -101,8 +101,10 @@ public class InsertProductServlet extends HttpServlet {
         try {
             final Part imagePart = req.getPart("image");
             String realPath = req.getServletContext().getRealPath("");
-            String appendedPath = File.separator + "ecommerce" + File.separator + "img" + File.separator + "products" + File.separator;
-            imageName = appendedPath + "product" + new Date().getTime() + ".jpg";
+//            String appendedPath = File.separator + "ecommerce" + File.separator + "img" + File.separator + "products" + File.separator;
+//            imageName = appendedPath + "product" + new Date().getTime() + ".jpg";
+            String appendedPath = "img" + File.separator + "products" + File.separator;
+            imageName = appendedPath + "product" + new Date().getSeconds() + ".jpg";
 
             savePath = realPath + appendedPath;
 
@@ -143,7 +145,7 @@ public class InsertProductServlet extends HttpServlet {
                     }
                 }
                 if (writer != null) {
-                    //    writer.close();
+                 //   writer.close();
                 }
             }
         } catch (IOException ex) {
