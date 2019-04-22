@@ -17,8 +17,7 @@
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="/ecommerce/home">Home</a></li>
-                    <li><a href="#">All Categories</a></li>
-                    <li><a href="#">Seafood (227,490 Results)</a></li>
+                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=All%20Categories">All Categories</a></li>
                 </ul>
             </div>
         </div>
