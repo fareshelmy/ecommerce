@@ -272,7 +272,7 @@
                                     <input id="soldItemtvalue" value="${requestScope.productDetails.itemsSold}" disabled="disabled">-->
 
                                     <div id="myTabContent" class="tab-content custom-product-edit">
-                                        <form action="insertProductServlet" method="post" enctype="multipart/form-data">
+                                        <form id="evaluationForm" action="insertProductServlet" method="post" enctype="multipart/form-data">
                                             <div class="product-tab-list tab-pane fade active in" id="descriptions">
                                                 <div class="row">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -321,51 +321,51 @@
                                                          <span class="input-group-addon"><i class="glyphicon glyphicon-tint" aria-hidden="true"></i></span>
                                                         <select data-toggle="tooltip" data-placement="top" title="Unit" class="form-control pro-edt-select form-control-primary" id ="unit" name="unit" required>
                                                          <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='kg'}">
-                                                                    <option selected="selected"  value="kg">kg</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='KG'}">
+                                                                    <option selected="selected"  value="KG">KG</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="kg">kg</option>
+                                                                    <option value="KG">KG</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='g'}">
-                                                                    <option selected="selected"  value="g">g</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='G'}">
+                                                                    <option selected="selected"  value="G">G</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="g">g</option>
+                                                                    <option value="G">G</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='l'}">
-                                                                    <option selected="selected"  value="l">l</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='L'}">
+                                                                    <option selected="selected"  value="L">L</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="l">l</option>
+                                                                    <option value="L">L</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='ml'}">
-                                                                    <option selected="selected"  value="ml">ml</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='ML'}">
+                                                                    <option selected="selected"  value="ML">ML</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="ml">ml</option>
+                                                                    <option value="ML">ML</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='Pcs'}">
-                                                                    <option selected="selected"  value="Pcs">Pcs</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='PCS'}">
+                                                                    <option selected="selected"  value="PCS">PCS</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="Pcs">Pcs</option>
+                                                                    <option value="PCS">PCS</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                            <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='Inch'}">
-                                                                    <option selected="selected"  value="Inch">Inch</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='INCH'}">
+                                                                    <option selected="selected"  value="INCH">Inch</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="Inch">Inch</option>
+                                                                    <option value="INCH">INCH</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                         </select>
@@ -472,8 +472,8 @@
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="text-center custom-pro-edt-ds">
-                                                        <input type="submit" class="btn btn-ctl-bt waves-effect waves-light m-r-10" value="Save">
-                                                        <input type="reset" class="btn btn-ctl-bt waves-effect waves-light" value="Discard">
+                                                        <input value="Save" type="submit" id="save" class="btn btn-ctl-bt waves-effect waves-light m-r-10" >
+                                                        <input onclick="goBack();" value="Discard" type="reset" id="evaluationFormEditCancel" class="btn btn-ctl-bt waves-effect waves-light" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -539,6 +539,7 @@
         <!-- main JS
                     ============================================ -->
         <script src="admin/js/main.js"></script>
+        <script src="/ecommerce/admin/js/discard.js"></script>
 
     </body>
 
