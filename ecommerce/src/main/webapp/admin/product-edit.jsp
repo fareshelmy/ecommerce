@@ -243,7 +243,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -260,7 +259,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="review-tab-pro-inner">
                                     <ul id="myTab3" class="tab-review-design">
-                                        <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Product Edit</a></li>
+                                        <li class="active"><a href="#description">Product Edit</a></li>
                                     </ul>
                                     
                                     <c:forEach var = "i" begin = "1" end = "${requestScope.productDetails.rating}">
