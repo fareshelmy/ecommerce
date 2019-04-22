@@ -64,6 +64,7 @@
         <!-- style CSS
                     ============================================ -->
         <link rel="stylesheet" href="/ecommerce/admin/css/style.css">
+        <link rel="stylesheet" href="/ecommerce/admin/css/piechartstyle.css">
         <!-- responsive CSS
                     ============================================ -->
         <link rel="stylesheet" href="/ecommerce/admin/css/responsive.css">
@@ -265,7 +266,7 @@
                         </div>
                     </div>
                 </div>
-
+                <center>
                 <div class="product-new-list-area">
                     <div class="container-fluid">
 
@@ -276,6 +277,7 @@
                             <input type="hidden" id="hidReqAttr5" value="${requestScope.FreshFruitsVegetablesHerbsSize}" />
                             <input type="hidden" id="hidReqAttr6" value="${requestScope.BakeryPastrySize}" />
                             <input type="hidden" id="hidReqAttr7" value="${requestScope.HomeSize}" />
+                            
                             <div id="piechart" class="col-md-2 col-md-offset-2"></div>
                         <script type="text/javascript">
                             google.charts.load('current', {'packages': ['corechart']});
@@ -286,6 +288,7 @@
 
                     </div>
                 </div>
+                </center>
                 <div class="product-sales-area mg-tb-30">
                     <div class="container-fluid">
                         <div class="row">
