@@ -33,8 +33,6 @@ public class ProductSearchServlet extends HttpServlet {
         List<Product> productList = productDAO.getByName(name);
         if (productList != null) {
             request.setAttribute("products", productList);
-        } else {
-            request.setAttribute("products", "no products found");
         }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/product-list.jsp");
         requestDispatcher.include(request, response);
