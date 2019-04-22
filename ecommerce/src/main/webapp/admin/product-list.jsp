@@ -249,9 +249,9 @@
                         <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                             <div class="header-top-menu tabl-d-n">
                                 <div class="breadcome-heading">
-                                    <input type="text" id="searchProduct" name="searchProduct" placeholder="Search..." class="form-control">
-<!--                                    <input type="button" id="btnSearch">-->
-                                    <a onclick="return processProductSearch()"><i class="fa fa-search"></i></a>
+                                    
+                                    <input type="text" id="searchProduct" name="searchProduct" placeholder="Search..." class="form-control" onkeyup="productFun()">
+                                        <a onclick="return processProductSearch()" id="productsearch"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
                         </div>
