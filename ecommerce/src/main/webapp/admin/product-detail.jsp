@@ -65,7 +65,7 @@ single-product-tab-area mg-t-0 mg-b-30<!doctype html>
         <!-- modernizr JS
                     ============================================ -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-          <script src="admin/goBack.js"></script>
+         <script src="admin/js/goBack.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
