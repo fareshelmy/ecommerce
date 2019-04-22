@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -142,7 +143,7 @@ public class InsertProductServlet extends HttpServlet {
                     }
                 }
                 if (writer != null) {
-                //    writer.close();
+                    //    writer.close();
                 }
             }
         } catch (IOException ex) {

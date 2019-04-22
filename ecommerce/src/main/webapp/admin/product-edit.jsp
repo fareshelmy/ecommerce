@@ -307,15 +307,14 @@
                                                     </div>
                                                     
                                                     <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-scale" aria-hidden="true"></i></span>
+                                                        <input type="number" data-toggle="tooltip" data-placement="top" title="Amount"  class="form-control" placeholder="Amount" value="${requestScope.productDetails.amount}" required>
+                                                    </div>
+                                                    
+<!--                                                    <div class="input-group mg-b-pro-edt">
 
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-scale" aria-hidden="true"></i></span>
                                                         <input data-toggle="tooltip" data-placement="top" title="Amount"  type="number" min="0"  class="form-control" placeholder="Amount" value="${requestScope.productDetails.amount}" id="amount" name="amount" required>
-                                                    </div>
-<!--                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-
-                                                        <input type="number" min="0" class="form-control" placeholder="Amount" value=${requestScope.productDetails.amount} id="amount" name="amount" required>
-
                                                     </div>-->
 
                                                     <div class="input-group mg-b-pro-edt">
