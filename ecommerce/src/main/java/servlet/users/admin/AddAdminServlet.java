@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.dao.UserDAO;
 import model.entity.User;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.ConvertUtils;
+import org.apache.commons.beanutils.converters.DateConverter;
+import org.apache.commons.beanutils.converters.DateTimeConverter;
 
 /**
  *
@@ -37,16 +41,11 @@ public class AddAdminServlet extends HttpServlet {
             User user = new User();
             UserDAO userDAO = new UserDAO();
             user.setRole("admin");
-            String date = request.getParameter("adminBirthday");
-            try {
-                Date newDate = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-                user.setBirthday(newDate);
-
-            } catch (ParseException ex) {
-                ex.printStackTrace();
-            }
 
             try {
+                DateTimeConverter dateConverter = new DateConverter(null);
+                dateConverter.setPattern("yyyy-MM-dd");
+                ConvertUtils.register(dateConverter, java.util.Date.class);
                 BeanUtils.populate(user, request.getParameterMap());
             } catch (IllegalAccessException ex) {
                 ex.printStackTrace();
@@ -55,6 +54,9 @@ public class AddAdminServlet extends HttpServlet {
             }
             userDAO.persist(user);
             response.sendRedirect("/ecommerce/HomeServlet");
+        } else {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/Add-Admin.jsp");
+            requestDispatcher.forward(request, response);
         }
     }
 
