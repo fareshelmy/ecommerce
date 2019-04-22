@@ -52,7 +52,7 @@
                     </div>
                     <div class="shop-body">
                         <h3>Seafood<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/ecommerce/customer/searchHandler?searchBarCategory=sea" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="shop-body">
                         <h3>Bakery<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/ecommerce/customer/searchHandler?searchBarCategory=bakery" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="shop-body">
                         <h3>Desserts<br>Collection</h3>
-                        <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/ecommerce/customer/searchHandler?searchBarCategory=desserts" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -161,7 +161,7 @@
                                                     </div>
                                                     <div class="product-body">
                                                         <p class="product-category">${product.category.name}</p>
-                                                        <h3 class="product-name"><a href="#">${product.name}</a></h3>
+                                                        <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                                         <h4 class="product-price">EGP${product.price}</h4>
                                                         <div class="product-rating">
                                                             <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
@@ -273,7 +273,7 @@
                                                         </div>
                                                         <div class="product-body">
                                                             <p class="product-category">${product.category.name}</p>
-                                                            <h3 class="product-name"><a href="#">${product.name}</a></h3>
+                                                            <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                                             <h4 class="product-price">EGP${product.price}</h4>
                                                             <div class="product-rating">
                                                                 <c:forEach var="i" begin="0" end="${product.rating}" step="1" >

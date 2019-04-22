@@ -35,7 +35,6 @@ import org.apache.commons.beanutils.BeanUtils;
 @MultipartConfig
 public class InsertProductServlet extends HttpServlet {
 
-    private static int productCounter = 1;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -102,9 +101,8 @@ public class InsertProductServlet extends HttpServlet {
         try {
             final Part imagePart = req.getPart("image");
             String realPath = req.getServletContext().getRealPath("");
-            String appendedPath = "img" + File.separator + "products" + File.separator;
-            imageName = appendedPath + "product" + new Date().getSeconds() + ".jpg";
-            productCounter++;
+            String appendedPath = File.separator + "ecommerce" + File.separator + "img" + File.separator + "products" + File.separator;
+            imageName = appendedPath + "product" + new Date().getTime()+ ".jpg";
 
             savePath = realPath + appendedPath;
 

@@ -12,9 +12,6 @@ function addToWishlist(button, productId) {
             jQuery(button).children().eq(1).html("Added To Wishlist");
             jQuery(button).children().eq(0).removeClass("fa-heart-o");
             jQuery(button).children().eq(0).addClass("fa-heart");
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("error");
         }
     });
 }
@@ -32,9 +29,6 @@ function removeFromWishlist(productId, listLength) {
             if (listLength == 1) {
                 jQuery("#wishlistContainer").html("<div class=\"section-title text-center\"><h5 class=\"title\">Your Wishlist is Empty!</h5></div>");
             }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("error");
         }
     });
 }

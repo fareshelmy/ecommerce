@@ -53,9 +53,9 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +201-11-199-7574</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> mohamedj239@gmail.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> Faisl Clock Square</a></li>
+                        <li><a href="tel:+201-06-404-6540" target="blank"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
+                        <li><a href="mailto:fares.helmy93@email.com" target="blank"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
+                        <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City" target="blank"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                 </div>
             </div>

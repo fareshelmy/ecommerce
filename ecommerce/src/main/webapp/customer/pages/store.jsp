@@ -17,8 +17,8 @@
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="/ecommerce/home">Home</a></li>
-                    <li><a href="#">All Categories</a></li>
-                    <li><a href="#">Seafood (227,490 Results)</a></li>
+                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=All%20Categories">All Categories</a></li>
+                    <li class="active">Search Results (${fn:length(sessionScope.searchedResults)} Results)</li>
                 </ul>
             </div>
         </div>
@@ -42,36 +42,34 @@
                     <div class="checkbox-filter">
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-1" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Meat")' 
+                            <input type="checkbox" name="categories" id="meat"
                                    <c:if test="${sessionScope.selectedCategory == 'select'}">
                                        checked
                                    </c:if>
                                    >
-                            <label for="category-1">
+                            <label for="meat">
                                 <span></span>
                                 Meat & Poultry
-                                <small>(120)</small>
                             </label>
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-2" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Seafood")'
+                            <input type="checkbox" name="categories" id="seafood" 
                                    <c:if test="${sessionScope.Seafood != null}">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-2">
+                            <label for="seafood">
                                 <span></span>
                                 Seafood
-                                <small>(740)</small>
                             </label>
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-3" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Fruits")'
+                            <input type="checkbox" name="categories" id="fruit" 
                                    <c:if test="${sessionScope.Fruits} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-3">
+                            <label for="fruit">
                                 <span></span>
                                 Fruits & Vegetables
                                 <small>(1450)</small>
@@ -79,11 +77,11 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-4" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Bakery")'
+                            <input type="checkbox" name="categories" id="bakery"
                                    <c:if test="${sessionScope.Bakery} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-4">
+                            <label for="bakery">
                                 <span></span>
                                 Bakery & Pastry
                                 <small>(578)</small>
@@ -91,38 +89,35 @@
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-5" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Cheese")'
+                            <input type="checkbox" name="categories" id="cheese"
                                    <c:if test="${sessionScope.Cheese} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-5">
+                            <label for="cheese">
                                 <span></span>
                                 Cheese & Dairy
-                                <small>(120)</small>
                             </label>
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-6" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Desserts")'
+                            <input type="checkbox" name="categories" id="dessert" 
                                    <c:if test="${sessionScope.Desserts} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-6">
+                            <label for="dessert">
                                 <span></span>
                                 Desserts & Sweets
-                                <small>(740)</small>
                             </label>
                         </div>
 
                         <div class="input-checkbox">
-                            <input type="checkbox" name="categories" id="category-7" onclick='window.location.assign("/ecommerce/customer/searchHandler?searchBarCategory=Home")'
+                            <input type="checkbox" name="categories" id="home" 
                                    <c:if test="${sessionScope.Home} != null">
                                        checked="checked"
                                    </c:if>>
-                            <label for="category-7">
+                            <label for="home">
                                 <span></span>
                                 Home & Garden
-                                <small>(740)</small>
                             </label>
                         </div>
                     </div>
@@ -170,16 +165,18 @@
                             <select class="input-select" id="show">
                                 <option value="9" <c:if test="${sessionScope.showNumber == 9}">selected</c:if>>9</option>
                                 <option value="15" <c:if test="${sessionScope.showNumber == 15}">selected</c:if>>15</option>
-                            </select>
-                        </label>
+                                </select>
+                            </label>
+                        </div>
+
                     </div>
+                    <!-- /store top filter -->
+                    <!-- store products -->
 
-                </div>
-                <!-- /store top filter -->
 
-                <!-- store products -->
-                <div class="row">
-                    <!-- product -->
+                    <div class="row" id="products">
+
+                        <!-- product -->
                     <c:choose>
                         <c:when test="${fn:length(sessionScope.searchedResults) > 0}">
                             <c:forEach items="${sessionScope.searchedResults}" var="product">
@@ -199,12 +196,16 @@
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">${product.category.name}</p>
-                                                <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
+                                                <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                                 <h4 class="product-price">EGP${product.price}</h4>
                                                 <div class="product-rating">
                                                     <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
                                                         <i class="fa fa-star"></i>
                                                     </c:forEach>
+                                                </div>
+                                                <div class="product-btns">
+                                                    <button class="add-to-wishlist" onclick="addToWishlist(this, '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                
+                                                    <button class="quick-view" ><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
                                                 </div>
                                             </div>
                                             <div class="add-to-cart">
@@ -223,10 +224,9 @@
                             <ul class="store-pagination">
                                 <c:forEach var="i" begin="1" end="${sessionScope.numberOfPages}" step="1"> 
                                     <li <c:if test="${sessionScope.pageNumber == i }">
-                                        class="active"
+                                            class="active"
                                         </c:if> ><a href="#" onclick="gotoSpecificPage(${i})">${i}</a></li>
-                                </c:forEach>
-                                <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
+                                    </c:forEach>
                             </ul>
                         </div>
                         <!-- /store bottom filter -->

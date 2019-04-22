@@ -36,10 +36,6 @@ public class UserSearchServlet extends HttpServlet {
         {
             request.setAttribute("users", listOfUsers);
         }
-        else
-        {
-            request.setAttribute("users", "no users found");
-        }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/user-list.jsp");
         requestDispatcher.include(request, response);
     }

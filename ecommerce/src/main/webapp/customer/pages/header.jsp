@@ -32,6 +32,7 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/loader.css"/>
 
         <!-- Custom JavaScript -->
         <script src="/ecommerce/customer/js/script.js"></script>
@@ -106,7 +107,7 @@
                         <!-- SEARCH BAR -->
                         <div class="col-md-6">
                             <div class="header-search">
-                                <form method="GET" action="/ecommerce/customer/searchHandler">
+                                <form id="searchForm" method="GET" action="/ecommerce/customer/searchHandler">
                                     <select class="input-select" name="searchBarCategory">
                                         <option value="All Categories">All Categories</option>
                                         <option value="Meat & Poultry">Meat & Poultry</option>
@@ -118,7 +119,6 @@
                                         <option value="Home & Garden">Home & Garden</option>
                                     </select>
                                     <input class="input" name="productSubString" placeholder="Search here">
-                                    <button class="search-btn" type="submit">Search</button>
                                 </form>
                             </div>
                         </div>

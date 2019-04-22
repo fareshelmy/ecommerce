@@ -13,9 +13,6 @@ function addToCart(button, productId) {
                 button.innerHTML = "Added To Cart";
                 jQuery(button).prop("disabled", true);
             }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("error");
         }
     });
 }
@@ -28,9 +25,6 @@ function viewCart() {
         success: function (data, textStatus, jqXHR) {
             window.location.href = "/ecommerce/customer/pages/checkout.jsp";
             return false;
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("error");
         }
     });
 }
@@ -45,9 +39,6 @@ function removeFromCart(productId) {
         success: function (data, textStatus, jqXHR) {
             jQuery("#cartQuantity").html(data);
             viewCart();
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("error");
         }
     });
 }

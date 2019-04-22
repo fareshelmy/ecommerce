@@ -56,9 +56,9 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
+                        <li><a href="tel:+201-06-404-6540" target="blank"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
+                        <li><a href="mailto:fares.helmy93@email.com" target="blank"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
+                        <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City" target="blank"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
                     </ul>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     <div class="col-md-12">
                         <h3 class="breadcrumb-header">Login</h3>
                         <ul class="breadcrumb-tree">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="/ecommerce/home">Home</a></li>
                             <li class="active">Login</li>
                         </ul>
                     </div>
@@ -137,7 +137,6 @@
                                     <hr class="left"><small>New to site?</small>
                                 </div>
                                 <p class="form-group"><a href="/ecommerce/customer/pages/register.jsp" class="primary-btn order-submit" id="registerBtn">Create an account</a></p>
-                                <p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
                             </form>
                         </div>
                     </div>

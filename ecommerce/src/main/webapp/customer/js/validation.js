@@ -19,7 +19,6 @@ function showSaveMsg(){
     var index = queryString.indexOf("=");
     var msg = queryString.substring(index+1);
     
-    console.log(msg);
     if(msg === "saved"){
         document.getElementById("saveMsg").innerHTML = "Your New Data Is Saved Successfully";
     }
