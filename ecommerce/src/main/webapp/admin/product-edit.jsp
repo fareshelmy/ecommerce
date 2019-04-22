@@ -435,7 +435,7 @@
 
                                                             <c:choose>
                                                                 <c:when test="${requestScope.productDetails.category.id==5}">
-                                                                    <option selected="selected"  value="Cheese, Dairy & Deli">Cheese, Dairy & Deli</option>
+                                                                <option selected="selected"  value="Cheese, Dairy & Deli">Cheese, Dairy & Deli</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
                                                                     <option value="Cheese, Dairy & Deli">Cheese, Dairy & Deli</option>

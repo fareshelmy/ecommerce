@@ -249,8 +249,9 @@
                         <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                             <div class="header-top-menu tabl-d-n">
                                 <div class="breadcome-heading">
-                                        <input type="text" id="searchProduct" name="searchProduct" placeholder="Search..." class="form-control">
-                                        <a href="#" onclick="return processProductSearch()"><i class="fa fa-search"></i></a>
+                                    <input type="text" id="searchProduct" name="searchProduct" placeholder="Search..." class="form-control">
+<!--                                    <input type="button" id="btnSearch">-->
+                                    <a onclick="return processProductSearch()"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -306,14 +307,16 @@
 
                                     </c:choose>
 
+
+
+
                                 </table>
                                 <div class="custom-pagination">
                                     <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+<!--                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
+                                            <c:forEach var = "i" begin = "1" end = "${requestScope.pageCount}">
+                                            <li class="page-item" ><a class="page-link" href="ProductListServlet?pagNumb=${i}">${i}</a></li>
+                                            </c:forEach>
                                     </ul>
                                 </div>
                             </div>

@@ -57,13 +57,15 @@ public class InsertProductServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         String productIdSession = (String) session.getAttribute("productIdSession");
         ServletContext context = getServletContext();
+        //------------------ insert New Product----------
         if (productIdSession == null) {
-            /////////////////////////////////////////
+        //----------------- New Product With Image ---------
             Part file = req.getPart("image");
             if (file != null && file.getSize() > 0) {
                 context.log("if: " + file);
                 product.setImage(getImagePath(req, resp));
             } else {
+           //----------------- insert New Product without Image ---------
                 context.log("in else");
                 product.setImage("img\\products\\No_Image_Available.jpg");
             }
@@ -71,13 +73,14 @@ public class InsertProductServlet extends HttpServlet {
             productDAO.persist(product);
             //  resp.sendRedirect("ProductListServlet");
             req.getRequestDispatcher("ProductListServlet").include(req, resp);
-
+            //------------------ insert New Product----------
         } else {
+            //------------------ update New Product with new Image----------
             Part file = req.getPart("image");
             if (file != null && file.getSize() > 0) {
                 context.log("if: " + file);
                 product.setImage(getImagePath(req, resp));
-
+            //------------------update New Product with old Image----------
             } else {
                 context.log("in else if");
                 product.setImage(req.getParameter("productImage"));
@@ -85,8 +88,9 @@ public class InsertProductServlet extends HttpServlet {
             context.log(productIdSession);
             product.setId(Integer.parseInt(productIdSession));
             productDAO.update(product);
-            //  resp.sendRedirect("/ecommerce/admin/index.jsp");
-            req.getRequestDispatcher("ProductListServlet").include(req, resp);
+            System.out.println("Product Updated");
+              //resp.sendRedirect("/ecommerce/admin/index.jsp");
+            req.getRequestDispatcher("ProductListServlet").forward(req, resp);
         }
     }
 
