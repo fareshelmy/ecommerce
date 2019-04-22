@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -35,7 +36,6 @@ import org.apache.commons.beanutils.BeanUtils;
 @MultipartConfig
 public class InsertProductServlet extends HttpServlet {
 
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -56,13 +56,15 @@ public class InsertProductServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         String productIdSession = (String) session.getAttribute("productIdSession");
         ServletContext context = getServletContext();
+        //------------------ insert New Product----------
         if (productIdSession == null) {
-            /////////////////////////////////////////
+            //----------------- New Product With Image ---------
             Part file = req.getPart("image");
             if (file != null && file.getSize() > 0) {
                 context.log("if: " + file);
                 product.setImage(getImagePath(req, resp));
             } else {
+                //----------------- insert New Product without Image ---------
                 context.log("in else");
                 product.setImage("img\\products\\No_Image_Available.jpg");
             }
@@ -70,13 +72,14 @@ public class InsertProductServlet extends HttpServlet {
             productDAO.persist(product);
             //  resp.sendRedirect("ProductListServlet");
             req.getRequestDispatcher("ProductListServlet").include(req, resp);
-
+            //------------------ insert New Product----------
         } else {
+            //------------------ update New Product with new Image----------
             Part file = req.getPart("image");
             if (file != null && file.getSize() > 0) {
                 context.log("if: " + file);
                 product.setImage(getImagePath(req, resp));
-
+                //------------------update New Product with old Image----------
             } else {
                 context.log("in else if");
                 product.setImage(req.getParameter("productImage"));
@@ -84,8 +87,9 @@ public class InsertProductServlet extends HttpServlet {
             context.log(productIdSession);
             product.setId(Integer.parseInt(productIdSession));
             productDAO.update(product);
-            //  resp.sendRedirect("/ecommerce/admin/index.jsp");
-            req.getRequestDispatcher("ProductListServlet").include(req, resp);
+            System.out.println("Product Updated");
+            //resp.sendRedirect("/ecommerce/admin/index.jsp");
+            req.getRequestDispatcher("ProductListServlet").forward(req, resp);
         }
     }
 
@@ -97,8 +101,10 @@ public class InsertProductServlet extends HttpServlet {
         try {
             final Part imagePart = req.getPart("image");
             String realPath = req.getServletContext().getRealPath("");
-            String appendedPath = File.separator + "ecommerce" + File.separator + "img" + File.separator + "products" + File.separator;
-            imageName = appendedPath + "product" + new Date().getTime()+ ".jpg";
+//            String appendedPath = File.separator + "ecommerce" + File.separator + "img" + File.separator + "products" + File.separator;
+//            imageName = appendedPath + "product" + new Date().getTime() + ".jpg";
+            String appendedPath = "img" + File.separator + "products" + File.separator;
+            imageName = appendedPath + "product" + new Date().getSeconds() + ".jpg";
 
             savePath = realPath + appendedPath;
 
@@ -139,7 +145,7 @@ public class InsertProductServlet extends HttpServlet {
                     }
                 }
                 if (writer != null) {
-                    writer.close();
+                 //   writer.close();
                 }
             }
         } catch (IOException ex) {

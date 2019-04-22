@@ -70,7 +70,7 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
-          <script src="admin/goBack.js"></script>
+          <script src="admin/js/goBack.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -243,7 +243,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -260,7 +259,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="review-tab-pro-inner">
                                     <ul id="myTab3" class="tab-review-design">
-                                        <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i> Product Edit</a></li>
+                                        <li class="active"><a href="#description">Product Edit</a></li>
                                     </ul>
                                     
                                     <c:forEach var = "i" begin = "1" end = "${requestScope.productDetails.rating}">
@@ -273,7 +272,7 @@
                                     <input id="soldItemtvalue" value="${requestScope.productDetails.itemsSold}" disabled="disabled">-->
 
                                     <div id="myTabContent" class="tab-content custom-product-edit">
-                                        <form action="insertProductServlet" method="post" enctype="multipart/form-data">
+                                        <form id="evaluationForm" action="insertProductServlet" method="post" enctype="multipart/form-data">
                                             <div class="product-tab-list tab-pane fade active in" id="descriptions">
                                                 <div class="row">
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -308,66 +307,65 @@
                                                     </div>
                                                     
                                                     <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-scale" aria-hidden="true"></i></span>
+                                                        <input type="number" data-toggle="tooltip" data-placement="top" title="Amount"  class="form-control" placeholder="Amount" value="${requestScope.productDetails.amount}" required>
+                                                    </div>
+                                                    
+<!--                                                    <div class="input-group mg-b-pro-edt">
 
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-scale" aria-hidden="true"></i></span>
                                                         <input data-toggle="tooltip" data-placement="top" title="Amount"  type="number" min="0"  class="form-control" placeholder="Amount" value="${requestScope.productDetails.amount}" id="amount" name="amount" required>
-                                                    </div>
-<!--                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-
-                                                        <input type="number" min="0" class="form-control" placeholder="Amount" value=${requestScope.productDetails.amount} id="amount" name="amount" required>
-
                                                     </div>-->
 
                                                     <div class="input-group mg-b-pro-edt">
                                                          <span class="input-group-addon"><i class="glyphicon glyphicon-tint" aria-hidden="true"></i></span>
                                                         <select data-toggle="tooltip" data-placement="top" title="Unit" class="form-control pro-edt-select form-control-primary" id ="unit" name="unit" required>
                                                          <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='kg'}">
-                                                                    <option selected="selected"  value="kg">kg</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='KG'}">
+                                                                    <option selected="selected"  value="KG">KG</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="kg">kg</option>
+                                                                    <option value="KG">KG</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='g'}">
-                                                                    <option selected="selected"  value="g">g</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='G'}">
+                                                                    <option selected="selected"  value="G">G</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="g">g</option>
+                                                                    <option value="G">G</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='l'}">
-                                                                    <option selected="selected"  value="l">l</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='L'}">
+                                                                    <option selected="selected"  value="L">L</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="l">l</option>
+                                                                    <option value="L">L</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='ml'}">
-                                                                    <option selected="selected"  value="ml">ml</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='ML'}">
+                                                                    <option selected="selected"  value="ML">ML</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="ml">ml</option>
+                                                                    <option value="ML">ML</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                             <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='Pcs'}">
-                                                                    <option selected="selected"  value="Pcs">Pcs</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='PCS'}">
+                                                                    <option selected="selected"  value="PCS">PCS</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="Pcs">Pcs</option>
+                                                                    <option value="PCS">PCS</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                            <c:choose>
-                                                                <c:when test="${requestScope.productDetails.unit=='Inch'}">
-                                                                    <option selected="selected"  value="Inch">Inch</option>
+                                                                <c:when test="${requestScope.productDetails.unit=='INCH'}">
+                                                                    <option selected="selected"  value="INCH">Inch</option>
                                                                 </c:when>    
                                                                 <c:otherwise>
-                                                                    <option value="Inch">Inch</option>
+                                                                    <option value="INCH">INCH</option>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                         </select>
@@ -390,12 +388,12 @@
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon" data-toggle="tooltip" data-placement="top" title="Category"><i class="glyphicon glyphicon-th" aria-hidden="true"></i></span>
                                                         <select class="form-control pro-edt-select form-control-primary"  data-toggle="tooltip" data-placement="top" title="Category" id ="selected_category"  name="selected_category"  required>
-                                                            <c:choose> 
+                                                    <%--        <c:choose> 
                                                                 <c:when test="${requestScope.productDetails.category.id >6}">
                                                                     <option value="Category" disabled="disabled" selected="selected">Category</option>
                                                                 </c:when>    
 
-                                                            </c:choose>
+                                                            </c:choose> --%>
                                                             <c:choose> 
                                                                 <c:when test="${requestScope.productDetails.category.id==1}">
                                                                     <option selected="selected"  value="Meat & Poultry">Meat & Poultry</option>
@@ -450,6 +448,16 @@
                                                                     <option value="Desserts & Sweets">Desserts & Sweets</option>
                                                                 </c:otherwise>
                                                             </c:choose> 
+                                                                    
+                                                            <c:choose>
+                                                                <c:when test="$requestScope.productDetails.category.id==7">
+                                                                    <option selected="selected" value="Home & Garden">Desserts & Sweets</option>
+                                                                </c:when>    
+                                                                <c:otherwise>
+                                                                    <option value="Home & Garden">Home & Garden</option>
+                                                                </c:otherwise>
+                                                            </c:choose>         
+                                                                    
 
                                                         </select>
                                                     </div>
@@ -464,8 +472,8 @@
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="text-center custom-pro-edt-ds">
-                                                        <input type="submit" class="btn btn-ctl-bt waves-effect waves-light m-r-10" value="Save">
-                                                        <input type="reset" class="btn btn-ctl-bt waves-effect waves-light" value="Discard">
+                                                        <input value="Save" type="submit" id="save" class="btn btn-ctl-bt waves-effect waves-light m-r-10" >
+                                                        <input onclick="goBack();" value="Discard" type="reset" id="evaluationFormEditCancel" class="btn btn-ctl-bt waves-effect waves-light" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -531,6 +539,7 @@
         <!-- main JS
                     ============================================ -->
         <script src="admin/js/main.js"></script>
+        <script src="/ecommerce/admin/js/discard.js"></script>
 
     </body>
 

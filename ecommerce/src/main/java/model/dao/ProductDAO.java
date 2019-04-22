@@ -185,7 +185,7 @@ public class ProductDAO implements DAO<Product> {
 
     }
 
-    private void setNumberOfPages(int resultSize, int pageSize) {
+    public void setNumberOfPages(int resultSize, int pageSize) {
         if ((resultSize * 1.0) / pageSize > 0) {
             numberOfPages = (int) (Math.ceil(resultSize / pageSize)) + 1;
         } else {

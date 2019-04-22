@@ -66,7 +66,7 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="admin/goBack.js"></script>
+        <script src="admin/js/goBack.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -246,8 +246,8 @@
                         <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                             <div class="header-top-menu tabl-d-n">
                                 <div class="breadcome-heading">
-                                        <input type="text" id="searchText" name="searchText" placeholder="Search..." class="form-control">
-                                        <a href="#" onclick="return processUserSearch()"><i class="fa fa-search"></i></a>
+                                    <input type="text" id="searchText" name="searchText" placeholder="Search..." class="form-control" onkeyup="userFun()">
+                                        <a onclick="return processUserSearch()" id="searchUser"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
                         </div>

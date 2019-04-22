@@ -1,8 +1,5 @@
 
 function drawChart() {
-//    console.log("theeeeeeee : " + Number(document.getElementById("hidReqAttr1").value));
-//    console.log("666 : " + Number(document.getElementById("hidReqAttr2").value));
-//    console.log("theeeee98eee : " + document.getElementById("hidReqAttr3").value);
     var meat = Number(document.getElementById("hidReqAttr1").value);
     var cheese = Number(document.getElementById("hidReqAttr3").value);
     var seafood = Number(document.getElementById("hidReqAttr4").value);
@@ -27,7 +24,7 @@ function drawChart() {
         is3D: true,
         width: 900,
         height: 600,
-        'backgroundColor':'#1b2a47',
+        'backgroundColor':'#fffffff',
         'fontColor' : "#1b2a47"
     };
 

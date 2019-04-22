@@ -10,7 +10,3 @@ function getShowNumber() {
 gotoSpecificPage = function(pageNumber){
     window.location.href = `/ecommerce/customer/searchHandler?showNumber=${getShowNumber()}&pageNumber=${pageNumber}&searchBarCategory=All%20Categories`;
 }
-
-function submitSearch(){
-    $("#searchForm").submit();
-}

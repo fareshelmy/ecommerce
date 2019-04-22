@@ -68,7 +68,7 @@
     <!-- modernizr JS
                 ============================================ -->
     <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
-      <script src="admin/goBack.js"></script>
+      <script src="admin/js/goBack.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -256,19 +256,20 @@
                                 </ul>
                                 <div id="myTabContent" class="tab-content custom-product-edit">
                                     <div class="product-tab-list tab-pane fade active in" id="description"> 
-                                        <form action="AddAdminServlet" method="post">
+                                        <form action="AddAdminServlet" method="post" role="form">
                                             <div class="row">
 
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe008;</i></span>
-                                                            <input type="text" class="form-control" placeholder="Admin Name" name ="username">
+                                                            <input type="text" class="form-control" placeholder="Admin Name" name ="username" required>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#x2709;</i></span>
-                                                            <input type="email" class="form-control" placeholder="Admin Email" name ="email">
+                                                            <input type="email" class="form-control" placeholder="Admin Email" name ="email" required>
                                                         </div>
+                                                         <div style="color: #FF0000;">${invalidEmail}</div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe021;</i></span>
                                                             <input type="text" class="form-control" placeholder="Adress" name ="address">
@@ -281,7 +282,7 @@
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe007;</i></span>
-                                                            <input type="date" class="form-control" placeholder="Date of birth" name ="adminBirthday">
+                                                            <input type="date" name="birthday" type="date" maxlength="25" class="form-control" value="${param.birthday}">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe139;</i></span>
@@ -290,7 +291,7 @@
 
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="glyphicon" aria-hidden="true">&#xe033;</i></span>
-                                                            <input type="password" class="form-control" placeholder="Password" name ="password">
+                                                            <input type="password" class="form-control" maxlength="50" placeholder="Password" name ="password" required>
                                                         </div>
 
                                                     </div>

@@ -48,7 +48,7 @@ public class EditProductServlet extends HttpServlet {
             if (product != null) {
                 req.setAttribute("productDetails", product);
               //  System.out.println(product.getCategory().getName());
-                req.getRequestDispatcher("/admin/product-edit.jsp").include(req, resp);
+                req.getRequestDispatcher("/admin/product-edit.jsp").forward(req, resp);
             }
         }
 

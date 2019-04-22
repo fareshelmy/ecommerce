@@ -18,6 +18,7 @@
                 <ul class="breadcrumb-tree">
                     <li><a href="/ecommerce/home">Home</a></li>
                     <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=All%20Categories">All Categories</a></li>
+                    <li class="active">Search Results (${fn:length(sessionScope.searchedResults)} Results)</li>
                 </ul>
             </div>
         </div>
@@ -195,7 +196,7 @@
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">${product.category.name}</p>
-                                                <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
+                                                <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                                 <h4 class="product-price">EGP${product.price}</h4>
                                                 <div class="product-rating">
                                                     <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
@@ -226,7 +227,6 @@
                                             class="active"
                                         </c:if> ><a href="#" onclick="gotoSpecificPage(${i})">${i}</a></li>
                                     </c:forEach>
-                                <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
                             </ul>
                         </div>
                         <!-- /store bottom filter -->
