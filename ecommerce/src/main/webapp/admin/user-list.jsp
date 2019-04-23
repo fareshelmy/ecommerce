@@ -66,7 +66,7 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="admin/js/goBack.js"></script>
+        <script src="/ecommerce/admin/js/goBack.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -137,7 +137,7 @@
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                             <div class="menu-switcher-pro">
-                                                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                                     <li><a href="#"><button onclick="goBack()" ><span class="glyphicon">&#xe091;</span></button></a>
                                                     </li>
                                                 </ul>
@@ -247,7 +247,7 @@
                             <div class="header-top-menu tabl-d-n">
                                 <div class="breadcome-heading">
                                     <input type="text" id="searchText" name="searchText" placeholder="Search..." class="form-control" onkeyup="userFun()">
-                                        <a onclick="return processUserSearch()" id="searchUser"><i class="fa fa-search"></i></a>
+                                    <a onclick="return processUserSearch()" id="searchUser"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -64,8 +64,9 @@
         <link rel="stylesheet" href="/ecommerce/admin/css/responsive.css">
         <!-- modernizr JS
                     ============================================ -->
-        <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script
-        <script src="admin/js/goBack.js"></script>
+        <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="/ecommerce/admin/js/goBack.js"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -249,9 +250,9 @@
                         <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                             <div class="header-top-menu tabl-d-n">
                                 <div class="breadcome-heading">
-                                    
+
                                     <input type="text" id="searchProduct" name="searchProduct" placeholder="Search..." class="form-control" onkeyup="productFun()">
-                                        <a onclick="return processProductSearch()" id="productsearch"><i class="fa fa-search"></i></a>
+                                    <a onclick="return processProductSearch()" id="productsearch"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -313,8 +314,8 @@
                                 </table>
                                 <div class="custom-pagination">
                                     <ul class="pagination">
-<!--                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
-                                            <c:forEach var = "i" begin = "1" end = "${requestScope.pageCount}">
+                                        <!--                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
+                                        <c:forEach var = "i" begin = "1" end = "${requestScope.pageCount}">
                                             <li class="page-item" ><a class="page-link" href="ProductListServlet?pagNumb=${i}">${i}</a></li>
                                             </c:forEach>
                                     </ul>
