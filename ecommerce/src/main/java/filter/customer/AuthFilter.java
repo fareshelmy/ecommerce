@@ -40,7 +40,7 @@ public class AuthFilter implements Filter {
             
             if(role == null){
                 //User is not Logged In
-                httpResponse.sendRedirect("/ecommerce/customer/pages/login.jsp?redirect=checkout");
+                httpResponse.sendRedirect("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/login.jsp?redirect=checkout");
             }else{
                 chain.doFilter(request, response);
             }

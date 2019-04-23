@@ -3,7 +3,7 @@ jQuery.noConflict();
 function addToCart(button, productId) {
     var jsonData = {"productId": productId, reason: "add"};
     jQuery.ajax({
-        url: "/ecommerce/cartHandler",
+        url: "http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/cartHandler",
         type: 'POST',
         data: jsonData,
         dataType: 'text',
@@ -19,11 +19,11 @@ function addToCart(button, productId) {
 
 function viewCart() {
     jQuery.ajax({
-        url: "/ecommerce/cartHandler",
+        url: "http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/cartHandler",
         type: 'GET',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
-            window.location.href = "/ecommerce/customer/pages/checkout.jsp";
+            window.location.href = "http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/checkout.jsp";
             return false;
         }
     });
@@ -32,7 +32,7 @@ function viewCart() {
 function removeFromCart(productId) {
     var jsonData = {"productId": productId, reason: "remove"};
     jQuery.ajax({
-        url: "/ecommerce/cartHandler",
+        url: "http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/cartHandler",
         type: 'POST',
         data: jsonData,
         dataType: 'text',

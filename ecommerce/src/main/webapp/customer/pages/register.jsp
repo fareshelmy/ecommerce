@@ -20,23 +20,23 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/bootstrap.min.css"/>
 
         <!-- Slick -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick.css"/>
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/slick-theme.css"/>
 
         <!-- nouislider -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/nouislider.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/nouislider.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="/ecommerce/customer/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/style.css"/>
 
         <!-- Custom JavaScript -->
-        <script src="/ecommerce/customer/js/script.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/script.js"></script>
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -55,9 +55,9 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="tel:+201-06-404-6540" target="blank"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
-                        <li><a href="mailto:fares.helmy93@email.com" target="blank"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
-                        <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City" target="blank"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
+                        <li><a href="#"><i class="fa fa-phone"></i> +201-11-199-7574</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> mohamedj239@gmail.com</a></li>
+                        <li><a href="#"><i class="fa fa-map-marker"></i> Faisl Clock Square</a></li>
                     </ul>
                 </div>
             </div>
@@ -72,8 +72,8 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="/ecommerce/home" class="logo" >
-                                    <img src="/ecommerce/img/products/logo.png" alt="foodland logo" id="logoImg">
+                                <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home" class="logo" >
+                                    <img src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/logo.png" alt="foodland logo" id="logoImg">
                                 </a>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                 <div class="row">
                     <div class="panel panel-primary">
                         <div class="panel-body">
-                            <form method="POST" action="/ecommerce/registerAction" role="form">
+                            <form method="POST" action="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/registerAction" role="form">
                                 <div class="form-group">
                                     <h2>Register</h2>
                                 </div>
@@ -246,13 +246,13 @@
         </footer>
 
         <!-- jQuery Plugins -->
-        <script src="/ecommerce/customer/js/jquery.min.js"></script>
-        <script src="/ecommerce/customer/js/bootstrap.min.js"></script>
-        <script src="/ecommerce/customer/js/slick.min.js"></script>
-        <script src="/ecommerce/customer/js/nouislider.min.js"></script>
-        <script src="/ecommerce/customer/js/jquery.zoom.min.js"></script>
-        <script src="/ecommerce/customer/js/main.js"></script>
-        <script src="/ecommerce/customer/js/validation.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/jquery.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/bootstrap.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/slick.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/nouislider.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/jquery.zoom.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/main.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/validation.js"></script>
 
 
     </body>

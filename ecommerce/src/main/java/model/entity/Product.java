@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name="product"
-    ,catalog="ecommerce"
+    ,catalog="ebdb"
 )
 public class Product  implements java.io.Serializable, model.entity.Entity{
 

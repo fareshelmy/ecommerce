@@ -34,7 +34,7 @@ public class SearchHandlerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         populateBean(req);
-        resp.sendRedirect("/ecommerce/customer/pages/store.jsp");
+        resp.sendRedirect("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/store.jsp");
 
         //*********Side Search *********
     }

@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="order_item"
-    ,catalog="ecommerce"
+    ,catalog="ebdb"
 )
 public class OrderItem  implements java.io.Serializable, model.entity.Entity {
 

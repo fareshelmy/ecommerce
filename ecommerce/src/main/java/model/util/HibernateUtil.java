@@ -5,12 +5,10 @@
  */
 package model.util;
 
-import java.net.URI;
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import java.net.URISyntaxException;
+
 
 /**
  *
@@ -26,14 +24,6 @@ public class HibernateUtil {
                 try {
                     Configuration configuration = new Configuration();
                     return configuration.configure("cfg/hibernate.cfg.xml").buildSessionFactory();
-                    /*
-                        Custom Building for SessionFactory
-                        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
-                        builder.applySetting(configuration.getProperties());
-                        ServiceRegistry serviceRegistry = builder.build();
-                        configuraiton.configure().buildSessionFacotry(serviceRegistry);
-                        .buildSessionFactory(new StandardServiceRegistryBuilder().applySetting("", configuration.getProperties()).build());
-                    */
                 } catch (Throwable exception) {
                     System.err.println("Initial SessionFactory Creation Failed" + exception);
                     throw new ExceptionInInitializerError();
@@ -42,7 +32,8 @@ public class HibernateUtil {
         }
         return SESSION_FACTORY;
     }
-public static SessionFactory getSessionFactory() {
+
+    public static SessionFactory getSessionFactory() {
 //        Hibernate.initialize(SESSION_FACTORY);
         return SESSION_FACTORY;
     }
@@ -53,7 +44,7 @@ public static SessionFactory getSessionFactory() {
     //won't make close session function because the automatic session will close it once the thread dies
 }
 /*
-//for hosting in heroku with postgresql
+//for hosting in heroku with postgresql heroku
 
         try {
             Configuration cfg = new Configuration().configure("cfg/hibernate.cfg.xml");
@@ -76,4 +67,27 @@ public static SessionFactory getSessionFactory() {
         } catch (URISyntaxException ex) {
             return null;
         }
-*/
+ */
+            /* for hosting amazon 
+            try{
+                if (System.getProperty("RDS_HOSTNAME") != null) {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    String dbName = System.getProperty("RDS_DB_NAME");
+                    String userName = System.getProperty("RDS_USERNAME");
+                    String password = System.getProperty("RDS_PASSWORD");
+                    String hostname = System.getProperty("RDS_HOSTNAME");
+                    String port = System.getProperty("RDS_PORT");
+                    String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
+                    cfg = cfg.setProperty("hibernate.connection.url", jdbcUrl)
+                            .setProperty("hibernate.connection.username", userName)
+                            .setProperty("hibernate.connection.password", password)
+                            .setProperty("hibernate.hbm2ddl.auto", "create")
+                            .setProperty("hibernate.connection.driver_class",
+                                    "com.mysql.jdbc.Driver")
+                            .setProperty("hibernate.dialect",
+                                    "org.hibernate.dialect.MySQLDialect");
+                }
+            }catch(ClassNotFoundException ex){
+                ex.printStackTrace();
+                return null;
+            }*/

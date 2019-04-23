@@ -66,7 +66,7 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="admin/js/vendor/modernizr-2.8.3.min.js"></script>
-          <script src="/ecommerce/admin/js/goBack.js"></script>
+          <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/goBack.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -122,7 +122,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
-                            <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
+                            <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/index.html"><img class="main-logo" src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/img/logo/logo.png" alt="" /></a>
                             <br>
                         </div>
                     </div>

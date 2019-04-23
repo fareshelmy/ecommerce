@@ -21,7 +21,7 @@ function generataSearchRequest() {
      } else if (window.ActiveXObject) {
      request = new ActiveXObject(Microsoft.XMLHTTP);
      }
-     var url = "http://localhost:8095/ecommerce/rest/sideSearch?categories=" + JsonSelected + "&show="+ numberOfResults +"&t=" + new Date().getTime();
+     var url = "http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/rest/sideSearch?categories=" + JsonSelected + "&show="+ numberOfResults +"&t=" + new Date().getTime();
      request.onreadystatechange = searchItems;
      request.open("GET", url);
      request.send();

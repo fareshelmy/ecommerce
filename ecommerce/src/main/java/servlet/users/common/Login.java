@@ -52,14 +52,14 @@ public class Login extends HttpServlet {
                     if (persistentUser.getRole().equalsIgnoreCase("user")) {
                         //The user is a customer
                         if ((referer != null && !referer.equals("checkout")) || (lastVisited != null && !lastVisited.equals("checkout"))) {
-                            response.sendRedirect("/ecommerce/home");
+                            response.sendRedirect("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home");
                         } else {
-                            response.sendRedirect("/ecommerce/customer/pages/checkout.jsp");
+                            response.sendRedirect("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/checkout.jsp");
                         }
 
                     } else {
                         //The user is an admin
-                        response.sendRedirect("/ecommerce/HomeServlet");
+                        response.sendRedirect("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/HomeServlet");
                     }
                 } else {
                     //The user is not authenticated

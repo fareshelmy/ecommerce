@@ -5,7 +5,6 @@
 --%>
 
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- FOOTER -->
 <footer id="footer">
     <!-- top footer -->
@@ -29,14 +28,14 @@
                     <div class="footer">
                         <h3 class="footer-title">All Categories</h3>
                         <ul class="footer-links">
-                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=All%20Categories">All Category</a></li>
-                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=meat">Meat & Poultry</a></li>
-                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=sea">Seafood</a></li>
-                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=fruits">Fruits & Vegetables</a></li>
-                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=bakery">Bakery & Pastry</a></li>
-                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=cheese">Cheese, Dairy & Deli</a></li>
-                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=desserts">Desserts & Sweets</a></li>
-                            <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=home">Home & Garden</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=All%20Categories">All Category</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=meat">Meat & Poultry</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=sea">Seafood</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=fruits">Fruits & Vegetables</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=bakery">Bakery & Pastry</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=cheese">Cheese, Dairy & Deli</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=desserts">Desserts & Sweets</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=home">Home & Garden</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,16 +46,9 @@
                     <div class="footer">
                         <h3 class="footer-title">Service</h3>
                         <ul class="footer-links">
-                            <c:choose>
-                                <c:when test="${sessionScope.loggedIn == 'true'}">
-                                    <li><a href="/ecommerce/profile">My Account</a></li>
-                                    </c:when>
-                                    <c:otherwise>
-                                    <li><a href="/ecommerce/customer/pages/login.jsp">My Account</a></li>
-                                    </c:otherwise>
-                                </c:choose>
-                            <li><a href="/ecommerce/customer/pages/checkout.jsp">View Cart</a></li>
-                            <li><a href="/ecommerce/wishlist">Wishlist</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/profile">My Account</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/checkout.jsp">View Cart</a></li>
+                            <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/wishlist">Wishlist</a></li>
                         </ul>
                     </div>
                 </div>
@@ -69,15 +61,15 @@
 </footer>
 
 <!-- jQuery Plugins -->
-<script src="/ecommerce/customer/js/jquery.min.js"></script>
-<script src="/ecommerce/customer/js/bootstrap.min.js"></script>
-<script src="/ecommerce/customer/js/slick.min.js"></script>
-<script src="/ecommerce/customer/js/nouislider.min.js"></script>
-<script src="/ecommerce/customer/js/jquery.zoom.min.js"></script>
-<script src="/ecommerce/customer/js/main.js"></script>
-<script src="/ecommerce/customer/js/cart.js"></script>
-<script src="/ecommerce/customer/js/wishlist.js"></script>
-<script src="/ecommerce/customer/js/logout.js"></script>
-<script src="/ecommerce/customer/js/search.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/jquery.min.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/bootstrap.min.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/slick.min.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/nouislider.min.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/jquery.zoom.min.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/main.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/cart.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/wishlist.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/logout.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/search.js"></script>
 </body>
 </html>

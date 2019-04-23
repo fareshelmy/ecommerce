@@ -24,7 +24,7 @@ import javax.persistence.Version;
  */
 @Entity
 @Table(name="order"
-    ,catalog="ecommerce"
+    ,catalog="ebdb"
 )
 public class Order  implements java.io.Serializable, model.entity.Entity {
 

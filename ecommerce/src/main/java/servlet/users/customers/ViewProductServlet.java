@@ -38,7 +38,7 @@ public class ViewProductServlet extends HttpServlet {
             relatedProducts.remove(product);
             System.out.println("relatedProductSize"+relatedProducts.size());
             httpSession.setAttribute("relatedProducts", relatedProducts);
-            response.sendRedirect("/ecommerce/customer/pages/product.jsp");
+            response.sendRedirect("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/product.jsp");
         }
 
     }

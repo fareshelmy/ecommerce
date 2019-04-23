@@ -57,7 +57,7 @@ public class Profile extends HttpServlet {
             ConvertUtils.register(dateConverter, java.util.Date.class);
             BeanUtils.populate(user, req.getParameterMap());
             userDAO.update(user);
-            resp.sendRedirect("/ecommerce/profile?msg=saved");
+            resp.sendRedirect("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/profile?msg=saved");
         } catch (IllegalAccessException ex) {
             Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvocationTargetException ex) {

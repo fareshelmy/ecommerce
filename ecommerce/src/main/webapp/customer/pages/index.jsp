@@ -22,13 +22,13 @@
 
                 <li <c:if test="${sessionScope.customize eq 'Home'}">
                         class="active"
-                    </c:if>><a href="/ecommerce/home?customize=home">Home</a></li>
+                    </c:if>><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?customize=home">Home</a></li>
                 <li <c:if test="${sessionScope.customize eq 'Top Rated'}">
                         class="active"
-                    </c:if>><a href="/ecommerce/home?customize=rating">Top Rated</a></li>
+                    </c:if>><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?customize=rating">Top Rated</a></li>
                 <li <c:if test="${sessionScope.customize eq 'Lowest Price'}">
                         class="active"
-                    </c:if>><a href="/ecommerce/home?customize=price">Lowest Price</a></li>
+                    </c:if>><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?customize=price">Lowest Price</a></li>
             </ul>
             <!-- /NAV -->
         </div>
@@ -48,11 +48,11 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img class="shopimg" src="/ecommerce/img/products/seafoodmain.jpg" alt="">
+                        <img class="shopimg" src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/seafoodmain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Seafood<br>Collection</h3>
-                        <a href="/ecommerce/customer/searchHandler?searchBarCategory=sea" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=sea" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -62,11 +62,11 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img class="shopimg" src="/ecommerce/img/products/bakerymain.jpg" alt="">
+                        <img class="shopimg" src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/bakerymain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Bakery<br>Collection</h3>
-                        <a href="/ecommerce/customer/searchHandler?searchBarCategory=bakery" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=bakery" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -76,11 +76,11 @@
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img class="shopimg" src="/ecommerce/img/products/dessertsmain.jpg" alt="">
+                        <img class="shopimg" src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/dessertsmain.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Desserts<br>Collection</h3>
-                        <a href="/ecommerce/customer/searchHandler?searchBarCategory=desserts" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=desserts" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -107,28 +107,28 @@
                         <ul class="section-tab-nav tab-nav">
                             <li <c:if test="${sessionScope.newCategoryName eq 'All Categories'}">
                                     class="active"
-                                </c:if>><a href="/ecommerce/home?newCategoryName=All%20Categories">All Categories</a></li>
+                                </c:if>><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?newCategoryName=All%20Categories">All Categories</a></li>
                             <li <c:if test="${sessionScope.newCategoryName eq 'Meat & Poultry'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?newCategoryName=Meat%20%26%20Poultry">Meat</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?newCategoryName=Meat%20%26%20Poultry">Meat</a></li>
                             <li <c:if test="${sessionScope.newCategoryName eq 'Seafood'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?newCategoryName=Seafood">Seafood</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?newCategoryName=Seafood">Seafood</a></li>
                             <li <c:if test="${sessionScope.newCategoryName eq 'Fruits & Vegetables'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?newCategoryName=Fruits%20%26%20Vegetables">Fruits</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?newCategoryName=Fruits%20%26%20Vegetables">Fruits</a></li>
                             <li <c:if test="${sessionScope.newCategoryName eq 'Bakery & Pastry'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?newCategoryName=Bakery%20%26%20Pastry">Bakery</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?newCategoryName=Bakery%20%26%20Pastry">Bakery</a></li>
                             <li <c:if test="${sessionScope.newCategoryName eq 'Cheese, Dairy & Deli'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?newCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?newCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese</a></li>
                             <li <c:if test="${sessionScope.newCategoryName eq 'Desserts & Sweets'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?newCategoryName=Desserts%20%26%20Sweets">Desserts</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?newCategoryName=Desserts%20%26%20Sweets">Desserts</a></li>
                             <li <c:if test="${sessionScope.newCategoryName eq 'Home & Garden'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?newCategoryName=Home%20%26%20Garden">Home</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?newCategoryName=Home%20%26%20Garden">Home</a></li>
                         </ul>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
                                                     </div>
                                                     <div class="product-body">
                                                         <p class="product-category">${product.category.name}</p>
-                                                        <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
+                                                        <h3 class="product-name"><a href="#">${product.name}</a></h3>
                                                         <h4 class="product-price">EGP${product.price}</h4>
                                                         <div class="product-rating">
                                                             <c:forEach var="i" begin="0" end="${product.rating}" step="1" >
@@ -170,7 +170,7 @@
                                                         </div>
                                                         <div class="product-btns">
                                                             <button class="add-to-wishlist" onclick="addToWishlist(this, '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                
-                                                            <button class="quick-view" ><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
+                                                            <button class="quick-view" ><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
                                                         </div>
                                                     </div>
                                                     <div class="add-to-cart">
@@ -217,28 +217,28 @@
                         <ul class="section-tab-nav tab-nav">
                             <li <c:if test="${sessionScope.topCategoryName eq 'All Categories'}">
                                     class="active"
-                                </c:if>><a href="/ecommerce/home?topCategoryName=All%20Categories">All Categories</a></li>
+                                </c:if>><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?topCategoryName=All%20Categories">All Categories</a></li>
                             <li <c:if test="${sessionScope.topCategoryName eq 'Meat & Poultry'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?topCategoryName=Meat%20%26%20Poultry">Meat</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?topCategoryName=Meat%20%26%20Poultry">Meat</a></li>
                             <li <c:if test="${sessionScope.topCategoryName eq 'Seafood'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?topCategoryName=Seafood">Seafood</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?topCategoryName=Seafood">Seafood</a></li>
                             <li <c:if test="${sessionScope.topCategoryName eq 'Fruits & Vegetables'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?topCategoryName=Fruits%20%26%20Vegetables">Fruits</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?topCategoryName=Fruits%20%26%20Vegetables">Fruits</a></li>
                             <li <c:if test="${sessionScope.topCategoryName eq 'Bakery & Pastry'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?topCategoryName=Bakery%20%26%20Pastry">Bakery</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?topCategoryName=Bakery%20%26%20Pastry">Bakery</a></li>
                             <li <c:if test="${sessionScope.topCategoryName eq 'Cheese, Dairy & Deli'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?topCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?topCategoryName=Cheese,%20Dairy%20%26%20Deli">Cheese</a></li>
                             <li <c:if test="${sessionScope.topCategoryName eq 'Desserts & Sweets'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?topCategoryName=Desserts%20%26%20Sweets">Desserts</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?topCategoryName=Desserts%20%26%20Sweets">Desserts</a></li>
                             <li <c:if test="${sessionScope.topCategoryName eq 'Home & Garden'}">
                                     class="active"
-                                </c:if>><a  href="/ecommerce/home?topCategoryName=Home%20%26%20Garden">Home</a></li>
+                                </c:if>><a  href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home?topCategoryName=Home%20%26%20Garden">Home</a></li>
                         </ul>
 
                     </div>
@@ -273,7 +273,7 @@
                                                         </div>
                                                         <div class="product-body">
                                                             <p class="product-category">${product.category.name}</p>
-                                                            <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
+                                                            <h3 class="product-name"><a href="#">${product.name}</a></h3>
                                                             <h4 class="product-price">EGP${product.price}</h4>
                                                             <div class="product-rating">
                                                                 <c:forEach var="i" begin="0" end="${product.rating}" step="1" >

@@ -82,7 +82,7 @@ function placeOrder() {
 
     var jsonData = {"orderSpecifications": JSON.stringify(orderSpecifications), "total": $("#total").html()};
     jQuery.ajax({
-        url: "/ecommerce/checkout",
+        url: "http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/checkout",
         type: 'POST',
         data: jsonData,
         dataType: 'text',
@@ -96,7 +96,7 @@ function placeOrder() {
                     confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.value) {
-                        window.location = "/ecommerce/home";
+                        window.location = "http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home";
                     }
                 });
             } else {
