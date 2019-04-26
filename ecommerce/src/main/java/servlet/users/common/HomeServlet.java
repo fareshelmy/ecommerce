@@ -66,7 +66,7 @@ public class HomeServlet extends HttpServlet {
         httpSession.setAttribute("topSellingProducts", topSellingProducts);
         System.out.println("The size of Top Selling Products "+topSellingProducts.size());        
          
-        response.sendRedirect("/ecommerce/customer/pages/index.jsp");
+        response.sendRedirect("/customer/pages/index.jsp");
     }
 
     @Override
@@ -94,10 +94,8 @@ public class HomeServlet extends HttpServlet {
         httpSession.setAttribute("newProducts", newProducts);
         System.out.println("The size of new Products " + newProducts.size());
 
-        response.sendRedirect("/ecommerce/customer/pages/index.jsp");
+        response.sendRedirect("/customer/pages/index.jsp");
     }
 
 }
-/*
 
-*/

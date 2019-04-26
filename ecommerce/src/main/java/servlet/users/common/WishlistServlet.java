@@ -79,7 +79,7 @@ public class WishlistServlet extends HttpServlet {
                         });
             }
             session.setAttribute("wishlist", productList);
-            resp.sendRedirect("/ecommerce/customer/pages/wishlist.jsp");
+            resp.sendRedirect("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/wishlist.jsp");
         }
     }
 

@@ -14,7 +14,7 @@ function areCookiesEnabled() {
         isEnabled = (document.cookie.indexOf("mytestcookie") !== -1) ? true : false;
     }
    if(!isEnabled){
-       window.location.replace("/ecommerce/customer/pages/cookieError.jsp");
+       window.location.replace("http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/cookieError.jsp");
    }
 }
 

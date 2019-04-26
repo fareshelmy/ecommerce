@@ -11,7 +11,7 @@ function processLogout() {
         confirmButtonText: 'Yes, I am sure!'
     }).then((result) => {
         if (result.value) {
-            window.location = "/ecommerce/logout";
+            window.location = "http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/logout";
             return false;
         }
     });

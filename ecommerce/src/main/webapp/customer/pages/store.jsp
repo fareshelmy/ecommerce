@@ -16,9 +16,8 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
-                    <li><a href="/ecommerce/home">Home</a></li>
-                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=All%20Categories">All Categories</a></li>
-                    <li class="active">Search Results (${fn:length(sessionScope.searchedResults)} Results)</li>
+                    <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home">Home</a></li>
+                    <li><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler?searchBarCategory=All%20Categories">All Categories</a></li>
                 </ul>
             </div>
         </div>
@@ -196,7 +195,7 @@
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">${product.category.name}</p>
-                                                <h3 class="product-name"><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
+                                                <h3 class="product-name"><a href="customer/viewProductServlet?productId=${product.id}">${product.name}</a></h3>
                                                 <h4 class="product-price">EGP${product.price}</h4>
                                                 <div class="product-rating">
                                                     <c:forEach var="i" begin="0" end="${product.rating}" step="1">    
@@ -205,7 +204,7 @@
                                                 </div>
                                                 <div class="product-btns">
                                                     <button class="add-to-wishlist" onclick="addToWishlist(this, '${product.id}')"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>                                                
-                                                    <button class="quick-view" ><a href="/ecommerce/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
+                                                    <button class="quick-view" ><a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/viewProductServlet?productId=${product.id}"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></a></button>
                                                 </div>
                                             </div>
                                             <div class="add-to-cart">
@@ -227,6 +226,7 @@
                                             class="active"
                                         </c:if> ><a href="#" onclick="gotoSpecificPage(${i})">${i}</a></li>
                                     </c:forEach>
+                                <!--<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
                             </ul>
                         </div>
                         <!-- /store bottom filter -->
@@ -249,4 +249,4 @@
 <!-- /container -->
 </div>
 <!-- /SECTION -->
-<script src="/ecommerce/customer/js/storeSearch.js"></script>
+<script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/storeSearch.js"></script>

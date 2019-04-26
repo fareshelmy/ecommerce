@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="category"
-    ,catalog="ecommerce"
+    ,catalog="ebdb"
 )
 public class Category  implements java.io.Serializable, model.entity.Entity {
 
@@ -76,7 +76,7 @@ public class Category  implements java.io.Serializable, model.entity.Entity {
     }
 
 @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="user_category", catalog="ecommerce", joinColumns = { 
+    @JoinTable(name="user_category", catalog="ebdb", joinColumns = { 
         @JoinColumn(name="category_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="user_id", nullable=false, updatable=false) })
     public Set<User> getUsers() {

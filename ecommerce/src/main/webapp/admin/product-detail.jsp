@@ -121,7 +121,7 @@ single-product-tab-area mg-t-0 mg-b-30<!doctype html>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
-                             <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
+                             <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/index.html"><img class="main-logo" src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/img/logo/logo.png" alt="" /></a>
                             <br>
                         </div>
                     </div>

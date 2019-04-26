@@ -13,29 +13,29 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
         <title>Foodland</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/ecommerce/img/products/minilogo.png">
+        <link rel="shortcut icon" type="image/x-icon" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/minilogo.png">
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/bootstrap.min.css"/>
 
         <!-- Slick -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick.css"/>
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/slick-theme.css"/>
 
         <!-- nouislider -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/nouislider.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/nouislider.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="/ecommerce/customer/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/loader.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/loader.css"/>
 
         <!-- Custom JavaScript -->
-        <script src="/ecommerce/customer/js/script.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/script.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
@@ -65,7 +65,7 @@
                         <c:choose>
                             <c:when test="${sessionScope.loggedIn == 'true'}">
                                 <li>
-                                    <a href="/ecommerce/profile"><i class="fa fa-user-o"></i>
+                                    <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/profile"><i class="fa fa-user-o"></i>
                                         My Account
                                     </a>
                                 </li>
@@ -77,7 +77,7 @@
                             </c:when>
                             <c:otherwise>
                                 <li>
-                                    <a href="/ecommerce/customer/pages/login.jsp"><i class="fa fa-sign-in"></i>
+                                    <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/login.jsp"><i class="fa fa-sign-in"></i>
                                         Sign In
                                     </a>
                                 </li>
@@ -97,8 +97,8 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="/ecommerce/home" class="logo">
-                                    <img src="/ecommerce/img/products/logo.png" alt="">
+                                <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home" class="logo">
+                                    <img src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/logo.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                         <!-- SEARCH BAR -->
                         <div class="col-md-6">
                             <div class="header-search">
-                                <form id="searchForm" method="GET" action="/ecommerce/customer/searchHandler">
+                                <form id="searchForm" method="GET" action="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/searchHandler">
                                     <select class="input-select" name="searchBarCategory">
                                         <option value="All Categories">All Categories</option>
                                         <option value="Meat & Poultry">Meat & Poultry</option>
@@ -118,7 +118,7 @@
                                         <option value="Desserts & Sweets">Desserts & Sweets</option>
                                         <option value="Home & Garden">Home & Garden</option>
                                     </select>
-                                    <input class="input" name="productSubString" placeholder="Search here">
+                                    <input class="input" name="productSubString" placeholder="Search here" onblur="submitSearch()">
                                 </form>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
-                                    <a href="/ecommerce/wishlist">
+                                    <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/wishlist">
                                         <i class="fa fa-heart-o"></i>
                                         <span>My Wishlist</span>
                                         <div class="qty" id="wishlistQuantity">${fn:length(sessionScope.wishlist)}</div>
@@ -152,7 +152,7 @@
                                             <h5 id="subtotal"></h5>
                                         </div>
                                         <div class="cart-btns">
-                                            <a href="/ecommerce/customer/pages/checkout.jsp">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                            <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/checkout.jsp">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

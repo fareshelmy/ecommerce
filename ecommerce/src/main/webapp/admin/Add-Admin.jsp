@@ -15,60 +15,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
                 ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="/ecommerce/admin/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/img/favicon.ico">
     <!-- Google Fonts
                 ============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- Bootstrap CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/bootstrap.min.css">
     <!-- Bootstrap CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/font-awesome.min.css">
     <!-- nalika Icon CSS
             ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/nalika-icon.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/nalika-icon.css">
     <!-- owl.carousel CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/owl.carousel.css">
-    <link rel="stylesheet" href="/ecommerce/admin/css/owl.theme.css">
-    <link rel="stylesheet" href="/ecommerce/admin/css/owl.transitions.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/owl.carousel.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/owl.theme.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/owl.transitions.css">
     <!-- animate CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/animate.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/animate.css">
     <!-- normalize CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/normalize.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/normalize.css">
     <!-- meanmenu icon CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/meanmenu.min.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/meanmenu.min.css">
     <!-- main CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/main.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/main.css">
     <!-- morrisjs CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/morrisjs/morris.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/morrisjs/morris.css">
     <!-- mCustomScrollbar CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/scrollbar/jquery.mCustomScrollbar.min.css">
     <!-- metisMenu CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="/ecommerce/admin/css/metisMenu/metisMenu-vertical.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/metisMenu/metisMenu-vertical.css">
     <!-- calendar CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="/ecommerce/admin/css/calendar/fullcalendar.print.min.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/calendar/fullcalendar.print.min.css">
     <!-- style CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/style.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/style.css">
     <!-- responsive CSS
                 ============================================ -->
-    <link rel="stylesheet" href="/ecommerce/admin/css/responsive.css">
+    <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/css/responsive.css">
     <!-- modernizr JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
-      <script src="/ecommerce/admin/js/goBack.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+      <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/goBack.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -77,8 +77,8 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
-                <strong><img src="/ecommerce/admin/img/logo/logo.png" alt="" /></strong>
+                <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/index.html"><img class="main-logo" src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/img/logo/logo.png" alt="" /></a>
+                <strong><img src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/img/logo/logo.png" alt="" /></strong>
             </div>
             <div class="nalika-profile">
                 <div class="profile-dtl">
@@ -124,7 +124,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                        <a href="/ecommerce/admin/index.html"><img class="main-logo" src="/ecommerce/admin/img/logo/logo.png" alt="" /></a>
+                        <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/index.html"><img class="main-logo" src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/img/logo/logo.png" alt="" /></a>
                         <br>
                     </div>
                 </div>
@@ -333,57 +333,57 @@
 
     <!-- jquery
                      ============================================ -->
-    <script src="/ecommerce/admin/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/vendor/jquery-1.12.4.min.js"></script>
     <!-- bootstrap JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/bootstrap.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/bootstrap.min.js"></script>
     <!-- wow JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/wow.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/wow.min.js"></script>
     <!-- price-slider JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/jquery-price-slider.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/jquery-price-slider.js"></script>
     <!-- meanmenu JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/jquery.meanmenu.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/jquery.meanmenu.js"></script>
     <!-- owl.carousel JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/owl.carousel.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/owl.carousel.min.js"></script>
     <!-- sticky JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/jquery.sticky.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/jquery.sticky.js"></script>
     <!-- scrollUp JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/jquery.scrollUp.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/jquery.scrollUp.min.js"></script>
     <!-- mCustomScrollbar JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="/ecommerce/admin/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/scrollbar/mCustomScrollbar-active.js"></script>
     <!-- metisMenu JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/metisMenu/metisMenu.min.js"></script>
-    <script src="/ecommerce/admin/js/metisMenu/metisMenu-active.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/metisMenu/metisMenu.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/metisMenu/metisMenu-active.js"></script>
     <!-- sparkline JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="/ecommerce/admin/js/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/sparkline/jquery.charts-sparkline.js"></script>
     <!-- calendar JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/calendar/moment.min.js"></script>
-    <script src="/ecommerce/admin/js/calendar/fullcalendar.min.js"></script>
-    <script src="/ecommerce/admin/js/calendar/fullcalendar-active.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/calendar/moment.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/calendar/fullcalendar.min.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/calendar/fullcalendar-active.js"></script>
     <!-- float JS
             ============================================ -->
-    <script src="/ecommerce/admin/js/flot/jquery.flot.js"></script>
-    <script src="/ecommerce/admin/js/flot/jquery.flot.resize.js"></script>
-    <script src="/ecommerce/admin/js/flot/curvedLines.js"></script>
-    <script src="/ecommerce/admin/js/flot/flot-active.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/flot/jquery.flot.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/flot/jquery.flot.resize.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/flot/curvedLines.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/flot/flot-active.js"></script>
     <!-- plugins JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/plugins.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/plugins.js"></script>
     <!-- main JS
                 ============================================ -->
-    <script src="/ecommerce/admin/js/main.js"></script>
+    <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/admin/js/main.js"></script>
 
 </body>
 

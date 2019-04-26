@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="user"
-    ,catalog="ecommerce"
+    ,catalog="ebdb"
 )
 public class User  implements java.io.Serializable, model.entity.Entity {
 
@@ -153,7 +153,7 @@ public class User  implements java.io.Serializable, model.entity.Entity {
     }
 
 @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="user_category", catalog="ecommerce", joinColumns = { 
+    @JoinTable(name="user_category", catalog="ebdb", joinColumns = { 
         @JoinColumn(name="user_id", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="category_id", nullable=false, updatable=false) })
     public Set<Category> getCategories() {

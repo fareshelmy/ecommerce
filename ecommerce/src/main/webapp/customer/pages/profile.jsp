@@ -5,7 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,26 +17,26 @@
 
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-        <link rel="shortcut icon" type="image/x-icon" href="/ecommerce/img/products/minilogo.png">
+        <link rel="shortcut icon" type="image/x-icon" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/minilogo.png">
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/bootstrap.min.css"/>
 
         <!-- Slick -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick.css"/>
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/slick-theme.css"/>
 
         <!-- nouislider -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/nouislider.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/nouislider.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="/ecommerce/customer/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/style.css"/>
 
         <!-- Custom JavaScript -->
-        <script src="/ecommerce/customer/js/script.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/script.js"></script>
 
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -73,8 +72,8 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="/ecommerce/home" class="logo" >
-                                    <img src="/ecommerce/img/products/logo.png" alt="foodland logo" id="logoImg">
+                                <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/home" class="logo" >
+                                    <img src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/logo.png" alt="foodland logo" id="logoImg">
                                 </a>
                             </div>
                         </div>
@@ -99,7 +98,7 @@
                     <div class="col-md-12">
                         <h3 class="breadcrumb-header">Profile</h3>
                         <ul class="breadcrumb-tree">
-                            <li><a href="/ecommerce/home">Home</a></li>
+                            <li><a href="#">Home</a></li>
                             <li class="active">Profile</li>
                         </ul>
                     </div>
@@ -139,7 +138,7 @@
                                     <input id="confirmPassword" name="confirmPassword" type="password" maxlength="50" class="form-control" placeholder="Confirm Password" value="${requestScope.user.password}" required>
                                 </div> 
                                 <div id="confirmPasswordError"></div>
-
+                                
                                 <div class="form-group">
                                     <strong>Credit Limit</strong>
                                     <input id="creditLimit" name="creditLimit" type="number" min="0" maxlength="50" class="form-control" placeholder="Credit Limit" value="${requestScope.user.creditLimit}">
@@ -169,7 +168,27 @@
 
         </div>
         <!-- /SECTION -->
-
+        <!-- NEWSLETTER -->
+        <div id="newsletter" class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="newsletter">
+                            <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                            <form>
+                                <input class="input" type="email" placeholder="Enter Your Email">
+                                <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /NEWSLETTER -->
 
         <!-- FOOTER -->
         <footer id="footer">
@@ -184,9 +203,9 @@
                                 <h3 class="footer-title">About Us</h3>
                                 <p>At Foodland Egypt, we aim to provide you with quality, ease and convenience at your meal?s every step. Whether you?re ordering, receiving or preparing your meal, we hope that we will inspire you to discover the fun and passion of home cooking.</p>
                                 <ul class="footer-links">
-                                    <li><a href="tel:+201-06-404-6540" target="blank"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
-                                    <li><a href="mailto:fares.helmy93@email.com" target="blank"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
-                                    <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City" target="blank"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
+                                    <li><a href="#"><i class="fa fa-map-marker"></i>17 Tenth District, October City, Egypt</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i>+201-06-404-6540</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope-o"></i>fares.helmy93@email.com</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -195,14 +214,13 @@
                             <div class="footer">
                                 <h3 class="footer-title">Categories</h3>
                                 <ul class="footer-links">
-                                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=All%20Categories">All Category</a></li>
-                                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=meat">Meat & Poultry</a></li>
-                                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=sea">Seafood</a></li>
-                                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=fruits">Fruits & Vegetables</a></li>
-                                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=bakery">Bakery & Pastry</a></li>
-                                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=cheese">Cheese, Dairy & Deli</a></li>
-                                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=desserts">Desserts & Sweets</a></li>
-                                    <li><a href="/ecommerce/customer/searchHandler?searchBarCategory=home">Home & Garden</a></li>
+                                    <li><a href="#">Meat & Poultry</a></li>
+                                    <li><a href="#">Seafood</a></li>
+                                    <li><a href="#">Fruits & Vegetables</a></li>
+                                    <li><a href="#">Bakery & Pastry</a></li>
+                                    <li><a href="#">Cheese, Dairy & Deli</a></li>
+                                    <li><a href="#">Desserts & Sweets</a></li>
+                                    <li><a href="#">Home & Garden</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -213,16 +231,9 @@
                             <div class="footer">
                                 <h3 class="footer-title">Service</h3>
                                 <ul class="footer-links">
-                                    <c:choose>
-                                        <c:when test="${sessionScope.loggedIn == 'true'}">
-                                            <li><a href="/ecommerce/profile">My Account</a></li>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <li><a href="/ecommerce/customer/pages/login.jsp">My Account</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <li><a href="/ecommerce/customer/pages/checkout.jsp">View Cart</a></li>
-                                    <li><a href="/ecommerce/wishlist">Wishlist</a></li>
+                                    <li><a href="#">My Account</a></li>
+                                    <li><a href="#">View Cart</a></li>
+                                    <li><a href="#">Wishlist</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -235,13 +246,13 @@
         </footer>
 
         <!-- jQuery Plugins -->
-        <script src="/ecommerce/customer/js/jquery.min.js"></script>
-        <script src="/ecommerce/customer/js/bootstrap.min.js"></script>
-        <script src="/ecommerce/customer/js/slick.min.js"></script>
-        <script src="/ecommerce/customer/js/nouislider.min.js"></script>
-        <script src="/ecommerce/customer/js/jquery.zoom.min.js"></script>
-        <script src="/ecommerce/customer/js/main.js"></script>
-        <script src="/ecommerce/customer/js/validation.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/jquery.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/bootstrap.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/slick.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/nouislider.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/jquery.zoom.min.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/main.js"></script>
+        <script src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/js/validation.js"></script>
 
     </body>
 </html>

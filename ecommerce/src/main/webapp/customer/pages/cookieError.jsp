@@ -9,6 +9,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+    <a href="cookieError.jsp"></a>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -19,20 +20,20 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
         <!-- Bootstrap -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/bootstrap.min.css"/>
 
         <!-- Slick -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick.css"/>
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/slick-theme.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/slick-theme.css"/>
 
         <!-- nouislider -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/nouislider.min.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/nouislider.min.css"/>
 
         <!-- Font Awesome Icon -->
-        <link rel="stylesheet" href="/ecommerce/customer/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/font-awesome.min.css">
 
         <!-- Custom stlylesheet -->
-        <link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/style.css"/>
 
 
 
@@ -53,9 +54,9 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="tel:+201-06-404-6540" target="blank"><i class="fa fa-phone"></i> +201-06-404-6540</a></li>
-                        <li><a href="mailto:fares.helmy93@email.com" target="blank"><i class="fa fa-envelope-o"></i> fares.helmy93@email.com</a></li>
-                        <li><a href="https://www.google.com/maps/?q=Sheikh%20Zayed%20City" target="blank"><i class="fa fa-map-marker"></i> 17 Tenth District, October City, Egypt</a></li>
+                        <li><a href="#"><i class="fa fa-phone"></i> +201-11-199-7574</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> mohamedj239@gmail.com</a></li>
+                        <li><a href="#"><i class="fa fa-map-marker"></i> Faisl Clock Square</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,8 +71,8 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="/ecommerce/customer/pages/index.jsp" class="logo" >
-                                    <img src="/ecommerce/img/products/logo.png" alt="foodland logo" id="logoImg">
+                                <a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/index.jsp" class="logo" >
+                                    <img src="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/img/products/logo.png" alt="foodland logo" id="logoImg">
                                 </a>
                             </div>
                         </div>

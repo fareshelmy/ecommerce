@@ -21,7 +21,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:700,900" rel="stylesheet">
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="/ecommerce/customer/css/errStyle.css" />
+	<link type="text/css" rel="stylesheet" href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/css/errStyle.css" />
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 				<h1>404</h1>
 				<h2>Page not found</h2>
 			</div>
-			<a href="/ecommerce/customer/pages/index.jsp">Homepage</a>
+			<a href="http://foodland-env-1.2hyy9yyf8i.us-east-2.elasticbeanstalk.com/customer/pages/index.jsp">Homepage</a>
 		</div>
 	</div>
 
