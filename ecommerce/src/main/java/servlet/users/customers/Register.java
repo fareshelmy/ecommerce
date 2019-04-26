@@ -47,6 +47,7 @@ public class Register extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("customer/pages/register.jsp");
             requestDispatcher.forward(request, response);
         }else{
+            user.setRole("user");
             userDao.persist(user);
             HttpSession httpSession = request.getSession();
             httpSession.setAttribute("email", user.getEmail());
